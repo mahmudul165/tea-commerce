@@ -13,7 +13,7 @@ import Layout from "@/components/layout/Layout";
 import Meta from "@/seo/Meta";
 import Head from "next/head";
 import Script from "next/script";
-
+import { ChakraProvider } from '@chakra-ui/react'
 // import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   //const getLayout = Component.getLayout || ((page) => page);
@@ -42,11 +42,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       {/* <SessionProvider session={session}>
         <AuthProvider>
           <CartProvider> */}
+           <ChakraProvider> 
             <Layout>
               {/* <AnimatePresence exitBeforeEnter> */}
+
                 <Component {...pageProps} />
               {/* </AnimatePresence> */}
-            </Layout>
+            </Layout></ChakraProvider>
           {/* </CartProvider>
         </AuthProvider>
       </SessionProvider> */}

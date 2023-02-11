@@ -9,7 +9,7 @@ function Layout({ children }) {
   return (
     <>
       
-      <div className="container ">
+      <div className="px-2 ">
       <Header />
       <main>{children}</main>
       <Footer />
