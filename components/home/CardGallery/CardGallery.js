@@ -38,7 +38,7 @@ const App = () => {
       {products.map((product) => (
         <Col xs={6} md={3} key={product.id}>
           <Card>
-            <Image src={product.image} fluid />
+            <Image src={product.image} fluid  alt='text'/>
             <Card.Body>
               <Card.Title>{product.name}</Card.Title>
               <Card.Text>{product.description}</Card.Text>

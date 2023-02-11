@@ -36,7 +36,7 @@ function OurOffices() {
     {products.map((product) => (
       <Col xs={6} md={3} key={product.id}>
         <Card>
-          <Image src={product.image} fluid />
+          <Image src={product.image} alt='text22' fluid />
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
