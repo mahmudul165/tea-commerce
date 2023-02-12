@@ -9,11 +9,19 @@ function Layout({ children }) {
   return (
     <>
       
-      <div className="px-2 ">
+      
       <Header />
-      <main>{children}</main>
+      <main>
+
+      <div className="px-2 ">
+        
+        
+        {children}
+        
+        </div>
+        </main>
       <Footer />
-      </div>
+       
     </>
   );
 }
