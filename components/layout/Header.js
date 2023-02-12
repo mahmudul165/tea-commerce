@@ -121,7 +121,7 @@ function Header() {
     
       {["lg"].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3  fs-5 fw-bold text-danger">
-          <Container fluid>
+          <Container fluid className="justify-content-around">
             <Row>
               
               <Col xl={3} md={3}>
