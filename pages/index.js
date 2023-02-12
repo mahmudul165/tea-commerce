@@ -10,6 +10,8 @@ import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
 import Hero from '@/components/home/hero/Hero'
 import Outlet from '@/components/home/our-outlet/Outlet'
 import OurOffices from '@/components/home/our-offices/OurOffices'
+import Banner from '@/components/home/banner/Banner'
+import CardGallery from '@/components/home/CardGallery/CardGallery'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,8 +30,8 @@ export default function Home() {
                 {/* https://github.com/leerob/leerob.io */}
                 <Hero />
                 <ProductCarousel />
-                {/* <Banner />
-                <CardGallery/> */}
+                <Banner />
+                <CardGallery/>
                 <Outlet />
                 <OurOffices />     
  
