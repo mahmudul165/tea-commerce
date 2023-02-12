@@ -9,11 +9,13 @@ import {
   
   export default function Banner() {
     return (
+      <div className='container my-3'>
       <Flex
+     
         w={'full'}
         h={'100vh'}
         backgroundImage={
-          'url(https://images.unsplash.com/photo-1600267175161-cfaa711b4a81?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)'
+          'url(https://cosmosgroup.sgp1.cdn.digitaloceanspaces.com/news/details/9880772_largest%20tea%20gardens%20Bangladesh.jpg)'
         }
         backgroundSize={'cover'}
         backgroundPosition={'center center'}>
@@ -28,10 +30,9 @@ import {
               fontWeight={700}
               lineHeight={1.2}
               fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-              eiusmod tempor
+             We guarantee the freshness and quality of all our produce
             </Text>
-            <Stack direction={'row'}>
+            {/* <Stack direction={'row'}>
               <Button
                 bg={'blue.400'}
                 rounded={'full'}
@@ -46,9 +47,10 @@ import {
                 _hover={{ bg: 'whiteAlpha.500' }}>
                 Show me more
               </Button>
-            </Stack>
+            </Stack> */}
           </Stack>
         </VStack>
       </Flex>
+      </div>
     );
   }

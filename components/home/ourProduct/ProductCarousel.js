@@ -69,12 +69,15 @@ const products = [
 
 const ProductCarousel = () => {
   return (
+    <div className="container  my-2"> 
+    <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
+  }}>Our Products</h1> 
     <Carousel>
       {products.map((product, index) => {
         if (index % 4 === 0) {
-          return (
+          return ( 
             <Carousel.Item key={product.id}>
-              <Container>
+              <Container fluid> 
                 <Row>
                   {products.slice(index, index + 4).map((product) => (
                     <Col xs={12} md={3} key={product.id}>
@@ -84,7 +87,7 @@ const ProductCarousel = () => {
                           <Card.Img variant="top" src={product.image} />
                         </Card>
                         <h6 className="fs-5 fw-bold">{product.name}</h6>
-                        <p className="fs-6 fw-bold">{product.price}</p>
+                        <p className="fs-6 fw-bold">৳ {product.price}</p>
                         {/* <Card.Body>
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.price}</Card.Text>
@@ -100,6 +103,9 @@ const ProductCarousel = () => {
         return null;
       })}
     </Carousel>
+    </div>
+    
+    
   );
 };
 
