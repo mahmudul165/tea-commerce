@@ -100,7 +100,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <Container fluid className="py-5" style={{backgroundColor:'#F3F3F3'}}>
+    <Container fluid className="" style={{backgroundColor:'#F3F3F3'}}>
       <Row>
         <Col md={3}>
           <Row className='justify-center w-50'>
@@ -159,7 +159,7 @@ const Footer = () => {
           </Card>
         </Col>
       </Row>
-      <Row className="border-top py-3">
+      <Row className="border-top py-3 mt-2">
         <Col>
           <p className="text-center">&copy; Copyright Our Company 2022</p>
         </Col>
