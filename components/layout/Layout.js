@@ -1,7 +1,8 @@
 import Head from "next/head";
 import React from "react";
 import Footer from "./Footer";
-import Header from "./Header";
+// import Header from "./Header";
+
  
  
 
@@ -10,7 +11,7 @@ function Layout({ children }) {
     <>
       
       
-      <Header />
+      {/* <Header /> */}
       <main>
 
       <div className="px-2 ">
