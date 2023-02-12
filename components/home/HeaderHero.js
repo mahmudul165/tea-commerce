@@ -5,7 +5,7 @@ const HeaderHero = () => (
   <header
     className="hero d-flex align-items-center  "
     style={{
-      backgroundImage: "url(https://i.ibb.co/dcjyYLN/tea-garden.jpg)",
+      backgroundImage: "url(https://i.ibb.co/8j9JVL9/tea-garden-2.jpg)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       height: "100vh",
