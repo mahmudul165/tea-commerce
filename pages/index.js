@@ -7,7 +7,7 @@ import CardGallery from '@/components/home/CardGallery/CardGallery'
 import Outlet from '@/components/home/our-outlet/Outlet'
 import OurOffices from '@/components/home/our-offices/OurOffices'
 import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
-import Hero from '@/components/home/hero/Hero'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
