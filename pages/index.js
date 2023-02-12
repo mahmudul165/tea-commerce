@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import Banner from '@/components/home/banner/Banner'
-import CardGallery from '@/components/home/CardGallery/CardGallery'
-import Outlet from '@/components/home/our-outlet/Outlet'
-import OurOffices from '@/components/home/our-offices/OurOffices'
+// import Banner from '@/components/home/banner/Banner'
+// import CardGallery from '@/components/home/CardGallery/CardGallery'
+// import Outlet from '@/components/home/our-outlet/Outlet'
+// import OurOffices from '@/components/home/our-offices/OurOffices'
 import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
 
 
@@ -25,8 +25,8 @@ export default function Home() {
                 {/* https://github.com/leerob/leerob.io */}
                 {/* <Hero /> */}
                 <ProductCarousel />
-                <Banner />
-                <CardGallery/>
+                {/* <Banner />
+                <CardGallery/> */}
                 {/* <Outlet />
                 <OurOffices />          */}
  
