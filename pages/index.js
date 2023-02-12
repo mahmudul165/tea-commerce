@@ -2,13 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import Hero from '@/components/home/hero/Hero'
- 
 import Banner from '@/components/home/banner/Banner'
 import CardGallery from '@/components/home/CardGallery/CardGallery'
 import Outlet from '@/components/home/our-outlet/Outlet'
 import OurOffices from '@/components/home/our-offices/OurOffices'
 import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
+import Hero from '@/components/home/hero/Hero'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +23,7 @@ export default function Home() {
       <main className={styles.main}>         
                 {/* follow this for folder structure */}
                 {/* https://github.com/leerob/leerob.io */}
-                <Hero />
+                {/* <Hero /> */}
                 <ProductCarousel />
                 <Banner />
                 <CardGallery/>
