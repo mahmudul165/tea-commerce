@@ -1,8 +1,8 @@
 import React, { Suspense, useRef } from "react";
-import Image from "next/image";
+// import Image from "next/image";
  
 
-import HeaderHomeImage from "/public/New folder/pexels-lil-artsy-1793035.jpg";
+// import HeaderHomeImage from "/public/New folder/pexels-lil-artsy-1793035.jpg";
 import { Card, Carousel, Container } from "react-bootstrap";
 // import { motion, useAnimationFrame, useSpring } from "framer-motion";
 const products = [
@@ -84,7 +84,7 @@ function Hero() {
     //     stiffness: 100,
     //     scale: 1.5,
     //   }}
-      className="header-bg "
+      
     >
       <div className=" container  my-1 py-2  ">
         <div className="row   align-items-center justify-items-center">
@@ -121,7 +121,7 @@ function Hero() {
                 // }}
                 className="d-flex"
               >
-                <button className="btn    my-4 py-2     btn-outline-dark rounded-pill  slider-btn-bg    ">
+                <button className="btn    my-4 py-2     btn-outline-dark rounded-pill   ">
                  More about us
                 </button>
                 {/* <button className="btn     ms-3 my-4 py-2  btn btn-outline-dark rounded-pill  slider-btn-bg    ">
@@ -130,7 +130,7 @@ function Hero() {
               </div>
             </div>
           </section>
-          <section className="col-sm-6 p-2 mt-5    slider-img-section w-50">
+          <section className="col-sm-6 p-2 mt-5     w-50">
 
 
          <Carousel>
