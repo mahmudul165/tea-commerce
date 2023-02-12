@@ -103,22 +103,27 @@ const Footer = () => {
     <Container fluid className="py-5" style={{backgroundColor:'#F3F3F3'}}>
       <Row>
         <Col md={3}>
-          <Row>
-            <Image src="logo.png" alt="logo" />
+          <Row className='justify-center w-50'>
+            <Image src="logo.png"       alt="logo" />
           </Row>
           <Row className="my-3">
-            <p>Our Company</p>
+            <p>lorem vsgsgb xbsasaees xvaesfweafg xveasfgvsd sefgv fgwfweac xwfsd cvsf fgrfq xgew xcfgweftg fgwe gew</p>
           </Row>
-          <Row>
-            <a href="#">
+          <Row className='justify-center w-50'>
+          <Col md={3}>
+          <a href="#">
               <FaFacebook />
             </a>
-            <a href="#">
-              <FaTwitter />
+            </Col>
+            <Col md={3}>
+          <a href="#">
+          <FaTwitter />
             </a>
+            </Col>
+            <Col md={3}>
             <a href="#">
               <FaInstagram />
-            </a>
+            </a>  </Col>
           </Row>
         </Col>
         <Col md={3}>
