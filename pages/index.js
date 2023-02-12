@@ -27,8 +27,8 @@ export default function Home() {
                 <ProductCarousel />
                 <Banner />
                 <CardGallery/>
-                <Outlet />
-                <OurOffices />         
+                {/* <Outlet />
+                <OurOffices />          */}
  
       </main>
     </>
