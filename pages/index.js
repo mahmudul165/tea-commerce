@@ -7,6 +7,9 @@ import styles from '@/styles/Home.module.css'
 // import Outlet from '@/components/home/our-outlet/Outlet'
 // import OurOffices from '@/components/home/our-offices/OurOffices'
 import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
+import Hero from '@/components/home/hero/Hero'
+import Outlet from '@/components/home/our-outlet/Outlet'
+import OurOffices from '@/components/home/our-offices/OurOffices'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,12 +26,12 @@ export default function Home() {
       <main className={styles.main}>         
                 {/* follow this for folder structure */}
                 {/* https://github.com/leerob/leerob.io */}
-                {/* <Hero /> */}
+                <Hero />
                 <ProductCarousel />
                 {/* <Banner />
                 <CardGallery/> */}
-                {/* <Outlet />
-                <OurOffices />          */}
+                <Outlet />
+                <OurOffices />     
  
       </main>
     </>
