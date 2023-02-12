@@ -1,51 +1,59 @@
-import React from 'react';
-import { Row, Col, Card, Image } from 'react-bootstrap';
-
+import React from "react";
+import { Row, Col, Card, Image } from "react-bootstrap";
+import { FaPhone, FaEnvelope } from "react-icons/fa";
 function OurOffices() {
-    const products = [
-        {
-          id: 1,
-          name: 'Product 1',
-          description: 'This is the description of product 1',
-          image: 'https://via.placeholder.com/150',
-          price: 49.99,
-        },
-        {
-          id: 2,
-          name: 'Product 2',
-          description: 'This is the description of product 2',
-          image: 'https://via.placeholder.com/150',
-          price: 59.99,
-        },
-        {
-          id: 3,
-          name: 'Product 3',
-          description: 'This is the description of product 3',
-          image: 'https://via.placeholder.com/150',
-          price: 69.99,
-        },
-        {
-          id: 4,
-          name: 'Product 4',
-          description: 'This is the description of product 4',
-          image: 'https://via.placeholder.com/150',
-          price: 79.99,
-        },
-      ];
-    return <Row>
-    {products.map((product) => (
-      <Col xs={6} md={3} key={product.id}>
-        <Card>
-          <Image src={product.image} alt='text22' fluid />
-          <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>{product.description}</Card.Text>
-            <Card.Text>${product.price}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-    ))}
-  </Row>;
+  const products = [
+    {
+      id: 1,
+      image: "https://example.com/person1.jpg",
+      name: "John Doe",
+      location: "New York, NY",
+      phone: "555-555-5555",
+      email: "johndoe@example.com",
+    },
+    {
+      id: 2,
+      image: "https://example.com/person2.jpg",
+      name: "Jane Smith",
+      location: "San Francisco, CA",
+      phone: "555-555-5556",
+      email: "janesmith@example.com",
+    },
+    {
+      id: 3,
+      image: "https://example.com/person3.jpg",
+      name: "Bob Johnson",
+      location: "Los Angeles, CA",
+      phone: "555-555-5557",
+      email: "bobjohnson@example.com",
+    },
+  ];
+
+  return (
+    <div className="container">
+      <Row className="align-items-center justify-content-between">
+        {products.map((product) => (
+          <Col xs={6} md={3} key={product.id}>
+            <Card>
+              <Image src={product.image} alt="text22" fluid />
+              <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+                <Card.Text>{product.location}</Card.Text>
+                <Card.Text>
+                  <FaPhone /> {product.phone}
+                </Card.Text>
+                <Card.Text>
+                  <FaEnvelope />
+                  {product.email}
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+      ;
+    </div>
+  );
 }
 
 export default OurOffices;
