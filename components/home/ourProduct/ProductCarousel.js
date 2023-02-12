@@ -1,3 +1,4 @@
+import SectionTitle from "@/components/common/SectionTitle";
 import React from "react";
 import { Container, Row, Col, Carousel, Card } from "react-bootstrap";
 
@@ -37,13 +38,13 @@ const products = [
       "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
     price: 700,
   },
-  {
-    id: 6,
-    name: "Product 6",
-    image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-    price: 5800,
-  },
+  // {
+  //   id: 6,
+  //   name: "Product 6",
+  //   image:
+  //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
+  //   price: 5800,
+  // },
   {
     id: 7,
     name: "Product 4",
@@ -70,8 +71,9 @@ const products = [
 const ProductCarousel = () => {
   return (
     <div className="container  my-2"> 
-    <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
-  }}>Our Products</h1> 
+    {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
+  }}>Our Products</h1>  */}
+  <SectionTitle title='Our Products'/>
     <Carousel>
       {products.map((product, index) => {
         if (index % 4 === 0) {

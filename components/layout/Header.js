@@ -118,6 +118,7 @@ import { FaShoppingCart, FaSearch } from "react-icons/fa";
 function Header() {
   return (
     <>
+    
       {["lg"].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3  fs-5 fw-bold text-danger">
           <Container fluid>
@@ -207,6 +208,7 @@ function Header() {
           </Container>
         </Navbar>
       ))}
+     
     </>
   );
 }

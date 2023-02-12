@@ -1,3 +1,4 @@
+import SectionTitle from '@/components/common/SectionTitle';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -5,6 +6,7 @@ const Outlet = () => {
   return (
     <div className='my-3 py-2'>
       <Container >
+      <SectionTitle title='Our Outlet'/>
       <Row>
         <Col xs={12} md={6}>
           <div style={{position: 'relative', height: '400px', backgroundImage: `url(https://images.unsplash.com/photo-1518739745383-0ef26e9dd7fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGVhJTIwb3V0bGV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60)`, backgroundSize: 'cover', backgroundPosition: 'center'}}>

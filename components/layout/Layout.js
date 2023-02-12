@@ -8,9 +8,7 @@ import Footer from "./Footer";
 
 function Layout({ children }) {
   return (
-    <>
-      
-      
+    <> 
       <Header />
       <main>
 
