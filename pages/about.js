@@ -1,6 +1,5 @@
  
-import React from 'react' 
- 
+import React from 'react'  
 import Overview1 from '@/components/about/Overview1'
 import Overview3 from '@/components/about/Overview3'
 import Overview2 from '@/components/about/Overview2'

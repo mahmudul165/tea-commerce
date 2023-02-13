@@ -27,7 +27,7 @@ export default class ClientCompany extends Component {
     return (
       <div className="container">
         <h1 className="text-center fs-3 fw-bolder my-5 ">
-          Trusted by 5,000+ Companies Worldwide
+          Trusted by 1,00+ Companies Worldwide
         </h1>
         <div className="container my-4 py-4">
           <div className="container text-center my-4 py-4">
