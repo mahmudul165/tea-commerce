@@ -6,6 +6,7 @@ import Overview3 from '@/components/about/Overview3'
 import Overview2 from '@/components/about/Overview2'
 import Overview4 from '@/components/about/Overview4'
 import Achivements from '@/components/about/Achivements'
+import NewsPress from '@/components/about/NewsPress'
  
 function about() {
   return (
@@ -14,6 +15,7 @@ function about() {
     <Overview3/>
     <Overview4/>
      <Achivements/> 
+     <NewsPress/> 
     </>
   )
 }
