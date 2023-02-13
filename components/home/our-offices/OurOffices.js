@@ -31,9 +31,9 @@ function OurOffices() {
   ];
 
   return (
-    <div className="container">
+    <div className="container my-4">
       <Row className="align-items-center justify-content-between">
-      <SectionTitle title='Our Offices'/>
+      <SectionTitle title='Our Offices ' />
         {products.map((product) => (
           <Col xs={6} md={3} key={product.id}>
             <Card>
@@ -53,7 +53,7 @@ function OurOffices() {
           </Col>
         ))}
       </Row>
-      ;
+      
     </div>
   );
 }
