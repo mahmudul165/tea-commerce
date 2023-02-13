@@ -130,7 +130,7 @@ function Header() {
                     <Nav.Link href="#home">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
-                    <Nav.Link href="#about">About</Nav.Link>
+                    <Nav.Link href="/about">About</Nav.Link>
                   </Nav.Item>
                   <NavDropdown title="Pages" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">
@@ -186,9 +186,9 @@ function Header() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="#action1">Gellary</Nav.Link>
-                      <Nav.Link href="#action2">Blog</Nav.Link>
-                      <Nav.Link href="#action2">Contact us</Nav.Link>
+                      <Nav.Link href="gellary">Gellary</Nav.Link>
+                      <Nav.Link href="blog">Blog</Nav.Link>
+                      <Nav.Link href="/contact">Contact us</Nav.Link>
                     </Nav>
                     <Button
                       className="ml-2"
