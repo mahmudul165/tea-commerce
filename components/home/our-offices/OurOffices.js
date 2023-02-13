@@ -1,7 +1,7 @@
 import SectionTitle from "@/components/common/SectionTitle";
 import React from "react";
 import { Row, Col, Card, Image } from "react-bootstrap";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt,FaPhone, FaEnvelope } from "react-icons/fa";
 function OurOffices() {
   const products = [
     {
@@ -36,16 +36,16 @@ function OurOffices() {
       <SectionTitle title='Our Offices ' />
         {products.map((product) => (
           <Col xs={6} md={3} key={product.id}>
-            <Card>
+            <Card style={{ width: "22rem", height: "auto"}}>
               <Image src={product.image} alt="text22" fluid />
-              <Card.Body>
-                <Card.Title>{product.name}</Card.Title>
-                <Card.Text>{product.location}</Card.Text>
+              <Card.Body className="py-2">
+                <Card.Title >{product.name}</Card.Title>
+                <Card.Text className="py-2 mb-1"><span ><FaMapMarkerAlt className="d-inline me-2"/></span> {product.location}</Card.Text>
                 <Card.Text>
-                  <FaPhone /> {product.phone}
+                <span className="py-2 my-2" ><FaPhone   className="d-inline me-1"/> </span>{product.phone}
                 </Card.Text>
-                <Card.Text>
-                  <FaEnvelope />
+                <Card.Text className="py-2 my-2">
+                   <span   ><FaEnvelope className="d-inline me-2"/></span>
                   {product.email}
                 </Card.Text>
               </Card.Body>
