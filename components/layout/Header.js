@@ -137,7 +137,7 @@ function Header() {
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
-                    {/* <Nav.Link href="/about">About</Nav.Link> */}
+                    
                     <Nav.Link as="span">
                       <Link href={"/about"}>About</Link>
                     </Nav.Link>
@@ -196,7 +196,9 @@ function Header() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="#gellary">Gellary</Nav.Link>
+                    <Nav.Link as="span">
+                      <Link href={"/gellary"}>Gellary</Link>
+                    </Nav.Link>
                       <Nav.Link href="#blog">Blog</Nav.Link>
                       {/* <Nav.Link>
                         
