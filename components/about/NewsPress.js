@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, Card, Image } from "react-bootstrap";
 import ReadMoreLessButton from "../common/ReadMore";
+import SectionTitle from "../common/SectionTitle";
 
 const NewsPress = () => {
   const products = [
@@ -29,6 +30,7 @@ const NewsPress = () => {
 
   return (
     <div className="  py-3 my-3">
+         <SectionTitle title='News Press'/>
       <Row>
         {products?.map((product) => {
           return(

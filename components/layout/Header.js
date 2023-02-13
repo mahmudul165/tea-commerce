@@ -133,7 +133,7 @@ function Header() {
                   <Nav.Item as="li">
                     {/* <Nav.Link href="#home">Home</Nav.Link> */}
                     <Nav.Link as="span">
-                      <Link href={"/"}>home</Link>
+                      <Link href={"/"}>Home</Link>
                     </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">

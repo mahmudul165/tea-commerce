@@ -14,8 +14,8 @@ function about() {
     <Overview2/>
     <Overview3/>
     <Overview4/>
-     <Achivements/> 
-     <NewsPress/> 
+    <Achivements/> 
+    <NewsPress/> 
     </>
   )
 }
