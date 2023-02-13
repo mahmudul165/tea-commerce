@@ -8,7 +8,8 @@
 // import Footer from "../component/layout/Footer";
 // import { CartProvider } from "react-use-cart";
 // import AuthProvider from "../contexts/AuthProvider";
-
+// import "slick-carousel/slick/slick.css"; 
+// import "slick-carousel/slick/slick-theme.css";
 import Layout from "@/components/layout/Layout";
 import Meta from "@/seo/Meta";
 import Head from "next/head";
