@@ -131,7 +131,10 @@ function Header() {
               <Col xl={3} md={3}>
                 <Nav className="mr-auto " as="ul">
                   <Nav.Item as="li">
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    {/* <Nav.Link href="#home">Home</Nav.Link> */}
+                    <Nav.Link as="span">
+                      <Link href={"/"}>home</Link>
+                    </Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
                     {/* <Nav.Link href="/about">About</Nav.Link> */}

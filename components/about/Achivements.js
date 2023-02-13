@@ -12,6 +12,7 @@ const achievement = {
   };
   return (
     <div >
+        {/* style={{ backgroundImage: `url(${achievement.backgroundImage})`, backgroundSize: 'cover', height: '50vh' }} */}
          <Row className="  align-items-center  " style={{ backgroundImage: `url(https://i.ibb.co/vVN9rcm/achievement.jpg)`, backgroundSize: 'cover', height: '50vh' }}>
       <Col xs={12} sm={3} md={3} className="text-center">
         <h2 className="text-light fs-2 fw-bolder">{achievement.satisfiedClients}</h2>
