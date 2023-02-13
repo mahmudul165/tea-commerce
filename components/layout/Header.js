@@ -106,6 +106,7 @@
 
 // export default NavBar;
 
+import Link from "next/link";
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -118,20 +119,29 @@ import { FaShoppingCart, FaSearch } from "react-icons/fa";
 function Header() {
   return (
     <>
-    
       {["lg"].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3  fs-5 fw-bold text-danger">
+        <Navbar
+          key={expand}
+          bg="light"
+          expand={expand}
+          className="mb-3  fs-5 fw-bold text-danger"
+        >
           <Container fluid className="justify-content-around">
             <Row>
-              
               <Col xl={3} md={3}>
                 <Nav className="mr-auto " as="ul">
                   <Nav.Item as="li">
                     <Nav.Link href="#home">Home</Nav.Link>
                   </Nav.Item>
                   <Nav.Item as="li">
-                    <Nav.Link href="/about">About</Nav.Link>
+                    {/* <Nav.Link href="/about">About</Nav.Link> */}
+                    <Nav.Link>
+                      <Link href="/about" passHref>
+                        About
+                      </Link>
+                    </Nav.Link>
                   </Nav.Item>
+
                   <NavDropdown title="Pages" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">
                       Action
@@ -139,15 +149,14 @@ function Header() {
                     <NavDropdown.Item href="#action/3.2">
                       Another action
                     </NavDropdown.Item>
-                    
                   </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">
-                     Products
-                    </NavDropdown.Item> 
+                      Products
+                    </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">
-                     New Arrival
+                      New Arrival
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
@@ -181,14 +190,19 @@ function Header() {
                     <Offcanvas.Title
                       id={`offcanvasNavbarLabel-expand-${expand}`}
                     >
-                     Sultan Tea
+                      Sultan Tea
                     </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
-                      <Nav.Link href="gellary">Gellary</Nav.Link>
-                      <Nav.Link href="blog">Blog</Nav.Link>
-                      <Nav.Link href="/contact">Contact us</Nav.Link>
+                      <Nav.Link href="#gellary">Gellary</Nav.Link>
+                      <Nav.Link href="#blog">Blog</Nav.Link>
+                      <Nav.Link>
+                        
+                        <Link href="/contact" passHref>
+                          Contact Us
+                        </Link>
+                      </Nav.Link>
                     </Nav>
                     <Button
                       className="ml-2"
@@ -208,7 +222,6 @@ function Header() {
           </Container>
         </Navbar>
       ))}
-     
     </>
   );
 }
