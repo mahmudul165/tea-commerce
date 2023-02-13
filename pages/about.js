@@ -1,9 +1,9 @@
  
-import React from 'react'
-import About from '@/components/about/about'
+import React from 'react' 
+import AboutUs from '@/components/about/AboutUs'
 function about() {
   return (
-    <><About/></>
+    <><AboutUs/></>
   )
 }
 

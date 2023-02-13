@@ -1,10 +1,10 @@
-import Contact from '@/components/contact/contact'
-import React from 'react'
-
+ 
+import React from 'react' 
+import ContactUs from '@/components/contact/ContactUs'
 function contact() {
   return (
     <>
-      <Contact/>
+      <ContactUs/>
       </>
   )
 }
