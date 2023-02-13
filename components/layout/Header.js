@@ -135,10 +135,8 @@ function Header() {
                   </Nav.Item>
                   <Nav.Item as="li">
                     {/* <Nav.Link href="/about">About</Nav.Link> */}
-                    <Nav.Link>
-                      <Link href="/about" passHref>
-                        About
-                      </Link>
+                    <Nav.Link as="span">
+                      <Link href={"/about"}>About</Link>
                     </Nav.Link>
                   </Nav.Item>
 
@@ -197,11 +195,14 @@ function Header() {
                     <Nav className="justify-content-end flex-grow-1 pe-3">
                       <Nav.Link href="#gellary">Gellary</Nav.Link>
                       <Nav.Link href="#blog">Blog</Nav.Link>
-                      <Nav.Link>
+                      {/* <Nav.Link>
                         
                         <Link href="/contact" passHref>
                           Contact Us
                         </Link>
+                      </Nav.Link> */}
+                      <Nav.Link as="span">
+                        <Link href={"/contact"}>Contact Us</Link>
                       </Nav.Link>
                     </Nav>
                     <Button

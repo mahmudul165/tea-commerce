@@ -1,9 +1,20 @@
  
 import React from 'react' 
-import AboutUs from '@/components/about/AboutUs'
+ 
+import Overview1 from '@/components/about/Overview1'
+import Overview3 from '@/components/about/Overview3'
+import Overview2 from '@/components/about/Overview2'
+import Overview4 from '@/components/about/Overview4'
+import Achivements from '@/components/about/Achivements'
+ 
 function about() {
   return (
-    <><AboutUs/></>
+    <><Overview1/>
+    <Overview2/>
+    <Overview3/>
+    <Overview4/>
+     <Achivements/> 
+    </>
   )
 }
 
