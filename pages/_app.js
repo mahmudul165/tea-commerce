@@ -1,5 +1,5 @@
 // import { SessionProvider } from "next-auth/react";
- import "../styles/globals.css";
+import "../styles/globals.css";
 // import Head from "next/head";
 // import Script from "next/script";
 // import Layout from "../component/layout/Layout";
@@ -8,15 +8,24 @@
 // import Footer from "../component/layout/Footer";
 import { CartProvider } from "react-use-cart";
 // import AuthProvider from "../contexts/AuthProvider";
-// import "slick-carousel/slick/slick.css"; 
+// import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Layout from "@/components/layout/Layout";
 import Meta from "@/seo/Meta";
 import Head from "next/head";
 import Script from "next/script";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from "@chakra-ui/react";
+import ThreeDotsWave from "@/components/common/ThreeDot";
+import { useEffect, useState } from "react";
 // import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   //const getLayout = Component.getLayout || ((page) => page);
   //console.log("page is",getLayout)
   if (Component.getLayout) {
@@ -43,16 +52,22 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       {/* <SessionProvider session={session}>
         <AuthProvider>
           <CartProvider> */}
-          <CartProvider> 
-           <ChakraProvider> 
+
+      {isLoading ? (
+        <ThreeDotsWave />
+      ) : (
+        <CartProvider>
+          <ChakraProvider>
             <Layout>
               {/* <AnimatePresence exitBeforeEnter> */}
-
-               {} <Component {...pageProps} />
+              {} <Component {...pageProps} />
               {/* </AnimatePresence> */}
-            </Layout></ChakraProvider>
-            </CartProvider>
-          {/* </CartProvider>
+            </Layout>
+          </ChakraProvider>
+        </CartProvider>
+      )}
+
+      {/* </CartProvider>
         </AuthProvider>
       </SessionProvider> */}
     </>
