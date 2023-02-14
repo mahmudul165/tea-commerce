@@ -43,7 +43,7 @@ function BlogDetails({ data }) {
       <Container className="m-3 ">
         <Card className="border-0  p-5">
           <Card.Img
-            className="    "
+           
             variant="top"
             src="https://media.cnn.com/api/v1/images/stellar/prod/230212214951-08-super-bowl-2023.jpg?c=16x9&q=w_800,c_fill"
           />
