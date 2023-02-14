@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { useRouter } from "next/router";
 // import useSWR from "swr";
-import Image from "next/image";
+
 import Link from "next/link";
 // import axios from "axios";
 import Skeleton from "react-loading-skeleton";

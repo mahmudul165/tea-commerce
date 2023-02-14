@@ -225,18 +225,17 @@ function Header() {
                         <Link href={"/contact"}>Contact Us</Link>
                       </Nav.Link>
                     </Nav>
-                    <Button
-                      className="ml-2"
-                      style={{
-                        marginRight: "7px",
-                      }}
-                    >
-                      <FaShoppingCart />  
+                    <Nav.Link as="i" className="fs-4">
+                        <Link href={"/add-to-card"}>   <FaShoppingCart />  </Link>
+                      </Nav.Link>
+                      
                       {/* ({totalItems}) */}
-                    </Button>
-                    <Button className="ml-2 ms-2 ">
-                      <FaSearch />{" "}
-                    </Button>
+                    
+                 
+                    <Nav.Link as="i" className="fs-4">
+                        <Link href={"/search"}>  <FaSearch /> </Link>
+                      </Nav.Link>
+                       
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
               </Col>
