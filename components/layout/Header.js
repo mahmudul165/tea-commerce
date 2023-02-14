@@ -133,7 +133,7 @@ function Header() {
   return (
     <>
       {["lg"].map((expand) => (
-        <Navbar
+        <Navbar sticky="top" 
           key={expand}
           bg="light"
           expand={expand}
