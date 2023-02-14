@@ -48,11 +48,12 @@ const Gallery = () => (
   
     {ObjectsArray.map((object, index) => (
       <>
-       <div className="py-4 my-2"> 
+        <div className="py-2">
         <SectionTitle title= {object.title} />
-        <div className="d-flex">
+        <div className="row     ">
           {object.images.map((image, index) => (
-            <Card key={index} className="mx-1 border-0" style={{ width: "25rem" }}>
+            
+            <Card key={index} className="col-sm-12 col-md-3      border-0" >
               <Card.Body> 
                  {image ? (
                     <motion.img
@@ -60,16 +61,16 @@ const Gallery = () => (
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
                       src={image} alt={`${object.title} - Image ${index + 1}`} fluid                      
-                      className="card-img-top  p-2 "
-                      width={336}
-                      height={230}
+                      // className="card-img-top  p-2 "
+                      // width={336}
+                      // height={230}
                       layout="responsive"
                     />
                   ) : (
-                    <Skeleton height={200} />
+                    <Skeleton height={400} />
                   )} 
               </Card.Body>
-            </Card>
+            </Card> 
           ))}
         </div>
         </div>
