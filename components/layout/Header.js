@@ -152,9 +152,10 @@ function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Products
+                    <NavDropdown.Item as="span">
+                       <Link href={"/shop"}>Products</Link>
                     </NavDropdown.Item>
+                     
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action/3.4">
                       New Arrival
@@ -199,13 +200,10 @@ function Header() {
                     <Nav.Link as="span">
                       <Link href={"/gellary"}>Gellary</Link>
                     </Nav.Link>
-                      <Nav.Link href="#blog">Blog</Nav.Link>
-                      {/* <Nav.Link>
-                        
-                        <Link href="/contact" passHref>
-                          Contact Us
-                        </Link>
-                      </Nav.Link> */}
+                    <Nav.Link as="span">
+                      <Link href={"/blogs"}>Blog</Link>
+                    </Nav.Link>
+                      
                       <Nav.Link as="span">
                         <Link href={"/contact"}>Contact Us</Link>
                       </Nav.Link>
