@@ -130,17 +130,17 @@ function BlogsShowcase({ data }) {
                 {/* test button */}
                 {/* <div className="p-2 m-2 d-flex align-items-center justify-content-center"> */}
                   
-                  <button
+                <button
                     type="button"
-                    className="btn text-white  btn-block btn-sm   p-1 m-1 ms-2  "
+                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
                     style={{
                       backgroundColor: "#59330E",
                       // color: "#FF0099",
-                      // border: 0,
+                      border: 0,
                     }}
-                    // onClick={BuyNow}
+                    // onClick={() => addItem(product)}
                   >
-                     Learn More
+                   Learn More
                   </button>
                 {/* </div> */}
               </motion.div>
