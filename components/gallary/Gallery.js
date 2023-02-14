@@ -59,8 +59,7 @@ const Gallery = () => (
                       initial={{ x: 60, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
-                      src={image} alt={`${object.title} - Image ${index + 1}`} fluid
-                      
+                      src={image} alt={`${object.title} - Image ${index + 1}`} fluid                      
                       className="card-img-top  p-2 "
                       width={336}
                       height={230}
@@ -68,13 +67,7 @@ const Gallery = () => (
                     />
                   ) : (
                     <Skeleton height={200} />
-                  )}
-
-
-
-               
-
-
+                  )} 
               </Card.Body>
             </Card>
           ))}
