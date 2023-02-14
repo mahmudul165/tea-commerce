@@ -22,10 +22,10 @@ export const getStaticProps = async () => {
     const data = await res.json();
     return {
       props: { data },
-      revalidate: 3
+      revalidate: 10
     };
   };
-
+ 
 function TodayDeals({ data }) {
    
   return (

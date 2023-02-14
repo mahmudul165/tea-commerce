@@ -4,3 +4,10 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+
+
+module.exports = {
+  // ...
+  revalidate: 60,
+};

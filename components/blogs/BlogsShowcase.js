@@ -59,7 +59,9 @@ function BlogsShowcase({ data }) {
                 whileTap={{ scale: 0.95 }}
                 className="card border-0 "
               >
-                <Link href={`blogs/${product.title}`} passHref>
+
+{/* {`blogs/${product.title}`} */}
+                <Link href={`/blogs/${product.id}`}  passHref>
                   {product.image_one ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
@@ -73,7 +75,19 @@ function BlogsShowcase({ data }) {
                       layout="responsive"
                     />
                   ) : (
-                    <Skeleton height={200} />
+                    <motion.img
+                    initial={{ x: 60, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    src='https://i.blogs.es/d85337/1366_2000/840_560.jpeg'
+                    alt="E-COMMERCE  products"
+                    className="card-img-top  p-2 "
+                    width={336}
+                    height={230}
+                    layout="responsive"
+                  />
+                    
+                    // <Skeleton height={200} />
                   )}
                 </Link>
 
