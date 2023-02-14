@@ -9,5 +9,5 @@ module.exports = nextConfig
 
 module.exports = {
   // ...
-  revalidate: 60,
+  revalidate: 10,
 };
