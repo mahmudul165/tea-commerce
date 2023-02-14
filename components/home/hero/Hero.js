@@ -88,7 +88,7 @@ function Hero() {
     >
       <div className=" container  my-1 py-2  ">
         <div className="row   align-items-center justify-items-center">
-          <section className="col-sm-6 my-1 py-1 ">
+          <section className="col-sm-12 col-md-6 my-1 py-1 ">
             {/* egg animation added start */}
             {/* <motion.div className="circle m-auto mt-5 " ref={ref}></motion.div> */}
             {/* egg animation added end */}
@@ -130,7 +130,7 @@ function Hero() {
               </div>
             </div>
           </section>
-          <section className="col-sm-6 p-2 mt-5     w-50">
+          <section className="col-sm-12 col-md-6 p-2 mt-3 ">
 
 
          <Carousel>
@@ -141,7 +141,7 @@ function Hero() {
             <Carousel.Item key={product.id}>
               <Container fluid> 
           
-            <Card className="h-25">
+            <Card className="h-20 border-0 p-1">
                           <Card.Img variant="top" src={product?.image} />
                         </Card>
             </Container > 

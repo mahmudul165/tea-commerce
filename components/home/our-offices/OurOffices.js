@@ -32,10 +32,10 @@ function OurOffices() {
 
   return (
     <div className="container my-4">
-      <Row className="align-items-center justify-content-between">
+      <Row className="  align-items-center justify-content-between">
       <SectionTitle title='Our Offices ' />
         {products.map((product) => (
-          <Col xs={6} md={3} key={product.id}>
+          <Col sm={12} md={3} key={product.id} className='py-2'>
             <Card style={{ width: "22rem", height: "auto"}}>
               <Image src={product.image} alt="text22" fluid />
               <Card.Body className="py-2">

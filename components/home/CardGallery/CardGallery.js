@@ -32,7 +32,7 @@ const CardGallery = () => {
         {products?.map((product) => {
           return(
           <>
-          <Col xs={6} md={4} key={product.id}>
+          <Col sm={12} md={4} key={product.id} className='py-2'>
             <Card style={{ width: "22rem", height: "auto"}}>
               <Card.Img variant="top" src={product?.image} fluid />
               <Card.Body>
