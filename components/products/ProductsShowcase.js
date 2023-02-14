@@ -119,9 +119,9 @@ function ProductsShowcase({ data }) {
                   </p>
                   <button
                     type="button"
-                    className="btn ml-1  btn-block btn-sm bg-light p-1 m-1 me-2  "
+                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
                     style={{
-                      // backgroundColor: "#ffff",
+                      backgroundColor: "#59330E",
                       // color: "#FF0099",
                       border: 0,
                     }}
