@@ -116,7 +116,19 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { useCart } from "react-use-cart";
+ 
 function Header() {
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    totalItems,
+    cartTotal,
+    updateItemQuantity,
+    removeItem,
+    emptyCart,
+  } = useCart();
   return (
     <>
       {["lg"].map((expand) => (
@@ -214,7 +226,7 @@ function Header() {
                         marginRight: "7px",
                       }}
                     >
-                      <FaShoppingCart />
+                      <FaShoppingCart />  ({totalItems})
                     </Button>
                     <Button className="ml-2  ">
                       <FaSearch />{" "}

@@ -6,7 +6,7 @@
 // import Meta from "../component/seo/Meta";
 // import Header from "../component/layout/Header";
 // import Footer from "../component/layout/Footer";
-// import { CartProvider } from "react-use-cart";
+import { CartProvider } from "react-use-cart";
 // import AuthProvider from "../contexts/AuthProvider";
 // import "slick-carousel/slick/slick.css"; 
 // import "slick-carousel/slick/slick-theme.css";
@@ -43,6 +43,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       {/* <SessionProvider session={session}>
         <AuthProvider>
           <CartProvider> */}
+          <CartProvider> 
            <ChakraProvider> 
             <Layout>
               {/* <AnimatePresence exitBeforeEnter> */}
@@ -50,6 +51,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                {} <Component {...pageProps} />
               {/* </AnimatePresence> */}
             </Layout></ChakraProvider>
+            </CartProvider>
           {/* </CartProvider>
         </AuthProvider>
       </SessionProvider> */}

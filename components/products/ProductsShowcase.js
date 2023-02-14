@@ -5,10 +5,10 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
 // import useAuth from "../../hook/useAuth";
-// import { useCart } from "react-use-cart";
+import { CartProvider, useCart } from "react-use-cart";
 function ProductsShowcase({ data }) {
   // const { BuyNow } = useAuth();
-  // const { addItem } = useCart();
+  const { addItem } = useCart();
   // Our custom easing
   let easing = [0.6, -0.05, 0.01, 0.99];
   //console.log("my data", data);
@@ -125,7 +125,7 @@ function ProductsShowcase({ data }) {
                       // color: "#FF0099",
                       border: 0,
                     }}
-                    // onClick={() => addItem(product)}
+                    onClick={() => addItem(product)}
                   >
                     <i className="fas fa-shopping-cart me-1 py-1"></i>Add To
                     Cart
