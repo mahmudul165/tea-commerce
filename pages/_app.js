@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             <Layout>
               {/* <AnimatePresence exitBeforeEnter> */}
 
-                <Component {...pageProps} />
+               {} <Component {...pageProps} />
               {/* </AnimatePresence> */}
             </Layout></ChakraProvider>
           {/* </CartProvider>

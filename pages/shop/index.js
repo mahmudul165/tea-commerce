@@ -1,9 +1,10 @@
 import React from "react";
  import dynamic from "next/dynamic";
+import ThreeDotsWave from "@/components/common/ThreeDot";
 const ProductsShowcase = dynamic(
   () => import("/components/products/ProductsShowcase.js"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <><ThreeDotsWave/></>,
   }
 );
   
