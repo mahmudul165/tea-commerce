@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import ThreeDotsWave from "../common/ThreeDot";
 import Footer from "./Footer";
   import Header from "./Header";
 
@@ -15,7 +16,7 @@ function Layout({ children }) {
       <div className="px-2 ">
         
         
-        {children}
+        {children? children :<ThreeDotsWave/>}
         
         </div>
         </main>
