@@ -1,7 +1,34 @@
 import SectionTitle from "@/components/common/SectionTitle";
 import React from "react";
 import { Container, Row, Col, Carousel, Card } from "react-bootstrap";
+import { motion } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
+let easing = [0.6, -0.05, 0.01, 0.99];
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0,
+    transition: { duration: 0.6, ease: easing },
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 const products = [
   {
     id: 1,
@@ -70,44 +97,123 @@ const products = [
 
 const ProductCarousel = () => {
   return (
-    <div className="container  my-2"> 
-    {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
+    <div className="container  my-2">
+      {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
-  <SectionTitle title='Our Products'/>
-    <Carousel>
-      {products.map((product, index) => {
-        if (index % 4 === 0) {
-          return ( 
-            <Carousel.Item key={product.id}>
-              <Container fluid> 
+      <SectionTitle title="Our Products" />
+      <Carousel>
+        {products.map((product, index) => {
+          if (index % 4 === 0) {
+            return (
+              <Carousel.Item key={product.id}>
                 <Row>
                   {products.slice(index, index + 4).map((product) => (
-                    <Col xs={12} md={3} key={product.id}>
-                      <Card className="border-0">
-                       
-                        <Card className="h-25">
-                          <Card.Img variant="top" src={product.image} />
-                        </Card>
-                        <h6 className="fs-5 fw-bold">{product.name}</h6>
-                        <p className="fs-6 fw-bold">৳ {product.price}</p>
-                        {/* <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>{product.price}</Card.Text>
-          </Card.Body> */}
-                      </Card>
-                    </Col>
+                    
+                      <div
+                        key={product.id}
+                        className="col-sm-6 col-md-3  my-2 py-1"
+                      >
+                        <motion.div
+                          variants={fadeInUp}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="card border-0 "
+                        >
+                          {/* <Link href={`shop/${product.id}`} passHref> */}
+                          {product.image ? (
+                            <motion.img
+                              initial={{ x: 60, opacity: 0 }}
+                              animate={{ x: 0, opacity: 1 }}
+                              transition={{ delay: 0.2 }}
+                              src={product?.image}
+                              alt="E-COMMERCE  products"
+                              className="card-img-top  p-2 "
+                              width={336}
+                              height={230}
+                              layout="responsive"
+                            />
+                          ) : (
+                            <Skeleton height={350} />
+                          )}
+                          {/* </Link> */}
+
+                          {/* <Image
+                    src={sunset1}
+                    alt="Sunset"
+                    width={600}
+                    height={450}
+                    layout="responsive"
+                   placeholder="blur"
+                    blurDataURL="data:image/png;base64,[IMAGE_CODE_FROM_PNG_PIXEL]"
+                  /> */}
+
+                          <div className="card-body p-0">
+                            <motion.div
+                              animate={{ opacity: 1 }}
+                              initial={{ opacity: 0 }}
+                              className="title"
+                            >
+                              <h6
+                                className="card-title ms-2 mt-2 fs-5 fw-bolder"
+                                style={{
+                                  color: "#000000",
+                                  border: 0,
+                                }}
+                              >
+                                {product.name?.slice(0, 20)}
+                              </h6>{" "}
+                            </motion.div>
+                          </div>
+                          {/* test button */}
+                          <div className=" p-2 mx-2 d-flex justify-content-between">
+                            <p
+                              className="text-center fs-6 fw-bold  "
+                              style={{
+                                // color: "#FF0099",
+                                border: 0,
+                              }}
+                            >
+                              ৳ 500
+                              {/* {product.price} */}
+                            </p>
+                            <button
+                              type="button"
+                              className="btn ml-1 px-2 btn-block btn-md text-white fs-6 fw-bolder mb-1 me-2  "
+                              style={{
+                                backgroundColor: "#59330E",
+                                // color: "#FF0099",
+                                border: 0,
+                              }}
+                              onClick={() => addItem(product)}
+                            >
+                              <i className="fas fa-shopping-cart me-1 py-1"></i>
+                              Add To Cart
+                            </button>
+                            {/* <button
+                    type="button"
+                    className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "
+                    style={{
+                      backgroundColor: "#ffff",
+                      color: "#FF0099",
+                      border: 0,
+                    }}
+                    // onClick={BuyNow}
+                  >
+                    <i className="fas fa-bolt me-1 py-1"></i>Buy Now
+                  </button> */}
+                          </div>
+                        </motion.div>
+                      </div>
+                   
                   ))}
                 </Row>
-              </Container>
-            </Carousel.Item>
-          );
-        }
-        return null;
-      })}
-    </Carousel>
+              </Carousel.Item>
+            );
+          }
+          return null;
+        })}
+      </Carousel>
     </div>
-    
-    
   );
 };
 
