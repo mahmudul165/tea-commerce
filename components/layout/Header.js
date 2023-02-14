@@ -106,6 +106,7 @@
 
 // export default NavBar;
 
+import Image from "next/image";
 import Link from "next/link";
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -117,7 +118,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { useCart } from "react-use-cart";
- 
+import Logo from "/public/logo.png";
 function Header() {
   const {
     isEmpty,
@@ -158,19 +159,16 @@ function Header() {
                   <NavDropdown title="Pages" id="collasible-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">
                       Action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                      Another action
-                    </NavDropdown.Item>
+                    </NavDropdown.Item>                    
                   </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">
                        <Link href={"/shop"}>Products</Link>
                     </NavDropdown.Item>
                      
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                      New Arrival
+                    {/* <NavDropdown.Divider /> */}
+                    <NavDropdown.Item as="span">
+                       <Link href={"/new-arrival"}>New Arrivals</Link>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
@@ -182,12 +180,19 @@ function Header() {
                 >
                   {" "}
                   <Nav.Item as="li" className="d-flex ">
-                    <img
-                      src="logo.png"
+                  <Image
+      src={Logo}
+      alt="logo"
+      width={50}
+      height={50}
+      layout={500}
+    />
+                    {/* <img
+                      src="/public/logo.png"
                       alt="logo"
-                      className="d-inline-block mr-3 w-25"
+                      className="d-inline-block mr-3 "
                       // style={{ maxHeight: "80px" }}
-                    />{" "}
+                    />{" "} */}
                   </Nav.Item>
                 </Nav>
               </Col>
@@ -226,9 +231,10 @@ function Header() {
                         marginRight: "7px",
                       }}
                     >
-                      <FaShoppingCart />  ({totalItems})
+                      <FaShoppingCart />  
+                      {/* ({totalItems}) */}
                     </Button>
-                    <Button className="ml-2  ">
+                    <Button className="ml-2 ms-2 ">
                       <FaSearch />{" "}
                     </Button>
                   </Offcanvas.Body>

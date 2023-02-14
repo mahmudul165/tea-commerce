@@ -11,6 +11,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 // import useAuth from "../../hook/useAuth";
 // import { useCart } from "react-use-cart";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 // import dynamic from "next/dynamic";
 // const Reviews = dynamic(() => import("/component/productsreview/Reviews"), {
@@ -59,6 +60,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const ProductDetails = ({data}) => {
+    const router=useRouter()
+    console.log(router.asPath)
 //   const { addItem } = useCart();
 //   const { BuyNow } = useAuth();
 //   const [imageSlider, setImage] = useState({});

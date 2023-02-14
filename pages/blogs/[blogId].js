@@ -45,7 +45,14 @@ function BlogDetails({ data }) {
     <div className="m-3   ">
       {data? <Container className="m-3 ">
         <Card className="border-0  p-5">
-          <Card.Img           
+        {/* <Image
+  src="/image.jpg"
+  alt="description"
+  width={500}
+  height={500}
+/> */}
+          <Card.Img 
+           className="h-50" 
             variant="top"
             src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
           />
