@@ -49,7 +49,7 @@ function ProductsShowcase({ data }) {
       className="container my-4"
       style={{ backgroundColor: "#ffddde" }}
     >
-      <motion.div variants={stagger} className="row    text-center my-2  py-3 ">
+      <motion.div variants={stagger} className="row     my-2  py-3 ">
         {data ? (
           data.map((product) => (
             <div key={product.id} className="col-sm-12 col-md-3  my-2 py-1">
@@ -59,7 +59,7 @@ function ProductsShowcase({ data }) {
                 whileTap={{ scale: 0.95 }}
                 className="card border-0 "
               >
-                <Link href={`productList/${product.id}`} passHref>
+                <Link href={`shop/${product.id}`} passHref>
                   {product.image_one ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
@@ -94,33 +94,35 @@ function ProductsShowcase({ data }) {
                     className="title"
                   >
                     <h6
-                      className="card-title fs-6 fw-bolder"
+                      className="card-title ms-2 my-2 fs-6 fw-bolder"
                       style={{
                         color: "#000000",
                         border: 0,
                       }}
                     >
-                      {product.title}
+                      {product.title?.slice(0, 15)}
                     </h6>{" "}
                   </motion.div>
-                  <small
+                
+                </div>
+                {/* test button */}
+                <div className=" p-2 mx-2 d-flex justify-content-between">
+                <p
                     className="text-center fs-6 fw-bold  "
                     style={{
-                      color: "#FF0099",
+                      // color: "#FF0099",
                       border: 0,
                     }}
                   >
-                    ৳ {product.price}
-                  </small>
-                </div>
-                {/* test button */}
-                <div className="p-2 m-2 d-flex align-items-center justify-content-center">
+                    ৳ 500
+                     {/* {product.price} */}
+                  </p>
                   <button
                     type="button"
-                    className="btn   btn-block btn-sm bg-light p-1 m-1 me-2  "
+                    className="btn ml-1  btn-block btn-sm bg-light p-1 m-1 me-2  "
                     style={{
-                      backgroundColor: "#ffff",
-                      color: "#FF0099",
+                      // backgroundColor: "#ffff",
+                      // color: "#FF0099",
                       border: 0,
                     }}
                     // onClick={() => addItem(product)}
@@ -128,7 +130,7 @@ function ProductsShowcase({ data }) {
                     <i className="fas fa-shopping-cart me-1 py-1"></i>Add To
                     Cart
                   </button>
-                  <button
+                  {/* <button
                     type="button"
                     className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "
                     style={{
@@ -139,7 +141,7 @@ function ProductsShowcase({ data }) {
                     // onClick={BuyNow}
                   >
                     <i className="fas fa-bolt me-1 py-1"></i>Buy Now
-                  </button>
+                  </button> */}
                 </div>
               </motion.div>
             </div>
