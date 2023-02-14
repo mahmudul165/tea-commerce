@@ -45,7 +45,7 @@ function BlogDetails({ data }) {
           <Card.Img
            
             variant="top"
-            src="https://media.cnn.com/api/v1/images/stellar/prod/230212214951-08-super-bowl-2023.jpg?c=16x9&q=w_800,c_fill"
+            src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
           />
 
           <Card.Title   className="py-3 fs-3  fw-bolder ">{data.title}</Card.Title>
