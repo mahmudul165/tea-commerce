@@ -1,5 +1,5 @@
 // import { SessionProvider } from "next-auth/react";
-// import "../styles/globals.css";
+ import "../styles/globals.css";
 // import Head from "next/head";
 // import Script from "next/script";
 // import Layout from "../component/layout/Layout";

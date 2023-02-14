@@ -14,8 +14,8 @@ const HeaderHero = () => (
     <div className="row align-items-center justify-items-center ">
       <div className="col-8">         
         <div className="container text-white ">
-          <h1 className="fs-2 fw-bolder p-2">Health Benefits Of Tea Fresh Green Tea</h1>
-          <p className="lead py-3 my-1">Tea is Good your health.</p>
+          <h1 className="fs-2 fw-bolder p-2 text-white">Health Benefits Of Tea Fresh Green Tea</h1>
+          <p className="lead py-3 my-1 text-white">Tea is Good your health.</p>
           <button className="btn btn-outline-primary btn-lg text-white">Shop Now</button>
         </div>
       </div>

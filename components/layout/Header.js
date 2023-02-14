@@ -136,14 +136,14 @@ function Header() {
           key={expand}
           bg="light"
           expand={expand}
-          className="mb-3  fs-5 fw-bold text-danger"
+          className="  fs-6 fw-bold text-danger"
         >
           <Container fluid className="justify-content-around">
             <Row>
               <Col xl={3} md={3}>
                 <Nav className="mr-auto " as="ul">
                   <Nav.Item as="li">
-                    {/* <Nav.Link href="#home">Home</Nav.Link> */}
+                    
                     <Nav.Link as="span">
                       <Link href={"/"}>Home</Link>
                     </Nav.Link>
@@ -185,8 +185,8 @@ function Header() {
                     <img
                       src="logo.png"
                       alt="logo"
-                      className="d-inline-block mr-3"
-                      style={{ maxHeight: "80px" }}
+                      className="d-inline-block mr-3 w-25"
+                      // style={{ maxHeight: "80px" }}
                     />{" "}
                   </Nav.Item>
                 </Nav>

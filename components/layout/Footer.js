@@ -107,7 +107,7 @@ const Footer = () => {
             <Image src="logo.png"       alt="logo" />
           </Row>
           <Row className="my-3">
-            <p>lorem vsgsgb xbsasaees xvaesfweafg xveasfgvsd sefgv fgwfweac xwfsd cvsf fgrfq xgew xcfgweftg fgwe gew</p>
+            <p className="fs-5 p-2">lorem vsgsgb xbsasaees xvaesfweafg xveasfgvsd sefgv fgwfweac xwfsd cvsf fgrfq xgew xcfgweftg fgwe gew</p>
           </Row>
           <Row className='justify-center w-50'>
           <Col md={3}>
@@ -127,8 +127,8 @@ const Footer = () => {
           </Row>
         </Col>
         <Col md={3}>
-          <h1>Quick Link</h1>
-          <ul>
+          <h1 className='fs-5 fw-bold'>Quick Link</h1>
+          <ul className='demo'>
             <li><a href="#">Company</a></li>
             <li><a href="#">Our Products</a></li>
             <li><a href="#">Our Services</a></li>
@@ -138,8 +138,8 @@ const Footer = () => {
           </ul>
         </Col>
         <Col md={3}>
-          <h1>About</h1>
-          <ul>
+          <h1 className='fs-5 fw-bold'>About</h1>
+          <ul className='demo'>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Contact Us</a></li>
             <li><a href="#">Blog</a></li>
@@ -148,14 +148,14 @@ const Footer = () => {
           </ul>
         </Col>
         <Col md={3}>
-          <h1>Promotional Video</h1>
-          <Card>
-            <Card.Body>
+           <h1 className='fs-5 fw-bold mb-3'   >Promotional Video</h1> 
+          <Card    >
+            
               <video controls>
                 <source src="https://www.teashop.com.bd/wp-content/uploads/2023/01/Tea-Shop-Video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-            </Card.Body>
+            
           </Card>
         </Col>
       </Row>
