@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, Image } from "react-bootstrap";
 import SectionTitle from "../common/SectionTitle";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { motion } from "framer-motion";
 const ObjectsArray = [
   {
     title: "Gerden",
@@ -51,8 +53,28 @@ const Gallery = () => (
         <div className="d-flex">
           {object.images.map((image, index) => (
             <Card key={index} className="mx-1 border-0" style={{ width: "25rem" }}>
-              <Card.Body>
-                <Image src={image} alt={`${object.title} - Image ${index + 1}`} fluid />
+              <Card.Body> 
+                 {image ? (
+                    <motion.img
+                      initial={{ x: 60, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      src={image} alt={`${object.title} - Image ${index + 1}`} fluid
+                      
+                      className="card-img-top  p-2 "
+                      width={336}
+                      height={230}
+                      layout="responsive"
+                    />
+                  ) : (
+                    <Skeleton height={200} />
+                  )}
+
+
+
+               
+
+
               </Card.Body>
             </Card>
           ))}
