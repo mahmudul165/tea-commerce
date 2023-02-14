@@ -46,8 +46,8 @@ function ProductsShowcase({ data }) {
       initial="initial"
       animate="animate"
       exit={{ opacity: 0 }}
-      className="container my-4"
-      style={{ backgroundColor: "#ffddde" }}
+      className="container my-4 p-3 bg-light"
+      // style={{ backgroundColor: "#ffddde" }}
     >
       <motion.div variants={stagger} className="row     my-2  py-3 ">
         {data ? (
