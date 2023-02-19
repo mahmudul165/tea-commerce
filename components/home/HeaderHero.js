@@ -65,7 +65,7 @@ style={{
     backgroundPosition: "center",
     // height: "100vh",
    }}>
-  <div className="row   p-5 align-items-center flex-lg-row-reverse">
+  <div className="row    p-5 align-items-center flex-lg-row-reverse"  style={{marginTop:'100px'}}>
     <div className="col-md-6 col-xl-6 mb-4 mb-lg-0 "  >
       
       <div className="lc-block position-relative "   ><img className="ms-5  w-50 img-fluid rounded shadow" src="https://i.ibb.co/brH8NNP/nav-header.png"   sizes="(max-width: 3840px) 100vw, 384px" width={384} height alt="Photo by sultan tea" />
