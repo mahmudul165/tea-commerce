@@ -57,7 +57,7 @@ const HeaderHero = () => (
 
 
   
-<div className=" py-5" 
+<div className="px-1 py-5" 
 style={{
     backgroundImage: "url(https://i.ibb.co/0hy2GWR/Rectangle-45.png)",
        backgroundSize: "cover",
