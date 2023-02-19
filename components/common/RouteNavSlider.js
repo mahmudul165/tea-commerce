@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { GoChevronRight } from "react-icons/go";
 const styles = {
   container: {
     position: "relative",
@@ -21,31 +22,7 @@ const styles = {
   },
 };
 const RouteNavSlider = (props) => (
-  // <header
-  //   className="hero d-flex align-items-center  " style={styles.container}
-  //   // style={{
-  //   //   backgroundImage: "url(https://i.ibb.co/0hy2GWR/Rectangle-45.png)",
-  //   //   backgroundSize: "cover",
-  //   //   opacity: 0.5,
-  //   //   backgroundPosition: "center",
-  //   //   height: "100vh",
-  //   // }}
-  // >
-  //   <div className="row align-items-center justify-items-center ">
-  //     <div className="col-8">
-  //       <div className="container text-white ">
-  //         <h1 className="fs-2 fw-bolder p-2 text-white" style={styles.text}>Health Benefits Of Tea Fresh Green Tea</h1>
-  //         <p className="lead py-3 my-1 text-white">Tea is Good your health.</p>
-  //         <button className="d-flex align-items-center  fw-bolder btn  btn-lg text-white" style={{backgroundColor:'#E49E48'}}>Shop Now
-  //         <AiOutlineArrowRight className="ms-2"/>
-  //         </button>
-  //       </div>
-  //     </div>
-  //     <div className="col-4">
-
-  //     </div>
-  //   </div>
-  // </header>
+ 
 
   <div
     className=" py-5"
@@ -64,9 +41,9 @@ const RouteNavSlider = (props) => (
       <div className=" ">
         {/* /lc-block */}
         <div className="lc-block mb-2 text-center">
-          <div editable="rich">
-            <h4 className="lead text-white pb-2 fs-3 fw-bolder">
-              {props?.router}
+        <div editable="rich ">
+            <h4 className="d-flex align-items-center justify-content-center lead  text-center text-white pb-2 fs-3 fw-bolder">
+          <span>  Home</span> <span> <GoChevronRight className="fs-1"/></span><span> {props?.router}</span>
             </h4>
           </div>
         </div>
