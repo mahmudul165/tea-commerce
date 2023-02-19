@@ -37,7 +37,7 @@ const NewsPress = () => {
           <>
           <Col  sm={12} md={4} key={product.id}>
             <Card style={{ width: "22rem", height: "auto"}}>
-              <Card.Img variant="top" src={product?.image} fluid />
+              <Card.Img className="gelleryCardImg" variant="top" src={product?.image} fluid />
               <Card.Body>
                 <Card.Title className="fs-5 fw-bolder">{product.name}</Card.Title>
                 <Card.Text>

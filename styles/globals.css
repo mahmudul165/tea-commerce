@@ -100,3 +100,22 @@ ul.demo {
   ul li {
     font-family: "Mulish";
   }
+
+
+  .cardImage {
+    height: 250px; /* or any other fixed height you want */
+    object-fit: cover;
+  }
+
+  .heroImage{
+    height: 400px; /* or any other fixed height you want */
+    object-fit: cover;
+  }
+  .gelleryCardImg{
+    height: 350px; /* or any other fixed height you want */
+    object-fit: cover;
+  }
+  .galleryImage{
+    height: 300px; /* or any other fixed height you want */
+    object-fit: cover;
+  }

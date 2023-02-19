@@ -10,65 +10,66 @@ const products = [
       id: 1,
       name: "Product 1",
       image:
-        "https://cdn.shopify.com/s/files/1/0935/3276/products/Untitleddesign_23_400x.png?v=1671180954",
+        "https://i.ibb.co/j44drGC/Rectangle.png",
       price: 500,
     },
     {
       id: 2,
       name: "Product 2",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/g/r/green.jpg",
+      image:"https://i.ibb.co/fXXVBZf/hero-2.jpg",
       price: 7840,
     },
     {
       id: 3,
       name: "Product 3",
       image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/w/b/wb_gm_premium_assam_tea_25tb-1.jpg",
+      "https://www.tastingtable.com/img/gallery/20-tea-brands-ranked-from-worst-to-best/intro-1644018824.jpg",
       price: 120,
     },
-    {
-      id: 4,
-      name: "Product 4",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-      price: 5450,
-    },
-    {
-      id: 5,
-      name: "Product 5",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-      price: 700,
-    },
-    {
-      id: 6,
-      name: "Product 6",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-      price: 5800,
-    },
-    {
-      id: 7,
-      name: "Product 4",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8uxkKiX-wGly90GY9jHmIUew80yVpI6jzAg&usqp=CAU",
-      price: 200,
-    },
-    {
-      id: 8,
-      name: "Product 5",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/g/r/green.jpg",
-      price: 400,
-    },
-    {
-      id: 9,
-      name: "Product 6",
-      image:
-        "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/w/b/wb_gm_premium_assam_tea_25tb-1.jpg",
-      price: 50,
-    },
+
+    
+    // {
+    //   id: 4,
+    //   name: "Product 4",
+    //   image:
+    //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
+    //   price: 5450,
+    // },
+    // {
+    //   id: 5,
+    //   name: "Product 5",
+    //   image:
+    //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
+    //   price: 700,
+    // },
+    // {
+    //   id: 6,
+    //   name: "Product 6",
+    //   image:
+    //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
+    //   price: 5800,
+    // },
+    // {
+    //   id: 7,
+    //   name: "Product 4",
+    //   image:
+    //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8uxkKiX-wGly90GY9jHmIUew80yVpI6jzAg&usqp=CAU",
+    //   price: 200,
+    // },
+    // {
+    //   id: 8,
+    //   name: "Product 5",
+    //   image:
+    //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/g/r/green.jpg",
+    //   price: 400,
+    // },
+    // {
+    //   id: 9,
+    //   name: "Product 6",
+    //   image:
+    //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/w/b/wb_gm_premium_assam_tea_25tb-1.jpg",
+    //   price: 50,
+    // },
   ];
 function Hero() {
   const ref = useRef(null);
@@ -86,7 +87,7 @@ function Hero() {
     //   }}
       
     >
-      <div className=" container  my-1 py-2  ">
+      <div className=" container  my-1 py-1  ">
         <div className="row   align-items-center justify-items-center">
           <section className="col-sm-12 col-md-6 my-1 py-1 ">
             {/* egg animation added start */}
@@ -121,7 +122,7 @@ function Hero() {
                 // }}
                 className="d-flex"
               >
-                <button className="btn    my-4 py-2     btn-outline-dark rounded-pill   ">
+                <button className="btn    my-4 py-2     fs-5 fw-bolder text-white   " style={{backgroundColor:'#E49E48'}}>
                  More about us
                 </button>
                 {/* <button className="btn     ms-3 my-4 py-2  btn btn-outline-dark rounded-pill  slider-btn-bg    ">
@@ -135,14 +136,14 @@ function Hero() {
 
          <Carousel>
         {products?.map((product, index) => {
-              if (index % 4 === 0) {
+              if (index % 1 === 0) {
                 return ( 
        
             <Carousel.Item key={product.id}>
               <Container fluid> 
           
-            <Card className="h-20 border-0 p-1">
-                          <Card.Img variant="top" src={product?.image} />
+            <Card className="  border-0 p-1">
+                          <Card.Img  className="heroImage" variant="top" src={product?.image} />
                         </Card>
             </Container > 
             </Carousel.Item>

@@ -34,29 +34,29 @@ const products = [
     id: 1,
     name: "Product 1",
     image:
-      "https://cdn.shopify.com/s/files/1/0935/3276/products/Untitleddesign_23_400x.png?v=1671180954",
-    price: 500,
+      "https://i.ibb.co/3mYNLr4/Rectangle-1.png",
+    price: 210.00,
   },
   {
     id: 2,
     name: "Product 2",
     image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/g/r/green.jpg",
-    price: 7840,
+      "https://i.ibb.co/WsbX20H/Rectangle-2.png",
+    price: 180.00,
   },
   {
     id: 3,
     name: "Product 3",
     image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/w/b/wb_gm_premium_assam_tea_25tb-1.jpg",
-    price: 120,
+      "https://i.ibb.co/ry3sDTB/Rectangle-3.png",
+    price: 85.00,
   },
   {
     id: 4,
     name: "Product 4",
     image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-    price: 5450,
+      "https://i.ibb.co/DYD5Z3T/Rectangle-4.png",
+    price: 885.00,
   },
   {
     id: 5,
@@ -122,14 +122,17 @@ const ProductCarousel = () => {
                           {/* <Link href={`shop/${product.id}`} passHref> */}
                           {product.image ? (
                             <motion.img
+                            style={{ border: '1px solid #59330E' }}
                               initial={{ x: 60, opacity: 0 }}
                               animate={{ x: 0, opacity: 1 }}
                               transition={{ delay: 0.2 }}
                               src={product?.image}
                               alt="E-COMMERCE  products"
-                              className="card-img-top  p-2 "
-                              width={336}
-                              height={230}
+                              className="card-img-top  p-3 cardImage"
+                              // width={336}
+                              // height={230}
+                              // width={243}
+                              // height={165}
                               layout="responsive"
                             />
                           ) : (
@@ -173,8 +176,7 @@ const ProductCarousel = () => {
                                 border: 0,
                               }}
                             >
-                              ৳ 500
-                              {/* {product.price} */}
+                              ৳ {product.price}
                             </p>
                             <button
                               type="button"

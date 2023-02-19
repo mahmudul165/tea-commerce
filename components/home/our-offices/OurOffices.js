@@ -6,7 +6,7 @@ function OurOffices() {
   const products = [
     {
       id: 1,
-      image: "https://picture.liquidspace.com/Index?emptyImageUrl=https%3A%2F%2Fcontent.liquidspace.com%2FImages%2Fliquid-holder.jpg%3Fv%3Dff1a777e91&etag=jNy%2FQlinhOmOgaw3O3gGiA%3D%3D&crop=true&aux=ZtIUst8gU7uZ26VYJr51KgtI3b6VcVvZvl4Jp9lAAo6yNwb%2FfQKzvDXF4wob0nkKRvj1g5cXt9tE3plPiHK1Nw%3D%3D",
+      image: "https://i.ibb.co/BfcgrFd/our-offices.png",
       name: "John Doe",
       location: "New York, NY",
       phone: "555-555-5555",
@@ -14,7 +14,8 @@ function OurOffices() {
     },
     {
       id: 2,
-      image: "https://i1.wp.com/bizbd.net/wp-content/uploads/2020/09/tea-business-in-bangladesh-01.jpg?fit=1024%2C640&ssl=1",
+      // image: "https://d1tm14lrsghf7q.cloudfront.net/public/media/28486/conversions/26998-thumb.jpg",
+      image: "https://i.ibb.co/BfcgrFd/our-offices.png",
       name: "Jane Smith",
       location: "San Francisco, CA",
       phone: "555-555-5556",
@@ -22,7 +23,8 @@ function OurOffices() {
     },
     {
       id: 3,
-      image: "https://d1tm14lrsghf7q.cloudfront.net/public/media/28486/conversions/26998-thumb.jpg",
+      image: "https://i.ibb.co/BfcgrFd/our-offices.png",
+       
       name: "Bob Johnson",
       location: "Los Angeles, CA",
       phone: "555-555-5557",
@@ -36,7 +38,7 @@ function OurOffices() {
       <SectionTitle title='Our Offices ' />
         {products.map((product) => (
           <Col sm={12} md={4} key={product.id}>
-            <Card style={{ width: "22rem", height: "auto"}}>
+            {/* <Card style={{ width: "22rem", height: "auto"}}> */}
               <Image src={product.image} alt="text22" fluid />
               <Card.Body className="py-2">
                 <Card.Title >{product.name}</Card.Title>
@@ -49,7 +51,7 @@ function OurOffices() {
                   {product.email}
                 </Card.Text>
               </Card.Body>
-            </Card>
+            {/* </Card> */}
           </Col>
         ))}
       </Row>

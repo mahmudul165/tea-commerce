@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Card } from "react-bootstrap";
- import OverViewImage2 from '/public/clientcompany/company.jpg'
+ import OverViewImage2 from '/public/about-image-1.png'
 function Overview1() {
   return (
     <section>
@@ -39,7 +39,7 @@ function Overview1() {
             {/* <Roll right> */}
               <div className="my-4 py-2">
                 <Card> 
-                <Image src={OverViewImage2} alt="Picture of the author" />
+                <Image className="heroImage" src={OverViewImage2} alt="Picture of the author" />
                 </Card>
               </div>
           

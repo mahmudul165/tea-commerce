@@ -53,10 +53,11 @@ const Gallery = () => (
         <div className="row     ">
           {object.images.map((image, index) => (
             
-            <Card key={index} className="col-sm-12 col-md-3      border-0" >
-              <Card.Body> 
+            <Card key={index} className="col-sm-12 col-md-3  mb-2    border-0" >
+              {/* <Card.Body>  */}
                  {image ? (
                     <motion.img
+                    className="galleryImage"
                       initial={{ x: 60, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
@@ -69,7 +70,7 @@ const Gallery = () => (
                   ) : (
                     <Skeleton height={400} />
                   )} 
-              </Card.Body>
+              {/* </Card.Body> */}
             </Card> 
           ))}
         </div>
