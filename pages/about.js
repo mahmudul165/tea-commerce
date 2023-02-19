@@ -13,9 +13,10 @@ import RouteNavSlider from '@/components/common/RouteNavSlider'
 function about() {
   // const router=useRouter()
   // console.log(router.pathname)
+ 
   return (
     <>
-    <RouteNavSlider router='About Us'/>
+    <RouteNavSlider router='About Us'   />
     <Overview1/>
     <Overview2/>
     <Overview3/>
