@@ -7,13 +7,16 @@ import Overview4 from '@/components/about/Overview4'
 import Achivements from '@/components/about/Achivements'
 import NewsPress from '@/components/about/NewsPress'
 import ClientCompany from '@/components/about/ClientCompany'
+import RouteNavSlider from '@/components/common/RouteNavSlider'
 // import { useRouter } from 'next/router'
  
 function about() {
   // const router=useRouter()
   // console.log(router.pathname)
   return (
-    <><Overview1/>
+    <>
+    <RouteNavSlider router='About Us'/>
+    <Overview1/>
     <Overview2/>
     <Overview3/>
     <Overview4/>
