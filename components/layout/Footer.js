@@ -102,31 +102,32 @@ const Footer = () => {
   return (
     <Container fluid className="p-4 " style={{backgroundColor:'#F3F3F3'}}>
       <Row>
-        <Col md={3}>
-          <Row className='justify-center w-50'>
-            <Image src="logo.png"       alt="logo" />
-          </Row>
-          <Row className="my-3">
+        <Col md={3} sm={12}>
+          {/* <Row className='justify-center w-50'> */}
+            <Image className='w-25' src="logo.png"       alt="logo" />
+          {/* </Row> */}
+          {/* <Row className="my-3"> */}
             <p className="fs-5 p-2">lorem vsgsgb xbsasaees xvaesfweafg xveasfgvsd sefgv fgwfweac xwfsd cvsf fgrfq xgew xcfgweftg fgwe gew</p>
-          </Row>
-          <Row className='justify-center w-50'>
-          <Col md={3}>
+          {/* </Row> */}
+          <div className='d-flex  fs-5 p-1'>
+          {/* <Col sm={3} md={3}  > */}
           <a href="#">
               <FaFacebook />
             </a>
-            </Col>
-            <Col md={3}>
-          <a href="#">
+            {/* </Col> */}
+            {/* <Col sm={3} md={3}  > */}
+          <a href="#" className='px-4'>
           <FaTwitter />
             </a>
-            </Col>
-            <Col md={3}>
+            {/* </Col> */}
+            {/* <Col sm={3} md={3}  > */}
             <a href="#">
               <FaInstagram />
-            </a>  </Col>
-          </Row>
+            </a>  
+            {/* </Col> */}
+          </div>
         </Col>
-        <Col md={3}>
+        <Col sm={12} md={3} >
           <h1 className='fs-5 fw-bold'>Quick Link</h1>
           <ul className='demo'>
             <li><a href="#">Company</a></li>
@@ -137,7 +138,7 @@ const Footer = () => {
             <li><a href="#">Support</a></li>
           </ul>
         </Col>
-        <Col md={3}>
+        <Col sm={12} md={3}>
           <h1 className='fs-5 fw-bold'>About</h1>
           <ul className='demo'>
             <li><a href="#">About Us</a></li>
@@ -147,7 +148,7 @@ const Footer = () => {
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </Col>
-        <Col md={3}>
+        <Col sm={12} md={3}>
            <h1 className='fs-5 fw-bold mb-3'   >Promotional Video</h1> 
           <Card    >
             

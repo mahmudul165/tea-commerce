@@ -106,7 +106,7 @@ function Hero() {
               <h3 className="my-2 py-1   fs-2    fw-bolder  ">
                 Welcome To Sultan Tea
               </h3>
-              <p className="my-2 py-1  fs-5 fw-bolder">
+              <p className="my-2 py-1    fs-5 fw-bolder">
               Loving Sultan Tea tea blends! The quality and taste are unbeatable. Their seasonal blends are always a delightful surprise. Excellent customer service too. Highly recommend.
               </p>
 
