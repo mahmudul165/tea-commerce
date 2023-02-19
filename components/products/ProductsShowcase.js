@@ -118,18 +118,18 @@ function ProductsShowcase({ data }) {
                      {/* {product.price} */}
                   </p>
                   <button
-                    type="button"
-                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
-                    style={{
-                      backgroundColor: "#59330E",
-                      // color: "#FF0099",
-                      border: 0,
-                    }}
-                    onClick={() => addItem(product)}
-                  >
-                    <i className="fas fa-shopping-cart me-1 py-1"></i>Add To
-                    Cart
-                  </button>
+                              type="button"
+                              className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold  me-2  "
+                              style={{
+                                backgroundColor: "#59330E",
+                                // color: "#FF0099",
+                                border: 0,
+                              }}
+                              onClick={() => addItem(product)}
+                            >
+                              <i className="fas fa-shopping-cart me-1 py-1"></i>
+                              Add To Cart
+                            </button>
                   {/* <button
                     type="button"
                     className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "

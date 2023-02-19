@@ -180,7 +180,7 @@ const ProductCarousel = () => {
                             </p>
                             <button
                               type="button"
-                              className="btn ml-1 px-2 btn-block btn-md text-white fs-6 fw-bolder mb-1 me-2  "
+                              className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold  me-2  "
                               style={{
                                 backgroundColor: "#59330E",
                                 // color: "#FF0099",
