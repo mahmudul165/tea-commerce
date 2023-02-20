@@ -119,3 +119,15 @@ ul.demo {
     height: 300px; /* or any other fixed height you want */
     object-fit: cover;
   }
+  /* navbar */
+  /* .navPosition{
+    position: relative;    
+    z-index: 10px !important;    
+     
+  } */
+
+   
+  /* .heroPosition{    
+    position: absolute;
+        
+  } */

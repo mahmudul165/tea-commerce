@@ -108,6 +108,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -120,6 +121,22 @@ import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { useCart } from "react-use-cart";
 import Logo from "/public/logo.png";
 function Header() {
+  // start header
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 0) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  };
+  // end header
   const {
     isEmpty,
     totalUniqueItems,
@@ -133,11 +150,14 @@ function Header() {
   return (
     <>
       {["lg"].map((expand) => (
-        <Navbar sticky="top" 
+        <Navbar
+               
           key={expand}
-          bg="light"
+           sticky="top"  
+          // bg="light"
           expand={expand}
-          className="  fs-6 fw-bold text-danger"
+          // className="  fs-6 fw-bold text-danger  navPosition"
+          className={`fs-6 fw-bold text-danger  navPosition  ${scroll ? " bg-light" : ""}`}
         >
           <Container fluid className="justify-content-around">
             <Row>

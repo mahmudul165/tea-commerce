@@ -29,12 +29,13 @@ https://i.ibb.co/72mWj6z/top-router-slider-4.jpg
 https://i.ibb.co/1bVKCv3/top-router-slider-3.jpg
 https://i.ibb.co/Cb71LmD/top-router-slider-2.jpg */}
   <div
-    className=" py-5"
+    className=" py-5 "
     style={{
       backgroundImage: "url(https://i.ibb.co/Cb71LmD/top-router-slider-2.jpg )",
       backgroundSize: "cover",
       opacity: 1,
       backgroundPosition: "center",
+      
       // height: "100vh",
     }}
   >

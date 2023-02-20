@@ -8,9 +8,10 @@ import Footer from "./Footer";
  
 
 function Layout({ children }) {
+   
   return (
     <> 
-      <Header />
+      <Header   />
       <main>
 
       <div className="px-2 ">
