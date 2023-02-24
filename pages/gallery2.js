@@ -1,6 +1,6 @@
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import React, { useState } from "react";
-import { Container, Row, Col, Nav, Card, Image } from "react-bootstrap";
+import { Container, Row, Col, Nav, Card, } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
