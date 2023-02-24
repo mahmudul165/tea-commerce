@@ -177,6 +177,19 @@ function Header() {
                 </NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item as="span">
+                  <Link href={"/press-releases"}>Press Releases</Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item as="span">
+                  <Link href={"/new-arrival"}>News Links</Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+
+              <NavDropdown title="About Us" id="collasible-nav-dropdown">
+                <NavDropdown.Item as="span">
+                  <Link href={"/about"}>About Sultan Tea</Link>
+                </NavDropdown.Item>
+                {/* <NavDropdown.Divider /> */}
+                <NavDropdown.Item as="span">
                   <Link href={"/new-arrival"}>Press Releases</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item as="span">

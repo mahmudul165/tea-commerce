@@ -139,3 +139,12 @@ ul li {
     display: block;
   }
 }
+/* press releases mobile view */
+@media only screen and (max-width: 600px) {
+  .icon-wrapper {
+    flex-basis: 100%;
+  }
+  .icon-wrapper:last-child {
+    margin-bottom: 0;
+  }
+}
