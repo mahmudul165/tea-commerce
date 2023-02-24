@@ -61,7 +61,7 @@ function PressReleasesBlog({ data }) {
                 className="card border-0 "
               >
                 {/* {`blogs/${product.title}`} */}
-                <Link href={`/blogs/${product.id}`} passHref>
+                <Link href={`/press-releases/${product.id}`} passHref>
                   {product.image_one ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
@@ -186,7 +186,7 @@ function PressReleasesBlog({ data }) {
                     }}
                     // onClick={() => addItem(product)}
                   >
-                    Learn More
+                    Read More
                   </button>
                 </div>
                 {/* </div> */}
