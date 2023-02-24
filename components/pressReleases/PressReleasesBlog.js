@@ -131,7 +131,7 @@ function PressReleasesBlog({ data }) {
                 {/* <div className="p-2 m-2 d-flex align-items-center justify-content-center"> */}
                 {/* 3 items added date gallery slide comment */}
                 <div
-                  className="px-2 m-2"
+                  className="px-2 m-2 text-warning"
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
