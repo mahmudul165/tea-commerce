@@ -180,7 +180,7 @@ function Header() {
                     </NavDropdown.Item>                     
                     {/* <NavDropdown.Divider /> */}
                     <NavDropdown.Item as="span">
-                       <Link href={"/new-arrival"}>Press Releases</Link>
+                       <Link href={"/press-releases"}>Press Releases</Link>
                     </NavDropdown.Item>  
                     <NavDropdown.Item as="span">
                        <Link href={"/new-arrival"}>News Links</Link>
