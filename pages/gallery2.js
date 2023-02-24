@@ -123,7 +123,7 @@ const Gallery = () => {
           <Row key={row[0].id} className="mb-4">
             {row.map((image,index) => (
               <Card
-                // key={index}
+              key={image.id}
                 className="col-sm-12 col-md-3  mb-2    border-0"
               >
                 {/* <Card.Body>  */}
