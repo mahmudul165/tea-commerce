@@ -242,6 +242,12 @@ function Header() {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   Sultan Tea
                 </Offcanvas.Title>
+                <Nav.Link as="i" className="fs-4">
+                  <Link href={"/search"}>
+                    {" "}
+                    <FaSearch />{" "}
+                  </Link>
+                </Nav.Link>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
@@ -267,7 +273,7 @@ function Header() {
                     <Link href={"/contact"}>Contact Us</Link>
                   </Nav.Link>
                   {/* start */}
-                  <Nav.Link as="i" className="fs-4">
+                  <Nav.Link as="i" className="fs-4 d-sm-none d-xs-none">
                     <Link href={"/add-to-card"}>
                       {" "}
                       <FaShoppingCart />{" "}
@@ -276,7 +282,7 @@ function Header() {
 
                   {/* ({totalItems}) */}
 
-                  <Nav.Link as="i" className="fs-4">
+                  <Nav.Link as="i" className="fs-4 d-sm-none d-xs-none">
                     <Link href={"/search"}>
                       {" "}
                       <FaSearch />{" "}
