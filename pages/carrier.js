@@ -4,7 +4,7 @@ import { Table, Pagination } from "react-bootstrap";
  
 // import { useRouter } from 'next/router'
 
-function carrier() {
+function Carrier() {
   const data = [
     {
       id: 1,
@@ -214,4 +214,4 @@ function carrier() {
   );
 }
 
-export default carrier;
+export default Carrier;
