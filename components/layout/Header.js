@@ -157,45 +157,55 @@ function Header() {
           // bg="light"
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
-          className={`fs-6 fw-bold text-danger  navPosition  ${scroll ? " bg-light" : ""}`}
+          className={`row align-items-center   m-auto fs-6 fw-bold text-danger   navPosition  ${scroll ? " bg-light container-fluid " : "container"}`}
         >
-          <Container fluid className="justify-content-around">
-            <Row>
-              <Col xl={3} md={3}>
+          {/* <Container fluid className="justify-content-around"> */}
+            {/* <div className="row"> */}
+              <div className="col-md-4">
                 <Nav className="mr-auto " as="ul">
-                  <Nav.Item as="li">
-                    
+                  <Nav.Item as="li">                    
                     <Nav.Link as="span">
                       <Link href={"/"}>Home</Link>
                     </Nav.Link>
                   </Nav.Item>
-                  <Nav.Item as="li">
-                    
-                    <Nav.Link as="span">
-                      <Link href={"/about"}>About</Link>
+                  {/* <Nav.Item as="li">                    
+                    <Nav.Link as="span" className="text-nowrap">
+                      <Link href={"/about"}>About Us</Link>
                     </Nav.Link>
-                  </Nav.Item>
-
-                  <NavDropdown title="Pages" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Action
-                    </NavDropdown.Item>                    
-                  </NavDropdown>
-                  <NavDropdown title="Shop" id="collasible-nav-dropdown">
+                  </Nav.Item> */}
+                   
+                  <NavDropdown title="About Us" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">
-                       <Link href={"/shop"}>Products</Link>
-                    </NavDropdown.Item>
-                     
+                       <Link href={"/about"}>About Sultan Tea</Link>
+                    </NavDropdown.Item>                     
                     {/* <NavDropdown.Divider /> */}
                     <NavDropdown.Item as="span">
-                       <Link href={"/new-arrival"}>New Arrivals</Link>
-                    </NavDropdown.Item>
+                       <Link href={"/new-arrival"}>Press Releases</Link>
+                    </NavDropdown.Item>  
+                    <NavDropdown.Item as="span">
+                       <Link href={"/new-arrival"}>News Links</Link>
+                    </NavDropdown.Item>                
                   </NavDropdown>
+
+                  <NavDropdown title="Our Business" id="collasible-nav-dropdown">
+                    <NavDropdown.Item as="span">
+                       <Link href={"/about"}>New</Link>
+                    </NavDropdown.Item>                     
+                    {/* <NavDropdown.Divider /> */}
+                    {/* <NavDropdown.Item as="span">
+                       <Link href={"/new-arrival"}>Press Releases</Link>
+                    </NavDropdown.Item>   */}
+                                
+                  </NavDropdown>
+                  <Nav.Link as="span" className="text-nowrap">
+                      <Link href={"/our-brand"}>Our Brands</Link>
+                    </Nav.Link>
+                  
                 </Nav>
-              </Col>
-              <Col xl={3} md={3}>
+              </div>
+              <div className="col-md-2">
                 <Nav
-                  className="ml-auto align-items-center  justify-content-end "
+                  className="m-auto align-items-center  justify-content-center "
                   as="ul"
                 >
                   {" "}
@@ -215,8 +225,8 @@ function Header() {
                     />{" "} */}
                   </Nav.Item>
                 </Nav>
-              </Col>
-              <Col xl={6} md={6}>
+              </div>
+              <div className="col-md-6">
                 <Navbar.Toggle
                   aria-controls={`offcanvasNavbar-expand-${expand}`}
                 />
@@ -234,18 +244,30 @@ function Header() {
                   </Offcanvas.Header>
                   <Offcanvas.Body>
                     <Nav className="justify-content-end flex-grow-1 pe-3">
+                    
                     <Nav.Link as="span">
-                      <Link href={"/gellary"}>Gellary</Link>
+                      <Link href={"/gellary"}>Gallery</Link>
                     </Nav.Link>
+                    <NavDropdown title="Shop" id="collasible-nav-dropdown">
+                    <NavDropdown.Item as="span">
+                       <Link href={"/shop"}>Products</Link>
+                    </NavDropdown.Item>                     
+                    {/* <NavDropdown.Divider /> */}
+                    <NavDropdown.Item as="span">
+                       <Link href={"/new-arrival"}>New Arrivals</Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
                     <Nav.Link as="span">
                       <Link href={"/blogs"}>Blog</Link>
                     </Nav.Link>
-                      
-                      <Nav.Link as="span">
+                    <Nav.Link as="span">
+                        <Link href={"/carrier"}>Carrier</Link>
+                      </Nav.Link>
+                      <Nav.Link as="span" className="text-nowrap">
                         <Link href={"/contact"}>Contact Us</Link>
                       </Nav.Link>
-                    </Nav>
-                    <Nav.Link as="i" className="fs-4">
+                      {/* start */}
+                      <Nav.Link as="i" className="fs-4">
                         <Link href={"/add-to-card"}>   <FaShoppingCart />  </Link>
                       </Nav.Link>
                       
@@ -256,11 +278,13 @@ function Header() {
                         <Link href={"/search"}>  <FaSearch /> </Link>
                       </Nav.Link>
                        
+                    </Nav>
+                    
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
-              </Col>
-            </Row>
-          </Container>
+              </div>
+            {/* </div> */}
+          {/* </Container> */}
         </Navbar>
       ))}
     </>
