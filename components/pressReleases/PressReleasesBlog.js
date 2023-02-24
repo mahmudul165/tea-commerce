@@ -132,15 +132,48 @@ function PressReleasesBlog({ data }) {
                 {/* 3 items added date gallery slide comment */}
                 <div
                   className="px-2 m-2"
-                  style={{ display: "flex", alignItems: "center" }}
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                  }}
                 >
-                  <RiCalendar2Line size={20} />
-                  <p style={{ margin: "0 10px" }}>March 1, 2023</p>
-                  <RiImageLine size={20} />
-                  <p style={{ margin: "0 10px" }}>Slide 1 of 5</p>
-                  <RiChat1Line size={20} />
-                  <p style={{ margin: "0 10px" }}>12 Comments</p>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    <RiCalendar2Line size={20} />
+                    <p style={{ margin: "0 0 0 5px" }}>March 1, 2023</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    <RiImageLine size={20} />
+                    <p style={{ margin: "0 0 0 5px" }}>Slide 1 of 5</p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginRight: "10px",
+                      marginBottom: "10px",
+                    }}
+                  >
+                     <RiChat1Line size={20} />
+                    <p style={{ margin: "0 0 0 5px" }}>12 Comments</p>
+                  </div>
+                
                 </div>
+
                 {/* end  */}
                 <div className="px-2 m-2">
                   <button
