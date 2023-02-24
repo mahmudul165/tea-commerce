@@ -4,27 +4,28 @@ import { Table, Pagination } from 'react-bootstrap';
 import RouteNavSlider from '@/components/common/RouteNavSlider'
 // import { useRouter } from 'next/router'
  
-const data = [
-    { id: 1, jobTitle: 'Web Developer', vacancy: 3, location: 'New York', salary: '$80,000 - $100,000', deadline: '2023-03-15', time: 'Full-time' },
-    { id: 2, jobTitle: 'Graphic Designer', vacancy: 2, location: 'San Francisco', salary: '$60,000 - $80,000', deadline: '2023-03-20', time: 'Part-time' },
-    { id: 3, jobTitle: 'Software Engineer', vacancy: 4, location: 'Boston', salary: '$90,000 - $120,000', deadline: '2023-03-25', time: 'Full-time' },
-    { id: 4, jobTitle: 'Project Manager', vacancy: 1, location: 'Chicago', salary: '$100,000 - $130,000', deadline: '2023-03-30', time: 'Full-time' },
-    { id: 5, jobTitle: 'Marketing Manager', vacancy: 2, location: 'Los Angeles', salary: '$80,000 - $100,000', deadline: '2023-04-05', time: 'Part-time' },
-    { id: 6, jobTitle: 'Sales Representative', vacancy: 3, location: 'Seattle', salary: '$50,000 - $70,000', deadline: '2023-04-10', time: 'Full-time' },
-    { id: 7, jobTitle: 'Data Analyst', vacancy: 2, location: 'Houston', salary: '$70,000 - $90,000', deadline: '2023-04-15', time: 'Part-time' },
-    { id: 8, jobTitle: 'UX Designer', vacancy: 1, location: 'Atlanta', salary: '$80,000 - $100,000', deadline: '2023-04-20', time: 'Full-time' },
-    { id: 9, jobTitle: 'Customer Service Representative', vacancy: 4, location: 'Miami', salary: '$30,000 - $50,000', deadline: '2023-04-25', time: 'Full-time' },
-    { id: 10, jobTitle: 'HR Manager', vacancy: 1, location: 'Dallas', salary: '$90,000 - $120,000', deadline: '2023-04-30', time: 'Full-time' },
-    { id: 11, jobTitle: 'Front-end Developer', vacancy: 2, location: 'Denver', salary: '$80,000 - $100,000', deadline: '2023-05-05', time: 'Part-time' },
-    { id: 12, jobTitle: 'Back-end Developer', vacancy: 3, location: 'Phoenix', salary: '$90,000 - $120,000', deadline: '2023-05-10', time: 'Full-time' },
-    { id: 13, jobTitle: 'UI Designer', vacancy: 1, location: 'Portland', salary: '$70,000 - $90,000', deadline: '2023-05-15', time: 'Full-time' },
-    { id: 14, jobTitle: 'Product Manager', vacancy: 2,location: 'Austin', salary: '$100,000 - $130,000', deadline: '2023-05-20', time: 'Part-time' },
-    { id: 15, jobTitle: 'Content Writer', vacancy: 3, location: 'Washington DC', salary: '$40,000 - $60,000', deadline: '2023-05-25', time: 'Full-time' }
-    ];
-    
-    const ITEMS_PER_PAGE = 6;
+ 
   
 function carrier() {
+    const data = [
+        { id: 1, jobTitle: 'Web Developer', vacancy: 3, location: 'New York', salary: '$80,000 - $100,000', deadline: '2023-03-15', time: 'Full-time' },
+        { id: 2, jobTitle: 'Graphic Designer', vacancy: 2, location: 'San Francisco', salary: '$60,000 - $80,000', deadline: '2023-03-20', time: 'Part-time' },
+        { id: 3, jobTitle: 'Software Engineer', vacancy: 4, location: 'Boston', salary: '$90,000 - $120,000', deadline: '2023-03-25', time: 'Full-time' },
+        { id: 4, jobTitle: 'Project Manager', vacancy: 1, location: 'Chicago', salary: '$100,000 - $130,000', deadline: '2023-03-30', time: 'Full-time' },
+        { id: 5, jobTitle: 'Marketing Manager', vacancy: 2, location: 'Los Angeles', salary: '$80,000 - $100,000', deadline: '2023-04-05', time: 'Part-time' },
+        { id: 6, jobTitle: 'Sales Representative', vacancy: 3, location: 'Seattle', salary: '$50,000 - $70,000', deadline: '2023-04-10', time: 'Full-time' },
+        { id: 7, jobTitle: 'Data Analyst', vacancy: 2, location: 'Houston', salary: '$70,000 - $90,000', deadline: '2023-04-15', time: 'Part-time' },
+        { id: 8, jobTitle: 'UX Designer', vacancy: 1, location: 'Atlanta', salary: '$80,000 - $100,000', deadline: '2023-04-20', time: 'Full-time' },
+        { id: 9, jobTitle: 'Customer Service Representative', vacancy: 4, location: 'Miami', salary: '$30,000 - $50,000', deadline: '2023-04-25', time: 'Full-time' },
+        { id: 10, jobTitle: 'HR Manager', vacancy: 1, location: 'Dallas', salary: '$90,000 - $120,000', deadline: '2023-04-30', time: 'Full-time' },
+        { id: 11, jobTitle: 'Front-end Developer', vacancy: 2, location: 'Denver', salary: '$80,000 - $100,000', deadline: '2023-05-05', time: 'Part-time' },
+        { id: 12, jobTitle: 'Back-end Developer', vacancy: 3, location: 'Phoenix', salary: '$90,000 - $120,000', deadline: '2023-05-10', time: 'Full-time' },
+        { id: 13, jobTitle: 'UI Designer', vacancy: 1, location: 'Portland', salary: '$70,000 - $90,000', deadline: '2023-05-15', time: 'Full-time' },
+        { id: 14, jobTitle: 'Product Manager', vacancy: 2,location: 'Austin', salary: '$100,000 - $130,000', deadline: '2023-05-20', time: 'Part-time' },
+        { id: 15, jobTitle: 'Content Writer', vacancy: 3, location: 'Washington DC', salary: '$40,000 - $60,000', deadline: '2023-05-25', time: 'Full-time' }
+        ];
+        
+    const ITEMS_PER_PAGE = 6;
   // const router=useRouter()
   // console.log(router.pathname)
   const [currentPage, setCurrentPage] = useState(1);
