@@ -158,7 +158,7 @@ function Header() {
         >
           {/* <Container fluid className="justify-content-around"> */}
           {/* <div className="row"> */}
-          <div className="col-md-4    d-none d-md-block  ">
+          <div className="col-lg-4  d-md-none d-lg-block   d-none   ">
             <Nav className="mr-auto " as="ul">
               <Nav.Item as="li">
                 <Nav.Link as="span">
@@ -211,7 +211,7 @@ function Header() {
               </Nav.Link>
             </Nav>
           </div>
-          <div className="col-md-2  col-sm-2  col-2">
+          <div className="col-lg-2  col-sm-2  col-2">
             <Nav
               className="m-auto align-items-center  justify-content-center "
               as="ul"
@@ -235,7 +235,7 @@ function Header() {
             </Nav>
           </div>
 
-          <div className=" d-block d-sm-block d-md-none col-sm-2 offset-6 col-2 d-xs-block ">
+          <div className=" d-block  d-lg-none d-md-block col-sm-2 offset-6 col-2 d-xs-block ">
             <Nav.Link as="i" className="fs-4">
               <Link href={"/add-to-card"}>
                 {" "}
@@ -244,7 +244,7 @@ function Header() {
             </Nav.Link>
           </div>
 
-          <div className="col-md-6  col-sm-2   col-2">
+          <div className="col-lg-6  col-sm-2   col-2">
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
