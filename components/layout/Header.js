@@ -286,7 +286,10 @@ function Header() {
                     <Link href={"/contact"}>Contact Us</Link>
                   </Nav.Link>
                   {/* start */}
-                  <Nav.Link as="i" className="fs-4 d-sm-none d-xs-none">
+                  <Nav.Link
+                    as="i"
+                    className="fs-4 d-sm-none d-lg-block d-xs-none"
+                  >
                     <Link href={"/add-to-card"}>
                       {" "}
                       <FaShoppingCart />{" "}
@@ -295,7 +298,10 @@ function Header() {
 
                   {/* ({totalItems}) */}
 
-                  <Nav.Link as="i" className="fs-4 d-sm-none d-xs-none">
+                  <Nav.Link
+                    as="i"
+                    className="fs-4 d-sm-none d-xs-none d-lg-block"
+                  >
                     <Link href={"/search"}>
                       {" "}
                       <FaSearch />{" "}
