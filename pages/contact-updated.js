@@ -3,7 +3,7 @@ import IconWithBackground from "@/components/common/IconWithBackground";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import OurOffices from "@/components/home/our-offices/OurOffices";
 import { Card, Form } from "react-bootstrap";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 function contact() {
   return (
@@ -49,7 +49,7 @@ function contact() {
             <Card className="card border rounded  p-5 mb-4 ">
               <div className="d-flex gap-5 align-items-center">
                 <IconWithBackground>
-                  <FaPhone size={25} className="" />
+                  <FaPhoneAlt size={25} className="" />
                 </IconWithBackground>
 
                 <div>
