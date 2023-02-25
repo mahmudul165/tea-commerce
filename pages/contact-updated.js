@@ -12,7 +12,7 @@ function contact() {
       <RouteNavSlider router="Contact Us" />
       <div className="  container my-5  ">
         <div className="rounded border position-relative">
-          <Card className="card border rounded w-25 p-4  position-absolute top-50 mx-5 translate-middle-y d-sm-none d-md-block d-xs-none">
+          <Card className="card border rounded w-25 p-4  position-absolute top-50 mx-5 translate-middle-y d-sm-none d-md-block d-xs-none pb-5">
             <div className="d-grid my-4">
               <MyButton
                 style={{ backgroundColor: "#59330E" }}
@@ -46,7 +46,7 @@ function contact() {
 
         <div className="row my-4">
           <div className="col-md-4">
-            <Card className="card border rounded  p-4 mb-4 ">
+            <Card className="card border rounded  p-5 mb-4 ">
               <div className="d-flex gap-5 align-items-center">
                 <IconWithBackground>
                   <FaPhone size={25} className="" />
@@ -59,7 +59,7 @@ function contact() {
                 </div>
               </div>
             </Card>
-            <Card className="card border rounded  p-4 mb-4">
+            <Card className="card border rounded  p-5 mb-4">
               <div className="d-flex gap-4 align-items-center">
                 <IconWithBackground>
                   <FaEnvelope size={25} className="" />
@@ -72,7 +72,7 @@ function contact() {
                 </div>
               </div>
             </Card>
-            <Card className="card border rounded  p-4 ">
+            <Card className="card border rounded  p-5 ">
               <div className="d-flex gap-4 align-items-center">
                 <IconWithBackground>
                   <FaMapMarkerAlt size={25} className="" />
@@ -93,7 +93,7 @@ function contact() {
               action="mail.php"
               method="POST"
             >
-              <h2 className="mb-2">Contact From</h2>
+              <h2 className="mb-2 fs-5 fw-bold">Contact From</h2>
               <Form.Group controlId="name" className="mb-3">
                 <Form.Control type="text" name="name" placeholder="Name" />
               </Form.Group>
@@ -109,7 +109,7 @@ function contact() {
                 <Form.Control
                   className="p-4"
                   as="textarea"
-                  rows={5}
+                  rows={10}
                   name="message"
                   placeholder="Message"
                 />
