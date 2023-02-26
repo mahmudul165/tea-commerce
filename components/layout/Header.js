@@ -199,7 +199,7 @@ function Header() {
 
               <NavDropdown title="Our Business" id="collasible-nav-dropdown">
                 <NavDropdown.Item as="span">
-                  <Link href={"/about"}>New</Link>
+                  <Link href={"/our-business"}>Our Business</Link>
                 </NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
                 {/* <NavDropdown.Item as="span">
