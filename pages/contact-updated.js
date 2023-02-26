@@ -1,6 +1,8 @@
+import HeroBanner from "@/components/common/Banner";
 import { MyButton } from "@/components/common/Buttons";
 import IconWithBackground from "@/components/common/IconWithBackground";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
+import Banner from "@/components/home/banner/Banner";
 import OurOffices from "@/components/home/our-offices/OurOffices";
 import { Card, Form } from "react-bootstrap";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
@@ -79,7 +81,8 @@ function contact() {
   return (
     <>
       {" "}
-      <RouteNavSlider router="Contact Us" />
+      {/* <RouteNavSlider router="Contact Us" /> */}
+      <HeroBanner name="Contact Us" />
       <div className="  container my-5  ">
         <div className="rounded border position-relative">
           <OurLocationCard />
