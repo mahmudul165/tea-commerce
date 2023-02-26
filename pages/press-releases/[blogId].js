@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 //  import { motion } from "framer-motion"
 import SliderImg from "public/slider-2.jpg";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
+import HeroBanner from "@/components/common/Banner";
 export const getStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
@@ -44,7 +45,8 @@ export const getStaticProps = async ({ params }) => {
 function BlogDetails({ data }) {
   return (
     <div className="m-3   ">
-      <RouteNavSlider router='Press Releases'/>
+      {/* <RouteNavSlider router='Press Releases'/> */}
+      <HeroBanner name='Press Releases' />
       {data ? (
         <Container className="m-3 ">
           <Card className="border-0  p-5">
