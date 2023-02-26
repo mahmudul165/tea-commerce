@@ -190,7 +190,7 @@ function Carrier() {
             ))}
           </tbody>
         </Table>
-        <Pagination>
+        <Pagination className="d-flex justify-content-end">
           <Pagination.First onClick={() => handlePageChange(1)} />
           <Pagination.Prev
             onClick={() => handlePageChange(currentPage - 1)}
