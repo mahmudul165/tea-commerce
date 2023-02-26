@@ -184,18 +184,18 @@ function Header() {
                 </NavDropdown.Item>
               </NavDropdown>
 
-              <NavDropdown title="About Us" id="collasible-nav-dropdown">
+              {/* <NavDropdown title="About Us" id="collasible-nav-dropdown">
                 <NavDropdown.Item as="span">
                   <Link href={"/about"}>About Sultan Tea</Link>
                 </NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
+
                 <NavDropdown.Item as="span">
                   <Link href={"/new-arrival"}>Press Releases</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item as="span">
                   <Link href={"/new-arrival"}>News Links</Link>
                 </NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
 
               <NavDropdown title="Our Business" id="collasible-nav-dropdown">
                 <NavDropdown.Item as="span">
@@ -264,9 +264,18 @@ function Header() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link as="span">
+                  {/* <Nav.Link as="span">
                     <Link href={"/gellary"}>Gallery</Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
+                   <NavDropdown title="Gallery" id="collasible-nav-dropdown">
+                    <NavDropdown.Item as="span">
+                      <Link href={"/gellary"}>Gallery1</Link>
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Divider /> */}
+                    <NavDropdown.Item as="span">
+                      <Link href={"/gallery2"}>Gallery2</Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">
                       <Link href={"/shop"}>Products</Link>
