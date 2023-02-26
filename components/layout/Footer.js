@@ -92,77 +92,108 @@
 //   );
 // }
 
-
-
-import React from 'react';
-import { Container, Row, Col, Card, Image } from 'react-bootstrap';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import React from "react";
+import { Container, Row, Col, Card, Image } from "react-bootstrap";
+import { AiFillLinkedin } from "react-icons/ai";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <Container fluid className="p-4 " style={{backgroundColor:'#F3F3F3'}}>
+    <Container fluid className="p-4 " style={{ backgroundColor: "#F3F3F3" }}>
       <Row>
         <Col md={3} sm={12}>
           {/* <Row className='justify-center w-50'> */}
-            <Image className='w-25' src="logo.png"       alt="logo" />
+          <Image className="w-25" src="logo.png" alt="logo" />
           {/* </Row> */}
           {/* <Row className="my-3"> */}
-            <p className="fs-5 p-2">lorem vsgsgb xbsasaees xvaesfweafg xveasfgvsd sefgv fgwfweac xwfsd cvsf fgrfq xgew xcfgweftg fgwe gew</p>
+          <p className="  mt-4 mb-1 w-75">
+            Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is
+            simply dummy text of the .
+          </p>
           {/* </Row> */}
-          <div className='d-flex  fs-5 p-1'>
-          {/* <Col sm={3} md={3}  > */}
-          <a href="#">
-              <FaFacebook />
-            </a>
-            {/* </Col> */}
+          <div className="d-flex gap-4 ">
             {/* <Col sm={3} md={3}  > */}
-          <a href="#" className='px-4'>
-          <FaTwitter />
+            <a href="#">
+              <FaFacebook size={25} />
             </a>
             {/* </Col> */}
             {/* <Col sm={3} md={3}  > */}
             <a href="#">
-              <FaInstagram />
-            </a>  
+              <FaTwitter size={25} />
+            </a>
             {/* </Col> */}
+            {/* <Col sm={3} md={3}  > */}
+            <a href="#">
+              <FaInstagram size={25} />
+            </a>
+            {/* </Col> */}
+
+            <a href="#">
+              <AiFillLinkedin size={25} />
+            </a>
           </div>
         </Col>
-        <Col sm={12} md={3} >
-          <h1 className='fs-5 fw-bold'>Quick Link</h1>
-          <ul className='demo'>
-            <li><a href="#">Company</a></li>
-            <li><a href="#">Our Products</a></li>
-            <li><a href="#">Our Services</a></li>
-            <li><a href="#">Location</a></li>
-            <li><a href="#">Term and condition</a></li>
-            <li><a href="#">Support</a></li>
+        <Col sm={12} md={3}>
+          <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
+          <ul className="demo ">
+            <li className="">
+              <a href="#">Company</a>
+            </li>
+            <li>
+              <a href="#">Our Products</a>
+            </li>
+            <li>
+              <a href="#">Our Services</a>
+            </li>
+            <li>
+              <a href="#">Location</a>
+            </li>
+            <li>
+              <a href="#">Term and condition</a>
+            </li>
+            <li>
+              <a href="#">Support</a>
+            </li>
           </ul>
         </Col>
         <Col sm={12} md={3}>
-          <h1 className='fs-5 fw-bold'>About</h1>
-          <ul className='demo'>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+          <h1 className="fs-5 fw-bold cus-color-secondary">About</h1>
+          <ul className="demo">
+            <li>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Contact Us</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+            <li>
+              <a href="#">Our Team</a>
+            </li>
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
           </ul>
         </Col>
         <Col sm={12} md={3}>
-           <h1 className='fs-5 fw-bold mb-3'   >Promotional Video</h1> 
-          <Card    >
-            
-              <video controls>
-                <source src="https://www.teashop.com.bd/wp-content/uploads/2023/01/Tea-Shop-Video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            
+          <h1 className="fs-5 fw-bold mb-3 cus-color-secondary">
+            Promotional Video
+          </h1>
+          <Card>
+            <video controls>
+              <source
+                src="https://www.teashop.com.bd/wp-content/uploads/2023/01/Tea-Shop-Video.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
           </Card>
         </Col>
       </Row>
       <Row className="border-top pt-3 mt-2">
         <Col>
-          <p className="text-center">&copy; Copyright Our Company 2022</p>
+          <p className="text-end">&copy; Copyright Our Company 2022</p>
         </Col>
       </Row>
     </Container>
