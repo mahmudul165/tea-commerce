@@ -2,7 +2,7 @@ import { Form, InputGroup } from "react-bootstrap";
 import { GoSearch } from "react-icons/go";
 import IconWithBackground from "./IconWithBackground";
 
-const SearchBar = () => {
+const SearchBar = ({ btnColor }) => {
   return (
     <>
       <InputGroup className="">
@@ -12,9 +12,15 @@ const SearchBar = () => {
           aria-describedby="basic-addon2"
         />
         <button type="button">
-          <IconWithBackground>
-            <GoSearch size={22} />
-          </IconWithBackground>
+          {btnColor === "primary" ? (
+            <IconWithBackground type="primary">
+              <GoSearch size={22} />
+            </IconWithBackground>
+          ) : (
+            <IconWithBackground>
+              <GoSearch size={22} />
+            </IconWithBackground>
+          )}
         </button>
       </InputGroup>
     </>
