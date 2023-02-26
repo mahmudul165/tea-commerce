@@ -2,8 +2,8 @@ import React from "react";
  import dynamic from "next/dynamic";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
-const BlogsShowcase = dynamic(
-  () => import("/components/blogs/BlogsShowcase.js"),
+const OurbusinessShowcase = dynamic(
+  () => import("/components/Our-Business/OurbusinessShowcase.js"),
   {
     loading: () => <><ThreeDotsWave/></>,
   }
@@ -33,7 +33,7 @@ function TodayDeals({ data }) {
   return (
     <>
      <RouteNavSlider router='Our Business'/>
-      <BlogsShowcase data={data} />
+      <OurbusinessShowcase data={data} />
     </>
   );
 }

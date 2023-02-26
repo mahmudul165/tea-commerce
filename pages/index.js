@@ -25,7 +25,7 @@ export default function Home() {
       <main className={styles.main}>         
                 {/* follow this for folder structure */}
                 {/* https://github.com/leerob/leerob.io */}
-                <HeaderHero className="navPosition"/>
+                <HeaderHero />
                 <Hero className='heroPosition' />
                 <ProductCarousel />
                 <Banner />
