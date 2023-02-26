@@ -1,3 +1,4 @@
+import HeroBanner from '@/components/common/Banner'
 import RouteNavSlider from '@/components/common/RouteNavSlider'
 import Gallery from '@/components/gallary/Gallery'
 import React from 'react'
@@ -5,7 +6,8 @@ import React from 'react'
 function gellary() {
   return (
     <div>
-       <RouteNavSlider router='Gellary'/>
+       {/* <RouteNavSlider router='Gellary'/> */}
+       <HeroBanner name="Gellary" />
       <Gallery/></div>
   )
 }

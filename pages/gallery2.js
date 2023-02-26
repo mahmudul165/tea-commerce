@@ -4,6 +4,7 @@ import { Container, Row, Col, Nav, Card, } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
+import HeroBanner from "@/components/common/Banner";
 const Gallery = () => {
   const [tab, setTab] = useState("all");
 
@@ -79,7 +80,8 @@ const Gallery = () => {
   return (
     <div>
       {" "}
-      <RouteNavSlider router="Gellary" />
+      {/* <RouteNavSlider router="Gellary" /> */}
+      <HeroBanner name="Gellary" />
       <Container className="my-5">
         <Nav className="mb-3">
           <Nav.Item>

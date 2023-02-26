@@ -2,6 +2,7 @@ import React from "react";
  import dynamic from "next/dynamic";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
+import HeroBanner from "@/components/common/Banner";
 const PressReleasesBlog = dynamic(
   () => import("/components/pressReleases/PressReleasesBlog.js"),
   {
@@ -32,7 +33,8 @@ function TodayDeals({ data }) {
    
   return (
     <>
-     <RouteNavSlider router='Press Releases'/>
+     {/* <RouteNavSlider router='Press Releases'/> */}
+     <HeroBanner name='Press Releases' />
       <PressReleasesBlog data={data} />
     </>
   );

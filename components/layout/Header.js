@@ -292,7 +292,7 @@ function Header() {
                     <Link href={"/carrier"}>Carrier</Link>
                   </Nav.Link>
                   <Nav.Link as="span" className="text-nowrap">
-                    <Link href={"/contact"}>Contact Us</Link>
+                    <Link href={"/contact-updated"}>Contact Us</Link>
                   </Nav.Link>
                   {/* start */}
                   <Nav.Link

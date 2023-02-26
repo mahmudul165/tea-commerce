@@ -2,6 +2,7 @@ import React from "react";
  import dynamic from "next/dynamic";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
+import HeroBanner from "@/components/common/Banner";
 const OurbusinessShowcase = dynamic(
   () => import("/components/Our-Business/OurbusinessShowcase.js"),
   {
@@ -32,7 +33,8 @@ function TodayDeals({ data }) {
    
   return (
     <>
-     <RouteNavSlider router='Our Business'/>
+     {/* <RouteNavSlider router='Our Business'/> */}
+     <HeroBanner name='Our Business' />
       <OurbusinessShowcase data={data} />
     </>
   );

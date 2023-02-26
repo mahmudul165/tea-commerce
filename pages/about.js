@@ -8,6 +8,7 @@ import Achivements from '@/components/about/Achivements'
 import NewsPress from '@/components/about/NewsPress'
 import ClientCompany from '@/components/about/ClientCompany'
 import RouteNavSlider from '@/components/common/RouteNavSlider'
+import HeroBanner from '@/components/common/Banner'
 // import { useRouter } from 'next/router'
  
 function about() {
@@ -16,7 +17,8 @@ function about() {
  
   return (
     <>
-    <RouteNavSlider router='About Us'   />
+    {/* <RouteNavSlider router='About Us'   /> */}
+    <HeroBanner name='About Us' />
     <Overview1/>
     <Overview2/>
     <Overview3/>

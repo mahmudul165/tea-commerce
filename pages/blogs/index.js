@@ -2,6 +2,7 @@ import React from "react";
  import dynamic from "next/dynamic";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
+import HeroBanner from "@/components/common/Banner";
 const BlogsShowcase = dynamic(
   () => import("/components/blogs/BlogsShowcase.js"),
   {
@@ -32,7 +33,8 @@ function TodayDeals({ data }) {
    
   return (
     <>
-     <RouteNavSlider router='blog'/>
+     {/* <RouteNavSlider router='blog'/> */}
+     <HeroBanner name='blog' />
       <BlogsShowcase data={data} />
     </>
   );

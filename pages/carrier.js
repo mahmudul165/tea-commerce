@@ -1,3 +1,4 @@
+import HeroBanner from "@/components/common/Banner";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import { useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
@@ -160,7 +161,8 @@ function Carrier() {
 
   return (
     <>
-      <RouteNavSlider router="Carrier" />
+      {/* <RouteNavSlider router="Carrier" /> */}
+      <HeroBanner name='Carrier' />
       <div className="container  my-5">
         <Table responsive striped bordered hover>
           <thead>
