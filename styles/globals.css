@@ -153,6 +153,14 @@ ul li {
         
   } */
 
+/* reuseable css */
+
+.ele-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
   .d-xs-none {
