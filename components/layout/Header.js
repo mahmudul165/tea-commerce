@@ -115,7 +115,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "react-use-cart";
-import Logo from "/public/logo.png";
+import Logo from "/public/main-logo.png";
 function Header() {
   // start header
   const [scroll, setScroll] = useState(false);
@@ -152,14 +152,14 @@ function Header() {
           // bg="light"
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
-          className={`row align-items-center   m-auto fs-6 fw-bold text-danger   navPosition  ${
-            scroll ? " bg-light container-fluid " : "container"
+          className={`row align-items-center   m-auto   navPosition py-2 ${
+            scroll ? " bg-light container-fluid " : "container "
           }`}
         >
           {/* <Container fluid className="justify-content-around"> */}
           {/* <div className="row"> */}
-          <div className="col-lg-4  d-md-none d-lg-block   d-none   ">
-            <Nav className="mr-auto " as="ul">
+          <div className="col-lg-5  d-md-none d-lg-block   d-none   ">
+            <Nav className=" justify-content-end " as="ul">
               <Nav.Item as="li">
                 <Nav.Link as="span">
                   <Link href={"/"}>Home</Link>
@@ -221,8 +221,8 @@ function Header() {
                 <Image
                   src={Logo}
                   alt="logo"
-                  width={50}
-                  height={50}
+                  width={90}
+                  height={90}
                   layout={500}
                 />
                 {/* <img
@@ -244,7 +244,7 @@ function Header() {
             </Nav.Link>
           </div>
 
-          <div className="col-lg-6  col-sm-2   col-2">
+          <div className="col-lg-5  col-sm-2   col-2">
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -263,7 +263,7 @@ function Header() {
                 </Nav.Link>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav className=" justify-content-center ">
                   {/* <Nav.Link as="span">
                     <Link href={"/gellary"}>Gallery</Link>
                   </Nav.Link> */}
