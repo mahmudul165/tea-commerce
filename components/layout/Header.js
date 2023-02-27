@@ -267,7 +267,45 @@ function Header() {
                   {/* <Nav.Link as="span">
                     <Link href={"/gellary"}>Gallery</Link>
                   </Nav.Link> */}
-                   <NavDropdown title="Gallery" id="collasible-nav-dropdown">
+                  <div className="  d-block  d-lg-none d-md-block  d-xs-block ">
+                    <Nav className="mr-auto text-white" as="ul">
+                      <Nav.Item as="li">
+                        <Nav.Link as="span">
+                          <Link href={"/"}>Home</Link>
+                        </Nav.Link>
+                      </Nav.Item>
+
+                      <NavDropdown
+                        title="About Us"
+                        id="collasible-nav-dropdown"
+                      >
+                        <NavDropdown.Item as="span">
+                          <Link href={"/about"}>About Sultan Tea</Link>
+                        </NavDropdown.Item>
+                        {/* <NavDropdown.Divider /> */}
+                        <NavDropdown.Item as="span">
+                          <Link href={"/press-releases"}>Press Releases</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as="span">
+                          <Link href={"/new-arrival"}>News Links</Link>
+                        </NavDropdown.Item>
+                      </NavDropdown>
+
+                      <NavDropdown
+                        title="Our Business"
+                        id="collasible-nav-dropdown"
+                      >
+                        <NavDropdown.Item as="span">
+                          <Link href={"/our-business"}>Our Business</Link>
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                      <Nav.Link as="span" className="text-nowrap">
+                        <Link href={"/our-brand"}>Our Brands</Link>
+                      </Nav.Link>
+                    </Nav>
+                  </div>
+
+                  <NavDropdown title="Gallery" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">
                       <Link href={"/gellary"}>Gallery1</Link>
                     </NavDropdown.Item>
