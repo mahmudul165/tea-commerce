@@ -121,6 +121,8 @@ const Gallery = () => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
+
+        {/* ts */}
         {imageRows.map((row) => (
           <Row key={row[0].id} className="mb-4">
             {row.map((image,index) => (
