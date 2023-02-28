@@ -164,7 +164,21 @@ ul li {
 nav .navbar-nav .nav-link {
   color: #2b2b2b !important;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
+  font-style: normal;
+}
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
+  z-index: 100;
+}
+.dropdown-item {
+  background-color: var(--primary-color);
+  margin-bottom: 3px;
+  color: #fff;
+  font-weight: 400;
+
+  border-radius: 3px;
 }
 
 @media (max-width: 575.98px) {

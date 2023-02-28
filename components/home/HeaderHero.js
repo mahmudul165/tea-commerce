@@ -1,4 +1,3 @@
-import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 const styles = {
   container: {
@@ -54,7 +53,7 @@ const HeaderHero = () => (
       backgroundSize: "cover",
       opacity: 1,
       backgroundPosition: "center",
-      marginTop:'-66px',
+      marginTop: "-66px",
       // height: "100vh",
     }}
   >
@@ -85,7 +84,7 @@ const HeaderHero = () => (
         <div className="lc-block mb-3 me-4">
           <div editable="rich">
             <h1 className="fw-bolder display-5  text-white ">
-              Health Benefits Of Tea Fresh Green Tea
+              Health Benefits Of Tea <br /> Fresh Green Tea
             </h1>
           </div>
         </div>
