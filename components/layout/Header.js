@@ -153,7 +153,7 @@ function Header() {
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
           className={`row align-items-center   m-auto   navPosition py-2 ${
-            scroll ? " bg-light container-fluid py-4" : "container "
+            scroll ? " bg-light container-fluid py-3 " : "container "
           }`}
         >
           {/* <Container fluid className="justify-content-around"> */}
