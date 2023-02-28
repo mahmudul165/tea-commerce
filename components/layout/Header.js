@@ -153,7 +153,7 @@ function Header() {
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
           className={`row align-items-center   m-auto   navPosition py-2 ${
-            scroll ? " bg-light container-fluid " : "container "
+            scroll ? " bg-light container-fluid py-4" : "container "
           }`}
         >
           {/* <Container fluid className="justify-content-around"> */}
@@ -172,7 +172,7 @@ function Header() {
                   </Nav.Item> */}
 
               <NavDropdown title="About Us" id="collasible-nav-dropdown">
-                <NavDropdown.Item as="span">
+                <NavDropdown.Item as="li">
                   <Link href={"/about"}>About Sultan Tea</Link>
                 </NavDropdown.Item>
                 {/* <NavDropdown.Divider /> */}
