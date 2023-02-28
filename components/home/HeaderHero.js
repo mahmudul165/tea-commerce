@@ -1,55 +1,13 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
-const styles = {
-  container: {
-    position: "relative",
-    backgroundImage: `url(${"https://i.ibb.co/0hy2GWR/Rectangle-45.png"})`,
-    height: "500px",
-    opacity: 0.5,
-  },
-  text: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "rgba(255, 255, 255, 0.7)",
-    color: "#fff",
-    fontSize: "24px",
-    fontWeight: "bold",
-    // textAlign: 'center',
-    padding: "10px",
-  },
-};
+import Image from "next/image";
+
+const myImage = "/nav-header.png";
+
 const HeaderHero = () => (
-  // <header
-  //   className="hero d-flex align-items-center  " style={styles.container}
-  //   // style={{
-  //   //   backgroundImage: "url(https://i.ibb.co/0hy2GWR/Rectangle-45.png)",
-  //   //   backgroundSize: "cover",
-  //   //   opacity: 0.5,
-  //   //   backgroundPosition: "center",
-  //   //   height: "100vh",
-  //   // }}
-  // >
-  //   <div className="row align-items-center justify-items-center ">
-  //     <div className="col-8">
-  //       <div className="container text-white ">
-  //         <h1 className="fs-2 fw-bolder p-2 text-white" style={styles.text}>Health Benefits Of Tea Fresh Green Tea</h1>
-  //         <p className="lead py-3 my-1 text-white">Tea is Good your health.</p>
-  //         <button className="d-flex align-items-center  fw-bolder btn  btn-lg text-white" style={{backgroundColor:'#E49E48'}}>Shop Now
-  //         <AiOutlineArrowRight className="ms-2"/>
-  //         </button>
-  //       </div>
-  //     </div>
-  //     <div className="col-4">
-
-  //     </div>
-  //   </div>
-  // </header>
-
   <div
     className="px-1 py-5  "
     style={{
-      backgroundImage: "url(https://i.ibb.co/0hy2GWR/Rectangle-45.png)",
+      backgroundImage: "url(https://i.ibb.co/swjQ7vh/tea-garden.jpg)",
       backgroundSize: "cover",
       opacity: 1,
       backgroundPosition: "center",
@@ -63,12 +21,22 @@ const HeaderHero = () => (
     >
       <div className="col-md-6 col-xl-6 mb-4 mb-lg-0 ">
         <div className="lc-block position-relative ">
-          <img
+          {/* <img
             className="ms-5  w-50 img-fluid rounded shadow"
             src="https://i.ibb.co/brH8NNP/nav-header.png"
             sizes="(max-width: 3840px) 100vw, 384px"
             width={384}
             height
+            alt="Photo by sultan tea"
+          /> */}
+
+          <Image
+            height={500}
+            quality={75}
+            src={myImage}
+            className="ms-5  w-50 img-fluid rounded shadow"
+            sizes="(max-width: 3840px) 100vw, 384px"
+            width={384}
             alt="Photo by sultan tea"
           />
           {/* <a className="position-absolute top-50 start-50 translate-middle glightbox d-flex justify-content-center align-items-center" href="https://www.youtube.com/watch?v=BKgpLOUYZJ4"> */}
