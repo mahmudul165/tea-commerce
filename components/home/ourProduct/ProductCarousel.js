@@ -1,7 +1,8 @@
 import SectionTitle from "@/components/common/SectionTitle";
-import React from "react";
-import { Container, Row, Col, Carousel, Card } from "react-bootstrap";
+import ProductDetailsModal from "@/components/common/ProductDetailsModal";
 import { motion } from "framer-motion";
+import React from "react";
+import { Button, Carousel, Modal, Row } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
@@ -91,9 +92,18 @@ const products = [
   },
 ];
 
+const productDetails = (id) => {
+  //  alert('ok')
+};
 const ProductCarousel = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+
   return (
     <div className="container  my-2">
+      <ProductDetailsModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
       <SectionTitle title="Our Products" />
@@ -113,6 +123,9 @@ const ProductCarousel = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="card border-0 "
+                        onClick={() => {
+                          productDetails(index), setModalShow(true);
+                        }}
                       >
                         {/* <Link href={`shop/${product.id}`} passHref> */}
                         {product.image ? (
