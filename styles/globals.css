@@ -161,7 +161,9 @@ ul li {
   align-items: center;
 }
 
-nav .navbar-nav .nav-link {
+nav .navbar-nav .nav-link,
+.offcanvas-body .navbar-nav .nav-item a,
+.nav-link {
   color: #2b2b2b !important;
   font-size: 20px;
   font-weight: 400;
