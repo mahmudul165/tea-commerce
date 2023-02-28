@@ -116,13 +116,13 @@ const ProductCarousel = () => {
                   {products.slice(index, index + 4).map((product) => (
                     <div
                       key={product.id}
-                      className="col-sm-6 col-md-3  my-2 py-1"
+                      className="col-sm-6 col-md-3 col-6  my-2 py-1 "
                     >
                       <motion.div
                         variants={fadeInUp}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="card border-0 "
+                        className="card border-0  w-100"
                         onClick={() => {
                           productDetails(index), setModalShow(true);
                         }}
@@ -164,31 +164,19 @@ const ProductCarousel = () => {
                             initial={{ opacity: 0 }}
                             className="title"
                           >
-                            <h6
-                              className="card-title ms-2 mt-2 fs-5 fw-bolder"
-                              style={{
-                                color: "#000000",
-                                border: 0,
-                              }}
-                            >
+                            <p className="card-title ms-2 mt-2 fs-5 fw-bolder">
                               {product.name?.slice(0, 20)}
-                            </h6>{" "}
+                            </p>{" "}
                           </motion.div>
                         </div>
                         {/* test button */}
-                        <div className=" p-2 mx-2 d-flex justify-content-between">
-                          <p
-                            className="text-center fs-6 fw-bold  "
-                            style={{
-                              // color: "#FF0099",
-                              border: 0,
-                            }}
-                          >
+                        <div className=" p-2 mx-2 d-flex justify-content-between gap-2">
+                          <p className="text-center fs-6 fw-semibold  ">
                             ৳ {product.price}
                           </p>
                           <button
                             type="button"
-                            className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold  me-2  "
+                            className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold d-flex justify-content-between  "
                             style={{
                               backgroundColor: "#59330E",
                               // color: "#FF0099",
@@ -196,8 +184,10 @@ const ProductCarousel = () => {
                             }}
                             onClick={() => addItem(product)}
                           >
-                            <i className="fas fa-shopping-cart me-1 py-1"></i>
-                            Add To Cart
+                            <i className="fas fa-shopping-cart me-1 py-1 "></i>
+                            <span className="d-xs-none d-sm-block ">
+                              Add To Cart
+                            </span>
                           </button>
                           {/* <button
                     type="button"
