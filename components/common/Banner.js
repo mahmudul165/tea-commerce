@@ -16,7 +16,7 @@ const HeroBanner = ({ name }) => (
     >
       <div
         style={{
-          backgroundColor: "rgba(255, 255, 255, 0.3)",
+          backgroundColor: "rgba(255, 255, 255, 0.2)",
         }}
         className="   position-absolute w-100 bottom-0 py-4"
       >
