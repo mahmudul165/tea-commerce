@@ -103,10 +103,10 @@ const Footer = () => {
       <Row>
         <Col md={3} sm={12}>
           {/* <Row className='justify-center w-50'> */}
-          <Image className="w-25" src="logo.png" alt="logo" />
+          <Image className="w-50" src="main-logo.png" alt="logo" />
           {/* </Row> */}
           {/* <Row className="my-3"> */}
-          <p className="  mt-4 mb-1 w-75">
+          <p className="  mt-5 mb-2 w-75">
             Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is
             simply dummy text of the .
           </p>
