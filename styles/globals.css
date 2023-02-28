@@ -125,8 +125,9 @@ ul li {
 }
 
 .cardImage {
-  height: 250px; /* or any other fixed height you want */
+  height: 280px; /* or any other fixed height you want */
   object-fit: cover;
+  width: 280px;
 }
 
 .heroImage {
