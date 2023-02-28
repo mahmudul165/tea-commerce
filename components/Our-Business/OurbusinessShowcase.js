@@ -79,7 +79,7 @@ function BlogsShowcase({ data }) {
                     initial={{ x: 60, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    src='https://i.blogs.es/d85337/1366_2000/840_560.jpeg'
+                    src='https://i.ibb.co/ZT55jTm/Rectangle-1897.png'
                     alt="E-COMMERCE  products"
                     className="card-img-top  p-2 "
                     width={336}
