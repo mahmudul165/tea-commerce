@@ -115,10 +115,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { useCart } from "react-use-cart";
+import CartItemsModal from "../common/CartItemsModal";
 import Logo from "/public/main-logo.png";
 function Header() {
   // start header
   const [scroll, setScroll] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -145,6 +147,7 @@ function Header() {
   } = useCart();
   return (
     <>
+      <CartItemsModal show={modalShow} onHide={() => setModalShow(false)} />
       {["lg"].map((expand) => (
         <Navbar
           key={expand}
@@ -236,11 +239,14 @@ function Header() {
           </div>
 
           <div className=" d-block  d-lg-none d-md-block col-sm-2 offset-6 col-2 d-xs-block ">
-            <Nav.Link as="i" className="fs-4">
-              <Link href={"/add-to-card"}>
-                {" "}
-                <FaShoppingCart />{" "}
-              </Link>
+            <Nav.Link
+              as="button"
+              className="fs-4"
+              onClick={() => {
+                setModalShow(true);
+              }}
+            >
+              <FaShoppingCart />{" "}
             </Nav.Link>
           </div>
 
@@ -334,13 +340,14 @@ function Header() {
                   </Nav.Link>
                   {/* start */}
                   <Nav.Link
-                    as="i"
+                    as="button"
                     className="fs-4 d-sm-none d-lg-block d-xs-none"
+                    onClick={() => {
+                      setModalShow(true);
+                    }}
                   >
-                    <Link href={"/add-to-card"}>
-                      {" "}
-                      <FaShoppingCart />{" "}
-                    </Link>
+                    {" "}
+                    <FaShoppingCart />{" "}
                   </Nav.Link>
 
                   {/* ({totalItems}) */}
