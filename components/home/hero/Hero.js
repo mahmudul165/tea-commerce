@@ -100,10 +100,10 @@ function Hero() {
               ref={ref}
             /> */}
             <div className="my-2 pb-1">
-              <h3 className="my-2 py-1   fs-2    fw-bolder  ">
+              <h3 className="my-2 py-1   fs-1    fw-bolder  cus-color-secondary ">
                 Welcome To Sultan Tea
               </h3>
-              <p className="my-3 py-1    fs-5 fw-bolder">
+              <p className="my-3 py-1    fs-5  text-justify">
                 Loving Sultan Tea tea blends! The quality and taste are
                 unbeatable. Their seasonal blends are always a delightful
                 surprise. Excellent customer service too. Highly recommend.
@@ -122,11 +122,8 @@ function Hero() {
 
                 className="lc-block my-2 pt-3"
               >
-                <button
-                  className="d-flex align-items-center  fw-bolder btn  btn-lg text-white "
-                  style={{ backgroundColor: "#E49E48" }}
-                >
-                  More about us
+                <button className="d-flex align-items-center  fw-bold btn  btn-lg text-white  cus-bg-primary">
+                  More About Us
                   <AiOutlineArrowRight className="ms-2" />
                 </button>
               </div>
