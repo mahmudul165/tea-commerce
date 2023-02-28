@@ -122,7 +122,7 @@ const Gallery = () => {
           </Nav.Item>
         </Nav>
 
-        {/* ts */}
+        {/* tss */}
         {imageRows.map((row) => (
           <Row key={row[0].id} className="mb-4">
             {row.map((image,index) => (
