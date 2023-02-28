@@ -1,17 +1,15 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import ProductCarousel from '@/components/home/ourProduct/ProductCarousel'
-import Hero from '@/components/home/hero/Hero'
-import Outlet from '@/components/home/our-outlet/Outlet'
-import OurOffices from '@/components/home/our-offices/OurOffices'
-import Banner from '@/components/home/banner/Banner'
-import CardGallery from '@/components/home/CardGallery/CardGallery'
-import HeaderHero from '@/components/home/HeaderHero'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "@/styles/Home.module.css";
+import ProductCarousel from "@/components/home/ourProduct/ProductCarousel";
+import Hero from "@/components/home/hero/Hero";
+import Outlet from "@/components/home/our-outlet/Outlet";
+import Banner from "@/components/home/banner/Banner";
+import CardGallery from "@/components/home/CardGallery/CardGallery";
+import HeaderHero from "@/components/home/HeaderHero";
 
-
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -22,18 +20,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>         
-                {/* follow this for folder structure */}
-                {/* https://github.com/leerob/leerob.io */}
-                <HeaderHero />
-                <Hero className='heroPosition' />
-                <ProductCarousel />
-                <Banner />
-                <CardGallery/>
-                <Outlet />
-                <OurOffices />     
- 
+      <main className={styles.main}>
+        {/* follow this for folder structure */}
+        {/* https://github.com/leerob/leerob.io */}
+        <HeaderHero />
+        <Hero className="heroPosition" />
+        <ProductCarousel />
+        <Banner />
+        <CardGallery />
+        <Outlet />
       </main>
     </>
-  )
+  );
 }
