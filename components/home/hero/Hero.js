@@ -85,8 +85,8 @@ function Hero() {
     //   }}
     >
       <div className=" container  my-1 py-1  ">
-        <div className="row   align-items-center justify-items-center">
-          <section className="col-sm-12 col-md-6 my-1 py-1 ">
+        <div className="row   align-items-center justify-items-center ">
+          <section className="col-sm-12 col-md-6 my-1 py-1  ">
             {/* egg animation added start */}
             {/* <motion.div className="circle m-auto mt-5 " ref={ref}></motion.div> */}
             {/* egg animation added end */}
@@ -133,7 +133,7 @@ function Hero() {
                 </button> */}
             </div>
           </section>
-          <section className="col-sm-12 col-md-6 p-2 mt-3 ">
+          <section className="col-sm-12 col-md-6 p-2 mt-3  ">
             <Carousel>
               {products?.map((product, index) => {
                 if (index % 1 === 0) {
