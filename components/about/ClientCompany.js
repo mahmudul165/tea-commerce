@@ -56,9 +56,6 @@ export default class ClientCompany extends Component {
               <div className="p-1">
                 <Image src={CompanyFour} alt="" className="w-100" />
               </div>
-              <div className="p-1">
-                <Image src={CompanyFour} alt="" className="w-100" />
-              </div>
             </Slider>
           </div>
         </div>
