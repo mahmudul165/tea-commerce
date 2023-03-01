@@ -169,7 +169,16 @@ nav .navbar-nav .nav-link,
   font-size: 20px;
   font-weight: 400;
   font-style: normal;
+  padding: 4px 12px;
 }
+nav .navbar-nav .nav-link:hover,
+nav a:hover,
+.offcanvas-body .navbar-nav .nav-item a:hover,
+.nav-link:hover,
+.dropdown-menu .dropdown-item a:hover {
+  color: var(--primary-color) !important;
+}
+
 .dropdown-menu {
   background-color: transparent;
   border: none;
@@ -181,6 +190,16 @@ nav .navbar-nav .nav-link,
   color: #fff;
   font-weight: 400;
   border-radius: 3px;
+}
+li:focus,
+li:active {
+  outline: none; /* Remove the default outline */
+  background-color: transparent; /* Set the background color to transparent */
+}
+.dropdown-item:focus,
+.dropdown-item:active {
+  outline: none; /* Remove the default outline */
+  background-color: transparent; /* Set the background color to transparent */
 }
 
 /* carousel default style change */
