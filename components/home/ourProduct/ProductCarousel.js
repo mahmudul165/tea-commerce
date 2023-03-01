@@ -1,11 +1,11 @@
-import SectionTitle from "@/components/common/SectionTitle";
 import ProductDetailsModal from "@/components/common/ProductDetailsModal";
+import SectionTitle from "@/components/common/SectionTitle";
 import { motion } from "framer-motion";
 import React from "react";
-import { Button, Carousel, Modal, Row } from "react-bootstrap";
+import { Carousel, Row } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-
+import { useEffect, useState } from "react";
 let easing = [0.6, -0.05, 0.01, 0.99];
 const fadeInUp = {
   initial: {
@@ -96,7 +96,14 @@ const productDetails = (id) => {
   //  alert('ok')
 };
 const ProductCarousel = () => {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
+  const [bodyWidth, setBodyWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setBodyWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="container  my-2">
@@ -112,43 +119,42 @@ const ProductCarousel = () => {
           if (index % 4 === 0) {
             return (
               <Carousel.Item key={product.id}>
-                <Row>
-                  {products.slice(index, index + 4).map((product) => (
-                    <div
-                      key={product.id}
-                      className="col-sm-6 col-md-3 col-6  my-2 py-1 "
-                    >
-                      <motion.div
-                        variants={fadeInUp}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="card border-0  w-100"
-                        onClick={() => {
-                          productDetails(index), setModalShow(true);
-                        }}
-                      >
-                        {/* <Link href={`shop/${product.id}`} passHref> */}
-                        {product.image ? (
-                          <motion.img
-                            style={{ border: "1px solid #59330E" }}
-                            initial={{ x: 60, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            src={product?.image}
-                            alt="E-COMMERCE  products"
-                            className="card-img-top  p-5 cardImage"
-                            // width={336}
-                            // height={230}
-                            // width={243}
-                            // height={165}
-                            layout="responsive"
-                          />
-                        ) : (
-                          <Skeleton height={350} />
-                        )}
-                        {/* </Link> */}
+                <Row xs={2} sm={2} lg={4}>
+                  {products
+                    .slice(index, index + (bodyWidth < 767 ? 2 : 4))
+                    .map((product) => (
+                      <div key={product.id} className=" my-2 py-1 ">
+                        <motion.div
+                          variants={fadeInUp}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="card border-0  "
+                          onClick={() => {
+                            productDetails(index), setModalShow(true);
+                          }}
+                        >
+                          {/* <Link href={`shop/${product.id}`} passHref> */}
+                          {product.image ? (
+                            <motion.img
+                              style={{ border: "1px solid #59330E" }}
+                              initial={{ x: 60, opacity: 0 }}
+                              animate={{ x: 0, opacity: 1 }}
+                              transition={{ delay: 0.2 }}
+                              src={product?.image}
+                              alt="E-COMMERCE  products"
+                              className="card-img-top  p-5 cardImage"
+                              // width={336}
+                              // height={230}
+                              // width={243}
+                              // height={165}
+                              layout="responsive"
+                            />
+                          ) : (
+                            <Skeleton height={350} />
+                          )}
+                          {/* </Link> */}
 
-                        {/* <Image
+                          {/* <Image
                     src={sunset1}
                     alt="Sunset"
                     width={600}
@@ -158,38 +164,38 @@ const ProductCarousel = () => {
                     blurDataURL="data:image/png;base64,[IMAGE_CODE_FROM_PNG_PIXEL]"
                   /> */}
 
-                        <div className="card-body p-0">
-                          <motion.div
-                            animate={{ opacity: 1 }}
-                            initial={{ opacity: 0 }}
-                            className="title"
-                          >
-                            <p className="card-title ms-2 mt-2 fs-5 fw-bolder">
-                              {product.name?.slice(0, 20)}
-                            </p>{" "}
-                          </motion.div>
-                        </div>
-                        {/* test button */}
-                        <div className=" p-2 mx-2 d-flex justify-content-between gap-2">
-                          <p className="text-center fs-6 fw-semibold  ">
-                            ৳ {product.price}
-                          </p>
-                          <button
-                            type="button"
-                            className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold d-flex justify-content-between  "
-                            style={{
-                              backgroundColor: "#59330E",
-                              // color: "#FF0099",
-                              border: 0,
-                            }}
-                            onClick={() => addItem(product)}
-                          >
-                            <i className="fas fa-shopping-cart me-1 py-1 "></i>
-                            <span className="d-xs-none d-sm-block ">
-                              Add To Cart
-                            </span>
-                          </button>
-                          {/* <button
+                          <div className="card-body p-0">
+                            <motion.div
+                              animate={{ opacity: 1 }}
+                              initial={{ opacity: 0 }}
+                              className="title"
+                            >
+                              <p className="card-title ms-2 mt-2 fs-5 fw-bolder">
+                                {product.name?.slice(0, 20)}
+                              </p>{" "}
+                            </motion.div>
+                          </div>
+                          {/* test button */}
+                          <div className=" p-2 mx-2 d-flex justify-content-between gap-2">
+                            <p className="text-center fs-6 fw-semibold  ">
+                              ৳ {product.price}
+                            </p>
+                            <button
+                              type="button"
+                              className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold d-flex justify-content-between  "
+                              style={{
+                                backgroundColor: "#59330E",
+                                // color: "#FF0099",
+                                border: 0,
+                              }}
+                              onClick={() => addItem(product)}
+                            >
+                              <i className="fas fa-shopping-cart me-1 py-1 "></i>
+                              <span className="d-xs-none d-sm-block ">
+                                Add To Cart
+                              </span>
+                            </button>
+                            {/* <button
                     type="button"
                     className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "
                     style={{
@@ -201,10 +207,10 @@ const ProductCarousel = () => {
                   >
                     <i className="fas fa-bolt me-1 py-1"></i>Buy Now
                   </button> */}
-                        </div>
-                      </motion.div>
-                    </div>
-                  ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                    ))}
                 </Row>
               </Carousel.Item>
             );
