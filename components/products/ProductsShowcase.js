@@ -51,7 +51,7 @@ function ProductsShowcase({ data }) {
     >
       <motion.div variants={stagger} className="row     my-2  py-3 ">
         {data ? (
-          data.map((product) => (
+          data?.products?.map((product) => (
             <div key={product.id} className="col-sm-12 col-md-3  my-2 py-1">
               <motion.div
                 variants={fadeInUp}
@@ -59,15 +59,15 @@ function ProductsShowcase({ data }) {
                 whileTap={{ scale: 0.95 }}
                 className="card border-0 "
               >
-                <Link href={`shop/${product.id}`} passHref>
-                  {product.image_one ? (
+                {/* <Link href={`shop/${product.id}`} passHref> */}
+                  {product.images ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
-                      src={product.image_one}
+                      src={product?.images[0]?.url}
                       alt="E-COMMERCE  products"
-                      className="card-img-top  p-2 "
+                      className="card-img-top  p-3 m-1"
                       width={336}
                       height={230}
                       layout="responsive"
@@ -75,7 +75,7 @@ function ProductsShowcase({ data }) {
                   ) : (
                     <Skeleton height={200} />
                   )}
-                </Link>
+                {/* </Link> */}
 
                 {/* <Image
                     src={sunset1}
@@ -100,7 +100,7 @@ function ProductsShowcase({ data }) {
                         border: 0,
                       }}
                     >
-                      {product.title?.slice(0, 15)}
+                      {product.name?.slice(0, 15)}
                     </h6>{" "}
                   </motion.div>
                 
@@ -114,8 +114,7 @@ function ProductsShowcase({ data }) {
                       border: 0,
                     }}
                   >
-                    ৳ 500
-                     {/* {product.price} */}
+                    ৳ {product.price} 
                   </p>
                   <button
                               type="button"
