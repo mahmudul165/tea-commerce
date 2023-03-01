@@ -1,16 +1,16 @@
 import React, { Component, Suspense } from "react";
- 
- 
-import CompanyOne from "/public/vercel.svg";
-import CompanyTwo from "/public/logo.png";
-import CompanyThree from "/public/favicon.ico";
+
+import CompanyOne from "/public/clientcompany/company-logo-1.png";
+import CompanyTwo from "/public/clientcompany/company-logo-2.png";
+import CompanyThree from "/public/clientcompany/company-logo-3.png";
+import CompanyFour from "/public/clientcompany/company-logo-4.png";
 // const com1 = React.lazy(() =>
 //   import("../../../public/images/home/logo_influencer.png")
 // );
-import Slider from 'react-slick';
+import Slider from "react-slick";
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 export default class ClientCompany extends Component {
   render() {
@@ -26,62 +26,38 @@ export default class ClientCompany extends Component {
     };
     return (
       <div className="container my-3">
-        <h1 className="text-center fs-3 fw-bolder my-3 py-3">
-          Trusted by 1,00+ Companies Worldwide
-        </h1>
         <div className="container my-2 py-3">
           <div className="container text-center my-4 py-4">
             <Slider {...settings}>
               <section className="p-1  ">
-                <Image src={CompanyOne} alt="" className="w-75 h-75" />
+                <Image src={CompanyOne} alt="" className="w-100 " />
               </section>
               <div className="p-1 ">
-                {/* <img src="/favicon.ico" alt="" className="w-25 h-25" /> */}
-                <Image src={CompanyTwo} alt="" className="w-75 h-25" />
+                <Image src={CompanyTwo} alt="" className="w-100" />
               </div>
               <div className="p-1">
-                {/* <img src="/vercel.svg" alt="" className="w-75 h-50" /> */}
-                <Image src={CompanyThree} alt="" className="w-75 h-50" />
+                <Image src={CompanyThree} alt="" className="w-100" />
               </div>
               <div className="p-1">
-                {/* <img
-                  src="/images/home/logo_influencer.png"
-                  alt=""
-                  className="w-75 h-75"
-                /> */}
-                <Image src={CompanyOne} alt="" className="w-75 h-75" />
+                <Image src={CompanyFour} alt="" className="w-100" />
               </div>
               <div className="p-1">
-                {/* <img src="/favicon.ico" alt="" className="w-25 h-25" /> */}
-                <Image src={CompanyTwo} alt="" className="w-75 h-25" />
+                <Image src={CompanyFour} alt="" className="w-100" />
               </div>
-              <div className="p-1">
-                {/* <img src="/vercel.svg" alt="" className="w-75 h-50" /> */}
-                <Image src={CompanyThree} alt="" className="w-75 h-50" />
-              </div>
-              <div className="p-1">
-                {/* <img src="/favicon.ico" alt="" className="w-25 h-25" /> */}
-                <Image src={CompanyTwo} alt="" className="w-75 h-25" />
-              </div>
-              <div className="p-1">
-                {/* <img src="/vercel.svg" alt="" className="w-75 h-50" /> */}
-                <Image src={CompanyThree} alt="" className="w-75 h-50" />
-              </div>
-              <div className="p-1">
-                {/* <img
-                  src="/images/home/logo_influencer.png"
-                  alt=""
-                  className="w-75 h-75"
-                /> */}
-                <Image src={CompanyOne} alt="" className="w-75 h-75" />
-              </div>
-              <div className="p-1">
-                {/* <img src="/favicon.ico" alt="" className="w-25 h-25" /> */}
-                <Image src={CompanyTwo} alt="" className="w-75 h-25" />
-              </div>
+              <section className="p-1  ">
+                <Image src={CompanyOne} alt="" className="w-100 " />
+              </section>
               <div className="p-1 ">
-                {/* <img src="/vercel.svg" alt="" className="w-75 h-50" /> */}
-                <Image src={CompanyThree} alt="" className="w-75 h-50" />
+                <Image src={CompanyTwo} alt="" className="w-100" />
+              </div>
+              <div className="p-1">
+                <Image src={CompanyThree} alt="" className="w-100" />
+              </div>
+              <div className="p-1">
+                <Image src={CompanyFour} alt="" className="w-100" />
+              </div>
+              <div className="p-1">
+                <Image src={CompanyFour} alt="" className="w-100" />
               </div>
             </Slider>
           </div>
