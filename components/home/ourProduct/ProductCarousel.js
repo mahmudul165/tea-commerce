@@ -6,7 +6,9 @@ import { Carousel, Row } from "react-bootstrap";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useCart } from "react-use-cart";
 let easing = [0.6, -0.05, 0.01, 0.99];
+ 
 const fadeInUp = {
   initial: {
     y: 60,
@@ -104,7 +106,7 @@ const ProductCarousel = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
+  const { addItem } = useCart();
   return (
     <div className="container  my-2">
       <ProductDetailsModal
@@ -191,7 +193,7 @@ const ProductCarousel = () => {
                               onClick={() => addItem(product)}
                             >
                               <i className="fas fa-shopping-cart me-1 py-1 "></i>
-                              <span className="d-xs-none d-sm-block ">
+                              <span className="d-xs-none d-sm-block "   onClick={() => addItem(product)}>
                                 Add To Cart
                               </span>
                             </button>
