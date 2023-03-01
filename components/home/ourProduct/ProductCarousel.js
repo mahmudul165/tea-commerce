@@ -1,11 +1,11 @@
 import ProductDetailsModal from "@/components/common/ProductDetailsModal";
 import SectionTitle from "@/components/common/SectionTitle";
 import { motion } from "framer-motion";
-import React from "react";
+import { useEffect, useState } from "react";
 import { Carousel, Row } from "react-bootstrap";
+import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useEffect, useState } from "react";
 let easing = [0.6, -0.05, 0.01, 0.99];
 const fadeInUp = {
   initial: {
@@ -114,7 +114,7 @@ const ProductCarousel = () => {
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
       <SectionTitle title="Our Products" />
-      <Carousel>
+      <Carousel className="position-relative  ">
         {products.map((product, index) => {
           if (index % 4 === 0) {
             return (
@@ -212,6 +212,45 @@ const ProductCarousel = () => {
                       </div>
                     ))}
                 </Row>
+
+                <div className="d-flex justify-content-between     ">
+                  <div
+                    className="position-absolute top-50 start-0  "
+                    style={{
+                      marginTop: "-60px",
+                      marginLeft: "-12px",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleControls"
+                      data-bs-slide="prev"
+                      className=" p-3 cus-color-secondary border rounded shadow-lg bg-white"
+                    >
+                      <span class="">
+                        <FaLongArrowAltLeft />
+                      </span>
+                    </button>
+                  </div>
+
+                  <div
+                    className="position-absolute top-50 end-0  "
+                    style={{
+                      marginTop: "-60px",
+                      marginRight: "-12px",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      data-bs-slide="next"
+                      className="bg-white p-3 cus-color-secondary border  rounded shadow-lg d-block"
+                    >
+                      <span class="">
+                        <FaLongArrowAltRight />
+                      </span>
+                    </button>
+                  </div>
+                </div>
               </Carousel.Item>
             );
           }
