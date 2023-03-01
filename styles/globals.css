@@ -180,10 +180,17 @@ nav .navbar-nav .nav-link,
   margin-bottom: 3px;
   color: #fff;
   font-weight: 400;
-
   border-radius: 3px;
 }
 
+/* carousel default style change */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: none;
+}
+.carousel-indicators {
+  display: none;
+}
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
   .d-xs-none {
