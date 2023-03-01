@@ -56,7 +56,7 @@ const HeaderHero = () => (
             </h1>
           </div>
         </div>
-        {/* /lc-block */}
+        
         {/* /lc-block */}
         <div className="lc-block mb-2">
           <div editable="rich">
