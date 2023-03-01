@@ -350,7 +350,7 @@ function Header() {
                     <FaShoppingCart />{" "}
                   </Nav.Link>
 
-                  {/* ({totalItems}) */}
+                 ({totalItems})
 
                   <Nav.Link
                     as="i"
