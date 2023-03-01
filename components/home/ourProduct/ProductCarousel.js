@@ -114,7 +114,7 @@ const ProductCarousel = () => {
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
       <SectionTitle title="Our Products" />
-      <Carousel className="position-relative  ">
+      <Carousel className="position-relative product-carousel ">
         {products.map((product, index) => {
           if (index % 4 === 0) {
             return (
