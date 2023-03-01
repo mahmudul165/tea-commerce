@@ -44,7 +44,7 @@ const ContactFrom = () => {
         action="mail.php"
         method="POST"
       >
-        <h2 className="mb-2 fs-5 fw-bold">Contact From</h2>
+        <h2 className="mb-2 fs-5 fw-bold cus-color-secondary">Contact From</h2>
         <Form.Group controlId="name" className="mb-3">
           <Form.Control type="text" name="name" placeholder="Name" />
         </Form.Group>
@@ -66,10 +66,9 @@ const ContactFrom = () => {
           />
         </Form.Group>
         <MyButton
-          style={{ backgroundColor: "#E49E48" }}
           type="submit"
           size="lg"
-          className=" text-white px-5"
+          className=" text-white px-5 cus-bg-primary"
         >
           SEND
         </MyButton>
@@ -96,17 +95,17 @@ function contact() {
         </div>
 
         <div className="row my-4">
-          <div className="col-md-4">
+          <div className="col-md-4  cus-color-secondary">
             <Card className="card border rounded  p-5 mb-4 ">
               <div className="d-flex gap-5 align-items-center">
                 <IconWithBackground>
                   <FaPhoneAlt size={25} className="" />
                 </IconWithBackground>
 
-                <div>
+                <div className="cus-color-secondary">
                   <h5 className="mb-2">Phone</h5>
-                  <p>Tel: 000123-8657</p>
-                  <p>Fax: 000123-8657</p>
+                  <p className="cus-color-secondary">Tel: 000123-8657</p>
+                  <p className="cus-color-secondary">Fax: 000123-8657</p>
                 </div>
               </div>
             </Card>
@@ -118,8 +117,8 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Email</h5>
-                  <p>mail@example.com</p>
-                  <p>support@example.com</p>
+                  <p className="cus-color-secondary">mail@example.com</p>
+                  <p className="cus-color-secondary">support@example.com</p>
                 </div>
               </div>
             </Card>
@@ -131,8 +130,8 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Address</h5>
-                  <p>No: 34 A, Green Road</p>
-                  <p>Dhaka, 6775</p>
+                  <p className="cus-color-secondary">No: 34 A, Green Road</p>
+                  <p className="cus-color-secondary">Dhaka, 6775</p>
                 </div>
               </div>
             </Card>
