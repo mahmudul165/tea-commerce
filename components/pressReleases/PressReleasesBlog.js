@@ -168,22 +168,17 @@ function PressReleasesBlog({ data }) {
                       marginBottom: "10px",
                     }}
                   >
-                     <RiChat1Line size={20} />
+                    <RiChat1Line size={20} />
                     <p style={{ margin: "0 0 0 5px" }}>12 Comments</p>
                   </div>
-                
                 </div>
 
                 {/* end  */}
                 <div className="px-2 m-2">
                   <button
                     type="button "
-                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
-                    style={{
-                      backgroundColor: "#59330E",
-                      // color: "#FF0099",
-                      border: 0,
-                    }}
+                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4 "
+
                     // onClick={() => addItem(product)}
                   >
                     Read More
