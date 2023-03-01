@@ -1,10 +1,9 @@
-import RouteNavSlider from "@/components/common/RouteNavSlider";
-import React, { useState } from "react";
-import { Container, Row, Col, Nav, Card, } from "react-bootstrap";
+import HeroBanner from "@/components/common/Banner";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Card, Container, Nav, Pagination, Row } from "react-bootstrap";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { motion } from "framer-motion";
-import HeroBanner from "@/components/common/Banner";
 const Gallery = () => {
   const [tab, setTab] = useState("all");
 
@@ -76,6 +75,17 @@ const Gallery = () => {
     const row = filteredImages.slice(i, i + 4);
     imageRows.push(row);
   }
+  // setup pagination
+  const initialImage = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+  const lastItemIndex = currentPage * initialImage;
+  const firstItemIndex = lastItemIndex - initialImage;
+  const currentItems = filteredImages.slice(firstItemIndex, lastItemIndex);
+  const totalPages = Math.ceil(filteredImages.length / initialImage);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+  //
 
   return (
     <div>
@@ -122,45 +132,65 @@ const Gallery = () => {
           </Nav.Item>
         </Nav>
 
-        {/* tss */}
-        {imageRows.map((row) => (
-          <Row key={row[0].id} className="mb-4">
-            {row.map((image,index) => (
-              <Card
+        <Row className="mb-4">
+          {currentItems.map((image, index) => (
+            <Card
               key={image.id}
-                className="col-sm-12 col-md-3  mb-2    border-0"
-              >
-                {/* <Card.Body>  */}
-                {image ? (
-                  <motion.img
-                    className="galleryImage"
-                    initial={{ x: 60, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    src={image.url}
-                    alt={image.category}
-                    // alt={`${object.title} - Image ${index + 1}`}
-                    fluid
-                    // className="card-img-top  p-2 "
-                    // width={336}
-                    // height={230}
-                    layout="responsive"
-                  />
-                ) : (
-                  <Skeleton height={400} />
-                )}
-                {/* </Card.Body> */}
-              </Card>
-              // <Col key={image.id} xs={6} md={3} className="mb-4">
-              //   <img
-              //     src={image.url}
-              //     alt={image.category}
-              //     className="img-fluid rounded"
-              //   />
-              // </Col>
-            ))}
-          </Row>
-        ))}
+              className="col-sm-12 col-md-3  mb-3    border-0 rounded  "
+            >
+              {/* <Card.Body>  */}
+              {image ? (
+                <motion.img
+                  className="galleryImage"
+                  initial={{ x: 60, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  src={image.url}
+                  alt={image.category}
+                  // alt={`${object.title} - Image ${index + 1}`}
+                  fluid
+                  // className="card-img-top  p-2 "
+                  // width={336}
+                  // height={230}
+                  layout="responsive"
+                />
+              ) : (
+                <Skeleton height={400} />
+              )}
+              {/* </Card.Body> */}
+            </Card>
+            // <Col key={image.id} xs={6} md={3} className="mb-4">
+            //   <img
+            //     src={image.url}
+            //     alt={image.category}
+            //     className="img-fluid rounded"
+            //   />
+            // </Col>
+          ))}
+        </Row>
+
+        <Pagination className="d-flex justify-content-end">
+          <Pagination.First onClick={() => handlePageChange(1)} />
+          <Pagination.Prev
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          />
+          {[...Array(totalPages)].map((_, index) => (
+            <Pagination.Item
+              className="cus-bg-primary visually"
+              key={index}
+              active={currentPage === index + 1}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </Pagination.Item>
+          ))}
+          <Pagination.Next
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          />
+          <Pagination.Last onClick={() => handlePageChange(totalPages)} />
+        </Pagination>
       </Container>
     </div>
   );
