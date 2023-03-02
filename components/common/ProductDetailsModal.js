@@ -6,7 +6,10 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 import demoPic from "public/products/p-1.jpg";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { useCart } from "react-use-cart";
 const ProductDetailsModal = (props) => {
+  // console.log('product details data',props?.data)
+  const { addItem } = useCart();
   return (
     <Modal
       {...props}
@@ -63,6 +66,7 @@ const ProductDetailsModal = (props) => {
                     type="submit"
                     size="lg"
                     className=" text-white px-4 fs-6 cus-bg-secondary"
+                    onClick={() => addItem(product)}
                   >
                     ADD TO CART
                   </MyButton>

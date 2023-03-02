@@ -10,8 +10,19 @@ import CardGallery from "@/components/home/CardGallery/CardGallery";
 import HeaderHero from "@/components/home/HeaderHero";
 
 const inter = Inter({ subsets: ["latin"] });
+export const getStaticProps = async () => {
+  const res = await fetch(
+    // "https://jsonplaceholder.typicode.com/posts"
+    'https://sultan-tea-backend.vercel.app/api/v1/product'
 
-export default function Home() {
+  );
+  const data = await res.json();
+  return {
+    props: { data },
+    revalidate: 3
+  };
+};
+export default function Home({ data }) {
   return (
     <>
       <Head>
@@ -25,7 +36,7 @@ export default function Home() {
         {/* https://github.com/leerob/leerob.io */}
         <HeaderHero />
         <Hero className="heroPosition" />
-        <ProductCarousel />
+        <ProductCarousel data={data}/>
         <Banner />
         <CardGallery />
         <Outlet />

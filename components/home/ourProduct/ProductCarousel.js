@@ -32,7 +32,7 @@ const stagger = {
     },
   },
 };
-const products = [
+const productsss = [
   {
     id: 1,
     name: "Product 1",
@@ -97,7 +97,7 @@ const products = [
 const productDetails = (id) => {
   //  alert('ok')
 };
-const ProductCarousel = () => {
+const ProductCarousel = ({ data }) => {
   const [modalShow, setModalShow] = useState(false);
   const [bodyWidth, setBodyWidth] = useState(window.innerWidth);
 
@@ -112,18 +112,19 @@ const ProductCarousel = () => {
       <ProductDetailsModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        // data={data}
       />
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
       <SectionTitle title="Our Products" />
       <Carousel className="position-relative  ">
-        {products.map((product, index) => {
+        {data?.products?.map((product, index) => {
           if (index % 4 === 0) {
             return (
               <Carousel.Item key={product.id}>
                 <Row xs={2} sm={2} lg={4}>
-                  {products
-                    .slice(index, index + (bodyWidth < 767 ? 2 : 4))
+                  {data.products
+                    ?.slice(index, index + (bodyWidth < 767 ? 2 : 4))
                     .map((product) => (
                       <div key={product.id} className=" my-2 py-1 ">
                         <motion.div
@@ -136,13 +137,13 @@ const ProductCarousel = () => {
                           }}
                         >
                           {/* <Link href={`shop/${product.id}`} passHref> */}
-                          {product.image ? (
+                          {product.images ? (
                             <motion.img
                               style={{ border: "1px solid #59330E" }}
                               initial={{ x: 60, opacity: 0 }}
                               animate={{ x: 0, opacity: 1 }}
                               transition={{ delay: 0.2 }}
-                              src={product?.image}
+                              src={product?.images[0]?.url}
                               alt="E-COMMERCE  products"
                               className="card-img-top  p-5 cardImage"
                               // width={336}
@@ -193,7 +194,7 @@ const ProductCarousel = () => {
                               onClick={() => addItem(product)}
                             >
                               <i className="fas fa-shopping-cart me-1 py-1 "></i>
-                              <span className="d-xs-none d-sm-block "   onClick={() => addItem(product)}>
+                              <span className="d-xs-none d-sm-block "   >
                                 Add To Cart
                               </span>
                             </button>
