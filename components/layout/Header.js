@@ -182,9 +182,9 @@ function Header() {
                 <NavDropdown.Item as="span">
                   <Link href={"/press-releases"}>Press Releases</Link>
                 </NavDropdown.Item>
-                {/* <NavDropdown.Item as="span">
-                  <Link href={"/new-arrival"}>News Links</Link>
-                </NavDropdown.Item> */}
+                <NavDropdown.Item as="span">
+                  <Link href={"/news-link"}>News Links</Link>
+                </NavDropdown.Item>
               </NavDropdown>
 
               {/* <NavDropdown title="About Us" id="collasible-nav-dropdown">
@@ -292,9 +292,9 @@ function Header() {
                         <NavDropdown.Item as="span">
                           <Link href={"/press-releases"}>Press Releases</Link>
                         </NavDropdown.Item>
-                        {/* <NavDropdown.Item as="span">
-                          <Link href={"/new-arrival"}>News Links</Link>
-                        </NavDropdown.Item> */}
+                        <NavDropdown.Item as="span">
+                          <Link href={"/"}>News Links</Link>
+                        </NavDropdown.Item>
                       </NavDropdown>
 
                       <NavDropdown
