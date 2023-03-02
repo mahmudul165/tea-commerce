@@ -4,9 +4,18 @@ import { useState } from "react";
 import { Table, Pagination } from "react-bootstrap";
 
 // import { useRouter } from 'next/router'
-
-function Carrier() {
-  const data = [
+export const getStaticProps = async () => {
+  const res = await fetch(
+    "https://sultan-tea-backend.vercel.app/api/v1/carrier"
+  );
+  const data = await res.json();
+  return {
+    props: { data },
+    revalidate: 10
+  };
+};
+function Carrier({data}) {
+  const datasss = [
     {
       id: 1,
       jobTitle: "Web Developer",
@@ -143,8 +152,8 @@ function Carrier() {
       time: "Full-time",
     },
   ];
-
-  const ITEMS_PER_PAGE = 6;
+  
+  const ITEMS_PER_PAGE = 12;
   // const router=useRouter()
   // console.log(router.pathname)
   const [currentPage, setCurrentPage] = useState(1);
