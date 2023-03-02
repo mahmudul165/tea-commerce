@@ -17,6 +17,10 @@ import Script from "next/script";
 import { ChakraProvider } from "@chakra-ui/react";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+
+  const queryClient = new QueryClient();
 // import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +61,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <ThreeDotsWave />
       ) : (
         <CartProvider>
+          <QueryClientProvider client={queryClient}>
           <ChakraProvider>
             <Layout>
               {/* <AnimatePresence exitBeforeEnter> */}
@@ -64,6 +69,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
               {/* </AnimatePresence> */}
             </Layout>
           </ChakraProvider>
+          </QueryClientProvider>
         </CartProvider>
       )}
 
