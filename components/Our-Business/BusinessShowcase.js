@@ -4,9 +4,10 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
+
 // import useAuth from "../../hook/useAuth";
 // import { useCart } from "react-use-cart";
-function BlogsShowcase({ data }) {
+function BusinessShowcase({ data }) {
   // const { BuyNow } = useAuth();
   // const { addItem } = useCart();
   // Our custom easing
@@ -42,6 +43,7 @@ function BlogsShowcase({ data }) {
   };
 
   return (
+    
     <motion.div
       initial="initial"
       animate="animate"
@@ -61,13 +63,13 @@ function BlogsShowcase({ data }) {
               >
 
 {/* {`blogs/${product.title}`} */}
-                <Link href={`/blogs/${product.id}`}  passHref>
-                  {product.image_one ? (
+                <Link href={`/our-business/${product._id}`}  passHref>
+                  {product.image ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
-                      src={product.image_one}
+                      src={product.image}
                       alt="E-COMMERCE  products"
                       className="card-img-top  p-2 "
                       width={336}
@@ -124,7 +126,8 @@ function BlogsShowcase({ data }) {
                     //   border: 0,
                     // }}
                   >
-                      {product.body}
+                     {product.body?.slice(0, 100)}
+                    
                   </p>
                 </div>
                 {/* test button */}
@@ -260,7 +263,8 @@ function BlogsShowcase({ data }) {
         )}
       </motion.div>
     </motion.div>
+    
   );
 }
 
-export default BlogsShowcase;
+export default BusinessShowcase;

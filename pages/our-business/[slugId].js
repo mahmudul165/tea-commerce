@@ -12,13 +12,14 @@ import { motion } from "framer-motion";
 // import "react-loading-skeleton/dist/skeleton.css";
 //  import { motion } from "framer-motion"
 import SliderImg from "public/slider-2.jpg";
-import RouteNavSlider from "@/components/common/RouteNavSlider";
+
+import HeroBanner from "@/components/common/Banner";
 export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://sultan-tea-backend.vercel.app/api/v1/business");
   const data = await res.json();
   const paths = await data.map((post) => {
     return {
-      params: { blogId: post?.id.toString() },
+      params: { slugId: post?._id.toString() },
     };
   });
   return {
@@ -29,9 +30,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.blogId}`
+    `https://sultan-tea-backend.vercel.app/api/v1/business/${params.slugId}`
   );
-  // console.log(res);
+   console.log('url:',res);
   const data = await res.json();
   console.log("product data is :", data);
 
@@ -43,10 +44,10 @@ export const getStaticProps = async ({ params }) => {
 
 function BlogDetails({ data }) {
   return (
-    <div className="m-3   ">
-      <RouteNavSlider router='blog'/>
+    <div className="   ">
+      <HeroBanner name='Our Business' />
       {data ? (
-        <Container className="m-3 ">
+        <Container className="container ">
           <Card className="border-0  p-5">
             {/* <Image
   src="/image.jpg"
@@ -57,7 +58,8 @@ function BlogDetails({ data }) {
             <Card.Img
               className="h-50"
               variant="top"
-              src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
+              // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
+              src={data.image}
             />
 
             <Card.Title className="py-3 fs-3  fw-bolder ">
