@@ -30,7 +30,7 @@ const ProductDetailsModal = (props) => {
             </div>
           </div>
           <div className="col-md-8 ">
-            <div className="w-75">
+            <div>
               <h2 className="fs-5 fw-bold cus-color-secondary ">
                 Sultan Tea CD 500gm
               </h2>
@@ -51,21 +51,21 @@ const ProductDetailsModal = (props) => {
                 </div>
               </Link>
 
-              <div className="d-flex gap-4 mt-4">
-                <div className="p-1 border rounded">
-                  <button className="btn  fw-bold border-end" type="button">
-                    <AiOutlinePlus size={22} />
-                  </button>
+              <div className="d-flex gap-4  mt-4 ">
+                <div className=" border rounded ele-center ">
+                  <span className=" fw-bold border-end p-1  ">
+                    <AiOutlinePlus size={20} />
+                  </span>
                   <span className="fw-bold fs-6 p-2">1</span>
-                  <button className="btn border-start" type="button">
-                    <AiOutlineMinus size={22} />
-                  </button>
+                  <span className="border-start p-1">
+                    <AiOutlineMinus size={20} />
+                  </span>
                 </div>
                 <div>
                   <MyButton
                     type="submit"
-                    size="lg"
-                    className=" text-white px-4 fs-6 cus-bg-secondary"
+                    size="md"
+                    className=" text-white px-3 fs-6 cus-bg-secondary"
                     onClick={() => addItem(product)}
                   >
                     ADD TO CART
