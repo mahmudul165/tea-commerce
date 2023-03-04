@@ -36,7 +36,7 @@ const CartItem = ({ item }) => {
           {items.map((item, index) => (
             <>
               <div className="col-3">
-                <div className="border p-2 rounded ele-center w-75">
+                <div className="border p-2 rounded ele-center w-100">
                   <img
                     src={item?.images[0].url}
                     alt="Product"
@@ -51,41 +51,39 @@ const CartItem = ({ item }) => {
                     {/* Sultan Tea CD 500gm */}
                     {item.name}
                   </p>
-                  <div className="d-flex gap-4">
-                    <p className="fs-4 p-2">TK {item.price}</p>
+                  <div className="d-flex gap-4 ">
+                    <p className="fs-5 p-2">TK {item.price}</p>
 
-                    <div className="p-1 border  rounded">
-                      <button
-                        className="btn btn-sm  fw-bold border-end"
-                        type="button"
-                      >
-                        <AiOutlinePlus size={22} 
-                         onClick={() =>
-                          updateItemQuantity(
-                            item.id,
-                            item.quantity + 1
-                          )
-                        }
+                    <div className=" border  rounded ele-center ">
+                      <span className=" fw-bold border-end p-1">
+                        <AiOutlinePlus
+                          size={20}
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity + 1)
+                          }
                         />
-                      </button>
+                      </span>
                       <span className="fw-bold fs-6 p-2">{item.quantity}</span>
-                      <button className="btn border-start btn-sm" type="button">
-                        <AiOutlineMinus size={22} onClick={() =>
-                                      updateItemQuantity(
-                                        item.id,
-                                        item.quantity - 1
-                                      )
-                                    } />
-                      </button>
+                      <span className=" border-start p-1">
+                        <AiOutlineMinus
+                          size={20}
+                          onClick={() =>
+                            updateItemQuantity(item.id, item.quantity - 1)
+                          }
+                        />
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col-1 ele-center">
-                <button onClick={() => removeItem(item.id)}> 
-                <IconWithBackground    >
-                  <RiDeleteBin5Fill size={22} className=""   />
-                </IconWithBackground>
+                <button
+                  onClick={() => removeItem(item.id)}
+                  className="btn btn-sm"
+                >
+                  <IconWithBackground>
+                    <RiDeleteBin5Fill size={18} className="" />
+                  </IconWithBackground>
                 </button>
               </div>
             </>
@@ -107,11 +105,19 @@ const CheckOutForm = () => {
     >
       <FloatingLabel
         controlId="floatingInputGrid"
+        label="Enter Your Email"
+        className="mb-4"
+      >
+        <Form.Control type="email" placeholder="Enter Your Email" />
+      </FloatingLabel>
+      <FloatingLabel
+        controlId="floatingInputGrid"
         label="Enter Your Name"
         className="mb-4"
       >
         <Form.Control type="text" placeholder="Enter Your Name" />
       </FloatingLabel>
+
       <FloatingLabel
         controlId="floatingInputGrid"
         label="Phone Number"
