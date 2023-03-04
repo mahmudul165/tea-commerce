@@ -141,6 +141,7 @@ ul li {
 .galleryImage {
   height: 300px; /* or any other fixed height you want */
   object-fit: cover;
+  width: auto;
 }
 /* navbar */
 /* .navPosition{
@@ -203,12 +204,21 @@ li:active {
 }
 
 /* carousel default style change */
-.carousel-control-prev-icon,
+#product-carousel .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: none;
 }
-.carousel-indicators {
+.product-carousel .carousel-indicators {
   display: none;
+}
+/* pagination  default style change */
+
+.page-item.active .page-link {
+  background-color: var(--primary-color) !important;
+  border-color: #ddd !important;
+}
+.page-item .page-link {
+  color: var(--secondary-color);
 }
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
