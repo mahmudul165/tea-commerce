@@ -15,7 +15,9 @@ import SliderImg from "public/slider-2.jpg";
 
 import HeroBanner from "@/components/common/Banner";
 export const getStaticPaths = async () => {
-  const res = await fetch("https://sultan-tea-backend.vercel.app/api/v1/business");
+  const res = await fetch(
+    "https://sultan-tea-backend.vercel.app/api/v1/business"
+  );
   const data = await res.json();
   const paths = await data.map((post) => {
     return {
@@ -32,7 +34,7 @@ export const getStaticProps = async ({ params }) => {
   const res = await fetch(
     `https://sultan-tea-backend.vercel.app/api/v1/business/${params.slugId}`
   );
-   console.log('url:',res);
+  console.log("url:", res);
   const data = await res.json();
   console.log("product data is :", data);
 
@@ -45,7 +47,7 @@ export const getStaticProps = async ({ params }) => {
 function BlogDetails({ data }) {
   return (
     <div className="   ">
-      <HeroBanner name='Our Business' />
+      <HeroBanner name="Our Business" />
       {data ? (
         <Container className="container ">
           <Card className="border-0  p-5">
@@ -61,11 +63,9 @@ function BlogDetails({ data }) {
               // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
               src={data.image}
             />
+            <p className="cus-color-primary my-3 fs-4  ">{data.title}</p>
 
-            <Card.Title className="py-3 fs-3  fw-bolder ">
-              {data.title}
-            </Card.Title>
-            <Card.Text className="fs-5  ">{data.body}</Card.Text>
+            <p className="  text-justify cus-text-justify ">{data.body}</p>
           </Card>
         </Container>
       ) : (

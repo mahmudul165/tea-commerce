@@ -43,7 +43,6 @@ function BusinessShowcase({ data }) {
   };
 
   return (
-    
     <motion.div
       initial="initial"
       animate="animate"
@@ -61,9 +60,8 @@ function BusinessShowcase({ data }) {
                 whileTap={{ scale: 0.95 }}
                 className="card border-0 "
               >
-
-{/* {`blogs/${product.title}`} */}
-                <Link href={`/our-business/${product._id}`}  passHref>
+                {/* {`blogs/${product.title}`} */}
+                <Link href={`/our-business/${product._id}`} passHref>
                   {product.image ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
@@ -78,17 +76,17 @@ function BusinessShowcase({ data }) {
                     />
                   ) : (
                     <motion.img
-                    initial={{ x: 60, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    src='https://i.ibb.co/ZT55jTm/Rectangle-1897.png'
-                    alt="E-COMMERCE  products"
-                    className="card-img-top  p-2 "
-                    width={336}
-                    height={230}
-                    layout="responsive"
-                  />
-                    
+                      initial={{ x: 60, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      src="https://i.ibb.co/ZT55jTm/Rectangle-1897.png"
+                      alt="E-COMMERCE  products"
+                      className="card-img-top  p-2 "
+                      width={336}
+                      height={230}
+                      layout="responsive"
+                    />
+
                     // <Skeleton height={200} />
                   )}
                 </Link>
@@ -126,13 +124,12 @@ function BusinessShowcase({ data }) {
                     //   border: 0,
                     // }}
                   >
-                     {product.body?.slice(0, 100)}
-                    
+                    {product.body?.slice(0, 100)}
                   </p>
                 </div>
                 {/* test button */}
                 {/* <div className="p-2 m-2 d-flex align-items-center justify-content-center"> */}
-                  
+
                 {/* <button
                     type="button"
                     className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
@@ -263,7 +260,6 @@ function BusinessShowcase({ data }) {
         )}
       </motion.div>
     </motion.div>
-    
   );
 }
 
