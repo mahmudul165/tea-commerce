@@ -132,7 +132,7 @@ const Gallery = () => {
           </Nav.Item>
         </Nav>
 
-        <Row className="mb-4">
+        <Row className="mb-4 overflow-hidden">
           {currentItems.map((image, index) => (
             <Card
               key={image.id}
