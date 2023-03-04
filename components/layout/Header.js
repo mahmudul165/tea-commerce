@@ -220,12 +220,12 @@ function Header() {
               as="ul"
             >
               {" "}
-              <Nav.Item as="li" className="d-flex ">
+              <Nav.Item as="li" className="d-flex cus-scale ">
                 <Image
                   src={Logo}
                   alt="logo"
-                  width={90}
-                  height={90}
+                  width={95}
+                  height={95}
                   layout={500}
                 />
                 {/* <img
@@ -238,7 +238,7 @@ function Header() {
             </Nav>
           </div>
 
-          <div className=" d-block  d-lg-none d-md-block col-sm-2 offset-6 col-2 d-xs-block ">
+          <div className=" d-block  d-lg-none d-md-block col-sm-3 offset-5 col-3 d-xs-block d-flex ">
             <Nav.Link
               as="button"
               className="fs-4"
@@ -246,8 +246,9 @@ function Header() {
                 setModalShow(true);
               }}
             >
-              <FaShoppingCart />{" "}
+              <FaShoppingCart />
             </Nav.Link>
+            <span className="fs-6  ">({totalItems})</span>
           </div>
 
           <div className="col-lg-5  col-sm-2   col-2">
@@ -341,20 +342,20 @@ function Header() {
                   {/* start */}
                   <Nav.Link
                     as="button"
-                    className="fs-4 d-sm-none d-lg-block d-xs-none"
+                    className="fs-4 d-sm-none d-lg-block d-xs-none "
                     onClick={() => {
                       setModalShow(true);
                     }}
                   >
-                    {" "}
-                    <FaShoppingCart />{" "}
+                    <FaShoppingCart />
                   </Nav.Link>
-
-                 ({totalItems})
+                  <span className="fs-6  d-sm-none d-lg-block d-xs-none mt-1">
+                    ({totalItems})
+                  </span>
 
                   <Nav.Link
                     as="i"
-                    className="fs-4 d-sm-none d-xs-none d-lg-block"
+                    className="fs-4 d-sm-none d-xs-none d-lg-block "
                   >
                     <Link href={"/search"}>
                       {" "}
