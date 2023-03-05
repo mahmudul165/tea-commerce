@@ -163,15 +163,24 @@ ul li {
   align-items: center;
 }
 
-nav .navbar-nav .nav-link,
+nav .cus-li-black .navbar-nav .nav-link,
 .offcanvas-body .navbar-nav .nav-item a,
 .nav-link {
-  color: #2b2b2b !important;
   font-size: 20px;
   font-weight: 400;
   font-style: normal;
   /* padding: 4px 12px; */
 }
+.cus-li-black .nav-link,
+.cus-li-black sup {
+  color: #2b2b2b !important;
+}
+
+.cus-li-white .nav-link,
+.cus-li-white sup {
+  color: #fff !important;
+}
+
 nav .navbar-nav .nav-link:hover,
 nav a:hover,
 .offcanvas-body .navbar-nav .nav-item a:hover,
