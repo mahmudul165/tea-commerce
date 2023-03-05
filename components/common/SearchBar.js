@@ -4,8 +4,8 @@ import IconWithBackground from "./IconWithBackground";
 
 const SearchBar = ({ btnColor }) => {
   return (
-    <>
-      <InputGroup className="">
+    <div>
+      <InputGroup className="d-xs-none">
         <Form.Control
           placeholder="Search..."
           aria-label="Search"
@@ -23,7 +23,7 @@ const SearchBar = ({ btnColor }) => {
           )}
         </button>
       </InputGroup>
-    </>
+    </div>
   );
 };
 

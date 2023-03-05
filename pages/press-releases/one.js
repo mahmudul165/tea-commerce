@@ -14,10 +14,10 @@ function SinglePressRelease({ data }) {
           <Image src={DemoImg} alt="IMG" />
         </div>
         <div>
-          <h2 className="cus-color-primary my-2 fs-5">
+          <p className="cus-color-primary my-3 fs-5 cus-text-justify ">
             Lorem Ipsum is simply dummy text of the printing?
-          </h2>
-          <p className="text-justify">
+          </p>
+          <p className="text-justify cus-text-justify ">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type

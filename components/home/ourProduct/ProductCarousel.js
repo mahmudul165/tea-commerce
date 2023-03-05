@@ -8,7 +8,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useCart } from "react-use-cart";
 let easing = [0.6, -0.05, 0.01, 0.99];
- 
+
 const fadeInUp = {
   initial: {
     y: 60,
@@ -117,7 +117,7 @@ const ProductCarousel = ({ data }) => {
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
       <SectionTitle title="Our Products" />
-      <Carousel className="position-relative  ">
+      <Carousel className="position-relative  product-carousel">
         {data?.products?.map((product, index) => {
           if (index % 4 === 0) {
             return (
@@ -194,7 +194,7 @@ const ProductCarousel = ({ data }) => {
                               onClick={() => addItem(product)}
                             >
                               <i className="fas fa-shopping-cart me-1 py-1 "></i>
-                              <span className="d-xs-none d-sm-block "   >
+                              <span className="d-xs-none d-sm-block ">
                                 Add To Cart
                               </span>
                             </button>
