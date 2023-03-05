@@ -220,7 +220,7 @@ function Header() {
               as="ul"
             >
               {" "}
-              <Nav.Item as="li" className="d-flex cus-scale ">
+              <Nav.Item as="li" className="d-flex cus-app-logo ">
                 <Image
                   src={Logo}
                   alt="logo"

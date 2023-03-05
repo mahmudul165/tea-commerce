@@ -235,6 +235,10 @@ li:active {
     width: 220px;
     height: 220px;
   }
+  .cus-app-logo {
+    width: 60px;
+    height: auto;
+  }
 }
 /* press releases mobile view */
 @media only screen and (max-width: 600px) {
@@ -248,11 +252,5 @@ li:active {
 @media (max-width: 767.98px) {
   .xs-mt-2 {
     margin-top: 20px;
-  }
-}
-
-@media (max-width: 420px) {
-  .cus-scale {
-    scale: 2;
   }
 }
