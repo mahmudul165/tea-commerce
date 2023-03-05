@@ -107,18 +107,12 @@ function BusinessShowcase({ data }) {
                     initial={{ opacity: 0 }}
                     className="title"
                   >
-                    <h3
-                      className="my-1 py-1 fs-5 fw-bold"
-                      style={{
-                        color: "#000000",
-                        border: 0,
-                      }}
-                    >
+                    <h3 className="my-1 py-1 fs-5 fw-bold cus-color-primary">
                       {product.title}
                     </h3>{" "}
                   </motion.div>
                   <p
-                    className="text-gray  py-2   "
+                    className="text-gray  py-2  cus-text-justify "
                     // style={{
                     //   color: "#FF0099",
                     //   border: 0,

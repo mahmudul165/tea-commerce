@@ -49,8 +49,8 @@ function BlogDetails({ data }) {
     <div className="   ">
       <HeroBanner name="Our Business" />
       {data ? (
-        <Container className="container ">
-          <Card className="border-0  p-5">
+        <Container className="container my-4">
+          <Card className="border-0  p-2">
             {/* <Image
   src="/image.jpg"
   alt="description"
