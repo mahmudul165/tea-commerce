@@ -238,20 +238,20 @@ function Header() {
             </Nav>
           </div>
 
-          <div className=" d-block  d-lg-none d-md-block col-sm-3 offset-5 col-3 d-xs-block d-flex ">
+          <div className=" d-block  d-lg-none d-md-block col-sm-3 offset-4 col-3 d-xs-block d-flex  justify-content-end">
             <Nav.Link
               as="button"
-              className="fs-4"
+              className="fs-4 m-0 p-0"
               onClick={() => {
                 setModalShow(true);
               }}
             >
               <FaShoppingCart />
             </Nav.Link>
-            <span className="fs-6  ">({totalItems})</span>
+            <sup className="fs-6 fw-bold mt-2">({totalItems})</sup>
           </div>
 
-          <div className="col-lg-5  col-sm-2   col-2">
+          <div className="col-lg-5  col-sm-2   col-3">
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -265,7 +265,7 @@ function Header() {
                 <Nav.Link as="i" className="fs-4">
                   <Link href={"/search"}>
                     {" "}
-                    <FaSearch />{" "}
+                    <FaSearch style={{ marginLeft: "100px" }} />{" "}
                   </Link>
                 </Nav.Link>
               </Offcanvas.Header>
@@ -275,7 +275,7 @@ function Header() {
                     <Link href={"/gellary"}>Gallery</Link>
                   </Nav.Link> */}
                   <div className="  d-block  d-lg-none d-md-block  d-xs-block ">
-                    <Nav className="mr-auto text-white" as="ul">
+                    <Nav className=" text-white" as="ul">
                       <Nav.Item as="li">
                         <Nav.Link as="span">
                           <Link href={"/"}>Home</Link>
@@ -342,16 +342,16 @@ function Header() {
                   {/* start */}
                   <Nav.Link
                     as="button"
-                    className="fs-4 d-sm-none d-lg-block d-xs-none "
+                    className="fs-4 d-sm-none d-lg-block d-xs-none m-0 p-0"
                     onClick={() => {
                       setModalShow(true);
                     }}
                   >
                     <FaShoppingCart />
                   </Nav.Link>
-                  <span className="fs-6  d-sm-none d-lg-block d-xs-none mt-1">
+                  <sup className="fs-6 fw-bold  d-sm-none d-lg-block d-xs-none mt-3 ">
                     ({totalItems})
-                  </span>
+                  </sup>
 
                   <Nav.Link
                     as="i"
