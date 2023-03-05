@@ -59,9 +59,8 @@ function BlogsShowcase({ data }) {
                 whileTap={{ scale: 0.95 }}
                 className="card border-0 "
               >
-
-{/* {`blogs/${product.title}`} */}
-                <Link href={`/blogs/${product.id}`}  passHref>
+                {/* {`blogs/${product.title}`} */}
+                <Link href={`/blogs/${product.id}`} passHref>
                   {product.image_one ? (
                     <motion.img
                       initial={{ x: 60, opacity: 0 }}
@@ -76,17 +75,17 @@ function BlogsShowcase({ data }) {
                     />
                   ) : (
                     <motion.img
-                    initial={{ x: 60, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    src='https://i.blogs.es/d85337/1366_2000/840_560.jpeg'
-                    alt="E-COMMERCE  products"
-                    className="card-img-top  p-2 "
-                    width={336}
-                    height={230}
-                    layout="responsive"
-                  />
-                    
+                      initial={{ x: 60, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                      src="https://i.blogs.es/d85337/1366_2000/840_560.jpeg"
+                      alt="E-COMMERCE  products"
+                      className="card-img-top  p-2 "
+                      width={336}
+                      height={230}
+                      layout="responsive"
+                    />
+
                     // <Skeleton height={200} />
                   )}
                 </Link>
@@ -107,41 +106,35 @@ function BlogsShowcase({ data }) {
                     initial={{ opacity: 0 }}
                     className="title"
                   >
-                    <h3
-                      className="my-1 py-1 fs-5 fw-bold"
-                      style={{
-                        color: "#000000",
-                        border: 0,
-                      }}
-                    >
+                    <h3 className="my-1 py-1 fs-5 fw-bold cus-color-primary ">
                       {product.title}
                     </h3>{" "}
                   </motion.div>
                   <p
-                    className="text-gray  py-2   "
+                    className="text-gray  py-2 cus-text-justify  "
                     // style={{
                     //   color: "#FF0099",
                     //   border: 0,
                     // }}
                   >
-                      {product.body}
+                    {product.body}
                   </p>
                 </div>
                 {/* test button */}
                 {/* <div className="p-2 m-2 d-flex align-items-center justify-content-center"> */}
-                  
+
                 <button
-                    type="button"
-                    className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
-                    style={{
-                      backgroundColor: "#59330E",
-                      // color: "#FF0099",
-                      border: 0,
-                    }}
-                    // onClick={() => addItem(product)}
-                  >
-                   Learn More
-                  </button>
+                  type="button"
+                  className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  "
+                  style={{
+                    backgroundColor: "#59330E",
+                    // color: "#FF0099",
+                    border: 0,
+                  }}
+                  // onClick={() => addItem(product)}
+                >
+                  Learn More
+                </button>
                 {/* </div> */}
               </motion.div>
             </div>
