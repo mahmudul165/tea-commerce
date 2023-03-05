@@ -1,6 +1,8 @@
 import Card from "@/components/admin/Card";
 import PrivateRoute from "@/components/PrivateRoute";
 
+ 
+
 const DashboardPage = () => {
   return (
     <PrivateRoute>

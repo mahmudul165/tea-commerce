@@ -45,7 +45,7 @@ function LoginPage() {
     //      sessionStorage.setItem('isLoggedIn', true);
   
     //     // Redirect to the dashboard page
-    //     router.push('/dashboard');
+    //     router.push('/admin/dashboard');
     //   } else {
     //     // If login is unsuccessful, display an error message
     //     setError('Incorrect username or password');
