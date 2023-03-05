@@ -18,9 +18,9 @@ import { ChakraProvider } from "@chakra-ui/react";
 import ThreeDotsWave from "@/components/common/ThreeDot";
 import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-
-  const queryClient = new QueryClient();
+import AuthProvider from "@/lib/contexts/AuthProvider";
+import LayoutAdmin from "@/components/layoutAdmin/Layoutt";
+const queryClient = new QueryClient();
 // import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +33,20 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   //const getLayout = Component.getLayout || ((page) => page);
   //console.log("page is",getLayout)
   if (Component.getLayout) {
-    return Component.getLayout(<Component {...pageProps} />);
+    return Component.getLayout(
+      isLoading ? (
+        <ThreeDotsWave />
+      ) : (
+        <>
+          {" "}
+          <AuthProvider> 
+         
+            <Component {...pageProps} />
+            
+          </AuthProvider>
+        </>
+      )
+    );
   }
   return (
     <>
@@ -62,13 +75,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       ) : (
         <CartProvider>
           <QueryClientProvider client={queryClient}>
-          <ChakraProvider>
-            <Layout>
-              {/* <AnimatePresence exitBeforeEnter> */}
-              {} <Component {...pageProps} />
-              {/* </AnimatePresence> */}
-            </Layout>
-          </ChakraProvider>
+            <ChakraProvider>
+              <AuthProvider>
+                <Layout>
+                  {/* <AnimatePresence exitBeforeEnter> */}
+                  {} <Component {...pageProps} />
+                  {/* </AnimatePresence> */}
+                </Layout>
+              </AuthProvider>
+            </ChakraProvider>
           </QueryClientProvider>
         </CartProvider>
       )}
