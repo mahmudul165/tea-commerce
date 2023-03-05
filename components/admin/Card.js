@@ -1,11 +1,10 @@
 import { MdCallMade } from "react-icons/md";
 
 function Card({ name, number, bgColor, path }) {
-  console.log("first bg", bgColor);
+//   console.log("first bg", bgColor);
   return (
     <>
-   
-    
+      
       {bgColor ? (
         <a
           href={`${path ? path : "/dashboard"}`}
