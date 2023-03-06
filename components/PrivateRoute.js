@@ -7,9 +7,9 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const user = sessionStorage.getItem("user");
+    const session = sessionStorage.getItem("session");
 
-    if (!isLoggedIn && !user) {
+    if (!isLoggedIn && !session) {
       router.push("/admin");
     }
   }, []);
