@@ -55,12 +55,14 @@ const DashboardPage = () => {
           />
           <NewCard
             name="Customers"
+            path="customers"
             number={"145"}
             icon={<FaUsers size={24} />}
           />
           <NewCard
             name="Sell"
             number={"145"}
+            path="sell"
             icon={<AiOutlineDollarCircle size={24} />}
           />
           <NewCard
