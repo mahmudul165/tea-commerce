@@ -28,8 +28,8 @@ function LoginPage() {
   
       if (response.status === 200) {
         const data = await response.data;
-        console.log('data is:',data)
-        // const token=data?.token;
+        // console.log('data is:',data)
+        //  const token=data?.token;
         // const user=data?.user;
         // export function saveUserSession(user) {
         //     sessionStorage.setItem("user", JSON.stringify(user));
@@ -44,7 +44,7 @@ function LoginPage() {
         //     sessionStorage.removeItem("user");
         //   }
         // If login is successful, set session data in session storage
-        sessionStorage.setItem("user", JSON.stringify(user));
+        sessionStorage.setItem("session", JSON.stringify(data));
          sessionStorage.setItem('isLoggedIn', true);
   
         // Redirect to the dashboard page
