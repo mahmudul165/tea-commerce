@@ -13,12 +13,9 @@ import CartItemsModal from "@/components/common/CartItemsModal";
 import CustomTable from "@/components/admin/common/CustomTable";
 
 function randomColor() {
-  const red = Math.floor(Math.random() * 254) + 1;
-  const green = Math.floor(Math.random() * 254) + 1;
-  const blue = Math.floor(Math.random() * 254) + 1;
-  const hex = "#" + red.toString(16) + green.toString(16) + blue.toString(16);
-  console.log("hex", hex);
-  return hex;
+  const colors = ["#e49e48", "#59330e", "#8DFF9B", "#B871C7", "#5A94F5"];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
 }
 const NewCard = ({ name, path, bgColor, number, icon }) => {
   return (
@@ -31,10 +28,9 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
           </div>
           <div>
             <div
-              className=" p-2 rounded-3 "
+              className=" p-2 rounded-3 text-white"
               style={{
                 backgroundColor: randomColor(),
-                color: "#fff",
               }}
             >
               {icon}
@@ -47,16 +43,14 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
-  const [modalShow, setModalShow] = useState(false);
-
   return (
     <PrivateRoute>
-      <CartItemsModal show={modalShow} onHide={() => setModalShow(false)} />
       <main className="p-6  space-y-6 my-1">
         <section className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-6 gy-3 p-3">
           <NewCard
             name="Orders"
             number={"145"}
+            path="orders"
             icon={<BsCartCheck size={24} />}
           />
           <NewCard
@@ -72,6 +66,7 @@ const DashboardPage = () => {
           <NewCard
             name="Products"
             number={"145"}
+            path="products"
             icon={<BsCartCheck size={24} />}
           />
         </section>
