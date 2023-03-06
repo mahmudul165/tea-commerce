@@ -14,9 +14,12 @@ import { motion } from "framer-motion";
 import SliderImg from "public/slider-2.jpg";
 
 import HeroBanner from "@/components/common/Banner";
+ 
 export const getStaticPaths = async () => {
+   
+ 
   const res = await fetch(
-    "https://sultan-tea-backend.vercel.app/api/v1/business"
+    "https://crabby-pocketbook-eel.cyclic.app/api/v1/business"
   );
   const data = await res.json();
   const paths = await data.map((post) => {
@@ -32,7 +35,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `https://sultan-tea-backend.vercel.app/api/v1/business/${params.slugId}`
+    `https://crabby-pocketbook-eel.cyclic.app/api/v1/business/${params.slugId}`
   );
   console.log("url:", res);
   const data = await res.json();
