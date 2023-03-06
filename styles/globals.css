@@ -2,6 +2,9 @@
   --primary-color: #e49e48;
   --secondary-color: #59330e;
 }
+a {
+  text-decoration: none;
+}
 .cus-bg-primary {
   background-color: var(--primary-color);
 }
@@ -234,8 +237,76 @@ li:active {
 .cus-text-justify {
   text-align: justify !important;
 }
+.cus-table {
+  border-radius: 16px !important;
+}
+.cus-table tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none !important;
+}
+
+.cus-table tr {
+  border-bottom: 1px dashed #eee !important;
+}
+.cus-table tr td {
+  padding: 15px 0;
+}
+/* .cus-dropdown button {
+  background-color: inherit !important;
+  border: none;
+  color: #000;
+  outline: none !important;
+} */
+
+/* custom dropdown */
+
+.cus-dropdown-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.cus-dropdown-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  margin-right: 8px;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow-icon.open {
+  transform: rotate(90deg);
+}
+
+.menu-items {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  width: 130px;
+}
+
+.menu-items.open {
+  max-height: 200px;
+}
+
+.ml-220 {
+  margin-left: 220px;
+}
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
+
   .d-xs-none {
     display: none;
   }
@@ -250,6 +321,9 @@ li:active {
     width: 60px;
     height: auto;
   }
+  .ml-220 {
+    margin-left: 0;
+  }
 }
 /* press releases mobile view */
 @media only screen and (max-width: 600px) {
@@ -263,5 +337,8 @@ li:active {
 @media (max-width: 767.98px) {
   .xs-mt-2 {
     margin-top: 20px;
+  }
+  .ml-220 {
+    margin-left: 0;
   }
 }
