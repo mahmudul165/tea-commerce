@@ -19,13 +19,28 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const CustomDropdown = ({ options, name }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const dropdownRef = React.useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  React.useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    // Bind the event listener
+    window.addEventListener("click", handleClickOutside);
+
+    // Unbind the event listener on cleanup
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
-    <div className="cus-dropdown-menu">
+    <div ref={dropdownRef} className="cus-dropdown-menu">
       <div className="cus-dropdown-header" onClick={toggleMenu}>
         <span className="header-text"> {name} </span>
         <span className={`arrow-icon ${isOpen ? "open" : ""}`}>
