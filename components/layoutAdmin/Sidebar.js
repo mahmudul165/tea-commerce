@@ -8,9 +8,10 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CartItemsModal from "../common/CartItemsModal";
 
-import AddProductModal from "../admin/common/AddProductModal";
 import CustomDropdown from "../admin/common/CustomDropdown";
 import { MdNotificationsActive } from "react-icons/md";
+import CustomModal from "../admin/common/CustomModal";
+import { AddProductFrom } from "@/pages/admin/products";
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
 //   top: 0;
@@ -84,8 +85,13 @@ const Sidebar = () => {
   };
   return (
     <SidebarWrapper className="  col-md-3 col-lg-2 d-md-block bg-light sidebar collapse ">
-      <AddProductModal show={modalShow} onHide={() => setModalShow(false)} />
-
+      <CustomModal
+        name="Add Product"
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      >
+        <AddProductFrom />
+      </CustomModal>
       <div className="position-sticky ">
         <SidebarHeader className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted">
           Sultan Tea
