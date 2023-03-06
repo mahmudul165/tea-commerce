@@ -5,14 +5,14 @@ import AuthProvider from "@/lib/contexts/AuthProvider";
 const PrivateRoute = ({ children }) => {
   const router = useRouter();
 
-//   useEffect(() => {
-//     const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-//     const user = sessionStorage.getItem("user");
+  useEffect(() => {
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+    const user = sessionStorage.getItem("user");
 
-//     if (!isLoggedIn && !user) {
-//       router.push("/admin");
-//     }
-//   }, []);
+    if (!isLoggedIn && !user) {
+      router.push("/admin");
+    }
+  }, []);
 
   return (
     <AuthProvider>

@@ -6,7 +6,7 @@ import { Table, Pagination } from "react-bootstrap";
 // import { useRouter } from 'next/router'
 export const getStaticProps = async () => {
   const res = await fetch(
-    "https://sultan-tea-backend.vercel.app/api/v1/carrier"
+    "https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier"
   );
   const data = await res.json();
   return {

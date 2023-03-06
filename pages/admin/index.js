@@ -7,53 +7,52 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { apiRootUrl,    apiEndpoint  } = useAuth();
+  const { apiUrl  } = useAuth();
   
- console.log('first',  apiRootUrl,
- apiEndpoint );
+ console.log('first',  apiUrl.apiRootUrl);
   const handleSubmit = async (event) => {
     event.preventDefault();
     // `${apiRootUrl}${apiEndpoint?.ticket?.list}`
-    // try {
-    //   // Submit the login form data to the server
-    //   const response = await axios.post(`${apiRootUrl}/api/v1/login`, {
-    //     username: username,
-    //     password: password
-    //   }, {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Access-Control-Allow-Origin': '*'
-    //     }
-    //   });
+    try {
+      // Submit the login form data to the server
+      const response = await axios.post(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.login}`, {
+        username: username,
+        password: password
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      });
   
-    //   if (response.status === 200) {
-    //     const user = await response;
-    //     // export function saveUserSession(user) {
-    //     //     sessionStorage.setItem("user", JSON.stringify(user));
-    //     //   }
+      if (response.status === 200) {
+        const user = await response;
+        // export function saveUserSession(user) {
+        //     sessionStorage.setItem("user", JSON.stringify(user));
+        //   }
           
-    //     //   export function getUserSession() {
-    //     //     const user = sessionStorage.getItem("user");
-    //     //     return user ? JSON.parse(user) : null;
-    //     //   }
+        //   export function getUserSession() {
+        //     const user = sessionStorage.getItem("user");
+        //     return user ? JSON.parse(user) : null;
+        //   }
           
-    //     //   export function clearUserSession() {
-    //     //     sessionStorage.removeItem("user");
-    //     //   }
-    //     // If login is successful, set session data in session storage
-    //     sessionStorage.setItem("user", JSON.stringify(user));
-    //      sessionStorage.setItem('isLoggedIn', true);
+        //   export function clearUserSession() {
+        //     sessionStorage.removeItem("user");
+        //   }
+        // If login is successful, set session data in session storage
+        sessionStorage.setItem("user", JSON.stringify(user));
+         sessionStorage.setItem('isLoggedIn', true);
   
-    //     // Redirect to the dashboard page
-    //     router.push('/admin/dashboard');
-    //   } else {
-    //     // If login is unsuccessful, display an error message
-    //     setError('Incorrect username or password');
-    //   }
-    // } catch (error) {
-    //   console.error('Login error:', error);
-    //   setError('Login failed');
-    // }
+        // Redirect to the dashboard page
+        router.push('/admin/dashboard');
+      } else {
+        // If login is unsuccessful, display an error message
+        setError('Incorrect username or password');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Login failed');
+    }
   };
   
   return (
