@@ -27,7 +27,10 @@ function LoginPage() {
       });
   
       if (response.status === 200) {
-        const user = await response;
+        const data = await response.data;
+        console.log('data is:',data)
+        // const token=data?.token;
+        // const user=data?.user;
         // export function saveUserSession(user) {
         //     sessionStorage.setItem("user", JSON.stringify(user));
         //   }
