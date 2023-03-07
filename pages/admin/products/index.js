@@ -1,6 +1,8 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
-import CustomTable from "@/components/admin/common/CustomTable";
+import CustomTable, {
+  ProductTableTH,
+} from "@/components/admin/common/CustomTable";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useState } from "react";
@@ -78,7 +80,7 @@ function ProductsHomePage() {
         </div>
       </div>
 
-      <CustomTable tableName="Products Table" />
+      <CustomTable tableName="Products Table" headers={ProductTableTH} />
     </PrivateRoute>
   );
 }
