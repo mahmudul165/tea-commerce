@@ -1,4 +1,5 @@
 import CustomTable from "@/components/admin/common/CustomTable";
+import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
 import React from "react";
 import { MdAddCircleOutline } from "react-icons/md";
@@ -12,26 +13,17 @@ const AddButton = ({ name }) => {
     </button>
   );
 };
+
 function OrdersHomePage() {
   return (
     <PrivateRoute>
-      <div className="card my-4 py-2 border border-white rounded bg-light">
-      <div className="p-1   m-1 d-flex justify-content-between ">
-        <h2>Orders 145</h2>
+      <PageHeader name="Orders" />
 
-        <div>
-          <AddButton name="Add" />
+      <div className="card bg-light">
+        <div className="m-3 p-2">
+          <CustomTable tableName="Orders Table" />
         </div>
       </div>
-      </div>
-
-     <div className="card">
-      <div className="m-3 p-2">
-      <CustomTable tableName="Orders Table" />
-
-      </div>
-     
-     </div>
     </PrivateRoute>
   );
 }

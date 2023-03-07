@@ -1,11 +1,11 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
 import CustomTable from "@/components/admin/common/CustomTable";
+import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
-import { MdAddCircleOutline } from "react-icons/md";
 
 export const AddProductFrom = () => {
   return (
@@ -65,18 +65,17 @@ function CarrierHomePage() {
         <AddProductFrom />
       </CustomModal>
 
-      <div className="d-flex justify-content-between my-3">
-        <h2>Carrier</h2>
-
-        <div>
+      <PageHeader
+        name="Carrier"
+        btn={
           <AddButton
             name="Add"
             callFun={() => {
               setModalShow(true);
             }}
           />
-        </div>
-      </div>
+        }
+      />
 
       <CustomTable tableName="Carrier Table" />
     </PrivateRoute>
