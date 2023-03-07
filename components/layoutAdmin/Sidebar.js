@@ -1,17 +1,23 @@
 import {
   AiOutlineClose,
   AiOutlineCloseSquare,
+  AiOutlineDollarCircle,
   AiOutlineUserAdd,
 } from "react-icons/ai";
 import { FaChartBar, FaCog, FaHome, FaUser } from "react-icons/fa";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CartItemsModal from "../common/CartItemsModal";
-
+import { RiGalleryFill } from "react-icons/ri";
+import { MdOutlineUpdate } from "react-icons/md";
+import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
 import CustomDropdown from "../admin/common/CustomDropdown";
 import { MdNotificationsActive } from "react-icons/md";
 import CustomModal from "../admin/common/CustomModal";
 import { AddProductFrom } from "@/pages/admin/products";
+import { FiEdit, FiTarget } from "react-icons/fi";
+
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
 //   top: 0;
@@ -68,7 +74,8 @@ const SidebarNavLink = styled.a`
     border-left: 3px solid #007bff;
   }
 `;
-const options = ["Option 1", "Option 2", "Option 3"];
+const productsLi = ["products", "Add Product", "Option 3"];
+const optionsProfile = ["Sultan", "admin@gmail.com", "Logout"];
 
 const Sidebar = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -127,33 +134,43 @@ const Sidebar = () => {
           </li>
           <li className="nav-item">
             <SidebarNavLink className="nav-link" href="#">
-              <FaChartBar />
-              <CustomDropdown options={options} name="Dropdown" />
+              <BsCardChecklist />
+              <CustomDropdown options={productsLi} name="Products" />
             </SidebarNavLink>
-            <li className="nav-item">
-              <SidebarNavLink className="nav-link" href="#">
-                <FaUser /> Customers
-              </SidebarNavLink>
-            </li>
-            <li className="nav-item">
-              <SidebarNavLink className="nav-link" href="#">
-                <FaCog /> Settings
-              </SidebarNavLink>
-            </li>
-            <li className="nav-item">
-              <SidebarNavLink className="nav-link" href="#">
-                <FaChartBar /> Analytics
-              </SidebarNavLink>
-            </li>
-            <li className="nav-item">
-              <SidebarNavLink className="nav-link" href="#">
-                <FaUser /> Customers
-              </SidebarNavLink>
-            </li>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="#">
-              <FaUser /> Customers
+            <SidebarNavLink className="nav-link" href="/admin/orders">
+              <BsCartCheck /> Orders
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/customers">
+              <FaUsers /> Customers
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/sell">
+              <AiOutlineDollarCircle /> Sell
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/gallery">
+              <RiGalleryFill /> Gallery
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/carrier">
+              <FiTarget /> Carrier
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/press-releases">
+              <MdOutlineUpdate /> Press Releases
+            </SidebarNavLink>
+          </li>
+          <li className="nav-item">
+            <SidebarNavLink className="nav-link" href="/admin/slide">
+              <BsSliders /> Slide
             </SidebarNavLink>
           </li>
           <li className="nav-item ">
@@ -163,7 +180,8 @@ const Sidebar = () => {
           </li>
           <li className="nav-item ">
             <SidebarNavLink className="nav-link" href="#">
-              <FaUser /> Profile
+              <FaUser />
+              <CustomDropdown options={optionsProfile} name="Profile" />
             </SidebarNavLink>
           </li>
           <li className="nav-item">
