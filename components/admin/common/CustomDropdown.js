@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 // import { Dropdown } from "react-bootstrap";
@@ -48,17 +49,15 @@ const CustomDropdown = ({ options, name }) => {
         </span>
       </div>
       <div className={`menu-items ${isOpen ? "open" : ""} shadow-sm`}>
-        <ul class="nav ">
-          <li class="nav-item">
-            <a class="nav-link active fs-6" aria-current="page" href="#">
-              Active
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link fs-6" href="#">
-              Link
-            </a>
-          </li>
+        <ul class="nav p-1 ">
+          {options &&
+            options.map((el) => (
+              <li class="nav-item" key={el}>
+                <Link class="nav-link active fs-6" aria-current="page" href="#">
+                  {el}
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
     </div>
