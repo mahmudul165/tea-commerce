@@ -83,7 +83,7 @@ export default function ThreeDotsWave() {
 
 
 
-            <img src="/loadder.gif" alt="loader"></img>
+            <img src="/loadder-2.gif" alt="loader"></img>
     </div>
   );
 }
