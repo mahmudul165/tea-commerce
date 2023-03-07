@@ -2,9 +2,16 @@ import {
   AiOutlineClose,
   AiOutlineCloseSquare,
   AiOutlineDollarCircle,
+  AiOutlineHome,
   AiOutlineUserAdd,
 } from "react-icons/ai";
-import { FaChartBar, FaCog, FaHome, FaUser } from "react-icons/fa";
+import {
+  FaChartBar,
+  FaCog,
+  FaHome,
+  FaRegUserCircle,
+  FaUser,
+} from "react-icons/fa";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CartItemsModal from "../common/CartItemsModal";
@@ -16,7 +23,7 @@ import CustomDropdown from "../admin/common/CustomDropdown";
 import { MdNotificationsActive } from "react-icons/md";
 import CustomModal from "../admin/common/CustomModal";
 import { AddProductFrom } from "@/pages/admin/products";
-import { FiEdit, FiTarget } from "react-icons/fi";
+import { FiEdit, FiSettings, FiTarget } from "react-icons/fi";
 
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
@@ -55,7 +62,7 @@ const SidebarNavLink = styled.a`
   display: flex;
   align-items: center;
   padding: 0.5rem 1.5rem;
-  font-size: 0.95rem;
+  font-size: 0.99rem;
   font-weight: 500;
   color: #212529;
   transition: all 0.3s ease;
@@ -118,7 +125,7 @@ const Sidebar = () => {
               aria-current="page"
               href="dashboard"
             >
-              <FaHome /> Dashboard
+              <AiOutlineHome /> Dashboard
             </SidebarNavLink>
           </li>
           <li className="nav-item">
@@ -180,13 +187,13 @@ const Sidebar = () => {
           </li>
           <li className="nav-item ">
             <SidebarNavLink className="nav-link" href="#">
-              <FaUser />
+              <FaRegUserCircle />
               <CustomDropdown options={optionsProfile} name="Profile" />
             </SidebarNavLink>
           </li>
           <li className="nav-item">
             <SidebarNavLink className="nav-link" href="#">
-              <FaCog /> Settings
+              <FiSettings /> Settings
             </SidebarNavLink>
           </li>
         </ul>

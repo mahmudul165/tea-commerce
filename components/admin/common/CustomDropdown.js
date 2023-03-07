@@ -45,10 +45,10 @@ const CustomDropdown = ({ options, name }) => {
       <div className="cus-dropdown-header" onClick={toggleMenu}>
         <span className="header-text"> {name} </span>
         <span className={`arrow-icon ${isOpen ? "open" : ""}`}>
-          <MdKeyboardArrowRight size={25} />
+          <MdKeyboardArrowRight size={24} className="text-secondary fw-bold" />
         </span>
       </div>
-      <div className={`menu-items ${isOpen ? "open" : ""} shadow-sm`}>
+      <div className={`menu-items ${isOpen ? "open" : ""} shadow-sm `}>
         <ul class="nav p-1 ">
           {options &&
             options.map((el) => (

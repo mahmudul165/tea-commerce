@@ -36,7 +36,7 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="navbar-nav ms-auto ">
-            <FaRegUserCircle size={24} className="me-2" />
+            <FaRegUserCircle size={24} className="me-2 text-secondary" />
             <CustomDropdown options={options} />
           </div>
         </div>
