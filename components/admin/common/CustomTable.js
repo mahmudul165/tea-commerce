@@ -50,7 +50,7 @@ function CustomTable({ tableName, headers, data }) {
   return (
     <div>
       <p className="fs-4 fw-bold">{tableName}</p>
-      <div className="border rounded-3 p-4 cus-table shadow-sm">
+      <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
         <table class="table text-center">
           <thead>
             <tr>
