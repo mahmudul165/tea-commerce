@@ -54,7 +54,7 @@ function CustomTable({ tableName, headers, data }) {
 
 
 
-      <div classname="card bg-light ">
+      {/* <div classname="card bg-light ">
           <div classname="my-2 py-2 ">
             <div className="container my-3">
               <div className="row ">
@@ -73,7 +73,7 @@ function CustomTable({ tableName, headers, data }) {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
