@@ -48,7 +48,7 @@ const CustomDropdown = ({ options, name }) => {
           <MdKeyboardArrowRight size={24} className="text-secondary fw-bold" />
         </span>
       </div>
-      <div className={`menu-items ${isOpen ? "open" : ""} shadow-sm `}>
+      <div className={`menu-items ${isOpen ? "open" : ""} shadow-lg `}>
         <ul class="nav p-1 ">
           {options &&
             options.map((el) => (
