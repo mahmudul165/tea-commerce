@@ -110,7 +110,9 @@ const DashboardPage = () => {
           />
         </section>
 
-        <CustomTable tableName={"Users"} />
+         <div className="px-3">
+         <CustomTable tableName={"Users"} />
+         </div>
       </main>
     </PrivateRoute>
   );
