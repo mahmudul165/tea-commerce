@@ -43,7 +43,7 @@ const SidebarWrapper = styled.nav`
   top: 0;
   left: 0;
   bottom: 0;
-  z-index: 100;
+  z-index: 1030;
 
   overflow-x: hidden;
   background-color: #f8f9fa;

@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom ">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
       <div className="container-fluid">
         <a className="navbar-brand ml-220 " href="#">
           Dashboard
