@@ -3,6 +3,7 @@ import CustomModal from "@/components/admin/common/CustomModal";
 import CustomTable, {
   ProductTableTH,
 } from "@/components/admin/common/CustomTable";
+import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useState } from "react";
@@ -67,18 +68,17 @@ function ProductsHomePage() {
         <AddProductFrom />
       </CustomModal>
 
-      <div className="d-flex justify-content-between my-3">
-        <h2>Products 145</h2>
-
-        <div>
+      <PageHeader
+        name="Products"
+        btn={
           <AddButton
             name="Add"
             callFun={() => {
               setModalShow(true);
             }}
           />
-        </div>
-      </div>
+        }
+      />
 
       <CustomTable tableName="Products Table" headers={ProductTableTH} />
     </PrivateRoute>

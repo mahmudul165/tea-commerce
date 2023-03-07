@@ -35,7 +35,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <div className="navbar-nav ms-auto">
+          <div className="navbar-nav ms-auto ">
             <FaRegUserCircle size={24} className="me-2" />
             <CustomDropdown options={options} />
           </div>
