@@ -48,9 +48,39 @@ export const BusinessTableTH = ["SL", "Title", "Images", "Body", "Actions"];
 
 function CustomTable({ tableName, headers, data }) {
   return (
-    <div>
-      <p className="fs-4 fw-bold">{tableName}</p>
+    <>
+      {/* <p className="fs-4 fw-bold">{tableName}</p> */}
+
+
+
+
+      <div classname="card bg-light ">
+          <div classname="my-2 py-2 ">
+            <div className="container my-3">
+              <div className="row ">
+                <div className="col m-0 p-0">
+                  <div className="input-group w-25 ">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Search"
+                    />
+                    <button className="btn btn-primary" type="button">
+                     Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+
+
+        
+
         <table class="table text-center">
           <thead>
             <tr>
@@ -145,7 +175,7 @@ function CustomTable({ tableName, headers, data }) {
           </tbody>
         </table>
       </div>
-    </div>
+    </>
   );
 }
 
