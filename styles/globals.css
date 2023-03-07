@@ -290,11 +290,11 @@ tr {
   top: 40px;
   right: 0;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease-in-out;
-  width: 130px;
+  width: 150px;
 }
 
 .menu-items.open {
@@ -329,6 +329,12 @@ tr {
   }
 }
 /* press releases mobile view */
+
+@media only screen and (max-width: 992px) {
+  .cus-table {
+    overflow-x: scroll;
+  }
+}
 @media only screen and (max-width: 600px) {
   .icon-wrapper {
     flex-basis: 100%;
@@ -343,5 +349,8 @@ tr {
   }
   .ml-220 {
     margin-left: 0;
+  }
+  .cus-table {
+    overflow-x: scroll;
   }
 }
