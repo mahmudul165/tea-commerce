@@ -15,15 +15,23 @@ const AddButton = ({ name }) => {
 function OrdersHomePage() {
   return (
     <PrivateRoute>
-      <div className="d-flex justify-content-between my-3">
+      <div className="card my-4 py-2 border border-white rounded bg-light">
+      <div className="p-1   m-1 d-flex justify-content-between ">
         <h2>Orders 145</h2>
 
         <div>
           <AddButton name="Add" />
         </div>
       </div>
+      </div>
 
+     <div className="card">
+      <div className="m-3 p-2">
       <CustomTable tableName="Orders Table" />
+
+      </div>
+     
+     </div>
     </PrivateRoute>
   );
 }
