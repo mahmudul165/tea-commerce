@@ -55,7 +55,7 @@ export default function ThreeDotsWave() {
         justifyContent: "center"
       }}
     >
-      <motion.div
+      {/* <motion.div
         style={LoadingContainer}
         variants={ContainerVariants}
         initial="initial"
@@ -76,7 +76,14 @@ export default function ThreeDotsWave() {
           variants={DotVariants}
           transition={DotTransition}
         />
-      </motion.div>
+        
+
+            </motion.div> */}
+
+
+
+
+            <img src="/loadder.gif" alt="loader"></img>
     </div>
   );
 }
