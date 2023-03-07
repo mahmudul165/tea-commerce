@@ -3,7 +3,50 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-function CustomTable({ data, tableName }) {
+
+const defaultHeader = ["SL", "Name", "Email", "Status", "Actions"];
+
+export const ProductTableTH = [
+  "SL",
+  "Created",
+  "Category",
+  "name",
+  "Price",
+  "Description",
+  "Images",
+  "Discount",
+  "Promo",
+  "Stock Status",
+  "Actions",
+];
+export const SlideTableTH = [
+  "SL",
+  "Created",
+  "Title",
+  "Images",
+  "Description",
+  "Actions",
+];
+export const GalleryTableTH = [
+  "SL",
+  "Created",
+  "Category",
+  "Images",
+  "Actions",
+];
+export const CarrierTableTH = [
+  "SL",
+  "Job Title",
+  "Vacancy",
+  "Location",
+  "Salary",
+  "Deadline",
+  "Time",
+  "Actions",
+];
+export const BusinessTableTH = ["SL", "Title", "Images", "Body", "Actions"];
+
+function CustomTable({ tableName, headers, data }) {
   return (
     <div>
       <p className="fs-4 fw-bold">{tableName}</p>
@@ -11,14 +54,25 @@ function CustomTable({ data, tableName }) {
         <table class="table text-center">
           <thead>
             <tr>
-              <th scope="col">SL</th>
-              <th scope="col"> Name</th>
-              <th scope="col">Email</th>
-              <th scope="col">Status</th>
-              <th scope="col">Actions</th>
+              {headers &&
+                headers.map((header, index) => (
+                  <th scope="col" key={index}>
+                    {header}
+                  </th>
+                ))}
+              {!headers &&
+                defaultHeader.map((header, index) => (
+                  <th scope="col" key={index}>
+                    {header}
+                  </th>
+                ))}
             </tr>
           </thead>
           <tbody>
+            {data &&
+              data.map((row, index) => {
+                <tr key={index}></tr>;
+              })}
             <tr className="my-2  fs-6 fw-normal ">
               <td className="">1</td>
               <td>Md Kamal</td>
@@ -28,7 +82,7 @@ function CustomTable({ data, tableName }) {
                   Pending
                 </span>
               </td>
-              <td className="">
+              <td>
                 <div className="d-flex justify-content-center gap-2">
                   <span>
                     <AiOutlineEye size={18} className="text-success" />
