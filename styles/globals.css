@@ -288,13 +288,14 @@ tr {
 .menu-items {
   position: absolute;
   top: 40px;
-  right: 0;
+  right: -15px;
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.3s ease-in-out;
   width: 150px;
+  z-index: 99;
 }
 
 .menu-items.open {
@@ -304,6 +305,7 @@ tr {
 .ml-220 {
   margin-left: 220px;
 }
+
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
 
