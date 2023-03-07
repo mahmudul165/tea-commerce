@@ -53,7 +53,11 @@ const CustomDropdown = ({ options, name }) => {
           {options &&
             options.map((el) => (
               <li class="nav-item" key={el}>
-                <Link class="nav-link active fs-6" aria-current="page" href="#">
+                <Link
+                  class="nav-link active fs-6 text-capitalize"
+                  aria-current="page"
+                  href={el}
+                >
                   {el}
                 </Link>
               </li>
