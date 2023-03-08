@@ -49,12 +49,12 @@ const CustomDropdown = ({ options, name }) => {
         </span>
       </div>
       <div className={`menu-items ${isOpen ? "open" : ""} shadow-lg `}>
-        <ul class="nav p-1 ">
+        <ul className="nav p-1 ">
           {options &&
             options.map((el) => (
-              <li class="nav-item" key={el}>
+              <li className="nav-item" key={el}>
                 <Link
-                  class="nav-link active fs-6 text-capitalize"
+                  className="nav-link active fs-6 text-capitalize"
                   aria-current="page"
                   href={el}
                 >
