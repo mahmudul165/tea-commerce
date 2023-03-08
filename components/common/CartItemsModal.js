@@ -146,44 +146,29 @@ const CheckOutForm = () => {
   );
 };
 const CartItemsModal = (props) => {
-  const {
-    isEmpty,
-    totalUniqueItems,
-    items,
-    totalItems,
-    cartTotal,
-    updateItemQuantity,
-    removeItem,
-    emptyCart,
-  } = useCart();
-  // console.log('items is',items)
+ 
+  const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem, emptyCart } = useCart();
   const itemIds = items.map(item => item._id);
-  const ids=[...itemIds];
-  // console.log('itemIds is',[...itemIds])
+  const ids = [...itemIds];
   
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
     phone: '',
-    address: '',    
-    totalItems: totalItems,
-    totalUniqueItems: totalUniqueItems,
-    cartTotal:cartTotal,
-    products:ids,
+    address: '',
   });
-  console.log('formValues is',formValues)
   const [errors, setErrors] = useState({});
-
+  
   const handleChange = (event) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       [event.target.name]: event.target.value,
     }));
   };
-
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     // Validate form values
     const newErrors = {};
     if (!formValues.name) {
@@ -202,37 +187,43 @@ const CartItemsModal = (props) => {
       setErrors(newErrors);
       return;
     }
-
-    // Submit form data
-    axios
-      .post('https://crabby-pocketbook-eel.cyclic.app/api/v1/order', formValues)
-      .then((response) => {
-        // Handle successful response
-        setFormValues({
-          name: '',
-          email: '',
-          phone: '',
-          address: '',
-          
-        });
-        toast.success('🦄 Checkout successful!', {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          });
-       
-      })
-      .catch((error) => {
-        // Handle error response
-        toast.error('Checkout failed. Please try again later.');
+  
+    try {
+      // Set the dynamic data for totalItems, totalUniqueItems, cartTotal, and products
+      const updatedFormValues = {
+        ...formValues,
+        totalItems: totalItems || 0,
+        totalUniqueItems: totalUniqueItems || 0,
+        cartTotal: cartTotal || 0,
+        products: ids,
+      };
+  
+      // Submit form data
+      const response = await axios.post('https://crabby-pocketbook-eel.cyclic.app/api/v1/order', updatedFormValues);
+  
+      // Handle successful response
+      setFormValues({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
       });
+  
+      toast.success('🦄 Checkout successful!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      // Handle error response
+      toast.error('Checkout failed. Please try again later.');
+    }
   };
-
   return (
     <Modal
       {...props}
