@@ -17,8 +17,6 @@ import { toast } from "react-toastify";
 
 const submitHandler = async (data) => {
   console.log({ data });
-  const { imageURL, radioInput } = data;
-
   try {
     await axios.post("/url", {
       // data
@@ -28,7 +26,7 @@ const submitHandler = async (data) => {
   }
 };
 
-const AddGalleryFrom = () => {
+const AddBusinessFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
@@ -49,7 +47,7 @@ const AddGalleryFrom = () => {
           <Form.Control
             type="text"
             name="imageURL"
-            placeholder="Image url "
+            placeholder="Past image URL ?"
             {...register("imageURL", {
               pattern: {
                 value: acceptPattern,
@@ -64,48 +62,61 @@ const AddGalleryFrom = () => {
             <p className="text-danger">{errors.imageURL.message}</p>
           )}
         </CustomFloatingLabel>
-        <p className="fw-bold fs-5">Category</p>
-
-        {["All", "Garden", "Factory", "Office"].map((el) => (
-          <Form.Check
-            key={el}
-            label={el}
-            name="group1"
-            value={el}
-            type="radio"
-            id={el}
-            {...register("radioInput", { required: "Checked input required" })}
+        <CustomFloatingLabel labelName="Title ">
+          <Form.Control
+            type="text"
+            placeholder="Enter slide title ?"
+            {...register("title", {
+              required: "Please title is  required",
+              maxLength: {
+                value: 30,
+                message: "Input too large !, maximum length 30",
+              },
+            })}
           />
-        ))}
-        {errors.radioInput && (
-          <p className="text-danger">{errors.radioInput.message}</p>
-        )}
+          {errors.title && (
+            <p className="text-danger">{errors.title.message}</p>
+          )}
+        </CustomFloatingLabel>
+        <CustomFloatingLabel labelName="body">
+          <Form.Control
+            type="text"
+            placeholder="Enter description ?"
+            {...register("body", {
+              maxLength: {
+                value: 250,
+                message: "Input too large !, maximum length 250",
+              },
+            })}
+          />
+          {errors.body && <p className="text-danger">{errors.body.message}</p>}
+        </CustomFloatingLabel>
         <div className="ele-center ">
           <MyButton
             type="submit"
             size="lg"
             className=" text-white  cus-bg-secondary  mt-3 w-100"
           >
-            Add Product
+            Add Business
           </MyButton>
         </div>
       </Form>
     </>
   );
 };
-function GalleryHomePage() {
+function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
   return (
     <PrivateRoute>
       <CustomModal
-        name="Add Gallery"
+        name="Add"
         show={modalShow}
         onHide={() => setModalShow(false)}
       >
-        <AddGalleryFrom />
+        <AddBusinessFrom />
       </CustomModal>
       <PageHeader
-        name="Gallery"
+        name="Business"
         btn={
           <AddButton
             name="Add"
@@ -115,11 +126,11 @@ function GalleryHomePage() {
           />
         }
       />
-      <CustomTable tableName="Gallery Table" />
+      <CustomTable tableName="Business Table" />
     </PrivateRoute>
   );
 }
-export default GalleryHomePage;
-GalleryHomePage.getLayout = function PageLayout(page) {
+export default BusinessHomePage;
+BusinessHomePage.getLayout = function PageLayout(page) {
   return <>{page}</>;
 };
