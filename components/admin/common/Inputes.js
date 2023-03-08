@@ -23,3 +23,6 @@ export const CustomInput = ({ typeIs, nameIs, placeholderIs }) => {
     </>
   );
 };
+
+export const acceptPattern =
+  /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/;
