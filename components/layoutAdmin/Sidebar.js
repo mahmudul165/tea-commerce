@@ -16,7 +16,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import CartItemsModal from "../common/CartItemsModal";
 import { RiGalleryFill } from "react-icons/ri";
-import { MdOutlineUpdate } from "react-icons/md";
+import { MdOutlineBusiness, MdOutlineUpdate } from "react-icons/md";
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import CustomDropdown from "../admin/common/CustomDropdown";
@@ -188,6 +188,13 @@ const Sidebar = () => {
             <Link href="slide">
               <SidebarNavLink className="nav-link">
                 <BsSliders /> Slide
+              </SidebarNavLink>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="business">
+              <SidebarNavLink className="nav-link">
+                <MdOutlineBusiness /> Business
               </SidebarNavLink>
             </Link>
           </li>
