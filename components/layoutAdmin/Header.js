@@ -2,12 +2,11 @@
 import useAuth from "@/lib/hook/useAuth";
 import { FaRegUserCircle } from "react-icons/fa";
 import CustomDropdown from "../admin/common/CustomDropdown";
-
-const options = ["Sultan", "admin@gmail.com", "Logout"];
+const options = ["Sultan", "admin@gmail.com", "logout"];
 const Header = () => {
-  const { token,  email,  items, status } = useAuth();
-  console.log('dasboard data from login:', email,status,token,items,);
-   
+  const { token, email, items, status } = useAuth();
+  console.log("dasboard data from login:", email, status, token, items);
+
   const menuHandler = () => {
     const sidebar = document.querySelector(".sidebar");
     const isCollapse = sidebar.classList.contains("collapse");
@@ -41,7 +40,11 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="navbar-nav ms-auto ">
             <FaRegUserCircle size={24} className="me-2 text-secondary" />
-            <CustomDropdown options={options} />
+            <CustomDropdown options={options}>
+              <ul>
+                <li>lkajsd</li>
+              </ul>
+            </CustomDropdown>
           </div>
         </div>
       </div>

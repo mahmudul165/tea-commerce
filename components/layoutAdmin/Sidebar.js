@@ -73,7 +73,7 @@ const SidebarNavLink = styled.span`
   }
 `;
 const productsLi = ["products", "Add Product", "Option 3"];
-const optionsProfile = ["Sultan", "admin@gmail.com", "Logout"];
+const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
 
 const Sidebar = () => {
   const [modalShow, setModalShow] = useState(false);

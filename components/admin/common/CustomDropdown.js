@@ -1,16 +1,23 @@
- 
 import useAuth from "@/lib/hook/useAuth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
- 
 
 const CustomDropdown = ({ options, name }) => {
-  const {    email,  items } = useAuth();
-  console.log('dasboard data from login:', email, items);
+  const router = useRouter();
+
+  const { email, items } = useAuth();
+  console.log("dasboard data from login:", email, items);
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef(null);
 
+  const logOutHandler = () => {
+    // alert("ok");
+
+    localStorage.clear();
+    router.push("/admin");
+  };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -42,13 +49,24 @@ const CustomDropdown = ({ options, name }) => {
           {options &&
             options.map((el) => (
               <li className="nav-item" key={el}>
-                <Link
-                  className="nav-link active fs-6 text-capitalize"
-                  aria-current="page"
-                  href={el}
-                >
-                  {el}
-                </Link>
+                {el === "logout" ? (
+                  <button
+                    className="btn  border-0 active fs-6 text-capitalize"
+                    onClick={() => {
+                      logOutHandler();
+                    }}
+                  >
+                    {el}
+                  </button>
+                ) : (
+                  <Link
+                    className="nav-link active fs-6 text-capitalize"
+                    aria-current="page"
+                    href={el}
+                  >
+                    {el}
+                  </Link>
+                )}
               </li>
             ))}
         </ul>
