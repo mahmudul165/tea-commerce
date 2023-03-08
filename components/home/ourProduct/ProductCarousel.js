@@ -230,7 +230,7 @@ const ProductCarousel = ({ data }) => {
                       data-bs-slide="prev"
                       className=" p-3 cus-color-secondary border rounded shadow-lg bg-white"
                     >
-                      <span class="">
+                      <span>
                         <FaLongArrowAltLeft />
                       </span>
                     </button>
@@ -248,7 +248,7 @@ const ProductCarousel = ({ data }) => {
                       data-bs-slide="next"
                       className="bg-white p-3 cus-color-secondary border  rounded shadow-lg d-block"
                     >
-                      <span class="">
+                      <span>
                         <FaLongArrowAltRight />
                       </span>
                     </button>
