@@ -9,8 +9,8 @@ import demoPic from "public/products/p-1.jpg";
 import IconWithBackground from "@/components/common/IconWithBackground";
 import { FloatingLabel, Form } from "react-bootstrap";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   AiOutlineMinus,
@@ -219,6 +219,7 @@ const CartItemsModal = (props) => {
         progress: undefined,
         theme: "colored",
       });
+      emptyCart();
     } catch (error) {
       // Handle error response
       toast.error('Checkout failed. Please try again later.');
@@ -329,6 +330,8 @@ const CartItemsModal = (props) => {
             <div className="col-12  ">
               {/* <CheckOutForm /> */}
 
+              <>
+              <ToastContainer />
               <Form onSubmit={handleSubmit}>
                 <FloatingLabel
                   controlId="name"
@@ -393,13 +396,13 @@ const CartItemsModal = (props) => {
                   <Form.Control.Feedback type="invalid">
                     {errors.address}
                   </Form.Control.Feedback>
-                </FloatingLabel>{" "}
+                </FloatingLabel>
                 <div className="ele-center my-5">
                   <button type="submit" className="btn btn-primary">
                     CHECKOUT
                   </button>
                 </div>
-              </Form>
+              </Form></>
             </div>
           </div>
         </div>
