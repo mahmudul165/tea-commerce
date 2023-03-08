@@ -13,6 +13,7 @@ import CartItemsModal from "@/components/common/CartItemsModal";
 import CustomTable from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
+import useAuth from "@/lib/hook/useAuth";
 
 function randomColor() {
   const colors = [
@@ -56,6 +57,7 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
+ 
   return (
     <PrivateRoute>
       <main className="p-6  space-y-6 my-1">

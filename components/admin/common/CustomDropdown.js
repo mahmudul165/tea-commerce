@@ -1,24 +1,13 @@
+ 
+import useAuth from "@/lib/hook/useAuth";
 import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
-// import { Dropdown } from "react-bootstrap";
-// import { DropdownButton } from "react-bootstrap";
-
-// function CustomDropdown({ options, onSelect }) {
-//   return (
-//     <div className="cus-dropdown">
-//       <DropdownButton id="dropdown-basic-button" title="Dropdown" as="li">
-//         {options.map((option) => (
-//           <Dropdown.Item key={option} onClick={() => onSelect(option)}>
-//             {option}
-//           </Dropdown.Item>
-//         ))}
-//       </DropdownButton>
-//     </div>
-//   );
-// }
+ 
 
 const CustomDropdown = ({ options, name }) => {
+  const {    email,  items } = useAuth();
+  console.log('dasboard data from login:', email, items);
   const [isOpen, setIsOpen] = React.useState(false);
   const dropdownRef = React.useRef(null);
 

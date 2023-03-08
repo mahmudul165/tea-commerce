@@ -6,17 +6,17 @@ const PrivateRoute = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const session = sessionStorage.getItem("session");
+    const token = localStorage.getItem("token");
+    const items = localStorage.getItem("items");
 
-    if (!isLoggedIn && !session) {
+    if (!token && !items) {
       router.push("/admin");
     }
   }, []);
 
   return (
     <AuthProvider>
-      {" "}
+      
       <LayoutAdmin> {children} </LayoutAdmin>
     </AuthProvider>
   );

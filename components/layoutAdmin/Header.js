@@ -1,9 +1,13 @@
 // components/Header.js
+import useAuth from "@/lib/hook/useAuth";
 import { FaRegUserCircle } from "react-icons/fa";
 import CustomDropdown from "../admin/common/CustomDropdown";
 
 const options = ["Sultan", "admin@gmail.com", "Logout"];
 const Header = () => {
+  const { token,  email,  items, status } = useAuth();
+  console.log('dasboard data from login:', email,status,token,items,);
+   
   const menuHandler = () => {
     const sidebar = document.querySelector(".sidebar");
     const isCollapse = sidebar.classList.contains("collapse");

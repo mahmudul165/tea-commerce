@@ -1,53 +1,66 @@
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-  const { apiUrl  } = useAuth();
-  
- console.log('first',  apiUrl.apiRootUrl);
+  const { token, setToken, email, setEmail, items, setItems, status, setLoginStatus,apiUrl } = useAuth();
+
+  useEffect(() => {
+    // Check if user is already logged in and redirect to dashboard
+    //  const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const jwt = localStorage.getItem("token");     
+     const name = localStorage.getItem("name");
+    const info = localStorage.getItem("items");  
+     
+     if (jwt  && name && info ) {
+       setToken(jwt);     
+       setEmail(name);
+       setItems(info);
+        //  setLoginStatus(isLoggedIn);   
+       router.push('/admin/dashboard');
+        // console.log('data set globally:', email,items,status,token,apiUrl.apiRootUrl);   
+     }
+     console.log('data set globally:', email,items,status,token);
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // `${apiRootUrl}${apiEndpoint?.ticket?.list}`
+
     try {
       // Submit the login form data to the server
       const response = await axios.post(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.login}`, {
-        username: username,
-        password: password
+        username: `${username}`,
+        password: `${password}`,
       }, {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         }
       });
-  
+
       if (response.status === 200) {
-        const data = await response.data;
-        // console.log('data is:',data)
-        //  const token=data?.token;
-        // const user=data?.user;
-        // export function saveUserSession(user) {
-        //     sessionStorage.setItem("user", JSON.stringify(user));
-        //   }
-          
-        //   export function getUserSession() {
-        //     const user = sessionStorage.getItem("user");
-        //     return user ? JSON.parse(user) : null;
-        //   }
-          
-        //   export function clearUserSession() {
-        //     sessionStorage.removeItem("user");
-        //   }
-        // If login is successful, set session data in session storage
-        sessionStorage.setItem("session", JSON.stringify(data));
-         sessionStorage.setItem('isLoggedIn', true);
-  
-        // Redirect to the dashboard page
+        const { token, name } = response.data;
+        const data = await response.data; 
+        const jwtToken = token || null;
+        const userName = name || null;
+        localStorage.setItem("token", jwtToken);
+        localStorage.setItem("user", userName);
+        localStorage.setItem("items", JSON.stringify( data ));
+        // localStorage.setItem('isLoggedIn', true);
+        if (jwtToken) {
+          setToken(jwtToken);
+          setEmail(userName);
+          setItems(data);
+          // setLoginStatus(true);
+          console.log('data set globally:', email,items, token);
+           
+        }
+       
         router.push('/admin/dashboard');
       } else {
         // If login is unsuccessful, display an error message
@@ -58,6 +71,7 @@ function LoginPage() {
       setError('Login failed');
     }
   };
+
 
   return (
     <div className="container    my-5 ">
