@@ -24,6 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 const queryClient = new QueryClient();
 // import { AnimatePresence } from "framer-motion";
+// import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [isLoading, setIsLoading] = useState(true);
 
