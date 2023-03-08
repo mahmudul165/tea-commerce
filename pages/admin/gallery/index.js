@@ -1,61 +1,98 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
 import CustomTable from "@/components/admin/common/CustomTable";
+import { getError } from "@/components/admin/common/error";
+import { CustomFloatingLabel } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
+import axios from "axios";
+import Image from "next/image";
 import { useState } from "react";
-import { FloatingLabel, Form } from "react-bootstrap";
-import { MdAddCircleOutline } from "react-icons/md";
+import { Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
-export const AddProductFrom = () => {
+const submitHandler = async (data) => {
+  console.log({ data });
+  const { imageURL, radioInput } = data;
+
+  try {
+    await axios.post("/url", {
+      // data
+    });
+  } catch (err) {
+    toast.error(getError(err));
+  }
+};
+
+export const AddGalleryFrom = () => {
+  const [imageUrl, setImageUrl] = useState("");
+  const handleInputChange = (event) => {
+    setImageUrl(event.target.value);
+  };
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm();
   return (
-    <Form
-      id="contact-form"
-      name="contact-form p-2"
-      action="mail.php"
-      method="POST"
-    >
-      <FloatingLabel
-        controlId="floatingInputGrid"
-        label="Enter Your Email"
-        className="mb-4"
-      >
-        <Form.Control type="email" placeholder="Enter Your Email" />
-      </FloatingLabel>
-      <FloatingLabel
-        controlId="floatingInputGrid"
-        label="Enter Your Name"
-        className="mb-4"
-      >
-        <Form.Control type="text" placeholder="Enter Your Name" />
-      </FloatingLabel>
-
-      <FloatingLabel
-        controlId="floatingInputGrid"
-        label="Phone Number"
-        className="mb-4"
-      >
-        <Form.Control type="number" placeholder="Phone Number" />
-      </FloatingLabel>
-      <FloatingLabel controlId="floatingInputGrid" label="Address">
-        <Form.Control type="text" placeholder="Address" />
-      </FloatingLabel>
-      <div className="ele-center ">
-        <MyButton
-          type="submit"
-          size="lg"
-          className=" text-white  cus-bg-secondary  mt-3 w-100"
-        >
-          Add Product
-        </MyButton>
+    <>
+      <div className="text-center  ele-center   mb-3  card border-0">
+        {imageUrl && <img src={imageUrl} alt="Preview" width="280px" />}
       </div>
-    </Form>
+      <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
+        <CustomFloatingLabel labelName="Past Image URL">
+          <Form.Control
+            type="text"
+            name="imageURL"
+            placeholder="Image url "
+            {...register("imageURL", {
+              pattern: {
+                value:
+                  /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/,
+                message: "Invalid input ",
+              },
+              required: "Past Image URL",
+            })}
+            onChange={handleInputChange}
+          />
+          {errors.imageURL && (
+            <p className="text-danger">{errors.imageURL.message}</p>
+          )}
+        </CustomFloatingLabel>
+        <p className="fw-bold fs-5">Category</p>
+
+        {["All", "Garden", "Factory", "Office"].map((el) => (
+          <Form.Check
+            key={el}
+            label={el}
+            name="group1"
+            value={el}
+            type="radio"
+            id={el}
+            {...register("radioInput", { required: "Checked input required" })}
+          />
+        ))}
+        {errors.radioInput && (
+          <p className="text-danger">{errors.radioInput.message}</p>
+        )}
+        <div className="ele-center ">
+          <MyButton
+            type="submit"
+            size="lg"
+            className=" text-white  cus-bg-secondary  mt-3 w-100"
+          >
+            Add Product
+          </MyButton>
+        </div>
+      </Form>
+    </>
   );
 };
 function GalleryHomePage() {
   const [modalShow, setModalShow] = useState(false);
-
   return (
     <PrivateRoute>
       <CustomModal
@@ -63,7 +100,7 @@ function GalleryHomePage() {
         show={modalShow}
         onHide={() => setModalShow(false)}
       >
-        <AddProductFrom />
+        <AddGalleryFrom />
       </CustomModal>
       <PageHeader
         name="Gallery"
@@ -76,14 +113,11 @@ function GalleryHomePage() {
           />
         }
       />
-
       <CustomTable tableName="Gallery Table" />
     </PrivateRoute>
   );
 }
-
 export default GalleryHomePage;
-
 GalleryHomePage.getLayout = function PageLayout(page) {
   return <>{page}</>;
 };
