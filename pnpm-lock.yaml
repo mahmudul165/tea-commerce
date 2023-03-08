@@ -16,9 +16,11 @@ specifiers:
   react: 18.2.0
   react-bootstrap: ^2.7.1
   react-dom: 18.2.0
+  react-hook-form: ^7.43.5
   react-icons: ^4.7.1
   react-loading-skeleton: ^3.1.1
   react-slick: ^0.29.0
+  react-toastify: ^9.1.1
   react-use-cart: ^1.13.0
   slick-carousel: ^1.8.1
   styled-components: ^5.3.6
@@ -39,9 +41,11 @@ dependencies:
   react: 18.2.0
   react-bootstrap: 2.7.2_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.43.5_react@18.2.0
   react-icons: 4.8.0_react@18.2.0
   react-loading-skeleton: 3.1.1_react@18.2.0
   react-slick: 0.29.0_biqbaboplfbrettd7655fr4n2y
+  react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   react-use-cart: 1.13.0_react@18.2.0
   slick-carousel: 1.8.1
   styled-components: 5.3.8_biqbaboplfbrettd7655fr4n2y
@@ -2047,6 +2051,11 @@ packages:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
 
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
+
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
     dependencies:
@@ -3667,6 +3676,15 @@ packages:
       use-sidecar: 1.1.2_react@18.2.0
     dev: false
 
+  /react-hook-form/7.43.5_react@18.2.0:
+    resolution: {integrity: sha512-YcaXhuFHoOPipu5pC7ckxrLrialiOcU91pKu8P+isAcXZyMgByUK9PkI9j5fENO4+6XU5PwWXRGMIFlk9u9UBQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-icons/4.8.0_react@18.2.0:
     resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
     peerDependencies:
@@ -3753,6 +3771,17 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.5.0
+    dev: false
+
+  /react-toastify/9.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
