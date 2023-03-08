@@ -2,12 +2,14 @@ import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
 import CustomTable from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
-import { CustomFloatingLabel } from "@/components/admin/common/Inputes";
+import {
+  acceptPattern,
+  CustomFloatingLabel,
+} from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import axios from "axios";
-import Image from "next/image";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -26,7 +28,7 @@ const submitHandler = async (data) => {
   }
 };
 
-export const AddGalleryFrom = () => {
+const AddGalleryFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
@@ -50,10 +52,10 @@ export const AddGalleryFrom = () => {
             placeholder="Image url "
             {...register("imageURL", {
               pattern: {
-                value:
-                  /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/,
+                value: acceptPattern,
                 message: "Invalid input ",
               },
+
               required: "Past Image URL",
             })}
             onChange={handleInputChange}
