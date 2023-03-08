@@ -220,11 +220,16 @@ const CartItemsModal = (props) => {
         theme: "colored",
       });
       emptyCart();
+      const handleEntered = () => {
+        setTimeout(props.onHide, 5000);
+      };
+      handleEntered();
     } catch (error) {
       // Handle error response
       toast.error('Checkout failed. Please try again later.');
     }
   };
+  // console.log('modal',props.onHide())
   return (
     <Modal
       {...props}
