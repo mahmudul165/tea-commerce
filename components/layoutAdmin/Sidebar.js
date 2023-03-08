@@ -1,30 +1,20 @@
+import { AddProductFrom } from "@/pages/admin/products";
+import Link from "next/link";
+import { useState } from "react";
 import {
   AiOutlineClose,
-  AiOutlineCloseSquare,
   AiOutlineDollarCircle,
   AiOutlineHome,
   AiOutlineUserAdd,
 } from "react-icons/ai";
-import {
-  FaChartBar,
-  FaCog,
-  FaHome,
-  FaRegUserCircle,
-  FaUser,
-} from "react-icons/fa";
-import styled from "styled-components";
-import { useEffect, useState } from "react";
-import CartItemsModal from "../common/CartItemsModal";
-import { RiGalleryFill } from "react-icons/ri";
-import { MdOutlineBusiness, MdOutlineUpdate } from "react-icons/md";
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
-import { FaUsers } from "react-icons/fa";
+import { FaRegUserCircle, FaUsers } from "react-icons/fa";
+import { FiTarget } from "react-icons/fi";
+import { MdOutlineBusiness, MdOutlineUpdate } from "react-icons/md";
+import { RiGalleryFill } from "react-icons/ri";
+import styled from "styled-components";
 import CustomDropdown from "../admin/common/CustomDropdown";
-import { MdNotificationsActive } from "react-icons/md";
 import CustomModal from "../admin/common/CustomModal";
-import { AddProductFrom } from "@/pages/admin/products";
-import { FiEdit, FiSettings, FiTarget } from "react-icons/fi";
-import Link from "next/link";
 
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
@@ -198,22 +188,22 @@ const Sidebar = () => {
               </SidebarNavLink>
             </Link>
           </li>
-          <li className="nav-item ">
+          {/* <li className="nav-item ">
             <SidebarNavLink className="nav-link" href="#">
               <MdNotificationsActive /> Notification
             </SidebarNavLink>
-          </li>
+          </li> */}
           <li className="nav-item ">
             <SidebarNavLink className="nav-link" href="#">
               <FaRegUserCircle />
               <CustomDropdown options={optionsProfile} name="Profile" />
             </SidebarNavLink>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <SidebarNavLink className="nav-link" href="#">
               <FiSettings /> Settings
             </SidebarNavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
     </SidebarWrapper>
