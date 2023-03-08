@@ -8,6 +8,10 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import demoPic from "public/products/p-1.jpg";
 import IconWithBackground from "@/components/common/IconWithBackground";
 import { FloatingLabel, Form } from "react-bootstrap";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -16,6 +20,7 @@ import {
 import { FaShoppingCart } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useCart } from "react-use-cart";
+import { useState } from "react";
 
 const CartItem = ({ item }) => {
   const {
@@ -151,6 +156,82 @@ const CartItemsModal = (props) => {
     removeItem,
     emptyCart,
   } = useCart();
+  // console.log('items is',items)
+  const itemIds = items.map(item => item._id);
+  const ids=[...itemIds];
+  // console.log('itemIds is',[...itemIds])
+  
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',    
+    totalItems: totalItems,
+    totalUniqueItems: totalUniqueItems,
+    cartTotal:cartTotal,
+    products:ids,
+  });
+  console.log('formValues is',formValues)
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (event) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Validate form values
+    const newErrors = {};
+    if (!formValues.name) {
+      newErrors.name = 'Please enter your name';
+    }
+    if (!formValues.email) {
+      newErrors.email = 'Please enter your email';
+    }
+    if (!formValues.phone) {
+      newErrors.phone = 'Please enter your phone number';
+    }
+    if (!formValues.address) {
+      newErrors.address = 'Please enter your address';
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Submit form data
+    axios
+      .post('https://crabby-pocketbook-eel.cyclic.app/api/v1/order', formValues)
+      .then((response) => {
+        // Handle successful response
+        setFormValues({
+          name: '',
+          email: '',
+          phone: '',
+          address: '',
+          
+        });
+        toast.success('🦄 Checkout successful!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+       
+      })
+      .catch((error) => {
+        // Handle error response
+        toast.error('Checkout failed. Please try again later.');
+      });
+  };
 
   return (
     <Modal
@@ -171,7 +252,77 @@ const CartItemsModal = (props) => {
         <div className="container my-5">
           <div className="row ">
             <div className="col-12  ">
-              <CartItem />
+              {/* <CartItem /> */}
+              <>
+                <div className="">
+                  <div className="row ele-center ">
+                    {items.map((item, index) => (
+                      <>
+                        <div className="col-3">
+                          <div className="border p-2 rounded ele-center w-100">
+                            <img
+                              src={item?.images[0].url}
+                              alt="Product"
+                              height={100}
+                              width={100}
+                            />
+                          </div>
+                        </div>
+                        <div className="col-8">
+                          <div>
+                            <p className="fs-6 fw-bold cus-color-secondary my-3">
+                              {/* Sultan Tea CD 500gm */}
+                              {item.name}
+                            </p>
+                            <div className="d-flex gap-4 ">
+                              <p className="fs-5 p-2">TK {item.price}</p>
+
+                              <div className=" border  rounded ele-center ">
+                                <span className=" fw-bold border-end p-1">
+                                  <AiOutlinePlus
+                                    size={20}
+                                    onClick={() =>
+                                      updateItemQuantity(
+                                        item.id,
+                                        item.quantity + 1
+                                      )
+                                    }
+                                  />
+                                </span>
+                                <span className="fw-bold fs-6 p-2">
+                                  {item.quantity}
+                                </span>
+                                <span className=" border-start p-1">
+                                  <AiOutlineMinus
+                                    size={20}
+                                    onClick={() =>
+                                      updateItemQuantity(
+                                        item.id,
+                                        item.quantity - 1
+                                      )
+                                    }
+                                  />
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-1 ele-center">
+                          <button
+                            onClick={() => removeItem(item.id)}
+                            className="btn btn-sm"
+                          >
+                            <IconWithBackground>
+                              <RiDeleteBin5Fill size={18} className="" />
+                            </IconWithBackground>
+                          </button>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                </div>
+                <hr className="my-4"></hr>
+              </>
               {/* <CartItem /> */}
 
               <div className="d-flex justify-content-between my-4 ">
@@ -185,7 +336,79 @@ const CartItemsModal = (props) => {
               <hr className="my-4  d-md-none "></hr>
             </div>
             <div className="col-12  ">
-              <CheckOutForm />
+              {/* <CheckOutForm /> */}
+
+              <Form onSubmit={handleSubmit}>
+                <FloatingLabel
+                  controlId="name"
+                  label="Enter Your Name"
+                  className="mb-4"
+                >
+                  <Form.Control
+                    type="text"
+                    name="name"
+                    placeholder="Enter Your Name"
+                    value={formValues.name}
+                    onChange={handleChange}
+                    isInvalid={!!errors.name}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.name}
+                  </Form.Control.Feedback>
+                </FloatingLabel>
+                <FloatingLabel
+                  controlId="email"
+                  label="Enter Your Email"
+                  className="mb-4"
+                >
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your Email"
+                    value={formValues.email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.email}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                  </Form.Control.Feedback>
+                </FloatingLabel>
+                <FloatingLabel
+                  controlId="phone"
+                  label="Phone Number"
+                  className="mb-4"
+                >
+                  <Form.Control
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value={formValues.phone}
+                    onChange={handleChange}
+                    isInvalid={!!errors.phone}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.phone}
+                  </Form.Control.Feedback>
+                </FloatingLabel>
+                <FloatingLabel controlId="address" label="Address">
+                  <Form.Control
+                    type="text"
+                    name="address"
+                    placeholder="Address"
+                    value={formValues.address}
+                    onChange={handleChange}
+                    isInvalid={!!errors.address}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    {errors.address}
+                  </Form.Control.Feedback>
+                </FloatingLabel>{" "}
+                <div className="ele-center my-5">
+                  <button type="submit" className="btn btn-primary">
+                    CHECKOUT
+                  </button>
+                </div>
+              </Form>
             </div>
           </div>
         </div>
