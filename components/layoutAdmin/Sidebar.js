@@ -24,6 +24,7 @@ import { MdNotificationsActive } from "react-icons/md";
 import CustomModal from "../admin/common/CustomModal";
 import { AddProductFrom } from "@/pages/admin/products";
 import { FiEdit, FiSettings, FiTarget } from "react-icons/fi";
+import Link from "next/link";
 
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
@@ -58,7 +59,7 @@ const SidebarHeader = styled.h6`
   letter-spacing: 0.05rem;
 `;
 
-const SidebarNavLink = styled.a`
+const SidebarNavLink = styled.span`
   display: flex;
   align-items: center;
   padding: 0.5rem 1.5rem;
@@ -94,8 +95,6 @@ const Sidebar = () => {
     } else {
       sidebar.classList.add("collapse");
     }
-
-    //sidebar.classList.remove("collapse");
   };
   return (
     <SidebarWrapper className="  col-md-3 col-lg-2 d-md-block bg-light sidebar collapse ">
@@ -120,13 +119,11 @@ const Sidebar = () => {
         </SidebarHeader>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <SidebarNavLink
-              className="nav-link active"
-              aria-current="page"
-              href="dashboard"
-            >
-              <AiOutlineHome /> Dashboard
-            </SidebarNavLink>
+            <Link href="dashboard">
+              <SidebarNavLink className="nav-link active" aria-current="page">
+                <AiOutlineHome /> Dashboard
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
             <SidebarNavLink
@@ -146,39 +143,53 @@ const Sidebar = () => {
             </SidebarNavLink>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/orders">
-              <BsCartCheck /> Orders
-            </SidebarNavLink>
+            <Link href="orders">
+              <SidebarNavLink className="nav-link">
+                <BsCartCheck /> Orders
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/customers">
-              <FaUsers /> Customers
-            </SidebarNavLink>
+            <Link href="customers">
+              <SidebarNavLink className="nav-link">
+                <FaUsers /> Customers
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/sell">
-              <AiOutlineDollarCircle /> Sell
-            </SidebarNavLink>
+            <Link href="sell">
+              <SidebarNavLink className="nav-link">
+                <AiOutlineDollarCircle /> Sell
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/gallery">
-              <RiGalleryFill /> Gallery
-            </SidebarNavLink>
+            <Link href="gallery">
+              <SidebarNavLink className="nav-link">
+                <RiGalleryFill /> Gallery
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/carrier">
-              <FiTarget /> Carrier
-            </SidebarNavLink>
+            <Link href="carrier">
+              <SidebarNavLink className="nav-link">
+                <FiTarget /> Carrier
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/press-releases">
-              <MdOutlineUpdate /> Press Releases
-            </SidebarNavLink>
+            <Link href="press-releases">
+              <SidebarNavLink className="nav-link">
+                <MdOutlineUpdate /> Press Releases
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="/admin/slide">
-              <BsSliders /> Slide
-            </SidebarNavLink>
+            <Link href="slide">
+              <SidebarNavLink className="nav-link">
+                <BsSliders /> Slide
+              </SidebarNavLink>
+            </Link>
           </li>
           <li className="nav-item ">
             <SidebarNavLink className="nav-link" href="#">

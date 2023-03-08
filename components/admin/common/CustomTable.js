@@ -51,9 +51,6 @@ function CustomTable({ tableName, headers, data }) {
     <>
       {/* <p className="fs-4 fw-bold">{tableName}</p> */}
 
-
-
-
       {/* <div classname="card bg-light ">
           <div classname="my-2 py-2 ">
             <div className="container my-3">
@@ -75,13 +72,8 @@ function CustomTable({ tableName, headers, data }) {
           </div>
         </div> */}
 
-        
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
-
-
-        
-
-        <table class="table text-center">
+        <table className="table text-center">
           <thead>
             <tr>
               {headers &&

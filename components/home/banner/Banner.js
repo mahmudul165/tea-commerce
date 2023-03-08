@@ -62,7 +62,11 @@ function Banner() {
   return (
     <div>
       {/* <img height="450px" src="/banner.png" /> */}
-      <img src="/banner.png" class="card-img-top img-fluid" alt="Your Image"></img>
+      <img
+        src="/banner.png"
+        className="card-img-top img-fluid"
+        alt="Your Image"
+      ></img>
     </div>
   );
 }
