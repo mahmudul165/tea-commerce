@@ -8,10 +8,17 @@ import { SearchBar } from "./SearchBar";
 const HeroBanner = ({ name }) => {
   const router = useRouter();
 
-  const { data } = useSlideCollectionQuery();
-
+  const { data } = useSlideCollectionQuery({
+    // Enable caching for this query
+    cacheTime: 60,
+    // Set the stale time to 5 minutes
+    staleTime: 300000,
+  });
+  console.log("slide data:", data, router.pathname);
   // Find the slide
-  const mySlide = data?.find((slide) => slide.pathName === router.pathname);
+  // const mySlide = data?.find((slide) => slide.pathName == router.pathname);
+  const mySlide = data && Array.isArray(data) && data.find((slide) => slide.pathName == router.pathname);
+
   console.log("test slider router path", mySlide, router.pathname);
   return (
     <>
