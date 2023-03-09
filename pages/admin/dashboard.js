@@ -76,7 +76,7 @@ const DashboardPage = () => {
         <section className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-6 gy-3 p-3">
         <NewCard
             name="Products"
-            number={products.products?.length || 0}
+            number={products?.products?.length || 0}
             path="products"
             icon={<BsCardChecklist size={24} />}
           />

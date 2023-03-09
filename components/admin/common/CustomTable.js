@@ -1,10 +1,12 @@
+ 
+import { useUserCollectionQuery } from "@/lib/hook/useApi";
 import React from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { FaUsers } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 
-const defaultHeader = ["SL", "Name", "Email", "Status", "Actions"];
+const defaultHeader = ["SL", "Name", "Email"];
 
 export const ProductTableTH = [
   "SL",
@@ -47,6 +49,8 @@ export const CarrierTableTH = [
 export const BusinessTableTH = ["SL", "Title", "Images", "Body", "Actions"];
 
 function CustomTable({ tableName, headers, data }) {
+  const { data:users, isLoading, isError } = useUserCollectionQuery();
+   
   return (
     <>
       {/* <p className="fs-4 fw-bold">{tableName}</p> */}
@@ -91,80 +95,16 @@ function CustomTable({ tableName, headers, data }) {
             </tr>
           </thead>
           <tbody>
-            {data &&
-              data.map((row, index) => {
-                <tr key={index}></tr>;
-              })}
-            <tr className="my-2  fs-6 fw-normal ">
-              <td className="">1</td>
-              <td>Md Kamal</td>
-              <td>examle@gmail.com</td>
-              <td>
-                <span className="bg-danger p-2 rounded-3 text-white ">
-                  Pending
-                </span>
-              </td>
-              <td>
-                <div className="d-flex justify-content-center gap-2">
-                  <span>
-                    <AiOutlineEye size={18} className="text-success" />
-                  </span>
-                  <span>
-                    <FiEdit size={15} className="text-warning" />
-                  </span>
-                  <span>
-                    <AiOutlineDelete size={16} className="text-danger" />
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr className="my-2  fs-6 fw-normal ">
-              <td className="">2</td>
-              <td>Md Kamal</td>
-              <td>examle@gmail.com</td>
-              <td>
-                <span className="bg-warning p-2 rounded-3 text-white ">
-                  Processing
-                </span>
-              </td>
-              <td className="">
-                <div className="d-flex justify-content-center gap-2">
-                  <span>
-                    <AiOutlineEye size={18} className="text-success" />
-                  </span>
-                  <span>
-                    <FiEdit size={15} className="text-warning" />
-                  </span>
-                  <span>
-                    <AiOutlineDelete size={16} className="text-danger" />
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr className="my-2  fs-6 fw-normal ">
-              <td className="">2</td>
-              <td>Md Kamal</td>
-              <td>examle@gmail.com</td>
-              <td>
-                <span className="bg-success p-2 rounded-3 text-white  ">
-                  Success
-                </span>
-              </td>
-              <td className="">
-                <div className="d-flex justify-content-center gap-2">
-                  <span>
-                    <AiOutlineEye size={18} className="text-success" />
-                  </span>
-                  <span>
-                    <FiEdit size={15} className="text-warning" />
-                  </span>
-                  <span>
-                    <AiOutlineDelete size={16} className="text-danger" />
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+  {users && users.map((user, index) => (
+    <tr key={user.id} className="my-3 p-2 fs-6 fw-normal">
+      <td className="">{index + 1}</td>
+      <td>{user.username.split('@')[0]}</td>
+      <td>{user.username}</td>
+    </tr>
+  ))}
+</tbody>
+
+
         </table>
       </div>
     </>
