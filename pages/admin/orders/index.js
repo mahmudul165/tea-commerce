@@ -1,21 +1,16 @@
-import CustomTable, {
-  OrdersTableTH,
-} from "@/components/admin/common/CustomTable";
+import { OrdersTableTH } from "@/components/admin/common/CustomTable";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
 import axios from "axios";
-import { MdAddCircleOutline, MdOutlineLocalShipping } from "react-icons/md";
+import { MdOutlineLocalShipping } from "react-icons/md";
 
+import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
 import { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
-import { FiEdit } from "react-icons/fi";
-import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
 import { FaHandHoldingWater } from "react-icons/fa";
-
 function OrdersHomePage() {
   const [ordersData, setOrdersData] = useState(null);
-
-  console.log({ ordersData });
+  const [selectedStatus, setSelectedStatus] = useState("all");
 
   const getOrdersData = async () => {
     const res = await axios.get(
@@ -24,6 +19,10 @@ function OrdersHomePage() {
     setOrdersData(res.data);
   };
 
+  const filteredData =
+    selectedStatus === "all"
+      ? ordersData
+      : ordersData?.filter((order) => order.status === selectedStatus);
   useEffect(() => {
     getOrdersData();
   }, []);
@@ -33,8 +32,24 @@ function OrdersHomePage() {
       <PageHeader name="Orders" />
 
       {/* <CustomTable tableName="Orders Table" headers={OrdersTableTH} /> */}
-
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+        <div className="d-flex justify-content-between my-1">
+          <div>Orders Data</div>
+          <div>
+            <select
+              className="px-2 py-1 rounded-sm"
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+            >
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="placed">Placed</option>
+              <option value="shipped">Shipped</option>
+              <option value="delivered">Delivered</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
         <table className="table text-center">
           <thead>
             <tr className="fs-6">
@@ -47,8 +62,8 @@ function OrdersHomePage() {
             </tr>
           </thead>
           <tbody className="fs-6 fw-normal">
-            {ordersData &&
-              ordersData.map((row, index) => (
+            {filteredData &&
+              filteredData.map((row, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
                   <td>{dateFormat(row?.orderDate)}</td>
