@@ -239,6 +239,12 @@ li:active {
 }
 .cus-table {
   border-radius: 16px !important;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+.cus-table thead tr th {
+  font-size: 12px !important;
+  font-weight: bold;
 }
 .cus-table tbody,
 td,
@@ -247,6 +253,7 @@ th,
 thead,
 tr {
   border-style: none !important;
+  font-size: 12px !important;
 }
 
 .cus-table tr {
