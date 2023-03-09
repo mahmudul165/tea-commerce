@@ -15,21 +15,32 @@ import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
+ 
+ 
+ 
+
+ 
+
+ 
+
+
 const submitHandler = async (data) => {
   console.log({ data });
-  const { imageURL, radioInput } = data;
-
+  const { url, category } = data;
+  console.log({ url, category });
   try {
-    await axios.post("/url", {
-      // data
+    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery", {
+      url, category 
     });
+    toast.success("Gallery successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
 };
 
+
 const AddGalleryFrom = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [url, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
   };
@@ -42,15 +53,15 @@ const AddGalleryFrom = () => {
   return (
     <>
       <div className="text-center  ele-center   mb-3  card border-0">
-        {imageUrl && <img src={imageUrl} alt="Preview" width="280px" />}
+        {url && <img src={url} alt="Preview" width="280px" />}
       </div>
       <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
             type="text"
-            name="imageURL"
+            name="url"
             placeholder="Image url "
-            {...register("imageURL", {
+            {...register("url", {
               pattern: {
                 value: acceptPattern,
                 message: "Invalid input ",
@@ -60,13 +71,13 @@ const AddGalleryFrom = () => {
             })}
             onChange={handleInputChange}
           />
-          {errors.imageURL && (
-            <p className="text-danger">{errors.imageURL.message}</p>
+          {errors.url && (
+            <p className="text-danger">{errors.url.message}</p>
           )}
         </CustomFloatingLabel>
         <p className="fw-bold fs-5">Category</p>
 
-        {["All", "Garden", "Factory", "Office"].map((el) => (
+        {['all', 'garden', 'factory', 'office'].map((el) => (
           <Form.Check
             key={el}
             label={el}
@@ -74,11 +85,12 @@ const AddGalleryFrom = () => {
             value={el}
             type="radio"
             id={el}
-            {...register("radioInput", { required: "Checked input required" })}
+            {...register("category", { required: "Checked input required" })}
+            style={{textTransform: 'uppercase'}}
           />
         ))}
-        {errors.radioInput && (
-          <p className="text-danger">{errors.radioInput.message}</p>
+        {errors.category && (
+          <p className="text-danger">{errors.category.message}</p>
         )}
         <div className="ele-center ">
           <MyButton
@@ -86,7 +98,7 @@ const AddGalleryFrom = () => {
             size="lg"
             className=" text-white  cus-bg-secondary  mt-3 w-100"
           >
-            Add Product
+            Add Gallery
           </MyButton>
         </div>
       </Form>
