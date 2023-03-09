@@ -75,6 +75,8 @@ const SidebarNavLink = styled.span`
 const productsLi = ["products", "Add Product", "Option 3"];
 const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
 
+
+
 const Sidebar = () => {
   const [modalShow, setModalShow] = useState(false);
   const menuHandler = () => {
@@ -149,6 +151,7 @@ const Sidebar = () => {
               </SidebarNavLink>
             </Link>
           </li> */}
+           
           <li className="nav-item">
             <Link href="sell">
               <SidebarNavLink className="nav-link">
@@ -170,13 +173,13 @@ const Sidebar = () => {
               </SidebarNavLink>
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link href="press-releases">
               <SidebarNavLink className="nav-link">
                 <MdOutlineUpdate /> Press Releases
               </SidebarNavLink>
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link href="slide">
               <SidebarNavLink className="nav-link">
