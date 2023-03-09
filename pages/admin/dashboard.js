@@ -6,6 +6,10 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
+import { FcShipped} from "react-icons/fc";
+import { GiCancel } from "react-icons/gi";
+ 
+ 
 import { FaUsers } from "react-icons/fa";
 import { FiEdit, FiTarget } from "react-icons/fi";
 import { useEffect, useState } from "react";
@@ -14,6 +18,7 @@ import CustomTable from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
+import { useCarrierCollectionQuery, useGalleryCollectionQuery, useOrderCollectionQuery, useProductCollectionQuery, useSlideCollectionQuery } from "@/lib/hook/useApi";
 
 function randomColor() {
   const colors = [
@@ -57,56 +62,78 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
- 
+  const { data:orders } = useOrderCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const shippedOrders = orders?.filter((order) => order.status === "shipped");
+  const deliveredOrders =  orders?.filter((order) => order.status === "delivered");
+  const cancelOrders =  orders?.filter((order) => order.status === "cancelled");
+  const { data:products } = useProductCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const { data:slides } = useSlideCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const { data:gallery } = useGalleryCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const { data:carrier } = useCarrierCollectionQuery({cacheTime: 60, staleTime: 300000,  });
   return (
     <PrivateRoute>
       <main className="p-6  space-y-6 my-1">
         <section className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-6 gy-3 p-3">
-          <NewCard
-            name="Orders"
-            number={"145"}
-            path="orders"
-            icon={<BsCartCheck size={24} />}
-          />
-          <NewCard
-            name="Customers"
-            path="customers"
-            number={"145"}
-            icon={<FaUsers size={24} />}
-          />
-          <NewCard
-            name="Sell"
-            number={"145"}
-            path="sell"
-            icon={<AiOutlineDollarCircle size={24} />}
-          />
-          <NewCard
+        <NewCard
             name="Products"
-            number={"145"}
+            number={products.products?.length || 0}
             path="products"
             icon={<BsCardChecklist size={24} />}
           />
           <NewCard
-            name="Slide"
+            name="Orders"
+            number={orders?.length}
+            path="orders"
+            icon={<BsCartCheck size={24} />}
+          />
+           <NewCard
+            name="Shipped Orders"
+            number={shippedOrders?.length || 0}
+            path="orders"
+            icon={<FcShipped size={24} />}
+          />
+           
+           
+          {/* <NewCard
+            name="Customers"
+            path="customers"
             number={"145"}
+            icon={<FaUsers size={24} />}
+          /> */}
+          <NewCard
+            name="Sell (delivered orders)"
+            number={deliveredOrders?.length || 0}
+            path="sell"
+            icon={<AiOutlineDollarCircle size={24} />}
+          />
+           <NewCard
+            name="Cancel Orders"
+            number={cancelOrders?.length || 0}
+            path="orders"
+            icon={<GiCancel size={24} />}
+          />
+          
+          <NewCard
+            name="Slide"
+            number={slides?.length}
             path="slide"
             icon={<BsSliders size={24} />}
           />
-          <NewCard
+          {/* <NewCard
             name="Press Releases"
             number={"145"}
             path="press-releases"
             icon={<MdOutlineUpdate size={24} />}
-          />
+          /> */}
           <NewCard
             name="Gallery"
-            number={"145"}
+            number={gallery?.length}
             path="gallery"
             icon={<RiGalleryFill size={24} />}
           />
           <NewCard
             name="Carrier"
-            number={"145"}
+            number={carrier?.length}
             path="carrier"
             icon={<FiTarget size={24} />}
           />

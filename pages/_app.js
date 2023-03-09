@@ -40,12 +40,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <ThreeDotsWave />
       ) : (
         <>
-          {" "}
-          <AuthProvider> 
-         
-            <Component {...pageProps} />
-            
+           <QueryClientProvider client={queryClient}>
+          <AuthProvider>          
+            <Component {...pageProps} />            
           </AuthProvider>
+          </QueryClientProvider>
         </>
       )
     );
