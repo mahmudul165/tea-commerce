@@ -72,7 +72,7 @@ const SidebarNavLink = styled.span`
     border-left: 3px solid #007bff;
   }
 `;
-const productsLi = ["Products", "Add Product"];
+const productsLi = ["products", "Add Product"];
 const ordersLi = ["orders", "Shipped orders","Cancel Orders"];
 const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
 
