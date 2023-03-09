@@ -73,7 +73,7 @@ const SidebarNavLink = styled.span`
   }
 `;
 const productsLi = ["products", "Add Product"];
-const ordersLi = ["orders", "Shipped orders","Cancel Orders"];
+const ordersLi = ["orders", "Shipped orders","Cancel Orders","Delivered Orders"];
 const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
 
 
