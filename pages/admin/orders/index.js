@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
-import CustomTooltip from "@/components/admin/common/Tooltip";
 import { FaHandHoldingWater } from "react-icons/fa";
 
 function OrdersHomePage() {
