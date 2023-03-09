@@ -72,7 +72,8 @@ const SidebarNavLink = styled.span`
     border-left: 3px solid #007bff;
   }
 `;
-const productsLi = ["products", "Add Product", "Option 3"];
+const productsLi = ["Products", "Add Product"];
+const ordersLi = ["orders", "Shipped orders","Cancel Orders"];
 const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
 
 
@@ -140,7 +141,8 @@ const Sidebar = () => {
           <li className="nav-item">
             <Link href="orders">
               <SidebarNavLink className="nav-link">
-                <BsCartCheck /> Orders
+                <BsCartCheck />
+                <CustomDropdown options={ordersLi} name="Orders" />
               </SidebarNavLink>
             </Link>
           </li>
