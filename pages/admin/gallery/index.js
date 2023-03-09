@@ -80,13 +80,14 @@ const AddGalleryFrom = () => {
         {['all', 'garden', 'factory', 'office'].map((el) => (
           <Form.Check
             key={el}
-            label={el}
+            // label={el}
+            label={el.charAt(0).toUpperCase() + el.slice(1)}
             name="group1"
             value={el}
             type="radio"
             id={el}
             {...register("category", { required: "Checked input required" })}
-            style={{textTransform: 'uppercase'}}
+            // style={{textTransform: 'uppercase'}}
           />
         ))}
         {errors.category && (
