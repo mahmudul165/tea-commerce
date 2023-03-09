@@ -92,6 +92,22 @@ const DashboardPage = () => {
     cacheTime: 60,
     staleTime: 300000,
   });
+  // Calculate total sales, total number of items, and total number of unique items for delivered orders only
+let totalSales = 0;
+let totalItems = 0;
+let totalUniqueItems = 0;
+let productCounts = {};
+orders?.forEach(order => {
+  if (order?.status === "delivered") {
+    totalSales += order.cartTotal;
+    totalItems += order.totalItems;
+    totalUniqueItems += order.totalUniqueItems;
+  }
+});
+
+console.log(`Total sales for delivered orders: $${totalSales}`);
+console.log(`Total items for delivered orders: ${totalItems}`);
+console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
   return (
     <PrivateRoute>
       <main className="p-6  space-y-6 my-1">
@@ -122,16 +138,23 @@ const DashboardPage = () => {
             icon={<FaUsers size={24} />}
           /> */}
           <NewCard
-            name="Sell (delivered orders)"
+            name="delivered orders"
             number={deliveredOrders?.length || 0}
-            path="sell"
+            path="orders"
             icon={<AiOutlineDollarCircle size={24} />}
           />
+
           <NewCard
             name="Cancel Orders"
             number={cancelOrders?.length || 0}
             path="orders"
             icon={<GiCancel size={24} />}
+          />
+          <NewCard
+            name="Sell"
+            number={`${totalSales} tk`|| 0}
+            path="sell"
+            icon={<AiOutlineDollarCircle size={24} />}
           />
 
           <NewCard
