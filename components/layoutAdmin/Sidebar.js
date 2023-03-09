@@ -97,7 +97,10 @@ const Sidebar = () => {
       </CustomModal>
       <div className="position-sticky ">
         <SidebarHeader className="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-2 mb-1 text-muted">
-          Sultan Tea
+          <Link href="/admin/dashboard">
+            {" "}
+            <span style={{ color: "#212529" }}>SULTAN TEA</span>
+          </Link>
           <button
             className="border-0 bg-white rounded px-3 py-2 d-md-none d-sm-block d-xs-block"
             onClick={() => {
@@ -116,7 +119,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <SidebarNavLink
+            {/* <SidebarNavLink
               className="nav-link"
               href="#"
               onClick={() => {
@@ -124,7 +127,7 @@ const Sidebar = () => {
               }}
             >
               <AiOutlineUserAdd /> Add Product
-            </SidebarNavLink>
+            </SidebarNavLink> */}
           </li>
           <li className="nav-item">
             <SidebarNavLink className="nav-link" href="#">
@@ -139,13 +142,13 @@ const Sidebar = () => {
               </SidebarNavLink>
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link href="customers">
               <SidebarNavLink className="nav-link">
                 <FaUsers /> Customers
               </SidebarNavLink>
             </Link>
-          </li>
+          </li> */}
           <li className="nav-item">
             <Link href="sell">
               <SidebarNavLink className="nav-link">
@@ -193,7 +196,7 @@ const Sidebar = () => {
               <MdNotificationsActive /> Notification
             </SidebarNavLink>
           </li> */}
-          <li className="nav-item ">
+          <li className="nav-item d-md-none d-sm-block ">
             <SidebarNavLink className="nav-link" href="#">
               <FaRegUserCircle />
               <CustomDropdown options={optionsProfile} name="Profile" />

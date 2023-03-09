@@ -6,10 +6,9 @@ import {
   AiOutlineEye,
 } from "react-icons/ai";
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
-import { FcShipped} from "react-icons/fc";
+import { FcShipped } from "react-icons/fc";
 import { GiCancel } from "react-icons/gi";
- 
- 
+
 import { FaUsers } from "react-icons/fa";
 import { FiEdit, FiTarget } from "react-icons/fi";
 import { useEffect, useState } from "react";
@@ -18,7 +17,13 @@ import CustomTable from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
-import { useCarrierCollectionQuery, useGalleryCollectionQuery, useOrderCollectionQuery, useProductCollectionQuery, useSlideCollectionQuery } from "@/lib/hook/useApi";
+import {
+  useCarrierCollectionQuery,
+  useGalleryCollectionQuery,
+  useOrderCollectionQuery,
+  useProductCollectionQuery,
+  useSlideCollectionQuery,
+} from "@/lib/hook/useApi";
 
 function randomColor() {
   const colors = [
@@ -62,21 +67,38 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
-  const { data:orders } = useOrderCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const { data: orders } = useOrderCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
   const shippedOrders = orders?.filter((order) => order.status === "shipped");
-  const deliveredOrders =  orders?.filter((order) => order.status === "delivered");
-  const cancelOrders =  orders?.filter((order) => order.status === "cancelled");
-  const { data:products } = useProductCollectionQuery({cacheTime: 60, staleTime: 300000,  });
-  const { data:slides } = useSlideCollectionQuery({cacheTime: 60, staleTime: 300000,  });
-  const { data:gallery } = useGalleryCollectionQuery({cacheTime: 60, staleTime: 300000,  });
-  const { data:carrier } = useCarrierCollectionQuery({cacheTime: 60, staleTime: 300000,  });
+  const deliveredOrders = orders?.filter(
+    (order) => order.status === "delivered"
+  );
+  const cancelOrders = orders?.filter((order) => order.status === "cancelled");
+  const { data: products } = useProductCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: slides } = useSlideCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: gallery } = useGalleryCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: carrier } = useCarrierCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
   return (
     <PrivateRoute>
       <main className="p-6  space-y-6 my-1">
         <section className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-6 gy-3 p-3">
-        <NewCard
+          <NewCard
             name="Products"
-            number={products.products?.length || 0}
+            number={products?.products?.length || 0}
             path="products"
             icon={<BsCardChecklist size={24} />}
           />
@@ -86,14 +108,13 @@ const DashboardPage = () => {
             path="orders"
             icon={<BsCartCheck size={24} />}
           />
-           <NewCard
+          <NewCard
             name="Shipped Orders"
             number={shippedOrders?.length || 0}
             path="orders"
             icon={<FcShipped size={24} />}
           />
-           
-           
+
           {/* <NewCard
             name="Customers"
             path="customers"
@@ -106,13 +127,13 @@ const DashboardPage = () => {
             path="sell"
             icon={<AiOutlineDollarCircle size={24} />}
           />
-           <NewCard
+          <NewCard
             name="Cancel Orders"
             number={cancelOrders?.length || 0}
             path="orders"
             icon={<GiCancel size={24} />}
           />
-          
+
           <NewCard
             name="Slide"
             number={slides?.length}
@@ -139,9 +160,9 @@ const DashboardPage = () => {
           />
         </section>
 
-         <div className="px-3">
-         <CustomTable tableName={"Users"} />
-         </div>
+        <div className="px-3">
+          <CustomTable tableName={"Users"} />
+        </div>
       </main>
     </PrivateRoute>
   );
