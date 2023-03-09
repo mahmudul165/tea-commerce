@@ -104,7 +104,6 @@ orders?.forEach(order => {
     totalUniqueItems += order.totalUniqueItems;
   }
 });
-
 console.log(`Total sales for delivered orders: $${totalSales}`);
 console.log(`Total items for delivered orders: ${totalItems}`);
 console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
