@@ -42,7 +42,6 @@ function OrdersHomePage() {
               onChange={(e) => setSelectedStatus(e.target.value)}
             >
               <option value="all">All</option>
-              <option value="pending">Pending</option>
               <option value="placed">Placed</option>
               <option value="shipped">Shipped</option>
               <option value="delivered">Delivered</option>
