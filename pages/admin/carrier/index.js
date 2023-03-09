@@ -15,9 +15,9 @@ const submitHandler = async (data) => {
   console.log({ data });
 
   try {
-    await axios.post("/url", {
-      // data
-    });
+    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier", {
+      ... data
+    }); toast.success("Job Post successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
@@ -87,10 +87,10 @@ const AddJobPostFrom = () => {
         <div className="col-md-6">
           <CustomFloatingLabel labelName="Vacancy ">
             <Form.Control
-              type="text"
+              type="number"
               placeholder="Enter slide title ?"
               {...register("vacancy", {
-                required: "Please title is  required",
+                required: "Please vacancy number  required",
                 maxLength: {
                   value: 5,
                   message: "Input too large !, maximum length 5",
@@ -118,12 +118,12 @@ const AddJobPostFrom = () => {
               <p className="text-danger">{errors.salary.message}</p>
             )}
           </CustomFloatingLabel>
-          <CustomFloatingLabel labelName="Time">
+          <CustomFloatingLabel labelName="Job Type">
             <Form.Control
-              type="time"
+              type="text"
               placeholder="Enter Time ?"
               {...register("time", {
-                required: "Please add time  required",
+                required: "Please add Job type  required",
                 maxLength: {
                   value: 50,
                   message: "Input too large !, maximum length 50",

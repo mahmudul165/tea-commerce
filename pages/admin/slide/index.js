@@ -20,16 +20,16 @@ const submitHandler = async (data) => {
   console.log({ data });
 
   try {
-    await axios.post("/url", {
-      // data
-    });
+    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/slide", {
+       ...data
+    });  toast.success("Slide successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
 };
 
 export const AddSlideFrom = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
   };
@@ -43,16 +43,16 @@ export const AddSlideFrom = () => {
   return (
     <>
       <div className="text-center  ele-center   mb-3  card border-0">
-        {imageUrl && <img src={imageUrl} alt="Preview" width="280px" />}
+        {image && <img src={image} alt="Preview" width="280px" />}
       </div>
       <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
             type="text"
-            name="imageURL"
+            name="image"
             autoFocus
             placeholder="Past image URL ?"
-            {...register("imageURL", {
+            {...register("image", {
               pattern: {
                 value: acceptPattern,
                 message: "Invalid input ",
@@ -62,8 +62,8 @@ export const AddSlideFrom = () => {
             })}
             onChange={handleInputChange}
           />
-          {errors.imageURL && (
-            <p className="text-danger">{errors.imageURL.message}</p>
+          {errors.image && (
+            <p className="text-danger">{errors.image.message}</p>
           )}
         </CustomFloatingLabel>
 
@@ -143,7 +143,7 @@ export const AddSlideFrom = () => {
             size="lg"
             className=" text-white  cus-bg-secondary  mt-3 w-100"
           >
-            Add Product
+            Add Slide
           </MyButton>
         </div>
       </Form>
