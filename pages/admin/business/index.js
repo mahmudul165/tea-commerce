@@ -18,16 +18,16 @@ import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
   try {
-    await axios.post("/url", {
-      // data
-    });
+    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/business", {
+       ...data
+    });  toast.success("Business Post successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
 };
 
 const AddBusinessFrom = () => {
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
   };
@@ -40,15 +40,15 @@ const AddBusinessFrom = () => {
   return (
     <>
       <div className="text-center  ele-center   mb-3  card border-0">
-        {imageUrl && <img src={imageUrl} alt="Preview" width="280px" />}
+        {image && <img src={image} alt="Preview" width="280px" />}
       </div>
       <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
             type="text"
-            name="imageURL"
+            name="image"
             placeholder="Past image URL ?"
-            {...register("imageURL", {
+            {...register("image", {
               pattern: {
                 value: acceptPattern,
                 message: "Invalid input ",
@@ -58,8 +58,8 @@ const AddBusinessFrom = () => {
             })}
             onChange={handleInputChange}
           />
-          {errors.imageURL && (
-            <p className="text-danger">{errors.imageURL.message}</p>
+          {errors.image && (
+            <p className="text-danger">{errors.image.message}</p>
           )}
         </CustomFloatingLabel>
         <CustomFloatingLabel labelName="Title ">
@@ -79,16 +79,19 @@ const AddBusinessFrom = () => {
           )}
         </CustomFloatingLabel>
         <CustomFloatingLabel labelName="body">
-          <Form.Control
-            type="text"
-            placeholder="Enter description ?"
-            {...register("body", {
-              maxLength: {
-                value: 250,
-                message: "Input too large !, maximum length 250",
-              },
-            })}
-          />
+        <Form.Control
+  as="textarea"
+  className="py-5"
+  rows={5}
+  placeholder="Enter description..."
+  {...register("body", {
+    maxLength: {
+      value: 550,
+      message: "Input too large!, maximum length 550",
+    },
+  })}
+/>
+
           {errors.body && <p className="text-danger">{errors.body.message}</p>}
         </CustomFloatingLabel>
         <div className="ele-center ">
