@@ -26,20 +26,22 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
   return (
     <>
       {/* <Link href={`${path ? path  : "/dashboard"}`}> */}
-        <div
-          className="d-flex justify-content-between p-3 border border-1 rounded-3 shadow-sm "
-          style={{
-            backgroundColor: randomColor(),
-          }}
-        >
-          <div>
-            <p className="fs-6 fw-bold text-light">{name}</p>
-            <p className="fs-5 fw-bold text-white">{number}</p>
-          </div>
-          <div>
-            <div className=" p-2 rounded-3 text-secondary bg-light">{icon}</div>
-          </div>
+
+      <div
+        className="d-flex justify-content-between p-3 border border-1 rounded-3 shadow-sm"
+        style={{
+          backgroundColor: randomColor(),
+        }}
+      >
+        <div>
+          <p className="fs-6 fw-bold text-light">{name}</p>
+          <p className="fs-5 fw-bold text-white">{number}</p>
         </div>
+        <div>
+          <div className=" p-2 rounded-3 text-secondary bg-light">{icon}</div>
+        </div>
+      </div>
+
       {/* </Link> */}
     </>
   );
@@ -50,30 +52,30 @@ function SellHomePage() {
     staleTime: 300000,
   });
   // Calculate total sales, total number of items, and total number of unique items for delivered orders only
-let totalSales = 0;
-let totalItems = 0;
-let totalUniqueItems = 0;
-let productCounts = {};
-orders?.forEach(order => {
-  if (order?.status === "delivered") {
-    totalSales += order.cartTotal;
-    totalItems += order.totalItems;
-    totalUniqueItems += order.totalUniqueItems;
-  }
-});
-console.log(`Total sales for delivered orders: $${totalSales}`);
-console.log(`Total items for delivered orders: ${totalItems}`);
-console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
+  let totalSales = 0;
+  let totalItems = 0;
+  let totalUniqueItems = 0;
+  let productCounts = {};
+  orders?.forEach((order) => {
+    if (order?.status === "delivered") {
+      totalSales += order.cartTotal;
+      totalItems += order.totalItems;
+      totalUniqueItems += order.totalUniqueItems;
+    }
+  });
+  console.log(`Total sales for delivered orders: $${totalSales}`);
+  console.log(`Total items for delivered orders: ${totalItems}`);
+  console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
   return (
     <PrivateRoute>
       <PageHeader name="Sell" />
 
       <main className="p-6  space-y-6 my-1">
-        <section className="row row-cols-1 row-cols-md-2 row-cols-xl-3 mx-5 g-6 gy-3 p-3">
+        <section className="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-6 gy-3 p-3 gap-3">
           <NewCard
             // name="Products"
-           name={`Total sales for delivered orders:` || 0}
-           number={`${totalSales}` || 0}
+            name={`Total sales for delivered orders:` || 0}
+            number={`${totalSales}` || 0}
             // path="products"
             icon={<BsCardChecklist size={24} />}
           />
@@ -89,13 +91,7 @@ console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
             // path="orders"
             icon={<BsSliders size={24} />}
           />
-
-         
-         
-
-          
         </section>
-
       </main>
     </PrivateRoute>
   );
@@ -106,6 +102,3 @@ export default SellHomePage;
 SellHomePage.getLayout = function PageLayout(page) {
   return <>{page}</>;
 };
-
-
-

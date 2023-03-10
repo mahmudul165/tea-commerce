@@ -4,6 +4,8 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { motion } from "framer-motion";
+
+import DemoImage from "/public/New folder/arfan-abdulazeez-oi0FvNhkHy8-unsplash.jpg";
 // import useAuth from "../../hook/useAuth";
 // import { useCart } from "react-use-cart";
 function BlogsShowcase({ data }) {
@@ -78,8 +80,7 @@ function BlogsShowcase({ data }) {
                       initial={{ x: 60, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{ delay: 0.2 }}
-                      src="https://i.blogs.es/d85337/1366_2000/840_560.jpeg"
-                      alt="E-COMMERCE  products"
+                      src="https://images.unsplash.com/photo-1625715490354-9a37e8298bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dGVhJTIwZ2FyZGVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                       className="card-img-top  p-2 "
                       width={336}
                       height={230}
