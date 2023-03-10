@@ -41,9 +41,9 @@ const submitHandler = async (data) => {
 };
 export const AddProductFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
-  const handleInputChange = (event) => {
-    setImageUrl(event.target.value);
-  };
+  const [imageUrlTwo, setImageUrTwo] = useState("");
+  const [imageUrlThree, setImageUrThree] = useState("");
+
   const {
     handleSubmit,
     register,
@@ -52,8 +52,12 @@ export const AddProductFrom = () => {
   } = useForm();
   return (
     <>
-      <div className="text-center  ele-center   mb-3  card border-0">
-        {imageUrl && <img src={imageUrl} alt="Preview" width="280px" />}
+      <div className="  d-flex  justify-content-around gap-3 p-3 ">
+        {imageUrl && <img src={imageUrl} alt="Preview" width="120px" />}
+        {imageUrlTwo && <img src={imageUrlTwo} alt="Preview" width="120px" />}
+        {imageUrlThree && (
+          <img src={imageUrlThree} alt="Preview" width="120px" />
+        )}
       </div>
       <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
         <div className="row">
@@ -93,17 +97,22 @@ export const AddProductFrom = () => {
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Discount Type ">
-            <Form.Control as="select" {...register("discount[type]", { required: "Please select a Discount Type" })}>
-    <option value="">Select Discount Type</option>
-    {["percentage", "fixed"].map((value, index) => (
-      <option key={index} value={value}>
-        {value}
-      </option>
-    ))}
-  </Form.Control>
-  {errors.discount?.type && (
-    <p className="text-danger">{errors.discount.type.message}</p>
-  )}
+              <Form.Control
+                as="select"
+                {...register("discount[type]", {
+                  required: "Please select a Discount Type",
+                })}
+              >
+                <option value="">Select Discount Type</option>
+                {["percentage", "fixed"].map((value, index) => (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </Form.Control>
+              {errors.discount?.type && (
+                <p className="text-danger">{errors.discount.type.message}</p>
+              )}
               {/* <Form.Control
                 type="text"
                 placeholder="Enter slide discountType ?"
@@ -120,18 +129,22 @@ export const AddProductFrom = () => {
               )} */}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Stock Status ">
-              
-                <Form.Control as="select" {...register("stockStatus", { required: "Please select a Stock Status" })}>
-    <option value="">Select Stock Status</option>
-    {["in_stock", "out_of_stock", "limited"].map((value, index) => (
-      <option key={index} value={value}>
-        {value}
-      </option>
-    ))}
-  </Form.Control>
-  {errors.stockStatus && (
-    <p className="text-danger">{errors.stockStatus.message}</p>
-  )}
+              <Form.Control
+                as="select"
+                {...register("stockStatus", {
+                  required: "Please select a Stock Status",
+                })}
+              >
+                <option value="">Select Stock Status</option>
+                {["in_stock", "out_of_stock", "limited"].map((value, index) => (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </Form.Control>
+              {errors.stockStatus && (
+                <p className="text-danger">{errors.stockStatus.message}</p>
+              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Past Image URL One">
@@ -147,7 +160,9 @@ export const AddProductFrom = () => {
 
                   required: "Past Image URL",
                 })}
-                onChange={handleInputChange}
+                onChange={(e) => {
+                  setImageUrl(e.target.value);
+                }}
               />
               {errors.imageURLOne && (
                 <p className="text-danger">{errors.imageURLOne.message}</p>
@@ -164,7 +179,9 @@ export const AddProductFrom = () => {
                     message: "Invalid input ",
                   },
                 })}
-                onChange={handleInputChange}
+                onChange={(e) => {
+                  setImageUrTwo(e.target.value);
+                }}
               />
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Past Image URL Three">
@@ -178,7 +195,9 @@ export const AddProductFrom = () => {
                     message: "Invalid input ",
                   },
                 })}
-                onChange={handleInputChange}
+                onChange={(e) => {
+                  setImageUrThree(e.target.value);
+                }}
               />
             </CustomFloatingLabel>
           </div>
@@ -314,7 +333,7 @@ export const AddProductFrom = () => {
 };
 
 function ProductsHomePage() {
-  const {   deleteData } = useAuth();
+  const { deleteData } = useAuth();
   const [modalShow, setModalShow] = useState(false);
   const { data: products, isLoading, isError } = useProductCollectionQuery();
 
@@ -387,9 +406,15 @@ function ProductsHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${product?._id}`)}>
-                       <AiOutlineDelete size={16} className="text-danger" />
-                        </span>
+                      <span
+                        onClick={() =>
+                          deleteData(
+                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${product?._id}`
+                          )
+                        }
+                      >
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
                     </div>
                   </td>
                 </tr>
