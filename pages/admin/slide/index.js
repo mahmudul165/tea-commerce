@@ -1,7 +1,10 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
-import CustomTable from "@/components/admin/common/CustomTable";
+import CustomTable, {
+  SlideTableTH,
+} from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
+import { dateFormat } from "@/components/admin/common/Fomater";
 import {
   acceptPattern,
   CustomFloatingLabel,
@@ -9,10 +12,13 @@ import {
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
+import { useSlideCollectionQuery } from "@/lib/hook/useApi";
 import axios from "axios";
 import { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
 import { MdAddCircleOutline } from "react-icons/md";
 import { toast } from "react-toastify";
 
@@ -21,8 +27,9 @@ const submitHandler = async (data) => {
 
   try {
     await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/slide", {
-       ...data
-    });  toast.success("Slide successfully added!");
+      ...data,
+    });
+    toast.success("Slide successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
@@ -152,6 +159,9 @@ export const AddSlideFrom = () => {
 };
 function SlideHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const { data: slide, isLoading, isError } = useSlideCollectionQuery();
+
+  console.log({ slide });
 
   return (
     <PrivateRoute>
@@ -175,7 +185,58 @@ function SlideHomePage() {
         }
       />
 
-      <CustomTable tableName="Slide Table" />
+      <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+        <table className="table text-center">
+          <thead>
+            <tr className="fs-6">
+              {SlideTableTH &&
+                SlideTableTH.map((header, index) => (
+                  <th scope="col" key={index}>
+                    {header}
+                  </th>
+                ))}
+            </tr>
+          </thead>
+          <tbody className="fs-6 fw-normal">
+            {isLoading && (
+              <div class="spinner-border text-center" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            )}
+
+            {slide &&
+              slide.map((el, index) => (
+                <tr key={index}>
+                  <td> {index + 1}</td>
+
+                  <td>{el.title}</td>
+                  <td>
+                    {/* <span className="bg-info p-2 fw-bold text-white rounded-lg">
+                      Open
+                    </span> */}
+                    <img src={el.image} width="60px" alt={el.altText} />
+                  </td>
+                  <td>{el.pathName}</td>
+                  <td>{el.description}</td>
+
+                  <td className="">
+                    <div className="d-flex justify-content-center gap-2">
+                      <span>
+                        <AiOutlineEye size={18} className="text-success" />
+                      </span>
+                      <span>
+                        <FiEdit size={15} className="text-warning" />
+                      </span>
+                      <span>
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </PrivateRoute>
   );
 }
