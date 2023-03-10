@@ -15,6 +15,7 @@ import {
   useUserCollectionQuery,
 } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
+import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -27,9 +28,13 @@ const submitHandler = async (data) => {
   console.log({ data });
 
   try {
-    await axios.post("/url", {
-      // data
-    });
+    await axios.post(
+      "https://crabby-pocketbook-eel.cyclic.app/api/v1/product",
+      {
+        ...data,
+      }
+    );
+    toast.success("Product Post successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
@@ -74,7 +79,7 @@ export const AddProductFrom = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter slide discountAmount ?"
-                {...register("discountAmount", {
+                {...register("discount[amount]", {
                   required: "Please Discount amount is  required",
                   maxLength: {
                     value: 30,
@@ -88,10 +93,21 @@ export const AddProductFrom = () => {
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Discount Type ">
-              <Form.Control
+            <Form.Control as="select" {...register("discount[type]", { required: "Please select a Discount Type" })}>
+    <option value="">Select Discount Type</option>
+    {["percentage", "fixed"].map((value, index) => (
+      <option key={index} value={value}>
+        {value}
+      </option>
+    ))}
+  </Form.Control>
+  {errors.discount?.type && (
+    <p className="text-danger">{errors.discount.type.message}</p>
+  )}
+              {/* <Form.Control
                 type="text"
                 placeholder="Enter slide discountType ?"
-                {...register("discountType", {
+                {...register("discount[type]", {
                   required: "Please discount type is  required",
                   maxLength: {
                     value: 30,
@@ -101,23 +117,21 @@ export const AddProductFrom = () => {
               />
               {errors.discountType && (
                 <p className="text-danger">{errors.discountType.message}</p>
-              )}
+              )} */}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Stock Status ">
-              <Form.Control
-                type="text"
-                placeholder="Enter slide Stock Status ?"
-                {...register("stockStatus", {
-                  required: "Please Stock Status is  required",
-                  maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
-                  },
-                })}
-              />
-              {errors.stockStatus && (
-                <p className="text-danger">{errors.stockStatus.message}</p>
-              )}
+              
+                <Form.Control as="select" {...register("stockStatus", { required: "Please select a Stock Status" })}>
+    <option value="">Select Stock Status</option>
+    {["in_stock", "out_of_stock", "limited"].map((value, index) => (
+      <option key={index} value={value}>
+        {value}
+      </option>
+    ))}
+  </Form.Control>
+  {errors.stockStatus && (
+    <p className="text-danger">{errors.stockStatus.message}</p>
+  )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Past Image URL One">
@@ -125,7 +139,7 @@ export const AddProductFrom = () => {
                 type="text"
                 name="imageURLOne"
                 placeholder="Image url "
-                {...register("imageURLOne", {
+                {...register("images[0][url]", {
                   pattern: {
                     value: acceptPattern,
                     message: "Invalid input ",
@@ -144,7 +158,7 @@ export const AddProductFrom = () => {
                 type="text"
                 name="imageURLTwo"
                 placeholder="Image url "
-                {...register("imageURLTwo", {
+                {...register("images[1][url]", {
                   pattern: {
                     value: acceptPattern,
                     message: "Invalid input ",
@@ -158,7 +172,7 @@ export const AddProductFrom = () => {
                 type="text"
                 name="imageURLThree"
                 placeholder="Image url "
-                {...register("imageURLTwo", {
+                {...register("images[2][url]", {
                   pattern: {
                     value: acceptPattern,
                     message: "Invalid input ",
@@ -205,7 +219,7 @@ export const AddProductFrom = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter slide promo code ?"
-                {...register("promoCode", {
+                {...register("promo[code]", {
                   required: "Please promo code is  required",
                   maxLength: {
                     value: 50,
@@ -222,7 +236,7 @@ export const AddProductFrom = () => {
               <Form.Control
                 type="date"
                 placeholder="Enter slide promo expire date ?"
-                {...register("promoExpireAt", {
+                {...register("promo[expiresAt]", {
                   required: "Please promoExpireAt is  required",
                   maxLength: {
                     value: 30,
@@ -239,7 +253,7 @@ export const AddProductFrom = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter alt text  ?"
-                {...register("imageAltTextOne", {
+                {...register("images[0][altText]", {
                   required: "Please alt text is  required",
                   maxLength: {
                     value: 50,
@@ -256,14 +270,14 @@ export const AddProductFrom = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter alt text   ?"
-                {...register("imageAltTextTwo", {})}
+                {...register("images[1][altText]", {})}
               />
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Image Alt Text Three ">
               <Form.Control
                 type="text"
                 placeholder="Enter alt text   ?"
-                {...register("imageAltTextThree", {})}
+                {...register("images[2][altText]", {})}
               />
             </CustomFloatingLabel>
           </div>
