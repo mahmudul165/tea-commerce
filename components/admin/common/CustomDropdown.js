@@ -61,7 +61,6 @@ const CustomDropdown = ({ options, name, children }) => {
                 ) : (
                   <Link
                     className="nav-link active fs-6 text-capitalize"
-                    aria-current="page"
                     href={el}
                   >
                     {el.substring(0, 16)}
