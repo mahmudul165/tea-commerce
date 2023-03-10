@@ -313,13 +313,14 @@ function Header() {
                   </div>
 
                   <NavDropdown title="Gallery" id="collasible-nav-dropdown">
-                    <NavDropdown.Item as="span">
+                  <NavDropdown.Item as="span">
+                      <Link href={"/gallery2"}>Gallery</Link>
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Item as="span">
                       <Link href={"/gellary"}>Gallery1</Link>
-                    </NavDropdown.Item>
+                    </NavDropdown.Item> */}
                     {/* <NavDropdown.Divider /> */}
-                    <NavDropdown.Item as="span">
-                      <Link href={"/gallery2"}>Gallery2</Link>
-                    </NavDropdown.Item>
+                    
                   </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">
