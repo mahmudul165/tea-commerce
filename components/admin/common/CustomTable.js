@@ -34,6 +34,7 @@ export const GalleryTableTH = [
   "Images",
   "Actions",
 ];
+
 export const CarrierTableTH = [
   "SL",
   "Job Title",
