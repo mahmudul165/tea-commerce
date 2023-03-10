@@ -21,9 +21,9 @@ export const ProductTableTH = [
 ];
 export const SlideTableTH = [
   "SL",
-  "Created",
   "Title",
   "Images",
+  "Path Name",
   "Description",
   "Actions",
 ];
@@ -44,6 +44,7 @@ export const CarrierTableTH = [
   "Time",
   "Actions",
 ];
+export const UsersTableTH = ["SL", "Created", "User Name", "Actions"];
 export const BusinessTableTH = ["SL", "Title", "Images", "Body", "Actions"];
 export const OrdersTableTH = [
   "SL",
