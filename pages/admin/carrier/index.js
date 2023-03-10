@@ -1,23 +1,32 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
-import CustomTable from "@/components/admin/common/CustomTable";
+import CustomTable, {
+  CarrierTableTH,
+} from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
 import { CustomFloatingLabel } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
+import { useCarrierCollectionQuery } from "@/lib/hook/useApi";
 import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
+import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
 
   try {
-    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier", {
-      ... data
-    }); toast.success("Job Post successfully added!");
+    await axios.post(
+      "https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier",
+      {
+        ...data,
+      }
+    );
+    toast.success("Job Post successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
@@ -150,6 +159,7 @@ const AddJobPostFrom = () => {
 };
 function CarrierHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const { data: carrier, isLoading, isError } = useCarrierCollectionQuery();
 
   return (
     <PrivateRoute>
@@ -173,7 +183,54 @@ function CarrierHomePage() {
         }
       />
 
-      <CustomTable tableName="Carrier Table" />
+      <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+        <table className="table text-center">
+          <thead>
+            <tr className="fs-6">
+              {CarrierTableTH &&
+                CarrierTableTH.map((header, index) => (
+                  <th scope="col" key={index}>
+                    {header}
+                  </th>
+                ))}
+            </tr>
+          </thead>
+          <tbody className="fs-6 fw-normal">
+            {isLoading && (
+              <div class="spinner-border text-center" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            )}
+
+            {carrier &&
+              carrier.map((el, index) => (
+                <tr key={index}>
+                  <td> {index + 1}</td>
+                  <td>{el?.jobTitle}</td>
+                  <td>{el?.vacancy}</td>
+                  <td>{el?.location || "Empty"}</td>
+                  <td>{el?.salary}</td>
+                  <td>{el?.deadline || "Empty"}</td>
+                  <td>{el?.time}</td>
+
+                  <td className="">
+                    <div className="d-flex justify-content-center gap-2">
+                      <span>
+                        <AiOutlineEye size={18} className="text-success" />
+                      </span>
+                      <span>
+                        <FiEdit size={15} className="text-warning" />
+                      </span>
+                      <span>
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </PrivateRoute>
   );
 }
