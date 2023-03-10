@@ -43,11 +43,7 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="navbar-nav ms-auto ">
             <FaRegUserCircle size={24} className="me-2 text-secondary" />
-            <CustomDropdown options={options}>
-              <ul>
-                <li>lkajsd</li>
-              </ul>
-            </CustomDropdown>
+            <CustomDropdown options={options}></CustomDropdown>
           </div>
         </div>
       </div>
