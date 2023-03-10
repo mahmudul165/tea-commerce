@@ -4,8 +4,16 @@ import IconWithBackground from "@/components/common/IconWithBackground";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import Banner from "@/components/home/banner/Banner";
 import OurOffices from "@/components/home/our-offices/OurOffices";
-import { Card, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+
+
+
+import React, { useState } from "react";
+import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const OurLocationCard = () => {
   return (
@@ -35,25 +43,96 @@ const OurLocationCard = () => {
   );
 };
 
-const ContactFrom = () => {
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    let errors = {};
+    if (!formData.name) {
+      errors.name = "Name is required";
+    }
+    if (!formData.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Invalid email address";
+    }
+    if (!formData.message) {
+      errors.message = "Message is required";
+    }
+    return errors;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const errors = validate();
+    if (Object.keys(errors).length === 0) {
+      axios
+        .post("https://crabby-pocketbook-eel.cyclic.app/api/v1/contact", formData)
+        .then((response) => {
+          console.log(response);
+          toast.success('Form submitted successfully!');
+        })    
+        .catch((error) => {
+          console.log(error);
+          toast.error(error);
+        });
+    } else {
+      setErrors(errors);
+    }
+  };
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
   return (
     <>
-      <Form
-        id="contact-form"
-        name="contact-form p-2"
-        action="mail.php"
-        method="POST"
-      >
-        <h2 className="mb-2 fs-5 fw-bold cus-color-secondary">Contact From</h2>
+      <Form id="contact-form" name="contact-form p-2" onSubmit={handleSubmit}>
+        <h2 className="mb-2 fs-5 fw-bold cus-color-secondary">Contact Form</h2>
+        <ToastContainer position="top-center" />
         <Form.Group controlId="name" className="mb-3">
-          <Form.Control type="text" name="name" placeholder="Name" />
+          <Form.Control
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            isInvalid={!!errors.name}
+          />
+          <Form.Control.Feedback type="invalid">
+            {errors.name}
+          </Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group controlId="email" className="mb-3">
-          <Form.Control type="text" name="email" placeholder="Email" />
+          <Form.Control
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            isInvalid={!!errors.email}
+          />
+          <Form.Control.Feedback type="invalid">
+            {errors.email}
+          </Form.Control.Feedback>
         </Form.Group>
+
         <Form.Group controlId="phone" className="mb-3">
-          <Form.Control type="text" name="phone" placeholder="Phone" />
+          <Form.Control
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            value={formData.phone}
+            onChange={handleChange}
+          />
         </Form.Group>
 
         <Form.Group controlId="message" className="mb-3">
@@ -63,19 +142,35 @@ const ContactFrom = () => {
             rows={10}
             name="message"
             placeholder="Message"
+            value={formData.message}
+            onChange={handleChange}
+            isInvalid={!!errors.message}
           />
+          <Form.Control.Feedback type="invalid">
+            {errors.message}
+          </Form.Control.Feedback>
         </Form.Group>
-        <MyButton
+
+        {/* <MyButton
           type="submit"
           size="lg"
-          className=" text-white px-5 cus-bg-primary"
+          className="text-white px-5 cus-bg-primary"
         >
           SEND
-        </MyButton>
+        </MyButton> */}
+         <Button
+    type="submit"
+    size="lg"
+    className=" text-white px-5 cus-bg-primary"
+    // onClick={handleClick}
+  >
+    SEND
+  </Button>
       </Form>
     </>
   );
 };
+ 
 function contact() {
   return (
     <>
@@ -137,7 +232,7 @@ function contact() {
             </Card>
           </div>
           <div className="col-md-8">
-            <ContactFrom />
+            <ContactForm />
           </div>
         </div>
       </div>
