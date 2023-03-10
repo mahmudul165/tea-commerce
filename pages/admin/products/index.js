@@ -10,7 +10,10 @@ import {
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
-import { useProductCollectionQuery } from "@/lib/hook/useApi";
+import {
+  useProductCollectionQuery,
+  useUserCollectionQuery,
+} from "@/lib/hook/useApi";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
