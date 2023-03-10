@@ -1,4 +1,7 @@
-import { OrdersTableTH } from "@/components/admin/common/CustomTable";
+import {
+  ContactsTableTH,
+  OrdersTableTH,
+} from "@/components/admin/common/CustomTable";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
 import axios from "axios";
@@ -13,52 +16,25 @@ import { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
-import { useOrderCollectionQuery } from "@/lib/hook/useApi";
+import {
+  useContactCollectionQuery,
+  useOrderCollectionQuery,
+} from "@/lib/hook/useApi";
 function OrdersHomePage() {
   const { orderStatus, deleteData } = useAuth();
-  const [ordersData, setOrdersData] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState("all");
-  const { data: orders } = useOrderCollectionQuery();
-  // const getOrdersData = async () => {
+  const { data: contacts } = useContactCollectionQuery();
 
-  //  await setOrdersData(orders);
-  // };
-
-  const filteredData =
-    selectedStatus === "all"
-      ? orders
-      : orders?.filter((order) => order.status === selectedStatus);
-  // useEffect(() => {
-  //   getOrdersData();
-  // }, []);
-  console.log("filter oredr", filteredData);
   return (
     <PrivateRoute>
       <PageHeader name="CustomerQuery" />
 
       {/* <CustomTable tableName="Orders Table" headers={OrdersTableTH} /> */}
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
-        <div className="d-flex justify-content-between my-1">
-          <div>Orders Data</div>
-          <div>
-            <select
-              className="px-2 py-1 rounded-sm"
-              value={selectedStatus}
-              onChange={(e) => setSelectedStatus(e.target.value)}
-            >
-              <option value="all">All</option>
-              <option value="placed">Placed</option>
-              <option value="shipped">Shipped</option>
-              <option value="delivered">Delivered</option>
-              <option value="cancelled">Cancelled</option>
-            </select>
-          </div>
-        </div>
         <table className="table text-center">
           <thead>
             <tr className="fs-6">
-              {OrdersTableTH &&
-                OrdersTableTH.map((header, index) => (
+              {ContactsTableTH &&
+                ContactsTableTH.map((header, index) => (
                   <th scope="col" key={index}>
                     {header}
                   </th>
@@ -66,29 +42,14 @@ function OrdersHomePage() {
             </tr>
           </thead>
           <tbody className="fs-6 fw-normal">
-            {filteredData &&
-              filteredData.map((row, index) => (
+            {contacts &&
+              contacts.map((row, index) => (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{dateFormat(row?.orderDate)}</td>
-                  <td>{row?.email}</td>
                   <td>{row?.name}</td>
+                  <td>{row?.email}</td>
                   <td>{row?.phone}</td>
-                  <td>{row?.address}</td>
-                  <td>{row?.products[0]?.name}</td>
-                  <td>{row?.products[0]?.price}</td>
-                  <td>{row?.totalItems}</td>
-                  <td>{row?.totalUniqueItems}</td>
-                  <td>{row?.cartTotal}</td>
-                  <td>
-                    <span
-                      className={`p-2 rounded-3 text-capitalize  text-white ${trackStatus(
-                        row.status
-                      )} `}
-                    >
-                      {row.status}
-                    </span>
-                  </td>
+                  <td>{row?.message}</td>
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
