@@ -33,7 +33,7 @@ const submitHandler = async (data) => {
     toast.error(getError(err));
   }
 };
-const AddProductFrom = () => {
+export const AddProductFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);

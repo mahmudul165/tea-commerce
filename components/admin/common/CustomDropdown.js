@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-const CustomDropdown = ({ options, name }) => {
+const CustomDropdown = ({ options, name, children }) => {
   const router = useRouter();
 
   const { email, items } = useAuth();
@@ -60,15 +60,17 @@ const CustomDropdown = ({ options, name }) => {
                   </button>
                 ) : (
                   <Link
-                    className="nav-link active fs-6 "
+                    className="nav-link active fs-6 text-capitalize"
                     aria-current="page"
                     href={el}
                   >
-                    {el.substring(0, 17)}
+                    {el.substring(0, 16)}
                   </Link>
                 )}
               </li>
             ))}
+
+          {children}
         </ul>
       </div>
     </div>

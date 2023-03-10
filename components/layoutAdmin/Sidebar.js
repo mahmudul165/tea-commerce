@@ -72,17 +72,12 @@ const SidebarNavLink = styled.span`
     border-left: 3px solid #007bff;
   }
 `;
-const productsLi = ["products", "Add Product"];
-const ordersLi = [
-  "orders",
-  "Shipped orders",
-  "Cancel Orders",
-  "Delivered Orders",
-];
-const userInfo = localStorage.getItem("user");
-const optionsProfile = [userInfo, "logout"];
+const productsLi = ["products"];
+const ordersLi = ["orders"];
 
 const Sidebar = () => {
+  const userInfo = localStorage.getItem("user");
+  const optionsProfile = [userInfo, "logout"];
   const [modalShow, setModalShow] = useState(false);
   const menuHandler = () => {
     const sidebar = document.querySelector(".sidebar");
@@ -137,18 +132,44 @@ const Sidebar = () => {
             </SidebarNavLink> */}
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link" href="#">
+            <SidebarNavLink className="nav-link">
               <BsCardChecklist />
-              <CustomDropdown options={productsLi} name="Products" />
+              <CustomDropdown options={productsLi} name="Products">
+                <span
+                  className="nav-link fs-6 text-capitalize"
+                  onClick={() => {
+                    setModalShow(true);
+                  }}
+                >
+                  Add Product
+                </span>
+              </CustomDropdown>
             </SidebarNavLink>
           </li>
           <li className="nav-item">
-            <Link href="orders">
-              <SidebarNavLink className="nav-link">
-                <BsCartCheck />
-                <CustomDropdown options={ordersLi} name="Orders" />
-              </SidebarNavLink>
-            </Link>
+            <SidebarNavLink className="nav-link">
+              <BsCartCheck />
+              <CustomDropdown options={ordersLi} name="Orders">
+                <Link
+                  href="/admin/orders"
+                  className="nav-link  fs-6 text-capitalize"
+                >
+                  Shipped
+                </Link>
+                <Link
+                  href="/admin/orders"
+                  className="nav-link  fs-6 text-capitalize"
+                >
+                  Delivered
+                </Link>
+                <Link
+                  href="/admin/orders"
+                  className="nav-link  fs-6 text-capitalize"
+                >
+                  Cancelled
+                </Link>
+              </CustomDropdown>
+            </SidebarNavLink>
           </li>
           {/* <li className="nav-item">
             <Link href="customers">
