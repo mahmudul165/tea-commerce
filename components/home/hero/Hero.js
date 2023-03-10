@@ -15,7 +15,8 @@ const products = [
   {
     id: 2,
     name: "Product 2",
-    image: "https://i.ibb.co/fXXVBZf/hero-2.jpg",
+    image:
+      "https://images.pexels.com/photos/1362537/pexels-photo-1362537.jpeg?auto=compress&cs=tinysrgb&w=600",
     price: 7840,
   },
   {
