@@ -2,8 +2,11 @@
 import useAuth from "@/lib/hook/useAuth";
 import { FaRegUserCircle } from "react-icons/fa";
 import CustomDropdown from "../admin/common/CustomDropdown";
-const options = ["Sultan", "admin@gmail.com", "logout"];
+
 const Header = () => {
+  const userInfo = localStorage.getItem("user");
+  const options = [userInfo, "logout"];
+  console.log({ userInfo });
   const { token, email, items, status } = useAuth();
   console.log("dasboard data from login:", email, status, token, items);
 

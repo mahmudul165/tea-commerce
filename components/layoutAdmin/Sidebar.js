@@ -73,10 +73,14 @@ const SidebarNavLink = styled.span`
   }
 `;
 const productsLi = ["products", "Add Product"];
-const ordersLi = ["orders", "Shipped orders","Cancel Orders","Delivered Orders"];
-const optionsProfile = ["Sultan", "admin@gmail.com", "logout"];
-
-
+const ordersLi = [
+  "orders",
+  "Shipped orders",
+  "Cancel Orders",
+  "Delivered Orders",
+];
+const userInfo = localStorage.getItem("user");
+const optionsProfile = [userInfo, "logout"];
 
 const Sidebar = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -153,7 +157,7 @@ const Sidebar = () => {
               </SidebarNavLink>
             </Link>
           </li> */}
-           
+
           <li className="nav-item">
             <Link href="sell">
               <SidebarNavLink className="nav-link">

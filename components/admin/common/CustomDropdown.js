@@ -60,11 +60,11 @@ const CustomDropdown = ({ options, name }) => {
                   </button>
                 ) : (
                   <Link
-                    className="nav-link active fs-6 text-capitalize"
+                    className="nav-link active fs-6 "
                     aria-current="page"
                     href={el}
                   >
-                    {el}
+                    {el.substring(0, 17)}
                   </Link>
                 )}
               </li>
