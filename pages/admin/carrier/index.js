@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useCarrierCollectionQuery } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
@@ -160,7 +161,7 @@ const AddJobPostFrom = () => {
 function CarrierHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: carrier, isLoading, isError } = useCarrierCollectionQuery();
-
+  const {   deleteData } = useAuth();
   return (
     <PrivateRoute>
       <CustomModal
@@ -221,9 +222,9 @@ function CarrierHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span>
-                        <AiOutlineDelete size={16} className="text-danger" />
-                      </span>
+                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier/${el?._id}`)}>
+                       <AiOutlineDelete size={16} className="text-danger" />
+                        </span>
                     </div>
                   </td>
                 </tr>

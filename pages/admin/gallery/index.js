@@ -16,11 +16,12 @@ import axios from "axios";
 import { useState } from "react";
 import { Card, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Skeleton from "react-loading-skeleton";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { dateFormat } from "@/components/admin/common/Fomater";
+import useAuth from "@/lib/hook/useAuth";
 
 const submitHandler = async (data) => {
   console.log({ data });
@@ -42,6 +43,7 @@ const submitHandler = async (data) => {
 
 const AddGalleryFrom = () => {
   const [url, setImageUrl] = useState("");
+
   const handleInputChange = (event) => {
     setImageUrl(event.target.value);
   };
@@ -106,9 +108,10 @@ const AddGalleryFrom = () => {
   );
 };
 function GalleryHomePage() {
+ 
   const [modalShow, setModalShow] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("all");
-
+  const { deleteData } = useAuth();
   const { data: gallery, isLoading, isError } = useGalleryCollectionQuery();
   console.log({ gallery });
 
@@ -195,7 +198,13 @@ function GalleryHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span>
+                      <span
+                        onClick={() =>
+                          deleteData(
+                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery/${img?.id}`
+                          )
+                        }
+                      >
                         <AiOutlineDelete size={16} className="text-danger" />
                       </span>
                     </div>

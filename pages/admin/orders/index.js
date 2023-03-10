@@ -8,7 +8,9 @@ import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
 import { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FaHandHoldingWater } from "react-icons/fa";
+import useAuth from "@/lib/hook/useAuth";
 function OrdersHomePage() {
+  const {   deleteData } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
 
@@ -103,9 +105,9 @@ function OrdersHomePage() {
                         />
                       </span>
 
-                      <span>
-                        <AiOutlineDelete size={16} className="text-danger" />
-                      </span>
+                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery/${row?.id}`)}>
+                       <AiOutlineDelete size={16} className="text-danger" />
+                        </span>
                     </div>
                   </td>
                 </tr>

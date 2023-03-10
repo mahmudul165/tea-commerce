@@ -18,9 +18,13 @@ import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
   try {
-    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/business", {
-       ...data
-    });  toast.success("Business Post successfully added!");
+    await axios.post(
+      "https://crabby-pocketbook-eel.cyclic.app/api/v1/business",
+      {
+        ...data,
+      }
+    );
+    toast.success("Business Post successfully added!");
   } catch (err) {
     toast.error(getError(err));
   }
@@ -79,18 +83,18 @@ const AddBusinessFrom = () => {
           )}
         </CustomFloatingLabel>
         <CustomFloatingLabel labelName="body">
-        <Form.Control
-  as="textarea"
-  className="py-5"
-  rows={5}
-  placeholder="Enter description..."
-  {...register("body", {
-    maxLength: {
-      value: 550,
-      message: "Input too large!, maximum length 550",
-    },
-  })}
-/>
+          <Form.Control
+            as="textarea"
+            className="py-5"
+            rows={5}
+            placeholder="Enter description..."
+            {...register("body", {
+              maxLength: {
+                value: 550,
+                message: "Input too large!, maximum length 550",
+              },
+            })}
+          />
 
           {errors.body && <p className="text-danger">{errors.body.message}</p>}
         </CustomFloatingLabel>

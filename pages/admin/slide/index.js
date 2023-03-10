@@ -13,6 +13,7 @@ import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useSlideCollectionQuery } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
@@ -158,9 +159,10 @@ export const AddSlideFrom = () => {
   );
 };
 function SlideHomePage() {
+   
   const [modalShow, setModalShow] = useState(false);
   const { data: slide, isLoading, isError } = useSlideCollectionQuery();
-
+  const {   deleteData } = useAuth();
   console.log({ slide });
 
   return (
@@ -227,9 +229,9 @@ function SlideHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span>
-                        <AiOutlineDelete size={16} className="text-danger" />
-                      </span>
+                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/slide/${el?._id}`)}>
+                       <AiOutlineDelete size={16} className="text-danger" />
+                        </span>
                     </div>
                   </td>
                 </tr>

@@ -14,6 +14,7 @@ import {
   useProductCollectionQuery,
   useUserCollectionQuery,
 } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -299,6 +300,7 @@ export const AddProductFrom = () => {
 };
 
 function ProductsHomePage() {
+  const {   deleteData } = useAuth();
   const [modalShow, setModalShow] = useState(false);
   const { data: products, isLoading, isError } = useProductCollectionQuery();
 
@@ -371,9 +373,9 @@ function ProductsHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span>
-                        <AiOutlineDelete size={16} className="text-danger" />
-                      </span>
+                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${product?._id}`)}>
+                       <AiOutlineDelete size={16} className="text-danger" />
+                        </span>
                     </div>
                   </td>
                 </tr>

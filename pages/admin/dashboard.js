@@ -20,6 +20,7 @@ import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
 import {
+  useBuninessCollectionQuery,
   useCarrierCollectionQuery,
   useGalleryCollectionQuery,
   useOrderCollectionQuery,
@@ -94,6 +95,10 @@ const DashboardPage = () => {
     staleTime: 300000,
   });
   const { data: gallery } = useGalleryCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: buniness } = useBuninessCollectionQuery({
     cacheTime: 60,
     staleTime: 300000,
   });
@@ -189,6 +194,13 @@ const DashboardPage = () => {
             number={carrier?.length}
             path="carrier"
             icon={<FiTarget size={24} />}
+
+          />
+            <NewCard
+            name="Business"
+            number={buniness?.length}
+            path="business"
+            icon={<BsSliders size={24} />}
           />
         </section>
 
