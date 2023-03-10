@@ -1,4 +1,5 @@
 import HeroBanner from "@/components/common/Banner";
+import { useGalleryCollectionQuery } from "@/lib/hook/useApi";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Card, Container, Nav, Pagination, Row } from "react-bootstrap";
@@ -64,15 +65,15 @@ const Gallery = () => {
     },
     { id: 13, url: " https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "office" },
   ];
-
-  const filteredImages = images.filter(
+   
+  const filteredImages = images?.filter(
     (image) => image.category === tab || tab === "all"
   );
 
   const imageRows = [];
 
-  for (let i = 0; i < filteredImages.length; i += 4) {
-    const row = filteredImages.slice(i, i + 4);
+  for (let i = 0; i < filteredImages?.length; i += 4) {
+    const row = filteredImages?.slice(i, i + 4);
     imageRows.push(row);
   }
   // setup pagination
@@ -80,8 +81,8 @@ const Gallery = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const lastItemIndex = currentPage * initialImage;
   const firstItemIndex = lastItemIndex - initialImage;
-  const currentItems = filteredImages.slice(firstItemIndex, lastItemIndex);
-  const totalPages = Math.ceil(filteredImages.length / initialImage);
+  const currentItems = filteredImages?.slice(firstItemIndex, lastItemIndex);
+  const totalPages = Math.ceil(filteredImages?.length / initialImage);
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -133,7 +134,7 @@ const Gallery = () => {
         </Nav>
 
         <Row className="mb-4 overflow-hidden">
-          {currentItems.map((image, index) => (
+          {currentItems?.map((image, index) => (
             <Card
               key={image.id}
               className="col-sm-12 col-md-3  mb-3    border-0 rounded  "
