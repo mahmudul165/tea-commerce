@@ -12,6 +12,7 @@ import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { useBuninessCollectionQuery } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
@@ -119,7 +120,7 @@ const AddBusinessFrom = () => {
 function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: business, isLoading, isError } = useBuninessCollectionQuery();
-
+  const {deleteData} = useAuth();
   console.log({ business });
 
   return (
@@ -189,7 +190,7 @@ function BusinessHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/slide/${el?._id}`
+                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/business/${el?._id}`
                           )
                         }
                       >
