@@ -13,7 +13,9 @@ import { FaUsers } from "react-icons/fa";
 import { FiEdit, FiTarget } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import CartItemsModal from "@/components/common/CartItemsModal";
-import CustomTable from "@/components/admin/common/CustomTable";
+import CustomTable, {
+  UsersTableTH,
+} from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
@@ -23,7 +25,9 @@ import {
   useOrderCollectionQuery,
   useProductCollectionQuery,
   useSlideCollectionQuery,
+  useUserCollectionQuery,
 } from "@/lib/hook/useApi";
+import { dateFormat } from "@/components/admin/common/Fomater";
 
 function randomColor() {
   const colors = [
@@ -71,6 +75,11 @@ const DashboardPage = () => {
     cacheTime: 60,
     staleTime: 300000,
   });
+
+  const { data: users, isLoading, isError } = useUserCollectionQuery();
+
+  console.log({ users });
+
   const shippedOrders = orders?.filter((order) => order.status === "shipped");
   const deliveredOrders = orders?.filter(
     (order) => order.status === "delivered"
@@ -93,20 +102,21 @@ const DashboardPage = () => {
     staleTime: 300000,
   });
   // Calculate total sales, total number of items, and total number of unique items for delivered orders only
-let totalSales = 0;
-let totalItems = 0;
-let totalUniqueItems = 0;
-let productCounts = {};
-orders?.forEach(order => {
-  if (order?.status === "delivered") {
-    totalSales += order.cartTotal;
-    totalItems += order.totalItems;
-    totalUniqueItems += order.totalUniqueItems;
-  }
-});
-console.log(`Total sales for delivered orders: $${totalSales}`);
-console.log(`Total items for delivered orders: ${totalItems}`);
-console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
+  let totalSales = 0;
+  let totalItems = 0;
+  let totalUniqueItems = 0;
+  let productCounts = {};
+  orders?.forEach((order) => {
+    if (order?.status === "delivered") {
+      totalSales += order.cartTotal;
+      totalItems += order.totalItems;
+      totalUniqueItems += order.totalUniqueItems;
+    }
+  });
+  console.log(`Total sales for delivered orders: $${totalSales}`);
+  console.log(`Total items for delivered orders: ${totalItems}`);
+  console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
+
   return (
     <PrivateRoute>
       <main className="p-6  space-y-6 my-1">
@@ -151,7 +161,7 @@ console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
           />
           <NewCard
             name="Sell"
-            number={`${totalSales} tk`|| 0}
+            number={`${totalSales} tk` || 0}
             path="sell"
             icon={<AiOutlineDollarCircle size={24} />}
           />
@@ -183,7 +193,50 @@ console.log(`Total unique items for delivered orders: ${totalUniqueItems}`);
         </section>
 
         <div className="px-3">
-          <CustomTable tableName={"Users"} />
+          <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+            <table className="table text-center">
+              <thead>
+                <tr className="fs-6">
+                  {UsersTableTH &&
+                    UsersTableTH.map((header, index) => (
+                      <th scope="col" key={index}>
+                        {header}
+                      </th>
+                    ))}
+                </tr>
+              </thead>
+              <tbody className="fs-6 fw-normal">
+                {isLoading && (
+                  <div class="spinner-border text-center" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                )}
+
+                {users?.map((user, index) => (
+                  <tr key={index}>
+                    <td> {index + 1}</td>
+                    <td> {dateFormat(user.createdAt || "Empty")}</td>
+
+                    <td>{user?.username}</td>
+
+                    <td className="">
+                      <div className="d-flex justify-content-center gap-2">
+                        <span>
+                          <AiOutlineEye size={18} className="text-success" />
+                        </span>
+                        <span>
+                          <FiEdit size={15} className="text-warning" />
+                        </span>
+                        <span>
+                          <AiOutlineDelete size={16} className="text-danger" />
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </PrivateRoute>
