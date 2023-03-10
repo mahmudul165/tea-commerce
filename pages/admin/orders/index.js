@@ -105,7 +105,7 @@ function OrdersHomePage() {
                         />
                       </span>
 
-                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?.id}`)}>
+                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`)}>
                        <AiOutlineDelete size={16} className="text-danger" />
                         </span>
                     </div>
