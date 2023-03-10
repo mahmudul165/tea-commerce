@@ -22,6 +22,7 @@ import useAuth from "@/lib/hook/useAuth";
 import {
   useBuninessCollectionQuery,
   useCarrierCollectionQuery,
+  useContactCollectionQuery,
   useGalleryCollectionQuery,
   useOrderCollectionQuery,
   useProductCollectionQuery,
@@ -100,6 +101,11 @@ const DashboardPage = () => {
     cacheTime: 60,
     staleTime: 300000,
   });
+  const { data: contactQuery } = useContactCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+   
   // Calculate total sales, total number of items, and total number of unique items for delivered orders only
   let totalSales = 0;
   let totalItems = 0;
@@ -138,13 +144,7 @@ const DashboardPage = () => {
             path="orders"
             icon={<FcShipped size={24} />}
           />
-
-          {/* <NewCard
-            name="Customers"
-            path="customers"
-            number={"145"}
-            icon={<FaUsers size={24} />}
-          /> */}
+ 
           <NewCard
             name="delivered orders"
             number={deliveredOrders?.length || 0}
@@ -195,6 +195,13 @@ const DashboardPage = () => {
             number={buniness?.length}
             path="business"
             icon={<BsSliders size={24} />}
+          />
+          
+          <NewCard
+            name="Customers Query"
+            path="contact"
+            number={contactQuery?.length}
+            icon={<FaUsers size={24} />}
           />
         </section>
 
