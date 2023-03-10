@@ -25,7 +25,7 @@ function randomColor() {
 const NewCard = ({ name, path, bgColor, number, icon }) => {
   return (
     <>
-      {/* <Link href={`${path ? path : "/dashboard"}`}> */}
+      {/* <Link href={`${path ? path  : "/dashboard"}`}> */}
         <div
           className="d-flex justify-content-between p-3 border border-1 rounded-3 shadow-sm "
           style={{
