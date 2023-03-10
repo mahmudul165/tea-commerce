@@ -72,10 +72,7 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
-  const { data: orders } = useOrderCollectionQuery({
-    cacheTime: 60,
-    staleTime: 300000,
-  });
+  const { data: orders } = useOrderCollectionQuery( );
 
   const { data: users, isLoading, isError } = useUserCollectionQuery();
 
@@ -86,10 +83,7 @@ const DashboardPage = () => {
     (order) => order.status === "delivered"
   );
   const cancelOrders = orders?.filter((order) => order.status === "cancelled");
-  const { data: products } = useProductCollectionQuery({
-    cacheTime: 60,
-    staleTime: 300000,
-  });
+  const { data: products } = useProductCollectionQuery( );
   const { data: slides } = useSlideCollectionQuery({
     cacheTime: 60,
     staleTime: 300000,

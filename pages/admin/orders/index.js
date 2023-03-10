@@ -2,33 +2,32 @@ import { OrdersTableTH } from "@/components/admin/common/CustomTable";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
 import axios from "axios";
-import { MdOutlineLocalShipping } from "react-icons/md";
+import { MdCancel, MdOutlineDone, MdOutlineLocalShipping } from "react-icons/md";
 
 import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
 import { useEffect, useState } from "react";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
+import { useOrderCollectionQuery } from "@/lib/hook/useApi";
 function OrdersHomePage() {
-  const {   deleteData } = useAuth();
+  const {  orderStatus, deleteData } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
-
-  const getOrdersData = async () => {
-    const res = await axios.get(
-      "https://crabby-pocketbook-eel.cyclic.app/api/v1/order"
-    );
-    setOrdersData(res.data);
-  };
-
+  const { data: orders } = useOrderCollectionQuery();
+  // const getOrdersData = async () => {
+    
+  //  await setOrdersData(orders);
+  // };
+  
   const filteredData =
     selectedStatus === "all"
-      ? ordersData
-      : ordersData?.filter((order) => order.status === selectedStatus);
-  useEffect(() => {
-    getOrdersData();
-  }, []);
-
+      ? orders
+      : orders?.filter((order) => order.status === selectedStatus);
+  // useEffect(() => {
+  //   getOrdersData();
+  // }, []);
+console.log('filter oredr',filteredData)
   return (
     <PrivateRoute>
       <PageHeader name="Orders" />
@@ -89,21 +88,33 @@ function OrdersHomePage() {
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
-                      <span>
-                        <AiOutlineEye size={18} className="text-success" />
-                      </span>
-                      <span>
+                    <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'shipped'})}>
                         <MdOutlineLocalShipping
                           size={18}
                           className="text-warning"
                         />
                       </span>
+                      <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'delivered'})}>
+                        <MdOutlineDone
+                          size={18}
+                          className="text-warning"
+                        />
+                      </span>
+                      <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'cancelled'})}>
+                        <MdCancel
+                          size={18}
+                          className="text-warning"
+                        />
+                      </span>
+                      {/* <span>
+                        <AiOutlineEye size={18} className="text-success" />
+                      </span>                      
                       <span>
                         <FaHandHoldingWater
                           size={18}
                           className="text-primary"
                         />
-                      </span>
+                      </span> */}
 
                       <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`)}>
                        <AiOutlineDelete size={16} className="text-danger" />
