@@ -11,7 +11,7 @@ import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
 import { FaRegUserCircle, FaUsers } from "react-icons/fa";
 import { FiTarget } from "react-icons/fi";
 import { MdOutlineBusiness, MdOutlineUpdate } from "react-icons/md";
-import { RiGalleryFill } from "react-icons/ri";
+import { RiContactsBookLine, RiGalleryFill } from "react-icons/ri";
 import styled from "styled-components";
 import CustomDropdown from "../admin/common/CustomDropdown";
 import CustomModal from "../admin/common/CustomModal";
@@ -218,6 +218,13 @@ const Sidebar = () => {
             <Link href="business">
               <SidebarNavLink className="nav-link">
                 <MdOutlineBusiness /> Business
+              </SidebarNavLink>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="contact">
+              <SidebarNavLink className="nav-link">
+                <RiContactsBookLine /> Contact
               </SidebarNavLink>
             </Link>
           </li>
