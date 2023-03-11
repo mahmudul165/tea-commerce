@@ -24,7 +24,7 @@ specifiers:
   react-use-cart: ^1.13.0
   slick-carousel: ^1.8.1
   styled-components: ^5.3.6
-  sweetalert2: ^11.7.3
+  sweetalert2: ^11.4.8
 
 dependencies:
   '@chakra-ui/react': 2.5.1_2zib2qmwydlmw34ktfkw6yvjoy
