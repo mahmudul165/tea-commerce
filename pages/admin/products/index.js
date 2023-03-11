@@ -334,7 +334,7 @@ export const AddProductFrom = () => {
 };
 
 function ProductsHomePage() {
-  const { deleteData } = useAuth();
+  const { deleteData,apiUrl } = useAuth();
   const [modalShow, setModalShow] = useState(false);
   const { data: products, isLoading, isError } = useProductCollectionQuery();
 
@@ -410,7 +410,7 @@ function ProductsHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${product?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.product}/${product?._id}`
                           )
                         }
                       >

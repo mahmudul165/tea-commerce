@@ -21,6 +21,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { useCart } from "react-use-cart";
 import { useState } from "react";
+import useAuth from "@/lib/hook/useAuth";
 
 const CartItem = ({ item }) => {
   const {
@@ -146,11 +147,11 @@ const CheckOutForm = () => {
   );
 };
 const CartItemsModal = (props) => {
- 
+  const { apiUrl } = useAuth();
   const { isEmpty, totalUniqueItems, items, totalItems, cartTotal, updateItemQuantity, removeItem, emptyCart } = useCart();
   const itemIds = items.map(item => item._id);
   const ids = [...itemIds];
-  
+  // console.log('test',`${apiUrl.apiRootUrl}/api/v1/order`)
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -199,7 +200,7 @@ const CartItemsModal = (props) => {
       };
   
       // Submit form data
-      const response = await axios.post('https://crabby-pocketbook-eel.cyclic.app/api/v1/order', updatedFormValues);
+      const response = await axios.post(`${apiUrl.apiRootUrl}/api/v1/order`, updatedFormValues);
   
       // Handle successful response
       setFormValues({

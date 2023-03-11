@@ -19,7 +19,8 @@ import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
-
+ 
+  
   try {
     await axios.post(
       "https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier",
@@ -161,7 +162,8 @@ const AddJobPostFrom = () => {
 function CarrierHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: carrier, isLoading, isError } = useCarrierCollectionQuery();
-  const {   deleteData } = useAuth();
+  const {   deleteData,apiUrl } = useAuth();
+  
   return (
     <PrivateRoute>
       <CustomModal
@@ -222,7 +224,7 @@ function CarrierHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier/${el?._id}`)}>
+                      <span onClick={() => deleteData(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.carrier}/${el?._id}`)}>
                        <AiOutlineDelete size={16} className="text-danger" />
                         </span>
                     </div>

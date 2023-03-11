@@ -11,7 +11,7 @@ import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
 import { useOrderCollectionQuery } from "@/lib/hook/useApi";
 function OrdersHomePage() {
-  const {  orderStatus, deleteData } = useAuth();
+  const {  orderStatus, deleteData,apiUrl } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { data: orders } = useOrderCollectionQuery();
@@ -88,19 +88,19 @@ console.log('filter oredr',filteredData)
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
-                    <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'shipped'})}>
+                    <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'shipped'})}>
                         <MdOutlineLocalShipping
                           size={18}
                           className="text-warning"
                         />
                       </span>
-                      <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'delivered'})}>
+                      <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'delivered'})}>
                         <MdOutlineDone
                           size={18}
                           className="text-warning"
                         />
                       </span>
-                      <span onClick={() => orderStatus(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}` ,{status:'cancelled'})}>
+                      <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'cancelled'})}>
                         <MdCancel
                           size={18}
                           className="text-warning"
@@ -116,7 +116,7 @@ console.log('filter oredr',filteredData)
                         />
                       </span> */}
 
-                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`)}>
+                      <span onClick={() => deleteData(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`)}>
                        <AiOutlineDelete size={16} className="text-danger" />
                         </span>
                     </div>
