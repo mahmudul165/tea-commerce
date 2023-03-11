@@ -2,7 +2,11 @@ import { OrdersTableTH } from "@/components/admin/common/CustomTable";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
 import axios from "axios";
-import { MdCancel, MdOutlineDone, MdOutlineLocalShipping } from "react-icons/md";
+import {
+  MdCancel,
+  MdOutlineDone,
+  MdOutlineLocalShipping,
+} from "react-icons/md";
 
 import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
 import { useEffect, useState } from "react";
@@ -11,15 +15,15 @@ import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
 import { useOrderCollectionQuery } from "@/lib/hook/useApi";
 function OrdersHomePage() {
-  const {  orderStatus, deleteData,apiUrl } = useAuth();
+  const { orderStatus, deleteData, apiUrl } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { data: orders } = useOrderCollectionQuery();
   // const getOrdersData = async () => {
-    
+
   //  await setOrdersData(orders);
   // };
-  
+
   const filteredData =
     selectedStatus === "all"
       ? orders
@@ -27,7 +31,7 @@ function OrdersHomePage() {
   // useEffect(() => {
   //   getOrdersData();
   // }, []);
-console.log('filter oredr',filteredData)
+  console.log("filter oredr", filteredData);
   return (
     <PrivateRoute>
       <PageHeader name="Orders" />
@@ -88,23 +92,38 @@ console.log('filter oredr',filteredData)
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
-                    <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'shipped'})}>
+                      <span
+                        onClick={() =>
+                          orderStatus(
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
+                            { status: "shipped" }
+                          )
+                        }
+                      >
                         <MdOutlineLocalShipping
                           size={18}
                           className="text-warning"
                         />
                       </span>
-                      <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'delivered'})}>
-                        <MdOutlineDone
-                          size={18}
-                          className="text-warning"
-                        />
+                      <span
+                        onClick={() =>
+                          orderStatus(
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
+                            { status: "delivered" }
+                          )
+                        }
+                      >
+                        <MdOutlineDone size={18} className="text-warning" />
                       </span>
-                      <span onClick={() => orderStatus(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}` ,{status:'cancelled'})}>
-                        <MdCancel
-                          size={18}
-                          className="text-warning"
-                        />
+                      <span
+                        onClick={() =>
+                          orderStatus(
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
+                            { status: "cancelled" }
+                          )
+                        }
+                      >
+                        <MdCancel size={18} className="text-warning" />
                       </span>
                       {/* <span>
                         <AiOutlineEye size={18} className="text-success" />
@@ -116,9 +135,15 @@ console.log('filter oredr',filteredData)
                         />
                       </span> */}
 
-                      <span onClick={() => deleteData(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`)}>
-                       <AiOutlineDelete size={16} className="text-danger" />
-                        </span>
+                      <span
+                        onClick={() =>
+                          deleteData(
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`
+                          )
+                        }
+                      >
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
                     </div>
                   </td>
                 </tr>

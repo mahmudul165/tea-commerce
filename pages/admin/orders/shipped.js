@@ -13,7 +13,7 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import useAuth from "@/lib/hook/useAuth";
 import { useOrderCollectionQuery } from "@/lib/hook/useApi";
 function ShippedOrdersPage() {
-  const { orderStatus, deleteData } = useAuth();
+  const { orderStatus, deleteData,apiUrl } = useAuth();
 
   const { data: orders } = useOrderCollectionQuery();
 
@@ -62,11 +62,12 @@ function ShippedOrdersPage() {
                   </td>
 
                   <td>
-                    <div className="d-flex justify-content-center gap-2 position-relative">
+                     
+                  <div className="d-flex justify-content-center gap-2 position-relative">
                       <span
                         onClick={() =>
                           orderStatus(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`,
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
                             { status: "shipped" }
                           )
                         }
@@ -79,7 +80,7 @@ function ShippedOrdersPage() {
                       <span
                         onClick={() =>
                           orderStatus(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`,
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
                             { status: "delivered" }
                           )
                         }
@@ -89,7 +90,7 @@ function ShippedOrdersPage() {
                       <span
                         onClick={() =>
                           orderStatus(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`,
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`,
                             { status: "cancelled" }
                           )
                         }
@@ -109,7 +110,7 @@ function ShippedOrdersPage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/order/${row?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.order}/${row?._id}`
                           )
                         }
                       >
