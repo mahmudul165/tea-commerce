@@ -186,21 +186,21 @@ const Sidebar = () => {
           </li> */}
 
           <li className="nav-item">
-            <Link href="sell">
+            <Link href="/admin/sell">
               <SidebarNavLink className="nav-link">
                 <AiOutlineDollarCircle /> Sell
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="gallery">
+            <Link href="/admin/gallery">
               <SidebarNavLink className="nav-link">
                 <RiGalleryFill /> Gallery
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="carrier">
+            <Link href="/admin/carrier">
               <SidebarNavLink className="nav-link">
                 <FiTarget /> Carrier
               </SidebarNavLink>
@@ -214,21 +214,21 @@ const Sidebar = () => {
             </Link>
           </li> */}
           <li className="nav-item">
-            <Link href="slide">
+            <Link href="/admin/slide">
               <SidebarNavLink className="nav-link">
                 <BsSliders /> Slide
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="business">
+            <Link href="/admin/business">
               <SidebarNavLink className="nav-link">
                 <MdOutlineBusiness /> Business
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="contact">
+            <Link href="/admin/contact">
               <SidebarNavLink className="nav-link">
                 <RiContactsBookLine /> Contact
               </SidebarNavLink>
