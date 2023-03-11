@@ -149,7 +149,7 @@ export const AddSlideFrom = () => {
           <MyButton
             type="submit"
             size="lg"
-            className=" text-white  cus-bg-secondary  mt-3 w-100"
+            className=" text-white  bg-primary  mt-3 w-100"
           >
             Add Slide
           </MyButton>
@@ -159,10 +159,9 @@ export const AddSlideFrom = () => {
   );
 };
 function SlideHomePage() {
-   
   const [modalShow, setModalShow] = useState(false);
   const { data: slide, isLoading, isError } = useSlideCollectionQuery();
-  const {   deleteData } = useAuth();
+  const { deleteData } = useAuth();
   console.log({ slide });
 
   return (
@@ -229,9 +228,15 @@ function SlideHomePage() {
                       <span>
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span onClick={() => deleteData(`https://crabby-pocketbook-eel.cyclic.app/api/v1/slide/${el?._id}`)}>
-                       <AiOutlineDelete size={16} className="text-danger" />
-                        </span>
+                      <span
+                        onClick={() =>
+                          deleteData(
+                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/slide/${el?._id}`
+                          )
+                        }
+                      >
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
                     </div>
                   </td>
                 </tr>
