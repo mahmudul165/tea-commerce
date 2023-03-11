@@ -1,14 +1,34 @@
 import { MyButton } from "@/components/common/Buttons";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { Modal } from "react-bootstrap";
-import { FaLongArrowAltRight } from "react-icons/fa";
-
 import demoPic from "public/products/p-1.jpg";
+import { useEffect, useState } from "react";
+import { Modal } from "react-bootstrap";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { useCart } from "react-use-cart";
 const ProductDetailsModal = (props) => {
-  // console.log('product details data',props?.data)
+  console.log("product details data", props?.data);
+  const { getProductId } = props;
+  const [singleProduct, setSingleProduct] = useState(null);
+  useEffect(() => {
+    if (getProductId !== null) {
+      axios
+        .get(
+          `https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${getProductId}`
+        )
+        .then((res) => {
+          setSingleProduct(res.data);
+        })
+        .catch((error) => {
+          console.log({ error });
+        });
+    }
+  }, [getProductId]);
+
+  //console.log({ singleProduct });
+
   const { addItem } = useCart();
   return (
     <Modal
@@ -24,24 +44,35 @@ const ProductDetailsModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div className="row my-4">
+          {
+            //singleProduct  &&
+          }
           <div className="col-md-4">
-            <div className="w-100 p-5 ele-center border rounded h-100">
-              <Image src={demoPic} alt="PRODUCT" />
+            <div className="w-100 p-5 ele-center border rounded ">
+              <img
+                src={singleProduct?.images[0].url}
+                alt={singleProduct?.images[0].altText}
+                width={140}
+                height={100}
+              />
+            </div>
+
+            <div className="d-flex justify-content-between p-2">
+              {singleProduct?.images.map((el, index) => (
+                <div key={index} className="border p-2">
+                  <img src={el?.url} alt={el?.altText} width={50} height={50} />
+                </div>
+              ))}
             </div>
           </div>
           <div className="col-md-8 ">
             <div>
               <h2 className="fs-5 fw-bold cus-color-secondary ">
-                Sultan Tea CD 500gm
+                {singleProduct?.name}
               </h2>
-              <p className="fs-5 ">TK 255</p>
+              <p className="fs-5 ">Tk {singleProduct?.price}</p>
 
-              <p className="mt-4 text-justify">
-                Lorem Ipsum available, but the majority have suffered alteration
-                in some form, by injected humour, or randomised words which
-                don't look even slightly believable. If you are going to use a
-                passage
-              </p>
+              <p className="mt-4 text-justify">{singleProduct?.description}</p>
 
               <Link href="#">
                 <div className="cus-color-secondary mt-2 d-flex gap-3  algin-items-center">
