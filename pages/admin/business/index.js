@@ -67,6 +67,7 @@ const AddBusinessFrom = () => {
               required: "Past Image URL",
             })}
             onChange={handleInputChange}
+            autoFocus
           />
           {errors.image && (
             <p className="text-danger">{errors.image.message}</p>

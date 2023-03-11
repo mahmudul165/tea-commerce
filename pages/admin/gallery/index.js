@@ -73,6 +73,7 @@ const AddGalleryFrom = () => {
               required: "Past Image URL",
             })}
             onChange={handleInputChange}
+            autoFocus
           />
           {errors.url && <p className="text-danger">{errors.url.message}</p>}
         </CustomFloatingLabel>

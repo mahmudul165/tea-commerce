@@ -73,6 +73,7 @@ export const AddProductFrom = () => {
                     message: "Input too large !, maximum length 50",
                   },
                 })}
+                autoFocus
               />
               {errors.name && (
                 <p className="text-danger">{errors.name.message}</p>
