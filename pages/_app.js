@@ -26,7 +26,7 @@ const queryClient = new QueryClient();
 // import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [isLoading, setIsLoading] = useState(true);
-
+//test
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
