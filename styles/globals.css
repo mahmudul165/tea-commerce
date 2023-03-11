@@ -218,12 +218,12 @@ li:active {
 }
 
 /* carousel default style change */
-#product-carousel .carousel-control-prev-icon,
+.product-carousel .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  display: none;
+  display: none !important;
 }
 .product-carousel .carousel-indicators {
-  display: none;
+  display: none !important;
 }
 /* pagination  default style change */
 
