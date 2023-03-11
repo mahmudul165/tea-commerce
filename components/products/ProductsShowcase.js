@@ -8,6 +8,7 @@ import { useState } from "react";
 function ProductsShowcase({ data }) {
   // const { BuyNow } = useAuth();
   const [modalShow, setModalShow] = useState(false);
+  const [productId, setProductId] = useState(null);
 
   const { addItem } = useCart();
   // Our custom easing
@@ -47,6 +48,8 @@ function ProductsShowcase({ data }) {
       <ProductDetailsModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        getProductId={productId}
+
         // data={data}
       />
       <motion.div
@@ -66,7 +69,7 @@ function ProductsShowcase({ data }) {
                   whileTap={{ scale: 0.95 }}
                   className="card border-0 "
                   onClick={() => {
-                    setModalShow(true);
+                    setModalShow(true), setProductId(product._id);
                   }}
                 >
                   {/* <Link href={`shop/${product.id}`} passHref> */}
@@ -115,43 +118,31 @@ function ProductsShowcase({ data }) {
                     </motion.div>
                   </div>
                   {/* test button */}
-                  <div className=" p-2 mx-2 d-flex justify-content-between">
-                    <p
-                      className="text-center fs-6 fw-bold  "
-                      style={{
-                        // color: "#FF0099",
-                        border: 0,
-                      }}
-                    >
-                      ৳ {product.price}
-                    </p>
-                    <button
-                      type="button"
-                      className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold  me-2  "
-                      style={{
-                        backgroundColor: "#59330E",
-                        // color: "#FF0099",
-                        border: 0,
-                      }}
-                      onClick={() => addItem(product)}
-                    >
-                      <i className="fas fa-shopping-cart me-1 py-1"></i>
-                      Add To Cart
-                    </button>
-                    {/* <button
-                    type="button"
-                    className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "
+                </motion.div>
+                <div className=" p-2 mx-2 d-flex justify-content-between">
+                  <p
+                    className="text-center fs-6 fw-bold  "
                     style={{
-                      backgroundColor: "#ffff",
-                      color: "#FF0099",
+                      // color: "#FF0099",
                       border: 0,
                     }}
-                    // onClick={BuyNow}
                   >
-                    <i className="fas fa-bolt me-1 py-1"></i>Buy Now
-                  </button> */}
-                  </div>
-                </motion.div>
+                    ৳ {product.price}
+                  </p>
+                  <button
+                    type="button"
+                    className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold  me-2  "
+                    style={{
+                      backgroundColor: "#59330E",
+                      // color: "#FF0099",
+                      border: 0,
+                    }}
+                    onClick={() => addItem(product)}
+                  >
+                    <i className="fas fa-shopping-cart me-1 py-1"></i>
+                    Add To Cart
+                  </button>
+                </div>
               </div>
             ))
           ) : (

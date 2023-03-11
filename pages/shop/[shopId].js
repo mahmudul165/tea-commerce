@@ -28,7 +28,6 @@ import { useRouter } from "next/router";
 // );
 // import SignIn from "/public/home/Sign-in.png";
 // import { useSession, signIn, signOut } from "next-auth/react";
- 
 
 export const getStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -56,34 +55,33 @@ export const getStaticProps = async ({ params }) => {
     props: { data },
     revalidate: 10,
   };
-  
 };
 
-const ProductDetails = ({data}) => {
-    const router=useRouter()
-    console.log(router.asPath)
-//   const { addItem } = useCart();
-//   const { BuyNow } = useAuth();
-//   const [imageSlider, setImage] = useState({});
+const ProductDetails = ({ data }) => {
+  const router = useRouter();
+  console.log(router.asPath);
+  //   const { addItem } = useCart();
+  //   const { BuyNow } = useAuth();
+  //   const [imageSlider, setImage] = useState({});
 
-//   const router = useRouter();
-//   const { id } = router.query;
+  //   const router = useRouter();
+  //   const { id } = router.query;
 
-//   const { data, error } = useSWR(
-//     `https://arshi365.lamptechs.com/api/admin/products/${id}`,
-//     { fetcher: async (url) => await axios.get(url).then((res) => res.data) }
-//   );
+  //   const { data, error } = useSWR(
+  //     `https://arshi365.lamptechs.com/api/admin/products/${id}`,
+  //     { fetcher: async (url) => await axios.get(url).then((res) => res.data) }
+  //   );
 
-//   // console.log("my object data is", data);
-//   const { data: session } = useSession();
+  //   // console.log("my object data is", data);
+  //   const { data: session } = useSession();
 
-//   const handleImage = (img) => {
-//     console.log("img first", img);
-//     setImage(img);
-//   };
-//   //console.log("img first", handleImage);
-//   const { items, updateItemQuantity } = useCart();
-//   console.log(" items array is", items);
+  //   const handleImage = (img) => {
+  //     console.log("img first", img);
+  //     setImage(img);
+  //   };
+  //   //console.log("img first", handleImage);
+  //   const { items, updateItemQuantity } = useCart();
+  //   console.log(" items array is", items);
   // farmer motion
   let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -121,16 +119,16 @@ const ProductDetails = ({data}) => {
           <>
             <motion.div className="col-md-6  h-50">
               {/* <Carousel> */}
-                <div>
-                  <img src='https://i.ibb.co/7C7M7QX/tea-5.jpg' />
-                </div>
-                <div>
+              <div>
+                <img src="https://i.ibb.co/7C7M7QX/tea-5.jpg" />
+              </div>
+              <div>
                 {/* src={data.image_two}  */}
-                  <img src={data.image_two} />
-                </div>
-                <div>
-                  <img src={data.image_three} />
-                </div>
+                <img src={data.image_two} />
+              </div>
+              <div>
+                <img src={data.image_three} />
+              </div>
               {/* </Carousel> */}
             </motion.div>
             <motion.div variants={stagger} className="col-md-6   mt-3 p-3">
@@ -185,7 +183,6 @@ const ProductDetails = ({data}) => {
                 </p>
               </motion.div>
 
-            
               <motion.div variants={fadeInUp}>
                 <div className="my-2  btn-group btn-group-sm" role="group">
                   <button

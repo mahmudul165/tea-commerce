@@ -94,12 +94,14 @@ const productsss = [
   },
 ];
 
-const productDetails = (id) => {
-  //  alert('ok')
-};
 const ProductCarousel = ({ data }) => {
   const [modalShow, setModalShow] = useState(false);
   const [bodyWidth, setBodyWidth] = useState(window.innerWidth);
+  const [productId, setProductId] = useState(null);
+  const productDetails = (id) => {
+    // alert(id);
+    // setProductId(id);
+  };
 
   useEffect(() => {
     const handleResize = () => setBodyWidth(window.innerWidth);
@@ -112,7 +114,7 @@ const ProductCarousel = ({ data }) => {
       <ProductDetailsModal
         show={modalShow}
         onHide={() => setModalShow(false)}
-        // data={data}
+        getProductId={productId}
       />
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
@@ -133,7 +135,7 @@ const ProductCarousel = ({ data }) => {
                           whileTap={{ scale: 0.95 }}
                           className="card border-0  "
                           onClick={() => {
-                            productDetails(index), setModalShow(true);
+                            setModalShow(true), setProductId(product._id);
                           }}
                         >
                           {/* <Link href={`shop/${product.id}`} passHref> */}
@@ -179,39 +181,27 @@ const ProductCarousel = ({ data }) => {
                             </motion.div>
                           </div>
                           {/* test button */}
-                          <div className=" p-2 mx-2 d-flex justify-content-between gap-2">
-                            <p className="text-center fs-6 fw-semibold  ">
-                              ৳ {product.price}
-                            </p>
-                            <button
-                              type="button"
-                              className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold d-flex justify-content-between  "
-                              style={{
-                                backgroundColor: "#59330E",
-                                // color: "#FF0099",
-                                border: 0,
-                              }}
-                              onClick={() => addItem(product)}
-                            >
-                              <i className="fas fa-shopping-cart me-1 py-1 "></i>
-                              <span className="d-xs-none d-sm-block ">
-                                Add To Cart
-                              </span>
-                            </button>
-                            {/* <button
-                    type="button"
-                    className="btn   btn-block btn-sm bg-light p-1 m-1 ms-2  "
-                    style={{
-                      backgroundColor: "#ffff",
-                      color: "#FF0099",
-                      border: 0,
-                    }}
-                    // onClick={BuyNow}
-                  >
-                    <i className="fas fa-bolt me-1 py-1"></i>Buy Now
-                  </button> */}
-                          </div>
                         </motion.div>
+                        <div className=" p-2 mx-2 d-flex justify-content-between gap-2">
+                          <p className="text-center fs-6 fw-semibold  ">
+                            ৳ {product.price}
+                          </p>
+                          <button
+                            type="button"
+                            className="btn ml-1 px-2 btn-block btn-sm text-white   fw-bold d-flex justify-content-between  "
+                            style={{
+                              backgroundColor: "#59330E",
+                              // color: "#FF0099",
+                              border: 0,
+                            }}
+                            onClick={() => addItem(product)}
+                          >
+                            <i className="fas fa-shopping-cart me-1 py-1 "></i>
+                            <span className="d-xs-none d-sm-block ">
+                              Add To Cart
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     ))}
                 </Row>
