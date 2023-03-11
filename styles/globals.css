@@ -312,7 +312,10 @@ tr {
 .ml-220 {
   margin-left: 220px;
 }
-
+.img-zoom img:hover {
+  scale: 1.3;
+  transition: 1s all;
+}
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
 

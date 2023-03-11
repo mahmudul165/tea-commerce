@@ -8,40 +8,6 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useCart } from "react-use-cart";
 
-import ReactImageMagnify from "react-image-magnify";
-
-const MyReactImageMagnify = (props) => {
-  console.log({ props });
-  const { src } = props;
-
-  return (
-    <div>
-      <ReactImageMagnify
-        {...props}
-        {...{
-          smallImage: {
-            alt: "Product Image",
-            isFluidWidth: true,
-            src: src,
-          },
-          largeImage: {
-            src: src,
-            width: 500,
-            height: 300,
-          },
-          enlargedImageContainerStyle: {
-            zIndex: "1500",
-          },
-          enlargedImageContainerDimensions: {
-            width: "100%",
-            height: "100%",
-          },
-        }}
-      />
-    </div>
-  );
-};
-
 const ProductDetailsModal = (props) => {
   console.log("product details data", props?.data);
   const { getProductId } = props;
@@ -82,12 +48,14 @@ const ProductDetailsModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div className="row my-4">
-          {
-            //singleProduct  &&
-          }
           <div className="col-md-4">
-            <div className=" p-3 d-flex align-items-center justify-content-start border rounded  ">
-              <MyReactImageMagnify src={topImg} />
+            <div className=" img-zoom  p-3 d-flex ele-center border rounded  ">
+              <img
+                src={topImg}
+                alt={singleProduct?.images[0].altText}
+                width={140}
+                height={140}
+              />
             </div>
 
             <div className="d-flex justify-content-between p-2">
