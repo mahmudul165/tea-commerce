@@ -7,6 +7,7 @@ function gellary() {
   return (
     <div>
        {/* <RouteNavSlider router='Gellary'/> */}
+       {/* test */}
        <HeroBanner name="Gellary" />
       <Gallery/></div>
   )
