@@ -17,7 +17,7 @@ export default class ClientCompany extends Component {
     const settings = {
       // dots: true,
       infinite: true,
-      slidesToShow: 6,
+      slidesToShow: 4,
       slidesToScroll: 1,
       autoplay: true,
       speed: 2000,

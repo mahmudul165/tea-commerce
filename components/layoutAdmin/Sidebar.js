@@ -151,19 +151,19 @@ const Sidebar = () => {
               <BsCartCheck />
               <CustomDropdown options={ordersLi} name="Orders">
                 <Link
-                  href="/admin/orders"
+                  href="/admin/orders/shipped"
                   className="nav-link  fs-6 text-capitalize"
                 >
                   Shipped
                 </Link>
                 <Link
-                  href="/admin/orders"
+                  href="/admin/orders/delivered"
                   className="nav-link  fs-6 text-capitalize"
                 >
                   Delivered
                 </Link>
                 <Link
-                  href="/admin/orders"
+                  href="/admin/orders/cancelled"
                   className="nav-link  fs-6 text-capitalize"
                 >
                   Cancelled

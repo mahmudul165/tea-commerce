@@ -1,5 +1,6 @@
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Image from "next/image";
+import Link from "next/link";
 
 const myImage = "/nav-header.png";
 
@@ -34,7 +35,7 @@ const HeaderHero = () => (
             height={500}
             quality={75}
             src={myImage}
-            className="ms-5  w-50 img-fluid rounded shadow"
+            className="ms-5  w-75 img-fluid rounded shadow "
             sizes="(max-width: 3840px) 100vw, 384px"
             width={384}
             alt="Photo by sultan tea"
@@ -56,7 +57,7 @@ const HeaderHero = () => (
             </h1>
           </div>
         </div>
-        
+
         {/* /lc-block */}
         <div className="lc-block mb-2">
           <div editable="rich">
@@ -64,13 +65,15 @@ const HeaderHero = () => (
           </div>
         </div>
         <div className="lc-block mt-2">
-          <button
-            className="d-flex align-items-center  fw-bolder btn  btn-lg text-white"
-            style={{ backgroundColor: "#E49E48" }}
-          >
-            Shop Now
-            <AiOutlineArrowRight className="ms-2" />
-          </button>
+          <Link href="/shop">
+            <button
+              className="d-flex align-items-center  fw-bolder btn  btn-lg text-white"
+              style={{ backgroundColor: "#E49E48" }}
+            >
+              Shop Now
+              <AiOutlineArrowRight className="ms-2" />
+            </button>
+          </Link>
         </div>
         {/* /lc-block */}
       </div>
