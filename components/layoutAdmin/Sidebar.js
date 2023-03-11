@@ -114,8 +114,8 @@ const Sidebar = () => {
         </SidebarHeader>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link href="dashboard">
-              <SidebarNavLink className="nav-link active" aria-current="page">
+            <Link href="/admin/dashboard">
+              <SidebarNavLink className="nav-link active">
                 <AiOutlineHome /> Dashboard
               </SidebarNavLink>
             </Link>
@@ -149,7 +149,13 @@ const Sidebar = () => {
           <li className="nav-item">
             <SidebarNavLink className="nav-link">
               <BsCartCheck />
-              <CustomDropdown options={ordersLi} name="Orders">
+              <CustomDropdown name="Orders">
+                <Link
+                  href="/admin/orders"
+                  className="nav-link  fs-6 text-capitalize"
+                >
+                  Orders
+                </Link>
                 <Link
                   href="/admin/orders/shipped"
                   className="nav-link  fs-6 text-capitalize"
