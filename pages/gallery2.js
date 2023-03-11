@@ -13,59 +13,62 @@ const Gallery = () => {
     setTab(tabName);
   };
 
-  const images = [
-    { id: 1, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "all" },
-    {
-      id: 2,
-      url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
-      category: "garden",
-    },
-    { id: 3, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "garden" },
-    {
-      id: 4,
-      url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
-      category: "garden",
-    },
-    {
-      id: 5,
-      url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
-      category: "garden",
-    },
-    { id: 6, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "factory" },
-    {
-      id: 7,
-      url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
-      category: "factory",
-    },
-    {
-      id: 8,
-      url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
-      category: "factory",
-    },
-    {
-      id: 9,
-      url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
-      category: "factory",
-    },
+  // const images = [
+  //   { id: 1, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "all" },
+  //   {
+  //     id: 2,
+  //     url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
+  //     category: "garden",
+  //   },
+  //   { id: 3, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "garden" },
+  //   {
+  //     id: 4,
+  //     url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
+  //     category: "garden",
+  //   },
+  //   {
+  //     id: 5,
+  //     url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
+  //     category: "garden",
+  //   },
+  //   { id: 6, url: "https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "factory" },
+  //   {
+  //     id: 7,
+  //     url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
+  //     category: "factory",
+  //   },
+  //   {
+  //     id: 8,
+  //     url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
+  //     category: "factory",
+  //   },
+  //   {
+  //     id: 9,
+  //     url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
+  //     category: "factory",
+  //   },
 
-    {
-      id: 10,
-      url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
-      category: "office",
-    },
-    {
-      id: 11,
-      url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
-      category: "office",
-    },
-    {
-      id: 12,
-      url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
-      category: "office",
-    },
-    { id: 13, url: " https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "office" },
-  ];
-   
+  //   {
+  //     id: 10,
+  //     url: "https://media.gettyimages.com/id/121150804/photo/tea-picker.jpg?s=612x612&w=0&k=20&c=zVxSFPacDsE9vziyhTM0aiw481A0Ou0PH3wCAjMS_e0=",
+  //     category: "office",
+  //   },
+  //   {
+  //     id: 11,
+  //     url: "https://i.ibb.co/prC1cY8/jaromir-kavan-i9ea-AR4d-Wi8-unsplash.jpg",
+  //     category: "office",
+  //   },
+  //   {
+  //     id: 12,
+  //     url: "https://i.ibb.co/vxh7Mcy/rajat-sarki-9t-Io-Mw7-Moz-E-unsplash.jpg",
+  //     category: "office",
+  //   },
+  //   { id: 13, url: " https://i.ibb.co/7C7M7QX/tea-5.jpg", category: "office" },
+  // ];
+
+  const { data: images } = useGalleryCollectionQuery();
+  // console.log({ images });
+
   const filteredImages = images?.filter(
     (image) => image.category === tab || tab === "all"
   );
@@ -83,6 +86,8 @@ const Gallery = () => {
   const firstItemIndex = lastItemIndex - initialImage;
   const currentItems = filteredImages?.slice(firstItemIndex, lastItemIndex);
   const totalPages = Math.ceil(filteredImages?.length / initialImage);
+  console.log({ totalPages });
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -176,7 +181,7 @@ const Gallery = () => {
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
           />
-          {[...Array(totalPages)].map((_, index) => (
+          {[totalPages].map((_, index) => (
             <Pagination.Item
               className="cus-bg-primary visually"
               key={index}
@@ -186,6 +191,7 @@ const Gallery = () => {
               {index + 1}
             </Pagination.Item>
           ))}
+
           <Pagination.Next
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
