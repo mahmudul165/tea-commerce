@@ -98,7 +98,7 @@ const AddGalleryFrom = () => {
           <MyButton
             type="submit"
             size="lg"
-            className=" text-white  cus-bg-secondary  mt-3 w-100"
+            className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
           >
             Add Gallery
           </MyButton>
@@ -108,7 +108,6 @@ const AddGalleryFrom = () => {
   );
 };
 function GalleryHomePage() {
- 
   const [modalShow, setModalShow] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { deleteData } = useAuth();

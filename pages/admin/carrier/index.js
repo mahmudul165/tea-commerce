@@ -150,7 +150,7 @@ const AddJobPostFrom = () => {
         <MyButton
           type="submit"
           size="lg"
-          className=" text-white  cus-bg-secondary  mt-3 w-100"
+          className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
         >
           Add Job Post
         </MyButton>

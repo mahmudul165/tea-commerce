@@ -108,7 +108,7 @@ const AddBusinessFrom = () => {
           <MyButton
             type="submit"
             size="lg"
-            className=" text-white  cus-bg-secondary  mt-3 w-100"
+            className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
           >
             Add Business
           </MyButton>
@@ -120,7 +120,7 @@ const AddBusinessFrom = () => {
 function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: business, isLoading, isError } = useBuninessCollectionQuery();
-  const {deleteData} = useAuth();
+  const { deleteData } = useAuth();
   console.log({ business });
 
   return (

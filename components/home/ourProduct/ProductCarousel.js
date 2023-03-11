@@ -227,7 +227,7 @@ const ProductCarousel = ({ data }) => {
                   </div>
 
                   <div
-                    className="position-absolute top-50 end-0  "
+                    className="position-absolute top-50 end-0   "
                     style={{
                       marginTop: "-60px",
                       marginRight: "-12px",
