@@ -62,12 +62,12 @@ function ProductsShowcase({ data }) {
         <motion.div variants={stagger} className="row     my-2  py-3 ">
           {data ? (
             data?.products?.map((product) => (
-              <div key={product.id} className="col-sm-12 col-md-3  my-2 py-1">
+              <div key={product.id} className="col-sm-12 col-md-3  my-2 py-1 ">
                 <motion.div
                   variants={fadeInUp}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="card border-0 "
+                  className="card border-0 ele-center "
                   onClick={() => {
                     setModalShow(true), setProductId(product._id);
                   }}
@@ -80,7 +80,7 @@ function ProductsShowcase({ data }) {
                       transition={{ delay: 0.2 }}
                       src={product?.images[0]?.url}
                       alt="E-COMMERCE  products"
-                      className="card-img-top  p-3 m-1"
+                      className="card-img-top   p-3 m-1 w-75 "
                       width={336}
                       height={230}
                       layout="responsive"
@@ -106,7 +106,7 @@ function ProductsShowcase({ data }) {
                       initial={{ opacity: 0 }}
                       className="title"
                     >
-                      <h6
+                      <p
                         className="card-title ms-2 my-2 fs-6 fw-bolder"
                         style={{
                           color: "#000000",
@@ -114,7 +114,7 @@ function ProductsShowcase({ data }) {
                         }}
                       >
                         {product.name?.slice(0, 15)}
-                      </h6>{" "}
+                      </p>{" "}
                     </motion.div>
                   </div>
                   {/* test button */}

@@ -221,13 +221,15 @@ function Header() {
             >
               {" "}
               <Nav.Item as="li" className="d-flex cus-app-logo ">
-                <Image
-                  src={Logo}
-                  alt="logo"
-                  width={95}
-                  height={95}
-                  layout={500}
-                />
+                <Link href="/">
+                  <Image
+                    src={Logo}
+                    alt="logo"
+                    width={95}
+                    height={95}
+                    layout={500}
+                  />
+                </Link>
                 {/* <img
                       src="/public/logo.png"
                       alt="logo"
@@ -313,14 +315,13 @@ function Header() {
                   </div>
 
                   <NavDropdown title="Gallery" id="collasible-nav-dropdown">
-                  <NavDropdown.Item as="span">
+                    <NavDropdown.Item as="span">
                       <Link href={"/gallery2"}>Gallery</Link>
                     </NavDropdown.Item>
                     {/* <NavDropdown.Item as="span">
                       <Link href={"/gellary"}>Gallery1</Link>
                     </NavDropdown.Item> */}
                     {/* <NavDropdown.Divider /> */}
-                    
                   </NavDropdown>
                   <NavDropdown title="Shop" id="collasible-nav-dropdown">
                     <NavDropdown.Item as="span">

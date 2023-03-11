@@ -175,7 +175,7 @@ const ProductCarousel = ({ data }) => {
                               initial={{ opacity: 0 }}
                               className="title"
                             >
-                              <p className="card-title ms-2 mt-2 fs-5 fw-bolder">
+                              <p className="card-title ms-2 mt-2 fs-6 fw-bolder">
                                 {product.name?.slice(0, 20)}
                               </p>{" "}
                             </motion.div>
