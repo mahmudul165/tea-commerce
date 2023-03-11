@@ -156,21 +156,21 @@ const DashboardPage = () => {
           <NewCard
             name="Shipped Orders"
             number={shippedOrders?.length || 0}
-            path="orders"
+            path="/admin/orders/shipped"
             icon={<FcShipped size={24} />}
           />
 
           <NewCard
             name="delivered orders"
             number={deliveredOrders?.length || 0}
-            path="orders"
+            path="/admin/orders/delivered"
             icon={<AiOutlineDollarCircle size={24} />}
           />
 
           <NewCard
             name="Cancel Orders"
             number={cancelOrders?.length || 0}
-            path="orders"
+            path="/admin/orders/cancelled"
             icon={<GiCancel size={24} />}
           />
           <NewCard
