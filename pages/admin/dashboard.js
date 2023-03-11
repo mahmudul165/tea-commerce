@@ -34,7 +34,6 @@ import { dateFormat } from "@/components/admin/common/Fomater";
 function randomColor() {
   const colors = [
     "#1abc9c",
-    "#59330e",
     "#8DFF9B",
     "#B871C7",
     "#5A94F5",
@@ -73,7 +72,7 @@ const NewCard = ({ name, path, bgColor, number, icon }) => {
 };
 
 const DashboardPage = () => {
-  const { data: orders } = useOrderCollectionQuery( );
+  const { data: orders } = useOrderCollectionQuery();
 
   const { data: users, isLoading, isError } = useUserCollectionQuery();
 
@@ -84,7 +83,7 @@ const DashboardPage = () => {
     (order) => order.status === "delivered"
   );
   const cancelOrders = orders?.filter((order) => order.status === "cancelled");
-  const { data: products } = useProductCollectionQuery( );
+  const { data: products } = useProductCollectionQuery();
   const { data: slides } = useSlideCollectionQuery({
     cacheTime: 60,
     staleTime: 300000,
@@ -105,7 +104,7 @@ const DashboardPage = () => {
     cacheTime: 60,
     staleTime: 300000,
   });
-   
+
   // Calculate total sales, total number of items, and total number of unique items for delivered orders only
   let totalSales = 0;
   let totalItems = 0;
@@ -144,7 +143,7 @@ const DashboardPage = () => {
             path="orders"
             icon={<FcShipped size={24} />}
           />
- 
+
           <NewCard
             name="delivered orders"
             number={deliveredOrders?.length || 0}
@@ -188,15 +187,14 @@ const DashboardPage = () => {
             number={carrier?.length}
             path="carrier"
             icon={<FiTarget size={24} />}
-
           />
-            <NewCard
+          <NewCard
             name="Business"
             number={buniness?.length}
             path="business"
             icon={<BsSliders size={24} />}
           />
-          
+
           <NewCard
             name="Customers Query"
             path="contact"
