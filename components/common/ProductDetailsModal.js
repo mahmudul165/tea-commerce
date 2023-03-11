@@ -170,8 +170,7 @@ const ProductDetailsModal = (props) => {
                     </div>
                   </>
                 )}
-              </div>
-              <div>
+                <div>
                 <MyButton
                   type="submit"
                   size="md"
@@ -181,6 +180,8 @@ const ProductDetailsModal = (props) => {
                   ADD TO CART
                 </MyButton>
               </div>
+              </div>
+               
             </div>
           </div>
         </div>
