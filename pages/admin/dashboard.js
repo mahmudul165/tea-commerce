@@ -32,7 +32,7 @@ import {
 import { dateFormat } from "@/components/admin/common/Fomater";
 
 function randomColor() {
-  const colors = [
+  const colorsArrOne = [
     "#1abc9c",
     "#8DFF9B",
     "#B871C7",
@@ -44,6 +44,22 @@ function randomColor() {
     "#32cd32",
     "#8a2be2",
     "#e67e22",
+  ];
+  const colors = [
+    "#f472b6",
+    "#fb7185",
+    "#e879f9",
+    "#c084fc",
+    "#a78bfa",
+    "#818cf8",
+    "#60a5fa",
+    "#38bdf8",
+    "#22d3ee",
+    "#4ade80",
+    "#facc15",
+    "#f87171",
+    "#fb923c",
+    "#9ca3af",
   ];
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
