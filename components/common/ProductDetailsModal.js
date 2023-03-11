@@ -33,7 +33,20 @@ const ProductDetailsModal = (props) => {
     }
   }, [getProductId]);
 
-  const { addItem } = useCart();
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    totalItems,
+    cartTotal,
+    removeItem,
+    emptyCart,
+    addItem,
+    updateItemQuantity,
+  } = useCart();
+  const foundItem = items.find((item) => item?._id === singleProduct?._id);
+
+  console.log("foundItem", foundItem);
   return (
     <Modal
       {...props}
@@ -92,26 +105,51 @@ const ProductDetailsModal = (props) => {
               </Link>
 
               <div className="d-flex gap-4  mt-4 ">
-                <div className=" border rounded ele-center ">
-                  <span className=" fw-bold border-end p-1  ">
-                    <AiOutlinePlus size={20} />
-                  </span>
-                  <span className="fw-bold fs-6 p-2">1</span>
-                  <span className="border-start p-1">
-                    <AiOutlineMinus size={20} />
-                  </span>
-                </div>
+                {foundItem && (
+                  <>
+                    {" "}
+                    <div className=" border rounded ele-center ">
+                      {" "}
+                      <span className=" fw-bold border-end p-1  ">
+                        <AiOutlinePlus
+                          size={20}
+                          onClick={() =>
+                            updateItemQuantity(
+                              foundItem?.id,
+                              foundItem?.quantity + 1
+                            )
+                          }
+                        />
+                      </span>
+                      <span className="fw-bold fs-6 p-2">
+                        {foundItem?.quantity || 0}
+                      </span>
+                      <span
+                        className="border-start p-1"
+                        onClick={() =>
+                          updateItemQuantity(
+                            foundItem?.id,
+                            foundItem?.quantity - 1
+                          )
+                        }
+                      >
+                        <AiOutlineMinus size={20} />
+                      </span>{" "}
+                    </div>
+                  </>
+                )}
                 <div>
-                  <MyButton
-                    type="submit"
-                    size="md"
-                    className=" text-white px-3 fs-6 cus-bg-secondary"
-                    onClick={() => addItem(product)}
-                  >
-                    ADD TO CART
-                  </MyButton>
-                </div>
+                <MyButton
+                  type="submit"
+                  size="md"
+                  className=" text-white px-3 fs-6 cus-bg-secondary"
+                  onClick={() => addItem(singleProduct)}
+                >
+                  ADD TO CART
+                </MyButton>
               </div>
+              </div>
+               
             </div>
           </div>
         </div>
