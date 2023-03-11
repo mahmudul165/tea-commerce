@@ -161,8 +161,8 @@ export const AddSlideFrom = () => {
 function SlideHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: slide, isLoading, isError } = useSlideCollectionQuery();
-  const { deleteData } = useAuth();
-  console.log({ slide });
+  const { deleteData,apiUrl } = useAuth();
+  // console.log({ slide });
 
   return (
     <PrivateRoute>
@@ -231,7 +231,7 @@ function SlideHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/slide/${el?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.slide}/${el?._id}`
                           )
                         }
                       >

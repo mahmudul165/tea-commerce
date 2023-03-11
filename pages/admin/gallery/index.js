@@ -111,7 +111,7 @@ const AddGalleryFrom = () => {
 function GalleryHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("all");
-  const { deleteData } = useAuth();
+  const { deleteData,apiUrl } = useAuth();
   const { data: gallery, isLoading, isError } = useGalleryCollectionQuery();
   console.log({ gallery });
 
@@ -201,7 +201,7 @@ function GalleryHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery/${img?.id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.gallery}/${img?.id}`
                           )
                         }
                       >

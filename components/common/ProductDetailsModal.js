@@ -1,4 +1,5 @@
 import { MyButton } from "@/components/common/Buttons";
+import useAuth from "@/lib/hook/useAuth";
 
 import axios from "axios";
 import Link from "next/link";
@@ -9,7 +10,9 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useCart } from "react-use-cart";
 
 const ProductDetailsModal = (props) => {
-  console.log("product details data", props?.data);
+  const { apiUrl } = useAuth();
+  // console.log('test',`${apiUrl.apiRootUrl}`)
+  // console.log("product details data", props?.data);
   const { getProductId } = props;
   let [singleProduct, setSingleProduct] = useState(null);
   let [topImg, setTopImg] = useState(null);
@@ -21,7 +24,7 @@ const ProductDetailsModal = (props) => {
     if (getProductId !== null) {
       axios
         .get(
-          `https://crabby-pocketbook-eel.cyclic.app/api/v1/product/${getProductId}`
+          `${apiUrl.apiRootUrl}/api/v1/product/${getProductId}`
         )
         .then((res) => {
           setSingleProduct(res.data);
@@ -46,7 +49,7 @@ const ProductDetailsModal = (props) => {
   } = useCart();
   const foundItem = items.find((item) => item?._id === singleProduct?._id);
 
-  console.log("foundItem", foundItem);
+  // console.log("foundItem", foundItem);
   return (
     <Modal
       {...props}

@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useAuth from "@/lib/hook/useAuth";
 
 
 const OurLocationCard = () => {
@@ -44,6 +45,8 @@ const OurLocationCard = () => {
 };
 
 const ContactForm = () => {
+  const { apiUrl } = useAuth();
+  // console.log('test',`${apiUrl.apiRootUrl}`)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -74,7 +77,7 @@ const ContactForm = () => {
     const errors = validate();
     if (Object.keys(errors).length === 0) {
       axios
-        .post("https://crabby-pocketbook-eel.cyclic.app/api/v1/contact", formData)
+        .post(`${apiUrl.apiRootUrl}/api/v1/contact`, formData)
         .then((response) => {
           console.log(response);
           toast.success('Form submitted successfully!');

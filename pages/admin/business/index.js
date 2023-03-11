@@ -22,6 +22,7 @@ import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 
 const submitHandler = async (data) => {
+  
   console.log({ data });
   try {
     await axios.post(
@@ -121,8 +122,9 @@ const AddBusinessFrom = () => {
 function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: business, isLoading, isError } = useBuninessCollectionQuery();
-  const { deleteData } = useAuth();
-  console.log({ business });
+  const { deleteData ,apiUrl } = useAuth();
+  
+  // console.log({ business });
 
   return (
     <PrivateRoute>
@@ -191,7 +193,7 @@ function BusinessHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/business/${el?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.business}/${el?._id}`
                           )
                         }
                       >

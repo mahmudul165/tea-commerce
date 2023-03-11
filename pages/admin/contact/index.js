@@ -21,7 +21,7 @@ import {
   useOrderCollectionQuery,
 } from "@/lib/hook/useApi";
 function OrdersHomePage() {
-  const { orderStatus, deleteData } = useAuth();
+  const { orderStatus, deleteData,apiUrl } = useAuth();
   const { data: contacts } = useContactCollectionQuery();
 
   return (
@@ -66,7 +66,7 @@ function OrdersHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `https://crabby-pocketbook-eel.cyclic.app/api/v1/contact/${row?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.contact}/${row?._id}`
                           )
                         }
                       >
