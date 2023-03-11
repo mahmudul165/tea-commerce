@@ -1,17 +1,56 @@
 import { MyButton } from "@/components/common/Buttons";
+
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
-import demoPic from "public/products/p-1.jpg";
 import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useCart } from "react-use-cart";
+
+import ReactImageMagnify from "react-image-magnify";
+
+const MyReactImageMagnify = (props) => {
+  console.log({ props });
+  const { src } = props;
+
+  return (
+    <div>
+      <ReactImageMagnify
+        {...props}
+        {...{
+          smallImage: {
+            alt: "Product Image",
+            isFluidWidth: true,
+            src: src,
+          },
+          largeImage: {
+            src: src,
+            width: 500,
+            height: 300,
+          },
+          enlargedImageContainerStyle: {
+            zIndex: "1500",
+          },
+          enlargedImageContainerDimensions: {
+            width: "100%",
+            height: "100%",
+          },
+        }}
+      />
+    </div>
+  );
+};
+
 const ProductDetailsModal = (props) => {
   console.log("product details data", props?.data);
   const { getProductId } = props;
-  const [singleProduct, setSingleProduct] = useState(null);
+  let [singleProduct, setSingleProduct] = useState(null);
+  let [topImg, setTopImg] = useState(null);
+
+  const handleClick = (value) => {
+    setTopImg(value);
+  };
   useEffect(() => {
     if (getProductId !== null) {
       axios
@@ -20,14 +59,13 @@ const ProductDetailsModal = (props) => {
         )
         .then((res) => {
           setSingleProduct(res.data);
+          setTopImg(res?.data?.images[0]?.url);
         })
         .catch((error) => {
           console.log({ error });
         });
     }
   }, [getProductId]);
-
-  //console.log({ singleProduct });
 
   const { addItem } = useCart();
   return (
@@ -48,19 +86,22 @@ const ProductDetailsModal = (props) => {
             //singleProduct  &&
           }
           <div className="col-md-4">
-            <div className="w-100 p-5 ele-center border rounded ">
-              <img
-                src={singleProduct?.images[0].url}
-                alt={singleProduct?.images[0].altText}
-                width={140}
-                height={100}
-              />
+            <div className=" p-3 d-flex align-items-center justify-content-start border rounded  ">
+              <MyReactImageMagnify src={topImg} />
             </div>
 
             <div className="d-flex justify-content-between p-2">
               {singleProduct?.images.map((el, index) => (
                 <div key={index} className="border p-2">
-                  <img src={el?.url} alt={el?.altText} width={50} height={50} />
+                  <img
+                    src={el?.url}
+                    alt={el?.altText}
+                    width={50}
+                    height={50}
+                    onClick={() => {
+                      handleClick(el.url);
+                    }}
+                  />
                 </div>
               ))}
             </div>
