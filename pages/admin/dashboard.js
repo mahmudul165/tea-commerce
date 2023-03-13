@@ -182,7 +182,7 @@ const DashboardPage = () => {
 
           <NewCard
             name="Slide"
-            number={slides?.length}
+            number={slides?.length || 0}
             path="slide"
             icon={<BsSliders size={24} />}
           />
@@ -194,19 +194,19 @@ const DashboardPage = () => {
           /> */}
           <NewCard
             name="Gallery"
-            number={gallery?.length}
+            number={gallery?.length || 0}
             path="gallery"
             icon={<RiGalleryFill size={24} />}
           />
           <NewCard
             name="Carrier"
-            number={carrier?.length}
+            number={carrier?.length || 0}
             path="carrier"
             icon={<FiTarget size={24} />}
           />
           <NewCard
             name="Business"
-            number={buniness?.length}
+            number={buniness?.length || 0}
             path="business"
             icon={<BsSliders size={24} />}
           />
@@ -214,7 +214,7 @@ const DashboardPage = () => {
           <NewCard
             name="Customers Query"
             path="contact"
-            number={contactQuery?.length}
+            number={contactQuery?.length || 0}
             icon={<FaUsers size={24} />}
           />
         </section>
