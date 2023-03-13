@@ -44,8 +44,8 @@ const SingleOrderView = (props) => {
           <div className="col-8 offset-2  ">
             <div className=" img-zoom  p-5  ele-center border rounded  ">
               <img
-                src={singleOrder?.products[0]?.images[0].url}
-                alt={singleOrder?.products[0].images[0].altText}
+                src={singleOrder?.products[0]?.images[0]?.url}
+                alt={singleOrder?.products[0]?.images[0]?.altText}
                 width={180}
                 height={180}
               />
