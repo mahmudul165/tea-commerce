@@ -111,7 +111,7 @@ const AddGalleryFrom = () => {
 function GalleryHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState("all");
-  const { deleteData,apiUrl } = useAuth();
+  const { deleteData, apiUrl } = useAuth();
   const { data: gallery, isLoading, isError } = useGalleryCollectionQuery();
   console.log({ gallery });
 
@@ -154,6 +154,7 @@ function GalleryHomePage() {
               <option value="all">All</option>
               <option value="office">Office</option>
               <option value="garden">Garden</option>
+              <option value="factory">Factory</option>
             </select>
           </div>
         </div>
