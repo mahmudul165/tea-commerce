@@ -14,11 +14,17 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
 import { useOrderCollectionQuery } from "@/lib/hook/useApi";
+import SingleOrderView from "@/components/admin/common/SingleOrderView";
 function OrdersHomePage() {
   const { orderStatus, deleteData, apiUrl } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { data: orders } = useOrderCollectionQuery();
+  const [singleOrderId, setSingleOrderId] = useState(null);
+  const [modalShow, setModalShow] = useState(false);
+
+  console.log({ orders });
+
   // const getOrdersData = async () => {
 
   //  await setOrdersData(orders);
@@ -34,6 +40,11 @@ function OrdersHomePage() {
   console.log("filter oredr", filteredData);
   return (
     <PrivateRoute>
+      <SingleOrderView
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        getOrderId={singleOrderId}
+      />
       <PageHeader name="Orders" />
 
       {/* <CustomTable tableName="Orders Table" headers={OrdersTableTH} /> */}
@@ -92,6 +103,15 @@ function OrdersHomePage() {
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
+                      <span>
+                        <AiOutlineEye
+                          size={18}
+                          className="text-primary"
+                          onClick={() => {
+                            setSingleOrderId(row?._id), setModalShow(true);
+                          }}
+                        />
+                      </span>
                       <span
                         onClick={() =>
                           orderStatus(
@@ -113,7 +133,7 @@ function OrdersHomePage() {
                           )
                         }
                       >
-                        <MdOutlineDone size={18} className="text-warning" />
+                        <MdOutlineDone size={18} className="text-success" />
                       </span>
                       <span
                         onClick={() =>

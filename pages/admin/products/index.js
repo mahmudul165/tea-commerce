@@ -8,21 +8,16 @@ import {
   CustomFloatingLabel,
 } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
+import SingleProductView from "@/components/admin/common/SingleProductView";
 import { MyButton } from "@/components/common/Buttons";
-import ProductDetailsModal from "@/components/common/ProductDetailsModal";
-import SingleProductView from "@/components/common/SingleProductView";
 import PrivateRoute from "@/components/PrivateRoute";
-import {
-  useProductCollectionQuery,
-  useUserCollectionQuery,
-} from "@/lib/hook/useApi";
+import { useProductCollectionQuery } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
-import { BsImages } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 
@@ -358,9 +353,7 @@ function ProductsHomePage() {
         show={modalShowTwo}
         onHide={() => setModalShowTwo(false)}
         getProductId={productId}
-      >
-        <h4>hlw</h4>
-      </SingleProductView>
+      />
 
       <PageHeader
         name="Products"
