@@ -122,6 +122,15 @@ function Header() {
   const [scroll, setScroll] = useState(false);
   const [modalShow, setModalShow] = useState(false);
 
+  const handleClick = () => {
+    const sidebar = document.querySelector(".offcanvas");
+    const isCollapse = sidebar.classList.contains("show");
+    if (isCollapse) {
+      sidebar.classList.remove("show");
+    } else {
+      sidebar.classList.add("show");
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -165,7 +174,14 @@ function Header() {
             <Nav className=" justify-content-end " as="ul">
               <Nav.Item as="li">
                 <Nav.Link as="span">
-                  <Link href={"/"}>Home</Link>
+                  <Link
+                    href={"/"}
+                    onClick={() => {
+                      handleClick();
+                    }}
+                  >
+                    Home
+                  </Link>
                 </Nav.Link>
               </Nav.Item>
               {/* <Nav.Item as="li">                    

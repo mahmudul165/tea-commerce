@@ -9,6 +9,8 @@ import {
 } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
+import ProductDetailsModal from "@/components/common/ProductDetailsModal";
+import SingleProductView from "@/components/common/SingleProductView";
 import PrivateRoute from "@/components/PrivateRoute";
 import {
   useProductCollectionQuery,
@@ -334,9 +336,13 @@ export const AddProductFrom = () => {
 };
 
 function ProductsHomePage() {
-  const { deleteData,apiUrl } = useAuth();
+  const { deleteData, apiUrl } = useAuth();
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowTwo, setModalShowTwo] = useState(false);
   const { data: products, isLoading, isError } = useProductCollectionQuery();
+  const [productId, setProductId] = useState(null);
+
+  console.log({ productId });
 
   return (
     <PrivateRoute>
@@ -347,6 +353,14 @@ function ProductsHomePage() {
       >
         <AddProductFrom />
       </CustomModal>
+
+      <SingleProductView
+        show={modalShowTwo}
+        onHide={() => setModalShowTwo(false)}
+        getProductId={productId}
+      >
+        <h4>hlw</h4>
+      </SingleProductView>
 
       <PageHeader
         name="Products"
@@ -402,7 +416,13 @@ function ProductsHomePage() {
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
                       <span>
-                        <AiOutlineEye size={18} className="text-success" />
+                        <AiOutlineEye
+                          size={18}
+                          className="text-success"
+                          onClick={() => {
+                            setProductId(product?._id), setModalShowTwo(true);
+                          }}
+                        />
                       </span>
                       <span>
                         <FiEdit size={15} className="text-warning" />
