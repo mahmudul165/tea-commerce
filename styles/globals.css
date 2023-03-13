@@ -262,6 +262,9 @@ tr {
 .cus-table tr td {
   padding: 15px 0;
 }
+.cus-table tr td span {
+  cursor: pointer;
+}
 /* .cus-dropdown button {
   background-color: inherit !important;
   border: none;
