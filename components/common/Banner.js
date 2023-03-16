@@ -1,9 +1,5 @@
 import { useSlideCollectionQuery } from "@/lib/hook/useApi";
 import { useRouter } from "next/router";
-import { Form, InputGroup } from "react-bootstrap";
-import { GoSearch } from "react-icons/go";
-import IconWithBackground from "./IconWithBackground";
-import { SearchBar } from "./SearchBar";
 
 const HeroBanner = ({ name }) => {
   const router = useRouter();
@@ -17,7 +13,10 @@ const HeroBanner = ({ name }) => {
   console.log("slide data:", data, router.pathname);
   // Find the slide
   // const mySlide = data?.find((slide) => slide.pathName == router.pathname);
-  const mySlide = data && Array.isArray(data) && data.find((slide) => slide.pathName == router.pathname);
+  const mySlide =
+    data &&
+    Array.isArray(data) &&
+    data.find((slide) => slide.pathName == router.pathname);
 
   console.log("test slider router path", mySlide, router.pathname);
   return (
@@ -40,13 +39,14 @@ const HeroBanner = ({ name }) => {
             className="   position-absolute w-100 bottom-0 py-4"
           >
             <div className="d-flex justify-content-between container align-items-center">
-              <div>
-                <h2 className="fs-4 fw-bold text-white "> {mySlide?.title}</h2>
-                <p className="fs-6 text-white ">Home / {name}</p>
+              <div className="bg-light  px-4 rounded cus-color-secondary">
+                <h2 className="fs-4 fw-bold text-capitalize  cus-color-secondary">
+                  {" "}
+                  {mySlide?.title}
+                </h2>
+                <p className="fs-6  cus-color-secondary ">Home / {name}</p>
               </div>
-              <div>
-                <SearchBar />
-              </div>
+              <div>{/* <SearchBar /> */}</div>
             </div>
           </div>
         </div>
@@ -67,13 +67,14 @@ const HeroBanner = ({ name }) => {
             className="   position-absolute w-100 bottom-0 py-4"
           >
             <div className="d-flex justify-content-between container align-items-center gap-2 ">
-              <div>
-                <h2 className="fs-4 fw-bold text-white "> {name}</h2>
-                <p className="fs-6 text-white ">Home / {name}</p>
+              <div className="bg-light  px-4 rounded ">
+                <h2 className="fs-4 fw-bold   text-capitalize cus-color-secondary">
+                  {" "}
+                  {name}
+                </h2>
+                <p className="fs-6   cus-color-secondary">Home / {name}</p>
               </div>
-              <div>
-                <SearchBar />
-              </div>
+              <div>{/* <SearchBar /> */}</div>
             </div>
           </div>
         </div>
