@@ -217,7 +217,7 @@ function Carrier({ data }) {
                   <span>
                     <AiOutlineEye
                       size={20}
-                      className="text-success"
+                      className="cus-color-primary"
                       onClick={() => {
                         setModalShow(true), setSingleJobPostId(item._id);
                       }}

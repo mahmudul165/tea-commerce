@@ -267,7 +267,8 @@ tr {
 .cus-table tr td {
   padding: 15px 0;
 }
-.cus-table tr td span {
+.cus-table tr td span,
+table tr td span {
   cursor: pointer;
 }
 /* .cus-dropdown button {
