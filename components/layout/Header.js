@@ -165,7 +165,9 @@ function Header() {
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
           className={`row align-items-center   m-auto   navPosition py-2 ${
-            scroll ? " bg-light container-fluid py-3  " : "container  "
+            scroll
+              ? " bg-light container-fluid py-3  add-transition "
+              : "container  "
           }`}
         >
           {/* <Container fluid className="justify-content-around"> */}
@@ -216,15 +218,9 @@ function Header() {
                 </NavDropdown.Item>
               </NavDropdown> */}
 
-              <NavDropdown title="Our Business" id="collasible-nav-dropdown">
-                <NavDropdown.Item as="span">
-                  <Link href={"/our-business"}>Our Business</Link>
-                </NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
-                {/* <NavDropdown.Item as="span">
-                       <Link href={"/new-arrival"}>Press Releases</Link>
-                    </NavDropdown.Item>   */}
-              </NavDropdown>
+              <Nav.Link as="span" className="text-nowrap">
+                <Link href={"/our-business"}>Our Business</Link>
+              </Nav.Link>
               <Nav.Link as="span" className="text-nowrap">
                 <Link href={"/our-brand"}>Our Brands</Link>
               </Nav.Link>
@@ -280,12 +276,12 @@ function Header() {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   Sultan Tea
                 </Offcanvas.Title>
-                <Nav.Link as="i" className="fs-4">
+                {/* <Nav.Link as="i" className="fs-4">
                   <Link href={"/search"}>
                     {" "}
                     <FaSearch style={{ marginLeft: "100px" }} />{" "}
                   </Link>
-                </Nav.Link>
+                </Nav.Link> */}
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className=" justify-content-center ">
@@ -348,9 +344,9 @@ function Header() {
                       <Link href={"/new-arrival"}>New Arrivals</Link>
                     </NavDropdown.Item> */}
                   </NavDropdown>
-                  <Nav.Link as="span">
+                  {/* <Nav.Link as="span">
                     <Link href={"/blogs"}>Blog</Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
                   <Nav.Link as="span">
                     <Link href={"/carrier"}>Carrier</Link>
                   </Nav.Link>
@@ -375,10 +371,10 @@ function Header() {
                     as="i"
                     className="fs-4 d-sm-none d-xs-none d-lg-block "
                   >
-                    <Link href={"/search"}>
+                    {/* <Link href={"/search"}>
                       {" "}
                       <FaSearch />{" "}
-                    </Link>
+                    </Link> */}
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
