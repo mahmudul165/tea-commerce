@@ -1,7 +1,9 @@
 import HeroBanner from "@/components/common/Banner";
-import RouteNavSlider from "@/components/common/RouteNavSlider";
+import SingleJobPost from "@/components/common/SingleJobPost";
+
 import { useState } from "react";
-import { Table, Pagination } from "react-bootstrap";
+import { Pagination, Table } from "react-bootstrap";
+import { AiOutlineCloudDownload, AiOutlineEye } from "react-icons/ai";
 
 // import { useRouter } from 'next/router'
 export const getStaticProps = async () => {
@@ -11,10 +13,10 @@ export const getStaticProps = async () => {
   const data = await res.json();
   return {
     props: { data },
-    revalidate: 10
+    revalidate: 10,
   };
 };
-function Carrier({data}) {
+function Carrier({ data }) {
   const datasss = [
     {
       id: 1,
@@ -152,7 +154,12 @@ function Carrier({data}) {
       time: "Full-time",
     },
   ];
-  
+
+  console.log({ data });
+
+  const [modalShow, setModalShow] = useState(false);
+  const [singleJobPostId, setSingleJobPostId] = useState(null);
+
   const ITEMS_PER_PAGE = 12;
   // const router=useRouter()
   // console.log(router.pathname)
@@ -172,6 +179,12 @@ function Carrier({data}) {
     <>
       {/* <RouteNavSlider router="Carrier" /> */}
       <HeroBanner name="Carrier" />
+
+      <SingleJobPost
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        getId={singleJobPostId}
+      />
       <div className="container  my-5">
         <h1 className="fs-3 text-center cus-color-primary my-2">
           Vacancy Announcement
@@ -186,6 +199,7 @@ function Carrier({data}) {
               <th>Salary</th>
               <th>Deadline</th>
               <th>Time</th>
+              <th className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -198,6 +212,18 @@ function Carrier({data}) {
                 <td>{item.salary}</td>
                 <td>{item.deadline}</td>
                 <td>{item.time}</td>
+
+                <td className="text-center">
+                  <span>
+                    <AiOutlineEye
+                      size={20}
+                      className="text-success"
+                      onClick={() => {
+                        setModalShow(true), setSingleJobPostId(item._id);
+                      }}
+                    />
+                  </span>
+                </td>
               </tr>
             ))}
           </tbody>
