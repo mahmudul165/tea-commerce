@@ -5,7 +5,25 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { useCart } from "react-use-cart";
 import ProductDetailsModal from "../common/ProductDetailsModal";
 import { useState } from "react";
+import { Pagination } from "react-bootstrap";
 function ProductsShowcase({ data }) {
+  const { products } = data;
+
+  const ITEMS_PER_PAGE = 8;
+  // const router=useRouter()
+  // console.log(router.pathname)
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const lastItemIndex = currentPage * ITEMS_PER_PAGE;
+  const firstItemIndex = lastItemIndex - ITEMS_PER_PAGE;
+  const currentItems = products.slice(firstItemIndex, lastItemIndex);
+
+  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
   // const { BuyNow } = useAuth();
   const [modalShow, setModalShow] = useState(false);
   const [productId, setProductId] = useState(null);
@@ -60,8 +78,8 @@ function ProductsShowcase({ data }) {
         // style={{ backgroundColor: "#ffddde" }}
       >
         <motion.div variants={stagger} className="row     my-2  py-3 ">
-          {data ? (
-            data?.products?.map((product) => (
+          {currentItems ? (
+            currentItems?.map((product) => (
               <div key={product.id} className="col-sm-12 col-md-3  my-2 py-1 ">
                 <motion.div
                   variants={fadeInUp}
@@ -259,6 +277,28 @@ function ProductsShowcase({ data }) {
           )}
         </motion.div>
       </motion.div>
+
+      <Pagination className="d-flex justify-content-end">
+        <Pagination.First onClick={() => handlePageChange(1)} />
+        <Pagination.Prev
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        />
+        {[...Array(totalPages)].map((_, index) => (
+          <Pagination.Item
+            key={index}
+            active={currentPage === index + 1}
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </Pagination.Item>
+        ))}
+        <Pagination.Next
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        />
+        <Pagination.Last onClick={() => handlePageChange(totalPages)} />
+      </Pagination>
     </>
   );
 }
