@@ -30,24 +30,27 @@ const CardGallery = () => {
     <div className="container py-3 my-3">
       <Row>
         {products?.map((product) => {
-          return(
-          <>
-          <Col sm={12} md={4} key={product.id} className='py-2'>
-            {/* <Card  style={{ width: "22rem", height: "auto"}} > */}
-              <Card.Img className="gelleryCardImg" variant="top" src={product?.image} fluid />
-              <Card.Body>
-                
-                <Card.Title>{product.name}</Card.Title>
+          return (
+            <>
+              <Col sm={12} md={4} key={product.id} className="py-2">
+                {/* <Card  style={{ width: "22rem", height: "auto"}} > */}
+                <Card.Img
+                  className="gelleryCardImg"
+                  variant="top"
+                  src={product?.image}
+                  fluid
+                />
+                <Card.Body>
+                  {/* <Card.Title>{product.name}</Card.Title>
                 <Card.Text>
                 {product.description}
-                </Card.Text>
-               
-              </Card.Body>
-            {/* </Card> */}
-          </Col>
-          </>
-        )})
-      }
+                </Card.Text> */}
+                </Card.Body>
+                {/* </Card> */}
+              </Col>
+            </>
+          );
+        })}
       </Row>
     </div>
   );
