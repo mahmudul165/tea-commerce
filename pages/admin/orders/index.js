@@ -1,7 +1,6 @@
 import { OrdersTableTH } from "@/components/admin/common/CustomTable";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import PrivateRoute from "@/components/PrivateRoute";
-import axios from "axios";
 import {
   MdCancel,
   MdOutlineDone,
@@ -9,16 +8,15 @@ import {
 } from "react-icons/md";
 
 import { dateFormat, trackStatus } from "@/components/admin/common/Fomater";
-import { useEffect, useState } from "react";
-import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
-import { FaHandHoldingWater } from "react-icons/fa";
-import useAuth from "@/lib/hook/useAuth";
-import { useOrderCollectionQuery } from "@/lib/hook/useApi";
 import SingleOrderView from "@/components/admin/common/SingleOrderView";
+import { useOrderCollectionQuery } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
+import { useState } from "react";
+import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 function OrdersHomePage() {
   const { orderStatus, deleteData, apiUrl } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState("all");
+  const [selectedStatus, setSelectedStatus] = useState("placed");
   const { data: orders } = useOrderCollectionQuery();
   const [singleOrderId, setSingleOrderId] = useState(null);
   const [modalShow, setModalShow] = useState(false);
@@ -31,7 +29,9 @@ function OrdersHomePage() {
   // };
 
   const filteredData =
-    selectedStatus === "all"
+    selectedStatus === "placed"
+      ? orders?.filter((order) => order.status === "placed")
+      : selectedStatus === "all"
       ? orders
       : orders?.filter((order) => order.status === selectedStatus);
   // useEffect(() => {
