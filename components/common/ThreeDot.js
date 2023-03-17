@@ -6,42 +6,42 @@ const LoadingDot = {
   width: "2rem",
   height: "2rem",
   backgroundColor: "black",
-  borderRadius: "50%"
+  borderRadius: "50%",
 };
 
 const LoadingContainer = {
   width: "10rem",
   height: "5rem",
   display: "flex",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
 };
 
 const ContainerVariants = {
   initial: {
     transition: {
-      staggerChildren: 0.2
-    }
+      staggerChildren: 0.2,
+    },
   },
   animate: {
     transition: {
-      staggerChildren: 0.2
-    }
-  }
+      staggerChildren: 0.2,
+    },
+  },
 };
 
 const DotVariants = {
   initial: {
-    y: "0%"
+    y: "0%",
   },
   animate: {
-    y: "100%"
-  }
+    y: "100%",
+  },
 };
 
 const DotTransition = {
   duration: 0.5,
   yoyo: Infinity,
-  ease: "easeInOut"
+  ease: "easeInOut",
 };
 
 export default function ThreeDotsWave() {
@@ -52,7 +52,7 @@ export default function ThreeDotsWave() {
         width: "100%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       {/* <motion.div
@@ -80,10 +80,9 @@ export default function ThreeDotsWave() {
 
             </motion.div> */}
 
-
-
-
-            <img src="/loadder.gif" alt="loader"></img>
+      {/* <img src="/loadder.gif" alt="loader"></img> */}
+      {/* <img src="/loader/loader-1.gif" alt="loader"></img> */}
+      <img src="/loader/loader-3.gif" alt="loader"></img>
     </div>
   );
 }
