@@ -13,13 +13,12 @@ const inter = Inter({ subsets: ["latin"] });
 export const getStaticProps = async () => {
   const res = await fetch(
     // "https://jsonplaceholder.typicode.com/posts"
-    'https://crabby-pocketbook-eel.cyclic.app/api/v1/product'
-
+    "https://crabby-pocketbook-eel.cyclic.app/api/v1/product"
   );
   const data = await res.json();
   return {
     props: { data },
-    revalidate: 3
+    revalidate: 3,
   };
 };
 export default function Home({ data }) {
@@ -36,7 +35,8 @@ export default function Home({ data }) {
         {/* https://github.com/leerob/leerob.io */}
         <HeaderHero />
         <Hero className="heroPosition" />
-        <ProductCarousel data={data}/>
+        <ProductCarousel data={data} />
+
         <Banner />
         <CardGallery />
         <Outlet />
