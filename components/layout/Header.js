@@ -124,11 +124,18 @@ function Header() {
 
   const handleClick = () => {
     const sidebar = document.querySelector(".offcanvas");
+    console.log({ sidebar });
+
     const isCollapse = sidebar.classList.contains("show");
+    const offcanvasDiv = document.querySelector(".offcanvas-backdrop");
+    const isShow = offcanvasDiv.classList.contains("show");
+
     if (isCollapse) {
       sidebar.classList.remove("show");
-    } else {
+      offcanvasDiv.classList.remove("show");
+    } else if (!isCollapse && !isShow) {
       sidebar.classList.add("show");
+      offcanvasDiv.classList.add("show");
     }
   };
   useEffect(() => {
@@ -176,14 +183,7 @@ function Header() {
             <Nav className=" justify-content-end " as="ul">
               <Nav.Item as="li">
                 <Nav.Link as="span">
-                  <Link
-                    href={"/"}
-                    onClick={() => {
-                      handleClick();
-                    }}
-                  >
-                    Home
-                  </Link>
+                  <Link href={"/"}>Home</Link>
                 </Nav.Link>
               </Nav.Item>
               {/* <Nav.Item as="li">                    
@@ -199,9 +199,6 @@ function Header() {
                 {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item as="span">
                   <Link href={"/press-releases"}>Press Releases</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item as="span">
-                  <Link href={"/news-link"}>News Links</Link>
                 </NavDropdown.Item>
               </NavDropdown>
 
@@ -306,9 +303,6 @@ function Header() {
                         {/* <NavDropdown.Divider /> */}
                         <NavDropdown.Item as="span">
                           <Link href={"/press-releases"}>Press Releases</Link>
-                        </NavDropdown.Item>
-                        <NavDropdown.Item as="span">
-                          <Link href={"/"}>News Links</Link>
                         </NavDropdown.Item>
                       </NavDropdown>
 
