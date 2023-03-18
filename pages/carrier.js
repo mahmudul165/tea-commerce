@@ -199,7 +199,7 @@ function Carrier({ data }) {
               <th>Salary</th>
               <th>Deadline</th>
               <th>Time</th>
-              <th className="text-center">Action</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -213,7 +213,7 @@ function Carrier({ data }) {
                 <td>{item.deadline}</td>
                 <td>{item.time}</td>
 
-                <td className="text-center">
+                <td>
                   <span>
                     <AiOutlineEye
                       size={20}
