@@ -175,7 +175,7 @@ const Footer = () => {
         </Col>
         <Col sm={12} md={3} className="">
           <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">Contact Us</h1>
-          <div className=" footer-card p-2 bg-success  ">
+          <div className="container footer-card p-2 bg-success  ">
             <div className=" ">
               <div className="">
                 <p className="text-white fs-4 py-3 fw-bold">Sultan Tea Care</p>
