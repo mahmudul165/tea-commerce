@@ -184,7 +184,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#">Our Team</a>
+            <Link href="/carrier">
+             Carrier
+              </Link>
             </li>
             <li>
               <a href="#">Privacy Policy</a>
