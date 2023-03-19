@@ -113,7 +113,7 @@ const Footer = () => {
           {/* </Row> */}
           <div className="d-flex gap-4 ">
             {/* <Col sm={3} md={3}  > */}
-            <a href="#">
+            <a href="https://www.facebook.com/SultanTeaBangladesh" target="_blank">
               <FaFacebook size={25} />
             </a>
             {/* </Col> */}
@@ -160,13 +160,13 @@ const Footer = () => {
           <h1 className="fs-5 fw-bold cus-color-secondary">About</h1>
           <ul className="demo">
             <li>
-              <a href="#">About Us</a>
+              <a href="/about">About Us</a>
             </li>
             <li>
               <a href="#">Contact Us</a>
             </li>
             <li>
-              <a href="#">Blog</a>
+              <a href="/press-releases">Press Release</a>
             </li>
             <li>
               <a href="#">Our Team</a>
