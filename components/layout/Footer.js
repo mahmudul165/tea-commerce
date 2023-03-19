@@ -184,7 +184,7 @@ const Footer = () => {
         <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Contact Us</h1>
           <ul className="demo">
-            
+            {/* test */}
             <li>
               <a href="#">Privacy Policy</a>
             </li>
