@@ -9,7 +9,7 @@ import { Pagination } from "react-bootstrap";
 function ProductsShowcase({ data }) {
   const { products } = data;
 
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 16;
   // const router=useRouter()
   // console.log(router.pathname)
   const [currentPage, setCurrentPage] = useState(1);
@@ -277,8 +277,7 @@ function ProductsShowcase({ data }) {
           )}
         </motion.div>
       </motion.div>
-
-      <Pagination className="d-flex justify-content-end">
+      <Pagination className="d-flex justify-content-end container mb-2">
         <Pagination.First onClick={() => handlePageChange(1)} />
         <Pagination.Prev
           onClick={() => handlePageChange(currentPage - 1)}

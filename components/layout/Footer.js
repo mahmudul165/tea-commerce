@@ -173,14 +173,14 @@ const Footer = () => {
             </li>
           </ul>
         </Col>
-        <Col sm={12} md={3} className="text-center">
-          <h1 className="fs-5 fw-bold cus-color-secondary mb-2">Contact Us</h1>
-          <div className=" footer-card p-2 bg-success ">
+        <Col sm={12} md={3} className="">
+          <h1 className="fs-5 fw-bold cus-color-secondary mb-2 ">Contact Us</h1>
+          <div className=" footer-card p-2 bg-success  ">
             <div className=" ">
-              <div className="bg-success">
+              <div className="">
                 <p className="text-white fs-4 py-3 fw-bold">Sultan Tea Care</p>
               </div>
-              <div className="bg-success mt-2 ">
+              <div className=" mt-2 ">
                 <div className="d-flex gap-2 justify-content-center  py-2 ">
                   <FiPhoneCall size={35} className="text-warning" />
                   <p className="fs-3 fw-bold text-white ">09612 112233</p>
