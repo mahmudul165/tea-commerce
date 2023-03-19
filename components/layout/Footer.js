@@ -92,6 +92,7 @@
 //   );
 // }
 
+import Link from "next/link";
 import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -113,7 +114,11 @@ const Footer = () => {
           {/* </Row> */}
           <div className="d-flex gap-4 ">
             {/* <Col sm={3} md={3}  > */}
-            <a href="#">
+            <a
+              href="https://www.facebook.com/SultanTeaBangladesh"
+               
+              target="_blank" rel="noopener noreferrer"
+            >
               <FaFacebook size={25} />
             </a>
             {/* </Col> */}
@@ -136,18 +141,38 @@ const Footer = () => {
         <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
           <ul className="demo ">
-            <li className="">
-              <a href="#">Company</a>
+          <li>
+            <Link href="/about">
+            About Us
+            </Link>              
+            </li>
+            <li>       
+              <Link href="/shop">
+              Our Products
+              </Link>
+            </li>
+            
+            <li>           
+             <Link href="/press-releases">
+             Press Releases 
+              </Link>
             </li>
             <li>
-              <a href="#">Our Products</a>
+            <Link href="/carrier">
+             Carrier
+              </Link>
             </li>
             <li>
+              <Link href="/contact-updated">
+                 Contact Us 
+              </Link>
+            </li>
+            {/* <li>
               <a href="#">Our Services</a>
             </li>
             <li>
               <a href="#">Location</a>
-            </li>
+            </li> */}
             <li>
               <a href="#">Term and condition</a>
             </li>
@@ -157,20 +182,9 @@ const Footer = () => {
           </ul>
         </Col>
         <Col sm={12} md={3}>
-          <h1 className="fs-5 fw-bold cus-color-secondary">About</h1>
+          <h1 className="fs-5 fw-bold cus-color-secondary">Contact Us</h1>
           <ul className="demo">
-            <li>
-              <a href="#">About Us</a>
-            </li>
-            <li>
-              <a href="#">Contact Us</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Our Team</a>
-            </li>
+            
             <li>
               <a href="#">Privacy Policy</a>
             </li>

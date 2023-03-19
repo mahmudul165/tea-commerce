@@ -24,7 +24,7 @@ function Overview2() {
           <div className="col-md-6 col-sm-12 text-end">
             {/* <Roll left> */}
             <div className="my-2 py-2">
-              <h3 className="cus-color-secondary fs-4">About Us</h3>
+              {/* <h3 className="cus-color-secondary fs-4">About Us</h3> */}
               <h1
                 className="my-2  fs-2 fw-bolder  whileHover={{
                     scale: 1.3,

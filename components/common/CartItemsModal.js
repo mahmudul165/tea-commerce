@@ -210,7 +210,7 @@ const CartItemsModal = (props) => {
         address: '',
       });
   
-      toast.success('🦄 Checkout successful!', {
+      toast.success('🦄 Order place successfully!', {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
