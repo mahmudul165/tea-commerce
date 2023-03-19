@@ -9,6 +9,7 @@ import ClientCompany from "@/components/about/ClientCompany";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import HeroBanner from "@/components/common/Banner";
 import SultanTeaLogo from "/public/about-image-5.png";
+import  TeaLogo from "/public/logo-company.jpg";
 import HeritageGP from "/public/heritage-gp.png";
 import Image from "next/image";
 
@@ -29,10 +30,13 @@ function about() {
       <Achivements />
 
       <ClientCompany />
-      <div className="container my-5">
-        <div className="d-flex  gap-5 justify-content-between ">
+      <div className="container mb-2">
+        <div className="d-flex  gap-5 justify-content-between align-items-center ">
           <div>
             <Image src={SultanTeaLogo} alt="ABOUT IMG" />
+          </div>
+          <div>
+            <Image src={TeaLogo} alt="ABOUT IMG" />
           </div>
           <div>
             <Image src={HeritageGP} alt="Heritage GROUP" />
