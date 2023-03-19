@@ -60,7 +60,7 @@ import { Card } from "react-bootstrap";
 
 function Banner() {
   return (
-    <div className="overlay">
+    <div>
       {/* <img height="450px" src="/banner.png" /> */}
       <img
         src="/banner.png"
