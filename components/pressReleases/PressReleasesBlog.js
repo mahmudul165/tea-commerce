@@ -125,15 +125,9 @@ function PressReleasesBlog({ data }) {
                       initial={{ opacity: 0 }}
                       className="title"
                     >
-                      <h3
-                        className="my-1 py-1 fs-5 fw-bold"
-                        style={{
-                          color: "#000000",
-                          border: 0,
-                        }}
-                      >
+                      <p className="my-1 py-1 fs-5 cus-color-primary fw-bold">
                         {product.title}
-                      </h3>{" "}
+                      </p>{" "}
                     </motion.div>
                     <p
                       className="text-gray  py-2   "
