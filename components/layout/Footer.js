@@ -178,10 +178,10 @@ const Footer = () => {
                  Contact Us 
               </Link>
             </li>
-            <li>
-            <Link href="/press-releases">
+            <li>           
+             <Link href="/press-releases">
              Press Releases 
-             </Link>
+              </Link>
             </li>
             <li>
               <a href="#">Our Team</a>
