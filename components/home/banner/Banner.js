@@ -63,7 +63,7 @@ function Banner() {
     <div>
       {/* <img height="450px" src="/banner.png" /> */}
       <img
-        src="/banner.png"
+        src="/guarantee.png"
         className="card-img-top img-fluid  "
         alt="Your Image"
       ></img>
