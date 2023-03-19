@@ -101,6 +101,8 @@ import { FiPhoneCall } from "react-icons/fi";
 import { GiCandlestickPhone } from "react-icons/gi";
 
 const Footer = () => {
+   const isMobile = window.innerWidth <= 768;
+  
   return (
     <Container fluid className="p-4 " style={{ backgroundColor: "#F3F3F3" }}>
       <Row>
@@ -140,7 +142,7 @@ const Footer = () => {
             </a>
           </div>
         </Col>
-        <Col sm={12} md={3}>
+        <Col sm={12} md={2}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
           <ul className="demo ">
             <li>
@@ -174,8 +176,10 @@ const Footer = () => {
           </ul>
         </Col>
         <Col sm={12} md={3} className="">
-          <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">Contact Us</h1>
-          <div className="container footer-card p-2 bg-success  ">
+          <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">
+            Contact Us
+          </h1>
+          <div className="container footer-card p-2 bg-success   ">
             <div className=" ">
               <div className="">
                 <p className="text-white fs-4 py-3 fw-bold">Sultan Tea Care</p>
@@ -193,19 +197,19 @@ const Footer = () => {
             </div>
           </div>
         </Col>
-        <Col sm={12} md={3}>
+        <Col sm={12} md={4}>
           <h1 className="fs-5 fw-bold mb-3 cus-color-secondary text-center">
             Promotional Video
           </h1>
-          <Card>
-            <video controls>
+          <div  className={isMobile ? "" : "mx-5"}>
+            <video controls width="640" height="160">
               <source
-                src="https://drive.google.com/drive/folders/1exCm4s4J8dks4NkPhYreEArKyk9cDR_R"
+                src="https://drive.google.com/file/d/1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u/view?usp=share_link"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
             </video>
-          </Card>
+          </div>
         </Col>
       </Row>
       <Row className="border-top pt-3 mt-2">
