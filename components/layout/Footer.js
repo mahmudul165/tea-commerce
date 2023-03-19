@@ -101,8 +101,8 @@ import { FiPhoneCall } from "react-icons/fi";
 import { GiCandlestickPhone } from "react-icons/gi";
 
 const Footer = () => {
-   const isMobile = window.innerWidth <= 768;
-  
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <Container fluid className="p-4 " style={{ backgroundColor: "#F3F3F3" }}>
       <Row>
@@ -175,11 +175,11 @@ const Footer = () => {
             </li> */}
           </ul>
         </Col>
-        <Col sm={12} md={3} className="">
+        <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">
             Contact Us
           </h1>
-          <div className="container footer-card p-2 bg-success   ">
+          <div className="container footer-card p-2 bg-success  ">
             <div className=" ">
               <div className="">
                 <p className="text-white fs-4 py-3 fw-bold">Sultan Tea Care</p>
@@ -201,7 +201,7 @@ const Footer = () => {
           <h1 className="fs-5 fw-bold mb-3 cus-color-secondary text-center">
             Promotional Video
           </h1>
-          <div  className={isMobile ? "" : "mx-5"}>
+          <div className={isMobile ? "" : "mx-5"}>
             <video controls width="640" height="160">
               <source
                 src="https://drive.google.com/file/d/1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u/view?usp=share_link"
