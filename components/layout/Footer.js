@@ -179,7 +179,9 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="/press-releases">Press Release</a>
+            <Link href="/press-releases">
+             Press Releases 
+             </Link>
             </li>
             <li>
               <a href="#">Our Team</a>
