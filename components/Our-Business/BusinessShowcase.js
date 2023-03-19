@@ -10,7 +10,7 @@ import { useState } from "react";
 // import useAuth from "../../hook/useAuth";
 // import { useCart } from "react-use-cart";
 function BusinessShowcase({ data }) {
-  const ITEMS_PER_PAGE = 6;
+  const ITEMS_PER_PAGE = 9;
   // const router=useRouter()
   // console.log(router.pathname)
   const [currentPage, setCurrentPage] = useState(1);
@@ -273,7 +273,7 @@ function BusinessShowcase({ data }) {
         </motion.div>
       </motion.div>
 
-      <Pagination className="d-flex justify-content-end">
+      <Pagination className="d-flex justify-content-end container mb-2">
         <Pagination.First onClick={() => handlePageChange(1)} />
         <Pagination.Prev
           onClick={() => handlePageChange(currentPage - 1)}
