@@ -168,13 +168,13 @@ const Footer = () => {
             <li>
               <a href="#">Term and condition</a>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Support</a>
-            </li>
+            </li> */}
           </ul>
         </Col>
         <Col sm={12} md={3} className="">
-          <h1 className="fs-5 fw-bold cus-color-secondary mb-2 ">Contact Us</h1>
+          <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">Contact Us</h1>
           <div className=" footer-card p-2 bg-success  ">
             <div className=" ">
               <div className="">
@@ -194,7 +194,7 @@ const Footer = () => {
           </div>
         </Col>
         <Col sm={12} md={3}>
-          <h1 className="fs-5 fw-bold mb-3 cus-color-secondary">
+          <h1 className="fs-5 fw-bold mb-3 cus-color-secondary text-center">
             Promotional Video
           </h1>
           <Card>
