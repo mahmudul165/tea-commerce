@@ -92,6 +92,7 @@
 //   );
 // }
 
+import Link from "next/link";
 import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -113,7 +114,10 @@ const Footer = () => {
           {/* </Row> */}
           <div className="d-flex gap-4 ">
             {/* <Col sm={3} md={3}  > */}
-            <a href="https://www.facebook.com/SultanTeaBangladesh" target="_blank">
+            <a
+              href="https://www.facebook.com/SultanTeaBangladesh"
+              target="_blank"
+            >
               <FaFacebook size={25} />
             </a>
             {/* </Col> */}
@@ -140,7 +144,11 @@ const Footer = () => {
               <a href="#">Company</a>
             </li>
             <li>
-              <a href="#">Our Products</a>
+             
+
+              <Link href="/shop">
+              Our Products
+              </Link>
             </li>
             <li>
               <a href="#">Our Services</a>
@@ -160,10 +168,14 @@ const Footer = () => {
           <h1 className="fs-5 fw-bold cus-color-secondary">About</h1>
           <ul className="demo">
             <li>
-              <a href="/about">About Us</a>
+            <Link href="/about">
+            About Us
+            </Link>              
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <Link href="/contact-updated">
+                 Contact Us 
+              </Link>
             </li>
             <li>
               <a href="/press-releases">Press Release</a>
