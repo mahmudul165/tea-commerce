@@ -141,43 +141,17 @@ const Footer = () => {
         <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
           <ul className="demo ">
-            <li className="">
-              <a href="#">Company</a>
-            </li>
-            <li>
-             
-
-              <Link href="/shop">
-              Our Products
-              </Link>
-            </li>
-            <li>
-              <a href="#">Our Services</a>
-            </li>
-            <li>
-              <a href="#">Location</a>
-            </li>
-            <li>
-              <a href="#">Term and condition</a>
-            </li>
-            <li>
-              <a href="#">Support</a>
-            </li>
-          </ul>
-        </Col>
-        <Col sm={12} md={3}>
-          <h1 className="fs-5 fw-bold cus-color-secondary">About</h1>
-          <ul className="demo">
-            <li>
+          <li>
             <Link href="/about">
             About Us
             </Link>              
             </li>
-            <li>
-              <Link href="/contact-updated">
-                 Contact Us 
+            <li>       
+              <Link href="/shop">
+              Our Products
               </Link>
             </li>
+            
             <li>           
              <Link href="/press-releases">
              Press Releases 
@@ -188,6 +162,29 @@ const Footer = () => {
              Carrier
               </Link>
             </li>
+            <li>
+              <Link href="/contact-updated">
+                 Contact Us 
+              </Link>
+            </li>
+            {/* <li>
+              <a href="#">Our Services</a>
+            </li>
+            <li>
+              <a href="#">Location</a>
+            </li> */}
+            <li>
+              <a href="#">Term and condition</a>
+            </li>
+            <li>
+              <a href="#">Support</a>
+            </li>
+          </ul>
+        </Col>
+        <Col sm={12} md={3}>
+          <h1 className="fs-5 fw-bold cus-color-secondary">Contact Us</h1>
+          <ul className="demo">
+            
             <li>
               <a href="#">Privacy Policy</a>
             </li>
