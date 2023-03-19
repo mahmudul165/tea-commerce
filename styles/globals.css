@@ -360,6 +360,8 @@ table tr td span {
 .footer-card {
   border: 1px solid #fff;
   border-radius: 16px;
+  width: 250px;
+  text-align: center;
 }
 
 /* press releases mobile view */

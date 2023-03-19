@@ -11,7 +11,7 @@ import { useState } from "react";
 // import useAuth from "../../hook/useAuth";
 // import { useCart } from "react-use-cart";
 function PressReleasesBlog({ data }) {
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 12;
   // const router=useRouter()
   // console.log(router.pathname)
   const [currentPage, setCurrentPage] = useState(1);
@@ -315,7 +315,7 @@ function PressReleasesBlog({ data }) {
         </motion.div>
       </motion.div>
 
-      <Pagination className="d-flex justify-content-end">
+      <Pagination className="d-flex justify-content-end container mb-2">
         <Pagination.First onClick={() => handlePageChange(1)} />
         <Pagination.Prev
           onClick={() => handlePageChange(currentPage - 1)}
