@@ -315,7 +315,7 @@ function PressReleasesBlog({ data }) {
         </motion.div>
       </motion.div>
 
-      <Pagination className="d-flex justify-content-end container mb-2">
+      <Pagination className="d-flex justify-content-end container my-5">
         <Pagination.First onClick={() => handlePageChange(1)} />
         <Pagination.Prev
           onClick={() => handlePageChange(currentPage - 1)}
