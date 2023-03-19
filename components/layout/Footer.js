@@ -104,7 +104,7 @@ const Footer = () => {
   return (
     <Container fluid className="p-4 " style={{ backgroundColor: "#F3F3F3" }}>
       <Row>
-        <Col md={4} sm={12}>
+        <Col md={3} sm={12}>
           {/* <Row className='justify-center w-50'> */}
           <Image className="w-50" src="main-logo.png" alt="logo" />
           {/* </Row> */}
@@ -140,7 +140,7 @@ const Footer = () => {
             </a>
           </div>
         </Col>
-        <Col sm={12} md={2}>
+        <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
           <ul className="demo ">
             <li>
