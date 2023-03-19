@@ -116,7 +116,8 @@ const Footer = () => {
             {/* <Col sm={3} md={3}  > */}
             <a
               href="https://www.facebook.com/SultanTeaBangladesh"
-              target="_blank"
+               
+              target="_blank" rel="noopener noreferrer"
             >
               <FaFacebook size={25} />
             </a>
