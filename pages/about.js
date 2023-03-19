@@ -8,11 +8,9 @@ import NewsPress from "@/components/about/NewsPress";
 import ClientCompany from "@/components/about/ClientCompany";
 import RouteNavSlider from "@/components/common/RouteNavSlider";
 import HeroBanner from "@/components/common/Banner";
-// import SultanTeaLogo from "/public/logo-company-1.jpg";
-// import  TeaLogo from "/public/logo-company.jpg";
-// import  Company3 from "/public/logo-company-2.jpg";
-// import HeritageGP from "/public/logo-company-4.jpg";
-import CompanyTeaLogo from "/public/test-logo-company.jpg";
+import SultanTeaLogo from "/public/about-image-5.png";
+import TeaLogo from "/public/logo-company.jpg";
+import HeritageGP from "/public/heritage-gp.png";
 import Image from "next/image";
 
 // import { useRouter } from 'next/router'
@@ -30,25 +28,20 @@ function about() {
       <Overview3 />
       <Overview4 />
       <Achivements />
-{/* test */}
+      {/* test */}
       <ClientCompany />
       <div className="container mb-2">
-        <div className="d-flex  justify-content-between align-items-center ">
-        <div>
-            <Image src={CompanyTeaLogo} alt="ABOUT IMG" />
-          </div>
-          {/* <div>
+        <div className="d-flex  gap-5 justify-content-between align-items-center ">
+          <div className="w-75">
             <Image src={SultanTeaLogo} alt="ABOUT IMG" />
           </div>
-          <div>
+          <div className="w-100 ">
             <Image src={TeaLogo} alt="ABOUT IMG" />
           </div>
-          <div>
-            <Image src={Company3} alt="ABOUT IMG" />
-          </div>
-          <div>
+          <div className="w-75 ">
             <Image src={HeritageGP} alt="Heritage GROUP" />
-          </div> */}
+          </div>
+         
         </div>
       </div>
     </>

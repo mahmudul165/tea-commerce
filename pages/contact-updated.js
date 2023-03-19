@@ -1,20 +1,15 @@
 import HeroBanner from "@/components/common/Banner";
 import { MyButton } from "@/components/common/Buttons";
 import IconWithBackground from "@/components/common/IconWithBackground";
-import RouteNavSlider from "@/components/common/RouteNavSlider";
-import Banner from "@/components/home/banner/Banner";
 import OurOffices from "@/components/home/our-offices/OurOffices";
-import { Button, Card, Form } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
-
-
-import React, { useState } from "react";
-import axios from "axios";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import useAuth from "@/lib/hook/useAuth";
-
+import axios from "axios";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OurLocationCard = () => {
   return (
@@ -80,8 +75,8 @@ const ContactForm = () => {
         .post(`${apiUrl.apiRootUrl}/api/v1/contact`, formData)
         .then((response) => {
           console.log(response);
-          toast.success('Form submitted successfully!');
-        })    
+          toast.success("Form submitted successfully!");
+        })
         .catch((error) => {
           console.log(error);
           toast.error(error);
@@ -161,19 +156,19 @@ const ContactForm = () => {
         >
           SEND
         </MyButton> */}
-         <Button
-    type="submit"
-    size="lg"
-    className=" text-white px-5 cus-bg-primary"
-    // onClick={handleClick}
-  >
-    SEND
-  </Button>
+        <button
+          type="submit"
+          size="lg"
+          className=" text-white px-5 cus-bg-primary py-2 btn "
+          // onClick={handleClick}
+        >
+          SEND
+        </button>
       </Form>
     </>
   );
 };
- 
+
 function contact() {
   return (
     <>
