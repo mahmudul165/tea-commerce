@@ -43,10 +43,10 @@ import { Card, Row, Col, Image } from "react-bootstrap";
 const Achievements = () => {
   const achievement = {
     backgroundImage: "/public/New folder/achievement.jpg",
-    satisfiedClients: "100+",
-    expertTeam: "50+",
-    activeProduct: "20+",
-    awardWining: "10+",
+    satisfiedClients: "3000+",
+    expertTeam: "150+",
+    activeProduct: "30+",
+    awardWining: "200+",
   };
 
   return (
