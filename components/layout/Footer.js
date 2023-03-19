@@ -97,12 +97,14 @@ import React from "react";
 import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import { AiFillLinkedin } from "react-icons/ai";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FiPhoneCall } from "react-icons/fi";
+import { GiCandlestickPhone } from "react-icons/gi";
 
 const Footer = () => {
   return (
     <Container fluid className="p-4 " style={{ backgroundColor: "#F3F3F3" }}>
       <Row>
-        <Col md={3} sm={12}>
+        <Col md={4} sm={12}>
           {/* <Row className='justify-center w-50'> */}
           <Image className="w-50" src="main-logo.png" alt="logo" />
           {/* </Row> */}
@@ -116,8 +118,8 @@ const Footer = () => {
             {/* <Col sm={3} md={3}  > */}
             <a
               href="https://www.facebook.com/SultanTeaBangladesh"
-               
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaFacebook size={25} />
             </a>
@@ -138,34 +140,24 @@ const Footer = () => {
             </a>
           </div>
         </Col>
-        <Col sm={12} md={3}>
+        <Col sm={12} md={2}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
           <ul className="demo ">
-          <li>
-            <Link href="/about">
-            About Us
-            </Link>              
-            </li>
-            <li>       
-              <Link href="/shop">
-              Our Products
-              </Link>
-            </li>
-            
-            <li>           
-             <Link href="/press-releases">
-             Press Releases 
-              </Link>
+            <li>
+              <Link href="/about">About Us</Link>
             </li>
             <li>
-            <Link href="/carrier">
-             Carrier
-              </Link>
+              <Link href="/shop">Our Products</Link>
+            </li>
+
+            <li>
+              <Link href="/press-releases">Press Releases</Link>
             </li>
             <li>
-              <Link href="/contact-updated">
-                 Contact Us 
-              </Link>
+              <Link href="/carrier">Carrier</Link>
+            </li>
+            <li>
+              <Link href="/contact-updated">Contact Us</Link>
             </li>
             {/* <li>
               <a href="#">Our Services</a>
@@ -181,13 +173,25 @@ const Footer = () => {
             </li>
           </ul>
         </Col>
-        <Col sm={12} md={3}>
-          <h1 className="fs-5 fw-bold cus-color-secondary">Contact Us</h1>
-          <ul className="demo">
-                       <li>
-              <a href="#">Privacy Policy</a>
-            </li>
-          </ul>
+        <Col sm={12} md={3} className="text-center">
+          <h1 className="fs-5 fw-bold cus-color-secondary mb-2">Contact Us</h1>
+          <div className=" footer-card p-2 bg-success ">
+            <div className=" ">
+              <div className="bg-success">
+                <p className="text-white fs-4 py-3 fw-bold">Sultan Tea Care</p>
+              </div>
+              <div className="bg-success mt-2 ">
+                <div className="d-flex gap-2 justify-content-center  py-2 ">
+                  <FiPhoneCall size={35} className="text-warning" />
+                  <p className="fs-3 fw-bold text-white ">09612 112233</p>
+                </div>
+                <p className="text-white fs-6 fw-bold">Mobile: 01708 588 590</p>
+                <p className="text-white fs-6 fw-bold">
+                  Email: Sultan@heritagebd.com
+                </p>
+              </div>
+            </div>
+          </div>
         </Col>
         <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold mb-3 cus-color-secondary">
