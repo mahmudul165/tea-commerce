@@ -55,7 +55,7 @@ function BlogDetails({ data }) {
           alt="description"
         />
         <p className="cus-color-primary my-3 fs-2">{data.title}</p>
-        <p className="fs-5 text-justify cus-text-justify">{data.body}</p>
+        <p className="fs-4 text-justify cus-text-justify my-2 py-1">{data.body}</p>
       </Card>
     </Container>
     
