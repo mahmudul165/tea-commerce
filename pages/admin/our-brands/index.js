@@ -87,11 +87,11 @@ const AddBrandFrom = () => {
             <p className="text-danger">{errors.title.message}</p>
           )}
         </CustomFloatingLabel>
-        <CustomFloatingLabel labelName="body">
+        <CustomFloatingLabel labelName="Body">
           <Form.Control
             as="textarea"
-            className="py-5"
-            rows={5}
+            className="py-5 h-25"
+            rows={10}
             placeholder="Enter description..."
             {...register("body", {
               maxLength: {
