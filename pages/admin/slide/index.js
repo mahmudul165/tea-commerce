@@ -84,8 +84,8 @@ export const AddSlideFrom = () => {
                 {...register("title", {
                   required: "Please title is  required",
                   maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
+                    value: 100,
+                    message: "Input too large !, maximum length 100",
                   },
                 })}
               />
@@ -133,8 +133,8 @@ export const AddSlideFrom = () => {
                 placeholder="Enter description ?"
                 {...register("description", {
                   maxLength: {
-                    value: 250,
-                    message: "Input too large !, maximum length 250",
+                    value: 2200,
+                    message: "Input too large !, maximum length 2200",
                   },
                 })}
               />
@@ -161,7 +161,7 @@ export const AddSlideFrom = () => {
 function SlideHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: slide, isLoading, isError } = useSlideCollectionQuery();
-  const { deleteData,apiUrl } = useAuth();
+  const { deleteData, apiUrl } = useAuth();
   // console.log({ slide });
 
   return (

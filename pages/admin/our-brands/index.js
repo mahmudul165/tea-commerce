@@ -78,8 +78,8 @@ const AddBrandFrom = () => {
             {...register("title", {
               required: "Please title is  required",
               maxLength: {
-                value: 30,
-                message: "Input too large !, maximum length 30",
+                value: 100,
+                message: "Input too large !, maximum length 100",
               },
             })}
           />
@@ -95,8 +95,8 @@ const AddBrandFrom = () => {
             placeholder="Enter description..."
             {...register("body", {
               maxLength: {
-                value: 550,
-                message: "Input too large!, maximum length 550",
+                value: 2200,
+                message: "Input too large!, maximum length 2200",
               },
             })}
           />
