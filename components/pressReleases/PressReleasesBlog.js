@@ -161,8 +161,20 @@ function PressReleasesBlog({ data }) {
                     >
                       <RiCalendar2Line size={20} />
                       <p style={{ margin: "0 0 0 5px" }}>
-                        {" "}
-                        {product.date ? product.date : "March 1, 2023"}{" "}
+                        {product.date
+                          ? new Date(product.date).toLocaleDateString("en-US", {
+                              month: "long",
+                              day: "numeric",
+                              year: "numeric",
+                            })
+                          : new Date(product.createdAt).toLocaleDateString(
+                              "en-US",
+                              {
+                                month: "long",
+                                day: "numeric",
+                                year: "numeric",
+                              }
+                            )}
                       </p>
                     </div>
                     <div
