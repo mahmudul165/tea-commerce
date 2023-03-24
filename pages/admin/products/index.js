@@ -334,9 +334,9 @@ function ProductsHomePage() {
   const { deleteData, apiUrl } = useAuth();
   const [modalShow, setModalShow] = useState(false);
   const [modalShowTwo, setModalShowTwo] = useState(false);
-  const { data: products, isLoading, isError } = useProductCollectionQuery();
+  const { data: product, isLoading, isError } = useProductCollectionQuery();  
   const [productId, setProductId] = useState(null);
-
+  const products = product?.products.sort((a, b) => new Date(b.createdOn) - new Date(a.createdOn));
   console.log({ productId });
 
   return (
@@ -389,7 +389,7 @@ function ProductsHomePage() {
             )}
 
             {products &&
-              products.products.map((product, index) => (
+              products?.map((product, index) => (
                 <tr key={index}>
                   <td> {index + 1}</td>
                   <td> {dateFormat(product.createdOn)}</td>
