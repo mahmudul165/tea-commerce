@@ -79,7 +79,7 @@ function BusinessShowcase({ data }) {
                   className="card border-0 "
                 >
                   {/* {`blogs/${product.title}`} */}
-                  <Link href={`/our-business/${product._id}`} passHref>
+                  <Link href={`/our-brand/${product._id}`} passHref>
                     {product.image ? (
                       <motion.img
                         initial={{ x: 60, opacity: 0 }}
