@@ -24,7 +24,7 @@ const OurbusinessShowcase = dynamic(
 // };
 export const getStaticProps = async () => {
   const res = await fetch(
-    "https://crabby-pocketbook-eel.cyclic.app/api/v1/business"
+    "https://crabby-pocketbook-eel.cyclic.app/api/v1/brand"
   );
   const data = await res.json();
   return {
