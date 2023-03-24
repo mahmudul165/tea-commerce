@@ -202,22 +202,15 @@ function PressReleasesBlog({ data }) {
                   </div>
 
                   {/* end  */}
-                  <div className="px-2 m-2">
-                    {/* <button
-                      type="button "
-                      className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4 "
-                      href={`/press-releases/${product._id}`}
-                      // onClick={() => addItem(product)}
-                    >
-                      Read More
-                    </button> */}
+                  <div>
                     <Link
-                      href={`/press-releases/${product._id}`}
-                      className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
+                      href={`/press-releases/${product?._id}`}
+                      className="px-2 m-2 btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
                     >
                       Read More
                     </Link>
                   </div>
+
                   {/* </div> */}
                 </motion.div>
               </div>
