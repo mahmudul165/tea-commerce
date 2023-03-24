@@ -10,6 +10,7 @@ import {
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
 import { FaRegUserCircle, FaUsers } from "react-icons/fa";
 import { FiTarget } from "react-icons/fi";
+import { GiTeapotLeaves } from "react-icons/gi";
 import { MdOutlineBusiness, MdOutlineUpdate } from "react-icons/md";
 import { RiContactsBookLine, RiGalleryFill } from "react-icons/ri";
 import styled from "styled-components";
@@ -224,6 +225,13 @@ const Sidebar = () => {
             <Link href="/admin/business">
               <SidebarNavLink className="nav-link">
                 <MdOutlineBusiness /> Business
+              </SidebarNavLink>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="/admin/our-brands">
+              <SidebarNavLink className="nav-link">
+                <GiTeapotLeaves size={20} /> Our Brands
               </SidebarNavLink>
             </Link>
           </li>
