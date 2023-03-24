@@ -81,15 +81,16 @@ function BusinessShowcase({ data }) {
                   {/* {`blogs/${product.title}`} */}
                   <Link href={`/our-brand/${product._id}`} passHref>
                     {product.image ? (
-                    <motion.img
-                    initial={{ x: 60, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    src={product.image}
-                    alt="E-COMMERCE  products"
-                    className="card card-img-top p-2"
-                    style={{ width: "336px", height: "230px" }}
-                  />
+                   <motion.img
+                   initial={{ x: 60, opacity: 0 }}
+                   animate={{ x: 0, opacity: 1 }}
+                   transition={{ delay: 0.2 }}
+                   src={product.image}
+                   alt="E-COMMERCE  products"
+                   className="card card-img-top p-2"
+                   style={{ width: "336px", height: "230px" }}
+                 />
+                 
                   
                     ) : (
                       <motion.img

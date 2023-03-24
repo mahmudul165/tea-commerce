@@ -45,25 +45,20 @@ function BlogDetails({ data }) {
     <div className="   ">
       <HeroBanner name="Our Brand" />
       {data ? (
-        <Container className="container my-4">
-          <Card className="border-0  p-2">
-            {/* <Image
-  src="/image.jpg"
-  alt="description"
-  width={500}
-  height={500}
-/> */}
-            <Card.Img
-              className="h-50"
-              variant="top"
-              // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
-              src={data.image}
-            />
-            <p className="cus-color-primary my-3 fs-2  ">{data.title}</p>
-
-            <p className=" fs-5 text-justify cus-text-justify ">{data.body}</p>
-          </Card>
-        </Container>
+      <Container className="container my-4">
+      <Card className="border-0 p-2">
+        <Card.Img          
+          variant="top"
+          src={data.image}
+          className="img-fluid"
+          // style={{ width: "950px", height: "400px", objectFit: "cover" }}
+          alt="description"
+        />
+        <p className="cus-color-primary my-3 fs-2">{data.title}</p>
+        <p className="fs-5 text-justify cus-text-justify">{data.body}</p>
+      </Card>
+    </Container>
+    
       ) : (
         <div className="row    text-center my-2 py-3 ">
           <div className="col-sm-12 col-md-3 pe-2  ">
