@@ -43,7 +43,7 @@ export const getStaticProps = async ({ params }) => {
 function BlogDetails({ data }) {
   return (
     <div className="   ">
-      <HeroBanner name="Our Business" />
+      <HeroBanner name="Our Brand" />
       {data ? (
         <Container className="container my-4">
           <Card className="border-0  p-2">

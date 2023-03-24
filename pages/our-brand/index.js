@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
 function OurBusiness({ data }) {
   return (
     <>
-      <HeroBanner name="Our Business" />
+      <HeroBanner name="Our Brand" />
 
       <OurbusinessShowcase data={data} />
     </>
