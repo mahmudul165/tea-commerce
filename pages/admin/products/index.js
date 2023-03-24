@@ -306,8 +306,8 @@ export const AddProductFrom = () => {
             placeholder="Enter description ?"
             {...register("description", {
               maxLength: {
-                value: 250,
-                message: "Input too large !, maximum length 250",
+                value: 2200,
+                message: "Input too large !, maximum length 2200",
               },
             })}
           />

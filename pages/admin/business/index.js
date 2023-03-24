@@ -22,7 +22,6 @@ import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 
 const submitHandler = async (data) => {
-  
   console.log({ data });
   try {
     await axios.post(
@@ -81,8 +80,8 @@ const AddBusinessFrom = () => {
             {...register("title", {
               required: "Please title is  required",
               maxLength: {
-                value: 30,
-                message: "Input too large !, maximum length 30",
+                value: 100,
+                message: "Input too large !, maximum length 100",
               },
             })}
           />
@@ -98,8 +97,8 @@ const AddBusinessFrom = () => {
             placeholder="Enter description..."
             {...register("body", {
               maxLength: {
-                value: 550,
-                message: "Input too large!, maximum length 550",
+                value: 2200,
+                message: "Input too large!, maximum length 2200",
               },
             })}
           />
@@ -122,8 +121,8 @@ const AddBusinessFrom = () => {
 function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: business, isLoading, isError } = useBuninessCollectionQuery();
-  const { deleteData ,apiUrl } = useAuth();
-  
+  const { deleteData, apiUrl } = useAuth();
+
   // console.log({ business });
 
   return (
