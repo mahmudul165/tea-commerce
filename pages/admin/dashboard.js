@@ -17,7 +17,7 @@ import CustomTable, {
   UsersTableTH,
 } from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
-import { MdOutlineUpdate } from "react-icons/md";
+import { MdOutlineUpdate, MdTipsAndUpdates } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
 import {
   useBrandsCollectionQuery,
@@ -26,6 +26,7 @@ import {
   useContactCollectionQuery,
   useGalleryCollectionQuery,
   useOrderCollectionQuery,
+  usePressCollectionQuery,
   useProductCollectionQuery,
   useSlideCollectionQuery,
   useUserCollectionQuery,
@@ -122,6 +123,10 @@ const DashboardPage = () => {
     staleTime: 300000,
   });
   const { data: ourBrandsQuery } = useBrandsCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: press } = usePressCollectionQuery({
     cacheTime: 60,
     staleTime: 300000,
   });
@@ -227,6 +232,12 @@ const DashboardPage = () => {
             path="our-brands"
             number={ourBrandsQuery?.length || 0}
             icon={<GiTeapotLeaves size={24} />}
+          />
+          <NewCard
+            name="Press Releases"
+            path="press"
+            number={press?.length || 0}
+            icon={<MdTipsAndUpdates size={24} />}
           />
         </section>
 
