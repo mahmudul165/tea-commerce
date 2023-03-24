@@ -80,12 +80,12 @@ function PressReleasesBlog({ data }) {
                 >
                   {/* {`blogs/${product.title}`} */}
                   <Link href={`/press-releases/${product._id}`} passHref>
-                    {product.image_one ? (
+                    {product.image ? (
                       <motion.img
                         initial={{ x: 60, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        src={product.image_one}
+                        src={product.image}
                         alt="E-COMMERCE  products"
                         className="card-img-top  p-2 "
                         width={336}
