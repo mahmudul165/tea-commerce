@@ -136,8 +136,8 @@ function PressReleasesBlog({ data }) {
                       //   border: 0,
                       // }}
                     >
-                     
-                     {product.body?.slice(0, 300)}{product.body?.length > 300 && "......"}
+                      {product.body?.slice(0, 300)}
+                      {product.body?.length > 300 && "......"}
                     </p>
                   </div>
                   {/* test button */}
@@ -160,7 +160,10 @@ function PressReleasesBlog({ data }) {
                       }}
                     >
                       <RiCalendar2Line size={20} />
-                      <p style={{ margin: "0 0 0 5px" }}> {product.date ? product.date: 'March 1, 2023'} </p>
+                      <p style={{ margin: "0 0 0 5px" }}>
+                        {" "}
+                        {product.date ? product.date : "March 1, 2023"}{" "}
+                      </p>
                     </div>
                     <div
                       style={{
@@ -188,14 +191,20 @@ function PressReleasesBlog({ data }) {
 
                   {/* end  */}
                   <div className="px-2 m-2">
-                    <button
+                    {/* <button
                       type="button "
                       className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4 "
-
+                      href={`/press-releases/${product._id}`}
                       // onClick={() => addItem(product)}
                     >
                       Read More
-                    </button>
+                    </button> */}
+                    <Link
+                      href={`/press-releases/${product._id}`}
+                      className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
+                    >
+                      Read More
+                    </Link>
                   </div>
                   {/* </div> */}
                 </motion.div>
