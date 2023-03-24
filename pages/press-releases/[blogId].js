@@ -56,7 +56,7 @@ function BlogDetails({ data }) {
           <Card className="border-0 p-2">
             <Card.Img          
               variant="top"
-              src={data.image}
+              src={data?.image}
               className="img-fluid"
               // style={{ width: "950px", height: "400px", objectFit: "cover" }}
               alt="description"

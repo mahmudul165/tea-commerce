@@ -204,7 +204,7 @@ const Footer = () => {
           <div className={isMobile ? "" : "mx-5"}>
             <video controls width="640" height="160">
               <source
-                src="https://drive.google.com/file/d/1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u/view?usp=share_link"
+                src="https://rr3---sn-npoldn7l.c.drive.google.com/videoplayback?expire=1679671963&ei=W4odZLZxgofpArXZvMgC&ip=103.184.95.2&cp=QVRMQUdfUFlURFhPOmRNdEVyR1BZbTVEa3FXT3FOb3lXTkZsLWlNTG9vWFppNVdvTk9IclZCb0I&id=24c32af313bdc0d2&itag=18&source=webdrive&requiressl=yes&sc=yes&ttl=transient&susc=dr&driveid=1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=92.856&lmt=1679264296440056&subapp=DRIVE_WEB_FILE_VIEWER&txp=0011224&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgVEPcK_B4XJJdX0ItHczYc3H_XNE0gT1ZBlYQh68gzPECIQDUsuY-KmvmDaT0qmI8p1WhyA9ujTSF11JAmo__lOOGoQ==&cpn=122k4wNQ4tXj0Ach&c=WEB_EMBEDDED_PLAYER&cver=1.20230321.00.00&redirect_counter=1&cm2rm=sn-qxals7s&fexp=24424482,24487976&req_id=5028b51840bfa3ee&cms_redirect=yes&cmsv=e&mh=92&mip=103.184.95.7&mm=34&mn=sn-npoldn7l&ms=ltu&mt=1679657337&mv=m&mvi=3&pl=24&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl,sc&lsig=AG3C_xAwRAIgc_cxt04Vm1Badc0dybU0o5WYtrI5iIA3PElSi0QQsxUCIC3CllwqyZRN-r42oI2mN2ThP6Rxp5eoFeXf1cdr2oHt"
                 type="video/mp4"
               />
               Your browser does not support the video tag.

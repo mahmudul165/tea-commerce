@@ -80,12 +80,12 @@ function PressReleasesBlog({ data }) {
                 >
                   {/* {`blogs/${product.title}`} */}
                   <Link href={`/press-releases/${product._id}`} passHref>
-                    {product.image_one ? (
+                    {product.image ? (
                       <motion.img
                         initial={{ x: 60, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        src={product.image_one}
+                        src={product.image}
                         alt="E-COMMERCE  products"
                         className="card-img-top  p-2 "
                         width={336}
@@ -202,22 +202,15 @@ function PressReleasesBlog({ data }) {
                   </div>
 
                   {/* end  */}
-                  <div className="px-2 m-2">
-                    {/* <button
-                      type="button "
-                      className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4 "
-                      href={`/press-releases/${product._id}`}
-                      // onClick={() => addItem(product)}
-                    >
-                      Read More
-                    </button> */}
+                  <div>
                     <Link
-                      href={`/press-releases/${product._id}`}
-                      className="btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
+                      href={`/press-releases/${product?._id}`}
+                      className="px-2 m-2 btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
                     >
                       Read More
                     </Link>
                   </div>
+
                   {/* </div> */}
                 </motion.div>
               </div>
