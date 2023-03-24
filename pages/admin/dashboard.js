@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import { BsCardChecklist, BsCartCheck, BsSliders } from "react-icons/bs";
 import { FcShipped } from "react-icons/fc";
-import { GiCancel } from "react-icons/gi";
+import { GiCancel, GiTeapotLeaves } from "react-icons/gi";
 
 import { FaUsers } from "react-icons/fa";
 import { FiEdit, FiTarget } from "react-icons/fi";
@@ -20,6 +20,7 @@ import { RiGalleryFill } from "react-icons/ri";
 import { MdOutlineUpdate } from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
 import {
+  useBrandsCollectionQuery,
   useBuninessCollectionQuery,
   useCarrierCollectionQuery,
   useContactCollectionQuery,
@@ -120,6 +121,10 @@ const DashboardPage = () => {
     cacheTime: 60,
     staleTime: 300000,
   });
+  const { data: ourBrandsQuery } = useBrandsCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
 
   // Calculate total sales, total number of items, and total number of unique items for delivered orders only
   let totalSales = 0;
@@ -216,6 +221,12 @@ const DashboardPage = () => {
             path="contact"
             number={contactQuery?.length || 0}
             icon={<FaUsers size={24} />}
+          />
+          <NewCard
+            name="Our Brands"
+            path="our-brands"
+            number={ourBrandsQuery?.length || 0}
+            icon={<GiTeapotLeaves size={24} />}
           />
         </section>
 
