@@ -54,19 +54,13 @@ function BlogDetails({ data }) {
       {data ? (
         <Container className="container my-4">
           <Card className="border-0  p-2">
-            {/* <Image
-  src="/image.jpg"
-  alt="description"
-  width={500}
-  height={500}
-/> */}
-            <Card.Img
+                        <Card.Img
               className="h-50"
               variant="top"
               // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
               src={data.image}
             />
-            <p className="cus-color-primary my-3 fs-4  ">{data.title}</p>
+            <p className="cus-color-primary my-3 fs-2 py-1  ">{data.title}</p>
 
             <p className="  text-justify cus-text-justify ">{data.body}</p>
           </Card>

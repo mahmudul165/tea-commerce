@@ -54,7 +54,7 @@ function BlogDetails({ data }) {
           // style={{ width: "950px", height: "400px", objectFit: "cover" }}
           alt="description"
         />
-        <p className="cus-color-primary my-3 fs-1">{data.title}</p>
+        <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
         <p className="fs-4 text-justify cus-text-justify my-2 py-1">{data.body}</p>
       </Card>
     </Container>

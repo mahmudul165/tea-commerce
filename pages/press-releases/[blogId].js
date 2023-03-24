@@ -18,11 +18,11 @@ import DemoImg from "public/press-release-one.png";
 import Image from "next/image";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://crabby-pocketbook-eel.cyclic.app/api/v1/press");
   const data = await res.json();
   const paths = await data.map((post) => {
     return {
-      params: { blogId: post?.id.toString() },
+      params: { blogId: post?._id.toString() },
     };
   });
   return {
@@ -33,7 +33,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.blogId}`
+    `https://crabby-pocketbook-eel.cyclic.app/api/v1/press/${params.blogId}`
   );
   // console.log(res);
   const data = await res.json();
@@ -52,86 +52,19 @@ function BlogDetails({ data }) {
       <HeroBanner name="Press Releases" />
       <div className="container   ">
         {data ? (
-          <Container className="m-3 ">
-            {/* <Card className="border-0  p-5">
-              <Card.Img
-                className="h-50"
-                variant="top"
-                src="https://i.ibb.co/vdh8Mbv/Rectangle-1522.png"
-              />
-
-              <Card.Title className="py-3 fs-3  fw-bolder ">
-                {data.title}
-              </Card.Title>
-              <Card.Text className="fs-5  ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-              </Card.Text>
-            </Card> */}
-
-            <div>
-              <Image src={DemoImg} alt="IMG" />
-            </div>
-            <div>
-              <p className="cus-color-primary my-3 fs-4  ">{data.title}</p>
-              <p className="text-justify cus-text-justify ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it
-                to make a type specimen book. It has survived not only five
-                centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s
-                with the release of Letraset sheets containing Lorem Ipsum
-                passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-              </p>
-            </div>
-          </Container>
+          <Container className="container my-4">
+          <Card className="border-0 p-2">
+            <Card.Img          
+              variant="top"
+              src={data.image}
+              className="img-fluid"
+              // style={{ width: "950px", height: "400px", objectFit: "cover" }}
+              alt="description"
+            />
+            <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
+            <p className="fs-4 text-justify cus-text-justify my-2 py-1">{data.body}</p>
+          </Card>
+        </Container>
         ) : (
           <div className="row    text-center my-2 py-3 ">
             <div className="col-sm-12 col-md-3 pe-2  ">

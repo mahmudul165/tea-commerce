@@ -79,7 +79,7 @@ function PressReleasesBlog({ data }) {
                   className="card border-0 "
                 >
                   {/* {`blogs/${product.title}`} */}
-                  <Link href={`/press-releases/${product.id}`} passHref>
+                  <Link href={`/press-releases/${product._id}`} passHref>
                     {product.image_one ? (
                       <motion.img
                         initial={{ x: 60, opacity: 0 }}
@@ -136,7 +136,8 @@ function PressReleasesBlog({ data }) {
                       //   border: 0,
                       // }}
                     >
-                      {product.body}
+                     
+                     {product.body?.slice(0, 300)}{product.body?.length > 300 && "......"}
                     </p>
                   </div>
                   {/* test button */}
@@ -159,7 +160,7 @@ function PressReleasesBlog({ data }) {
                       }}
                     >
                       <RiCalendar2Line size={20} />
-                      <p style={{ margin: "0 0 0 5px" }}>March 1, 2023</p>
+                      <p style={{ margin: "0 0 0 5px" }}> {product.date ? product.date: 'March 1, 2023'} </p>
                     </div>
                     <div
                       style={{
@@ -172,7 +173,7 @@ function PressReleasesBlog({ data }) {
                       <RiImageLine size={20} />
                       <p style={{ margin: "0 0 0 5px" }}>Slide 1 of 5</p>
                     </div>
-                    <div
+                    {/* <div
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -182,7 +183,7 @@ function PressReleasesBlog({ data }) {
                     >
                       <RiChat1Line size={20} />
                       <p style={{ margin: "0 0 0 5px" }}>12 Comments</p>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* end  */}

@@ -188,7 +188,7 @@ function OurBrandHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.brands}/${el?._id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.brand}/${el?._id}`
                           )
                         }
                       >
