@@ -125,7 +125,7 @@ function BusinessShowcase({ data }) {
                       initial={{ opacity: 0 }}
                       className="title"
                     >
-                      <h3 className="my-1 py-1 fs-5 fw-bold cus-color-primary">
+                      <h3 className="my-1 py-1 fs-3 fw-bold cus-color-primary">
                         {product.title}
                       </h3>{" "}
                     </motion.div>
@@ -136,7 +136,7 @@ function BusinessShowcase({ data }) {
                       //   border: 0,
                       // }}
                     >
-                      {product.body?.slice(0, 100)}
+                      {product.body?.slice(0, 50)}
                     </p>
                   </div>
                   {/* test button */}
