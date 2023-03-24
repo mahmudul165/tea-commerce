@@ -48,6 +48,7 @@ export const CarrierTableTH = [
 export const UsersTableTH = ["SL", "Created", "User Name", "Actions"];
 export const BusinessTableTH = ["SL", "Title", "Images", "Body", "Actions"];
 export const OurBrandsTableTH = ["SL", "Title", "Images", "Body", "Actions"];
+export const PressTableTH = ["SL", "Title", "Images", "Body", "Actions"];
 export const ContactsTableTH = [
   "SL",
   "Name",
