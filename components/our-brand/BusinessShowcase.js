@@ -68,10 +68,10 @@ function BusinessShowcase({ data }) {
         className="container my-4 p-3 bg-light"
         // style={{ backgroundColor: "#ffddde" }}
       >
-        <motion.div variants={stagger} className="row     my-2  p-2 ">
+        <motion.div variants={stagger} className="row    my-2  p-2 ">
           {currentItems ? (
             currentItems.map((product) => (
-              <div key={product.id} className="col-sm-12 col-md-4  my-2 py-1">
+              <div key={product.id} className="  col-sm-12 col-md-4  my-2 py-1">
                 <motion.div
                   variants={fadeInUp}
                   whileHover={{ scale: 1.05 }}
@@ -81,17 +81,16 @@ function BusinessShowcase({ data }) {
                   {/* {`blogs/${product.title}`} */}
                   <Link href={`/our-brand/${product._id}`} passHref>
                     {product.image ? (
-                      <motion.img
-                        initial={{ x: 60, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 0.2 }}
-                        src={product.image}
-                        alt="E-COMMERCE  products"
-                        className="card-img-top  p-2 "
-                        width={336}
-                        height={230}
-                        layout="responsive"
-                      />
+                    <motion.img
+                    initial={{ x: 60, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    src={product.image}
+                    alt="E-COMMERCE  products"
+                    className="card card-img-top p-2"
+                    style={{ width: "336px", height: "230px" }}
+                  />
+                  
                     ) : (
                       <motion.img
                         initial={{ x: 60, opacity: 0 }}

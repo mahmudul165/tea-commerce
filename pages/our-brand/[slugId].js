@@ -59,9 +59,9 @@ function BlogDetails({ data }) {
               // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
               src={data.image}
             />
-            <p className="cus-color-primary my-3 fs-4  ">{data.title}</p>
+            <p className="cus-color-primary my-3 fs-2  ">{data.title}</p>
 
-            <p className="  text-justify cus-text-justify ">{data.body}</p>
+            <p className=" fs-5 text-justify cus-text-justify ">{data.body}</p>
           </Card>
         </Container>
       ) : (
