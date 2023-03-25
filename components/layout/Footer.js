@@ -202,13 +202,7 @@ const Footer = () => {
             Promotional Video
           </h1>
           <div className={isMobile ? "" : "mx-5"}>
-            <video controls width="640" height="160">
-              <source
-                src="https://rr1---sn-qxaelner.c.drive.google.com/videoplayback?expire=1679698641&ei=kfIdZPn5Hrr0-LYPwtad6Aw&ip=103.184.95.2&cp=QVRMQUdfV1ZSQlhPOmRNdkxvRU5ZbTVEa3NETG9Mb3lXTkZuLWZLSm9vWFppN0RsTE1IclZCb0Q&id=24c32af313bdc0d2&itag=18&source=webdrive&requiressl=yes&mh=92&mm=32&mn=sn-qxaelner&ms=su&mv=m&mvi=1&pl=24&sc=yes&ttl=transient&susc=dr&driveid=1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=92.856&lmt=1679264296440056&mt=1679683748&subapp=DRIVE_WEB_FILE_VIEWER&txp=0011224&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgIlRejdJzHnCImtgQLojhQjUR8nx3bv71uKtAGzCJA7sCIQCNHIER3ER8hNQc8f68R2jTnuO4CPxxmQa6AjlycgjO_w==&lsparams=mh,mm,mn,ms,mv,mvi,pl,sc&lsig=AG3C_xAwRAIgJ56Br5HxPZLl-GjcDMzyuYBHk8R1voA6cRNrkG8HJjECIB15KPDt1z8hejyg9w4z7QIo2pDp54MeTPvZCQ3ukB0B&cpn=d_u4e3BEB4-FMmFb&c=WEB_EMBEDDED_PLAYER&cver=1.20230321.00.00"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+            <iframe width="302" height="170" src="https://rr3---sn-qxaeenlk.c.drive.google.com/videoplayback?expire=1679739371&ei=q5EeZJSrJ7LT-LYPn4Wk2Ac&ip=103.184.95.2&cp=QVRMQUhfWFNVQlhPOm9OeElIVjc0eklRRFBubWhidzFhSFN0Q2xsTFR5T3R2VTdqZ3dwQXBNMG4&id=24c32af313bdc0d2&itag=18&source=webdrive&requiressl=yes&mh=92&mm=32&mn=sn-qxaeenlk&ms=su&mv=m&mvi=3&pl=24&ttl=transient&susc=dr&driveid=1mJKG19iSUsYS9Pjuj16C9fTKKV_Gkt7u&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=92.856&lmt=1679264296440056&mt=1679724546&subapp=DRIVE_WEB_FILE_VIEWER&txp=0011224&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIgP6Z_ckkN-sOd_mcHzNUFnO3Os2Hwc136oO1f77dFMicCIQDJ6s-h5Xy6oRkcegYGPdzDqXs0fe7SHYbMfg7S4bQ7GA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIgM1ZDTVqwzMpOht7anGB1qkiC7zn8meLTpd_Ds6NTrrgCIQDtlDX6zDCp9wxLZ8-P4mGRU5I3jcZdhsS5_w3_Lud0eA==&cpn=QkuMtfuSoroM2SzC&c=WEB_EMBEDDED_PLAYER&cver=1.20230321.00.00" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </Col>
       </Row>
