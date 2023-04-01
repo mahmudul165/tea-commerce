@@ -4,17 +4,22 @@ import CustomTable, {
   BusinessTableTH,
 } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
+import FetchData from "@/components/admin/common/FetchData";
 import {
   acceptPattern,
   CustomFloatingLabel,
 } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
+import SingleView from "@/components/admin/common/SingleView";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
-import { useBuninessCollectionQuery } from "@/lib/hook/useApi";
+import {
+  BUSINESS_ENDPOINT,
+  useBuninessCollectionQuery,
+} from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
@@ -118,8 +123,123 @@ const AddBusinessFrom = () => {
     </>
   );
 };
+const UpdateBusinessFrom = ({ updateId }) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    image: "",
+    body: "",
+  });
+
+  useEffect(() => {
+    if (updateId !== null) {
+      FetchData(updateId, BUSINESS_ENDPOINT, setFormData);
+    }
+  }, [updateId]);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const updateHandler = async () => {
+    try {
+      await axios.patch(`${BUSINESS_ENDPOINT}/${updateId}`, {
+        ...formData,
+      });
+      toast.success("Update successfully!");
+    } catch (err) {
+      toast.error(getError(err));
+    }
+  };
+
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm();
+  return (
+    <>
+      <div className="text-center  ele-center   mb-3  card border-0">
+        <img src={formData?.image} alt="Preview" width="280px" />
+      </div>
+      <Form onSubmit={handleSubmit(updateHandler)}>
+        <CustomFloatingLabel labelName="Past Image URL">
+          <Form.Control
+            type="text"
+            name="image"
+            value={formData.image}
+            placeholder="Past image URL ?"
+            {...register("image", {
+              pattern: {
+                value: acceptPattern,
+                message: "Invalid input ",
+              },
+
+              required: "Past Image URL",
+            })}
+            onChange={handleInputChange}
+            autoFocus
+          />
+          {errors.image && (
+            <p className="text-danger">{errors.image.message}</p>
+          )}
+        </CustomFloatingLabel>
+        <CustomFloatingLabel labelName="Title ">
+          <Form.Control
+            type="text"
+            placeholder="Enter slide title ?"
+            value={formData?.title}
+            {...register("title", {
+              required: "Please title is  required",
+              maxLength: {
+                value: 100,
+                message: "Input too large !, maximum length 100",
+              },
+            })}
+            onChange={handleInputChange}
+          />
+          {errors.title && (
+            <p className="text-danger">{errors.title.message}</p>
+          )}
+        </CustomFloatingLabel>
+        <CustomFloatingLabel labelName="Body">
+          <Form.Control
+            as="textarea"
+            className="py-5 h-25"
+            value={formData?.body}
+            rows={10}
+            placeholder="Enter description..."
+            {...register("body", {
+              maxLength: {
+                value: 2200,
+                message: "Input too large!, maximum length 2200",
+              },
+            })}
+            onChange={handleInputChange}
+          />
+
+          {errors.body && <p className="text-danger">{errors.body.message}</p>}
+        </CustomFloatingLabel>
+        <div className="ele-center ">
+          <MyButton
+            type="submit"
+            size="lg"
+            className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
+          >
+            Update Business
+          </MyButton>
+        </div>
+      </Form>
+    </>
+  );
+};
 function BusinessHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const [singleViewModal, setSingleViewModal] = useState(false);
+  const [updateFormModal, setUpdateFormModal] = useState(false);
+  const [getId, setId] = useState(null);
   const { data: business, isLoading, isError } = useBuninessCollectionQuery();
   const { deleteData, apiUrl } = useAuth();
 
@@ -133,6 +253,21 @@ function BusinessHomePage() {
         onHide={() => setModalShow(false)}
       >
         <AddBusinessFrom />
+      </CustomModal>
+
+      <SingleView
+        show={singleViewModal}
+        onHide={() => setSingleViewModal(false)}
+        getId={getId}
+        apiURL={BUSINESS_ENDPOINT}
+      />
+
+      <CustomModal
+        name="Update"
+        show={updateFormModal}
+        onHide={() => setUpdateFormModal(false)}
+      >
+        <UpdateBusinessFrom updateId={getId} />
       </CustomModal>
       <PageHeader
         name="Business"
@@ -183,10 +318,18 @@ function BusinessHomePage() {
 
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setSingleViewModal(true);
+                        }}
+                      >
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setUpdateFormModal(true);
+                        }}
+                      >
                         <FiEdit size={15} className="text-warning" />
                       </span>
                       <span
