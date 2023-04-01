@@ -4,18 +4,20 @@ import CustomTable, {
   SlideTableTH,
 } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
+import FetchData from "@/components/admin/common/FetchData";
 import { dateFormat } from "@/components/admin/common/Fomater";
 import {
   acceptPattern,
   CustomFloatingLabel,
 } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
+import SingleView from "@/components/admin/common/SingleView";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
-import { useSlideCollectionQuery } from "@/lib/hook/useApi";
+import { SLIDE_ENDPOINT, useSlideCollectionQuery } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
@@ -158,8 +160,167 @@ export const AddSlideFrom = () => {
     </>
   );
 };
+const UpdateSlideFrom = ({ updateId }) => {
+  const [formData, setFormData] = useState({
+    title: "",
+    image: "",
+    altText: "",
+    pathName: "",
+    description: "",
+  });
+
+  useEffect(() => {
+    if (updateId !== null) {
+      FetchData(updateId, SLIDE_ENDPOINT, setFormData);
+    }
+  }, [updateId]);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const updateHandler = async () => {
+    try {
+      await axios.patch(`${SLIDE_ENDPOINT}/${updateId}`, {
+        ...formData,
+      });
+      toast.success("Update successfully!");
+    } catch (err) {
+      toast.error(getError(err));
+    }
+  };
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm();
+  return (
+    <>
+      <div className="text-center  ele-center   mb-3  card border-0">
+        {<img src={formData?.image} alt="Preview" width="280px" />}
+      </div>
+      <Form method="POST" onSubmit={handleSubmit(updateHandler)}>
+        <CustomFloatingLabel labelName="Past Image URL">
+          <Form.Control
+            type="text"
+            name="image"
+            value={formData?.image}
+            autoFocus
+            placeholder="Past image URL ?"
+            {...register("image", {
+              pattern: {
+                value: acceptPattern,
+                message: "Invalid input ",
+              },
+
+              required: "Past Image URL",
+            })}
+            onChange={handleInputChange}
+          />
+          {errors.image && (
+            <p className="text-danger">{errors.image.message}</p>
+          )}
+        </CustomFloatingLabel>
+
+        <div className="row">
+          <div className="col-md-6">
+            <CustomFloatingLabel labelName="Title ">
+              <Form.Control
+                type="text"
+                placeholder="Enter slide title ?"
+                value={formData?.title}
+                {...register("title", {
+                  required: "Please title is  required",
+                  maxLength: {
+                    value: 100,
+                    message: "Input too large !, maximum length 100",
+                  },
+                })}
+                onChange={handleInputChange}
+              />
+              {errors.title && (
+                <p className="text-danger">{errors.title.message}</p>
+              )}
+            </CustomFloatingLabel>
+            <CustomFloatingLabel labelName="Path Name ">
+              <Form.Control
+                type="text"
+                placeholder="Enter path name?"
+                value={formData?.pathName}
+                {...register("pathName", {
+                  required: "Please path name required",
+                  maxLength: {
+                    value: 30,
+                    message: "Input too large !, maximum length 30",
+                  },
+                })}
+                onChange={handleInputChange}
+              />
+              {errors.pathName && (
+                <p className="text-danger">{errors.pathName.message}</p>
+              )}
+            </CustomFloatingLabel>
+          </div>
+          <div className="col-md-6">
+            <CustomFloatingLabel labelName="Alt Text ">
+              <Form.Control
+                type="text"
+                placeholder="Enter alt text ? "
+                value={formData?.altText}
+                {...register("altText", {
+                  maxLength: {
+                    value: 20,
+                    message: "Input too large !, maximum length 20",
+                  },
+                })}
+                onChange={handleInputChange}
+              />
+              {errors.altText && (
+                <p className="text-danger">{errors.altText.message}</p>
+              )}
+            </CustomFloatingLabel>
+
+            <CustomFloatingLabel labelName="Description">
+              <Form.Control
+                type="text"
+                placeholder="Enter description ?"
+                value={formData?.description}
+                {...register("description", {
+                  maxLength: {
+                    value: 2200,
+                    message: "Input too large !, maximum length 2200",
+                  },
+                })}
+                onChange={handleInputChange}
+              />
+              {errors.description && (
+                <p className="text-danger">{errors.description.message}</p>
+              )}
+            </CustomFloatingLabel>
+          </div>
+        </div>
+
+        <div className="ele-center ">
+          <MyButton
+            type="submit"
+            size="lg"
+            className=" text-white  bg-primary  mt-3 w-100"
+          >
+            Update Slide
+          </MyButton>
+        </div>
+      </Form>
+    </>
+  );
+};
 function SlideHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const [singleViewModal, setSingleViewModal] = useState(false);
+  const [updateFormModal, setUpdateFormModal] = useState(false);
+  const [getId, setId] = useState(null);
   const { data: slide, isLoading, isError } = useSlideCollectionQuery();
   const { deleteData, apiUrl } = useAuth();
   // console.log({ slide });
@@ -173,7 +334,19 @@ function SlideHomePage() {
       >
         <AddSlideFrom />
       </CustomModal>
-
+      <SingleView
+        show={singleViewModal}
+        onHide={() => setSingleViewModal(false)}
+        getId={getId}
+        apiURL={SLIDE_ENDPOINT}
+      />
+      <CustomModal
+        name="Update"
+        show={updateFormModal}
+        onHide={() => setUpdateFormModal(false)}
+      >
+        <UpdateSlideFrom updateId={getId} />
+      </CustomModal>
       <PageHeader
         name="Slide"
         btn={
@@ -222,10 +395,18 @@ function SlideHomePage() {
 
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setSingleViewModal(true);
+                        }}
+                      >
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setUpdateFormModal(true);
+                        }}
+                      >
                         <FiEdit size={15} className="text-warning" />
                       </span>
                       <span
