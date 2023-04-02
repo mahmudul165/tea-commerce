@@ -7,6 +7,15 @@ export const dateFormat = (dateTime) => {
 
   return getDate;
 };
+export const dateFormatDSC = (dateTime) => {
+  const today = new Date(dateTime);
+  const month = today.getMonth() + 1;
+  const year = today.getFullYear();
+  const day = today.getDate() < 10 ? `0${today.getDate()}` : today.getDate();
+  const getDate = `${year}-${month < 10 ? `0${month}` : month}-${day}`;
+
+  return getDate;
+};
 
 export const trackStatus = (status) => {
   switch (status) {
