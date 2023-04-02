@@ -1,9 +1,9 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
-import CustomTable, {
-  GalleryTableTH,
-} from "@/components/admin/common/CustomTable";
+import { GalleryTableTH } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
+import FetchData from "@/components/admin/common/FetchData";
+import { dateFormat } from "@/components/admin/common/Fomater";
 import {
   acceptPattern,
   CustomFloatingLabel,
@@ -11,22 +11,19 @@ import {
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
-import { useGalleryCollectionQuery } from "@/lib/hook/useApi";
+import { GALLERY_ENDPOINT, useGalleryCollectionQuery } from "@/lib/hook/useApi";
+import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
-import { useState } from "react";
-import { Card, Form, Row } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { toast, ToastContainer } from "react-toastify";
-import Skeleton from "react-loading-skeleton";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
-import { dateFormat } from "@/components/admin/common/Fomater";
-import useAuth from "@/lib/hook/useAuth";
+import { toast } from "react-toastify";
 
 const submitHandler = async (data) => {
   console.log({ data });
   const { url, category } = data;
-  console.log({ url, category });
   try {
     await axios.post(
       "https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery",
@@ -108,8 +105,104 @@ const AddGalleryFrom = () => {
     </>
   );
 };
+const UpdateGalleryFrom = ({ updateId }) => {
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    if (updateId !== null) {
+      FetchData(updateId, GALLERY_ENDPOINT, setFormData);
+      console.log("aaa", `${GALLERY_ENDPOINT}/${updateId}`);
+    }
+  }, [updateId]);
+
+  console.log({ formData });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log({ name, value });
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const updateHandler = async () => {
+    try {
+      await axios.patch(`${GALLERY_ENDPOINT}/${updateId}`, {
+        ...formData,
+      });
+      toast.success("Update successfully!");
+    } catch (err) {
+      toast.error(getError(err));
+    }
+  };
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    setValue,
+    formState: { errors },
+  } = useForm();
+
+  return (
+    <>
+      <div className="text-center  ele-center   mb-3  card border-0">
+        <img src={formData?.url} alt="Preview" width="280px" />
+      </div>
+      <Form method="POST" onSubmit={handleSubmit(updateHandler)}>
+        <CustomFloatingLabel labelName="Past Image URL">
+          <Form.Control
+            type="text"
+            placeholder="Image url "
+            value={formData?.url}
+            {...register("url", {
+              pattern: {
+                value: acceptPattern,
+                message: "Invalid input ",
+              },
+
+              required: "Past Image URL",
+            })}
+            onChange={handleInputChange}
+          />
+          {errors.url && <p className="text-danger">{errors.url.message}</p>}
+        </CustomFloatingLabel>
+        <p className="fw-bold fs-5">Category</p>
+
+        {["all", "garden", "factory", "office"].map((el) => (
+          <Form.Check
+            key={el}
+            // label={el}
+            label={el.charAt(0).toUpperCase() + el.slice(1)}
+            type="radio"
+            id={el}
+            value={el}
+            {...register("category", { required: "Checked input required" })}
+            // style={{textTransform: 'uppercase'}}
+            checked={el === formData?.category}
+            onChange={handleInputChange}
+          />
+        ))}
+        {errors.category && (
+          <p className="text-danger">{errors.category.message}</p>
+        )}
+        <div className="ele-center ">
+          <MyButton
+            type="submit"
+            size="lg"
+            className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
+          >
+            Update Gallery
+          </MyButton>
+        </div>
+      </Form>
+    </>
+  );
+};
 function GalleryHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const [updateFormModal, setUpdateFormModal] = useState(false);
+  const [getId, setId] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { deleteData, apiUrl } = useAuth();
   const { data: gallery, isLoading, isError } = useGalleryCollectionQuery();
@@ -128,6 +221,13 @@ function GalleryHomePage() {
         onHide={() => setModalShow(false)}
       >
         <AddGalleryFrom />
+      </CustomModal>
+      <CustomModal
+        name="Update"
+        show={updateFormModal}
+        onHide={() => setUpdateFormModal(false)}
+      >
+        <UpdateGalleryFrom updateId={getId} />
       </CustomModal>
       <PageHeader
         name="Gallery"
@@ -196,7 +296,11 @@ function GalleryHomePage() {
                       <span>
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(img.id), setUpdateFormModal(true);
+                        }}
+                      >
                         <FiEdit size={15} className="text-warning" />
                       </span>
                       <span
