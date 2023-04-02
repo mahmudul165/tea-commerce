@@ -15,7 +15,7 @@ import PrivateRoute from "@/components/PrivateRoute";
 import { PRODUCT_ENDPOINT, useProductCollectionQuery } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
@@ -332,49 +332,117 @@ export const AddProductFrom = () => {
 };
 
 const UpdateProductFrom = ({ updateId }) => {
-  const {
-    handleSubmit,
-    register,
-    getValues,
-    setValue,
-    formState: { errors },
-  } = useForm();
+  const [amount, setAmount] = useState("");
+  const [discountType, setDiscountType] = useState("");
+  const [promoCode, setPromoCode] = useState("");
+  const [expireDate, setExpireDate] = useState("");
+  const [stockStatus, setStockStatus] = useState("");
 
-  const [amount, setAmount] = useState("10");
+  const [imageUrlOne, setImageUrl] = useState("");
+  const [imageUrlTwo, setImageUrlTwo] = useState("");
+  const [imageUrlThree, setImageUrlThree] = useState("");
+  const [imageUrlOneAltText, setImageUrlAltText] = useState("");
+  const [imageUrlTwoAltText, setImageUrTwoAltText] = useState("");
+  const [imageUrlThreeAltText, setImageUrThreeAltText] = useState("");
+
+  //
 
   const [formData, setFormData] = useState({
     name: "",
+    category: "",
     discount: {
       amount: "",
       type: "",
     },
-    images: [],
+    images: [
+      {
+        url: imageUrlOne,
+        altText: imageUrlOneAltText,
+      },
+      {
+        url: imageUrlTwo,
+        altText: imageUrlTwoAltText,
+      },
+      {
+        url: imageUrlThree,
+        altText: imageUrlThreeAltText,
+      },
+    ],
     price: "",
-    promo: {},
+    promo: {
+      code: promoCode,
+      expiresAt: expireDate,
+    },
     stockStatus: "",
     description: "",
   });
+
   console.log({ formData });
+
+  const updateData = {
+    name: formData.name,
+    category: formData?.category,
+    discount: {
+      amount: amount,
+      type: discountType,
+    },
+    images: [
+      {
+        url: imageUrlOne,
+        altText: imageUrlOneAltText,
+      },
+      {
+        url: imageUrlTwo,
+        altText: imageUrlTwoAltText,
+      },
+      {
+        url: imageUrlThree,
+        altText: imageUrlThreeAltText,
+      },
+    ],
+    price: formData?.price,
+    promo: {
+      code: promoCode,
+      expiresAt: expireDate,
+    },
+    stockStatus: formData?.stockStatus,
+    description: formData?.description,
+  };
+
+  //console.log({ updateData });
 
   useEffect(() => {
     if (updateId !== null) {
       FetchData(updateId, PRODUCT_ENDPOINT, setFormData);
+      setAmount(formData?.discount.amount);
+      setDiscountType(formData?.discount.type);
+      setPromoCode(formData?.promo.code);
+      setExpireDate(formData?.promo.expiresAt);
+      setStockStatus(formData?.stockStatus);
+      setImageUrl(formData?.images[0]?.url);
+      setImageUrlTwo(formData?.images[1]?.url);
+      setImageUrlThree(formData?.images[1]?.url);
+
+      setImageUrlAltText(formData?.images[0]?.altText);
+      setImageUrTwoAltText(formData?.images[1]?.altText);
+      setImageUrThreeAltText(formData?.images[2]?.altText);
     }
-  }, [updateId]);
+  }, [updateId, formData?.discount.amount]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log({ name, value });
+    // console.log({ name, value });
 
     setFormData({
       ...formData,
       [name]: value,
     });
   };
-  const updateHandler = async () => {
+  const updateHandler = async (event) => {
+    event.preventDefault();
     try {
       await axios.patch(`${PRODUCT_ENDPOINT}/${updateId}`, {
-        ...formData,
+        ...updateData,
       });
       toast.success("Update successfully!");
     } catch (err) {
@@ -385,61 +453,52 @@ const UpdateProductFrom = ({ updateId }) => {
   return (
     <>
       <div className="  d-flex  justify-content-around gap-3 p-3 ">
-        {<img src={formData?.images?.[0]?.url} alt="Preview" width="120px" />}
-        {<img src={formData?.images?.[1]?.url} alt="Preview" width="120px" />}
-        {<img src={formData?.images?.[2]?.url} alt="Preview" width="120px" />}
+        {<img src={imageUrlOne} alt="Preview" width="120px" />}
+        {<img src={imageUrlTwo} alt="Preview" width="120px" />}
+        {<img src={imageUrlThree} alt="Preview" width="120px" />}
       </div>
-      <Form method="POST" onSubmit={handleSubmit(updateHandler)}>
+      <Form
+        method="POST"
+        onSubmit={(event) => {
+          updateHandler(event);
+        }}
+      >
         <div className="row">
           <div className="col-md-6">
             <CustomFloatingLabel labelName="Product Name ">
               <Form.Control
                 type="text"
+                name="name"
                 placeholder="Enter product name ?"
                 value={formData?.name}
-                {...register("name", {
-                  required: "Please name is  required",
-                  maxLength: {
-                    value: 50,
-                    message: "Input too large !, maximum length 50",
-                  },
-                })}
                 onChange={handleInputChange}
                 autoFocus
+                required
               />
-              {errors.name && (
-                <p className="text-danger">{errors.name.message}</p>
-              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Discount Amount ">
               <Form.Control
                 type="text"
+                name="amount"
                 placeholder="Enter slide discountAmount ?"
-                value={formData?.discount?.amount}
-                // value=""
-                {...register("discount[amount]", {
-                  required: "Please Discount amount is  required",
-                  maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
-                  },
-                })}
-                onChange={handleInputChange}
+                value={amount}
+                required
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                }}
               />
-              {errors.discountAmount && (
+              {/* {errors.discountAmount && (
                 <p className="text-danger">{errors.discountAmount.message}</p>
-              )}
+              )} */}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Discount Type ">
               <Form.Control
                 as="select"
-                value={formData?.discount?.type}
-                {...register("discount.type", {
-                  required: "Please select a Discount Type",
-                })}
-                onChange={handleInputChange}
+                value={discountType}
+                onChange={(e) => setDiscountType(e.target.value)}
+                required
               >
                 <option value="">Select Discount Type</option>
                 {["percentage", "fixed"].map((value, index) => (
@@ -448,18 +507,13 @@ const UpdateProductFrom = ({ updateId }) => {
                   </option>
                 ))}
               </Form.Control>
-              {errors.discount?.type && (
-                <p className="text-danger">{errors.discount.type.message}</p>
-              )}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Stock Status ">
               <Form.Control
                 as="select"
-                value={formData?.stockStatus}
-                {...register("stockStatus", {
-                  required: "Please select a Stock Status",
-                })}
-                onChange={handleInputChange}
+                value={stockStatus}
+                onChange={(e) => setStockStatus(e.target.value)}
+                required
               >
                 <option value="">Select Stock Status</option>
                 {["in_stock", "out_of_stock", "limited"].map((value, index) => (
@@ -468,9 +522,6 @@ const UpdateProductFrom = ({ updateId }) => {
                   </option>
                 ))}
               </Form.Control>
-              {errors.stockStatus && (
-                <p className="text-danger">{errors.stockStatus.message}</p>
-              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Past Image URL One">
@@ -478,34 +529,19 @@ const UpdateProductFrom = ({ updateId }) => {
                 type="text"
                 name="imageURLOne"
                 placeholder="Image url "
-                value={formData?.images[0]?.url}
-                {...register("images[0][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
-
-                  required: "Past Image URL",
-                })}
-                onChange={handleInputChange}
+                value={imageUrlOne}
+                onChange={(e) => setImageUrl(e.target.value)}
+                required
               />
-              {errors.imageURLOne && (
-                <p className="text-danger">{errors.imageURLOne.message}</p>
-              )}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Past Image URL Two">
               <Form.Control
                 type="text"
                 name="imageURLTwo"
                 placeholder="Image url "
-                value={formData?.images[1]?.url}
-                {...register("images[1][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
-                })}
-                onChange={handleInputChange}
+                value={imageUrlTwo}
+                onChange={(e) => setImageUrlTwo(e.target.value)}
+                required
               />
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Past Image URL Three">
@@ -513,14 +549,9 @@ const UpdateProductFrom = ({ updateId }) => {
                 type="text"
                 name="imageURLThree"
                 placeholder="Image url "
-                value={formData?.images[2]?.url}
-                {...register("images[2][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
-                })}
-                onChange={handleInputChange}
+                value={imageUrlThree}
+                onChange={(e) => setImageUrlThree(e.target.value)}
+                required
               />
             </CustomFloatingLabel>
           </div>
@@ -528,113 +559,76 @@ const UpdateProductFrom = ({ updateId }) => {
             <CustomFloatingLabel labelName="Category ">
               <Form.Control
                 type="text"
+                name="category"
                 placeholder="Enter  category ?"
                 value={formData?.category}
-                {...register("category", {
-                  required: "Please category is  required",
-                  maxLength: {
-                    value: 50,
-                    message: "Input too large !, maximum length 50",
-                  },
-                })}
                 onChange={handleInputChange}
+                required
               />
-              {errors.category && (
-                <p className="text-danger">{errors.category.message}</p>
-              )}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Price ">
               <Form.Control
                 type="text"
+                name="price"
                 placeholder="Enter  price ?"
                 value={formData?.price}
-                {...register("price", {
-                  required: "Please price is  required",
-                  maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
-                  },
-                })}
                 onChange={handleInputChange}
+                required
               />
-              {errors.price && (
-                <p className="text-danger">{errors.price.message}</p>
-              )}
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Promo Code ">
               <Form.Control
                 type="text"
+                name="code"
                 placeholder="Enter slide promo code ?"
-                value={formData?.promo.code}
-                {...register("promo[code]", {
-                  required: "Please promo code is  required",
-                  maxLength: {
-                    value: 50,
-                    message: "Input too large !, maximum length 50",
-                  },
-                })}
-                onChange={handleInputChange}
+                value={promoCode}
+                onChange={(e) => {
+                  setPromoCode(e.target.value);
+                }}
+                required
               />
-              {errors.promoCode && (
-                <p className="text-danger">{errors.promoCode.message}</p>
-              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Promo Expire Date ">
               <Form.Control
                 type="date"
+                name="expiresAt"
                 placeholder="Enter slide promo expire date ?"
-                value={dateFormatDSC(formData?.promo?.expiresAt)}
+                value={dateFormatDSC(expireDate)}
                 // value="2023-04-02"
-                {...register("promo[expiresAt]", {
-                  required: "Please promoExpireAt is  required",
-                  maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
-                  },
-                })}
-                onChange={handleInputChange}
+
+                onChange={(e) => {
+                  setExpireDate(e.target.value);
+                }}
               />
-              {errors.promoExpireAt && (
-                <p className="text-danger">{errors.promoExpireAt.message}</p>
-              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Image Alt Text One ">
               <Form.Control
                 type="text"
                 placeholder="Enter alt text  ?"
-                value={formData?.images[0]?.altText}
-                {...register("images[0][altText]", {
-                  required: "Please alt text is  required",
-                  maxLength: {
-                    value: 50,
-                    message: "Input too large !, maximum length 50",
-                  },
-                })}
-                onChange={handleInputChange}
+                value={imageUrlOneAltText}
+                onChange={(e) => setImageUrlAltText(e.target.value)}
+                required
               />
-              {errors.imageAltTextOne && (
-                <p className="text-danger">{errors.imageAltTextOne.message}</p>
-              )}
             </CustomFloatingLabel>
 
             <CustomFloatingLabel labelName="Image Alt Text Two ">
               <Form.Control
                 type="text"
                 placeholder="Enter alt text   ?"
-                value={formData?.images[1]?.altText}
-                {...register("images[1][altText]", {})}
-                onChange={handleInputChange}
+                value={imageUrlTwoAltText}
+                onChange={(e) => setImageUrTwoAltText(e.target.value)}
+                required
               />
             </CustomFloatingLabel>
             <CustomFloatingLabel labelName="Image Alt Text Three ">
               <Form.Control
                 type="text"
                 placeholder="Enter alt text   ?"
-                value={formData?.images[2]?.altText}
-                {...register("images[2][altText]", {})}
-                onChange={handleInputChange}
+                value={imageUrlThreeAltText}
+                onChange={(e) => setImageUrThreeAltText(e.target.value)}
+                required
               />
             </CustomFloatingLabel>
           </div>
@@ -643,19 +637,12 @@ const UpdateProductFrom = ({ updateId }) => {
         <CustomFloatingLabel labelName="Description">
           <Form.Control
             type="text"
+            name="description"
             placeholder="Enter description ?"
             value={formData?.description}
-            {...register("description", {
-              maxLength: {
-                value: 2200,
-                message: "Input too large !, maximum length 2200",
-              },
-            })}
             onChange={handleInputChange}
+            required
           />
-          {errors.description && (
-            <p className="text-danger">{errors.description.message}</p>
-          )}
         </CustomFloatingLabel>
 
         <div className="ele-center ">
