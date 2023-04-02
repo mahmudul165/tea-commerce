@@ -4,14 +4,15 @@ import CustomTable, {
   CarrierTableTH,
 } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
+import FetchData from "@/components/admin/common/FetchData";
 import { CustomFloatingLabel } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
-import { useCarrierCollectionQuery } from "@/lib/hook/useApi";
+import { CARRIER_ENDPOINT, useCarrierCollectionQuery } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
@@ -19,8 +20,7 @@ import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
- 
-  
+
   try {
     await axios.post(
       "https://crabby-pocketbook-eel.cyclic.app/api/v1/carrier",
@@ -78,20 +78,20 @@ const AddJobPostFrom = () => {
               <p className="text-danger">{errors.location.message}</p>
             )}
           </CustomFloatingLabel>
-          <CustomFloatingLabel labelName="Dateline ">
+          <CustomFloatingLabel labelName="Deadline ">
             <Form.Control
               type="text"
-              placeholder="Enter dateline ?"
-              {...register("dateline", {
-                required: "Please add dateline  required",
+              placeholder="Enter deadline ?"
+              {...register("deadline", {
+                required: "Please add deadline  required",
                 maxLength: {
                   value: 50,
                   message: "Input too large !, maximum length 50",
                 },
               })}
             />
-            {errors.dateline && (
-              <p className="text-danger">{errors.dateline.message}</p>
+            {errors.deadline && (
+              <p className="text-danger">{errors.deadline.message}</p>
             )}
           </CustomFloatingLabel>
         </div>
@@ -159,11 +159,185 @@ const AddJobPostFrom = () => {
     </Form>
   );
 };
+const UpdateJobPostFrom = ({ updateId }) => {
+  const [formData, setFormData] = useState({
+    jobTitle: "",
+    vacancy: "",
+    location: "",
+    salary: "",
+    deadline: "",
+    time: "",
+  });
+
+  useEffect(() => {
+    if (updateId !== null) {
+      FetchData(updateId, CARRIER_ENDPOINT, setFormData);
+    }
+  }, [updateId]);
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+  const updateHandler = async () => {
+    try {
+      await axios.patch(`${CARRIER_ENDPOINT}/${updateId}`, {
+        ...formData,
+      });
+      toast.success("Update successfully!");
+    } catch (err) {
+      toast.error(getError(err));
+    }
+  };
+
+  const {
+    handleSubmit,
+    register,
+    getValues,
+    formState: { errors },
+  } = useForm();
+  return (
+    <Form method="POST" onSubmit={handleSubmit(updateHandler)}>
+      <div className="row">
+        <div className="col-md-6">
+          <CustomFloatingLabel labelName="Job Title ">
+            <Form.Control
+              type="text"
+              autoFocus
+              placeholder="Enter job title ?"
+              {...register("jobTitle", {
+                required: "Please title is  required",
+                maxLength: {
+                  value: 30,
+                  message: "Input too large !, maximum length 30",
+                },
+              })}
+              value={formData?.jobTitle}
+              onChange={handleInputChange}
+            />
+            {errors.jobTitle && (
+              <p className="text-danger">{errors.jobTitle.message}</p>
+            )}
+          </CustomFloatingLabel>
+
+          <CustomFloatingLabel labelName="Location ">
+            <Form.Control
+              type="text"
+              placeholder="Enter location ?"
+              {...register("location", {
+                required: "Please add location  required",
+                maxLength: {
+                  value: 100,
+                  message: "Input too large !, maximum length 100",
+                },
+              })}
+              value={formData?.location}
+              onChange={handleInputChange}
+            />
+            {errors.location && (
+              <p className="text-danger">{errors.location.message}</p>
+            )}
+          </CustomFloatingLabel>
+          <CustomFloatingLabel labelName="Dateline ">
+            <Form.Control
+              type="text"
+              placeholder="Enter deadline ?"
+              {...register("dateline", {
+                required: "Please add deadline  required",
+                maxLength: {
+                  value: 50,
+                  message: "Input too large !, maximum length 50",
+                },
+              })}
+              value={formData?.deadline}
+              onChange={handleInputChange}
+            />
+            {errors.deadline && (
+              <p className="text-danger">{errors.deadline.message}</p>
+            )}
+          </CustomFloatingLabel>
+        </div>
+        <div className="col-md-6">
+          <CustomFloatingLabel labelName="Vacancy ">
+            <Form.Control
+              type="number"
+              placeholder="Enter slide title ?"
+              {...register("vacancy", {
+                required: "Please vacancy number  required",
+                maxLength: {
+                  value: 5,
+                  message: "Input too large !, maximum length 5",
+                },
+              })}
+              value={formData?.vacancy}
+              onChange={handleInputChange}
+            />
+            {errors.vacancy && (
+              <p className="text-danger">{errors.vacancy.message}</p>
+            )}
+          </CustomFloatingLabel>
+
+          <CustomFloatingLabel labelName="Salary ">
+            <Form.Control
+              type="text"
+              placeholder="Enter location ?"
+              {...register("salary", {
+                required: "Please add salary  required",
+                maxLength: {
+                  value: 50,
+                  message: "Input too large !, maximum length 50",
+                },
+              })}
+              value={formData?.salary}
+              onChange={handleInputChange}
+            />
+            {errors.salary && (
+              <p className="text-danger">{errors.salary.message}</p>
+            )}
+          </CustomFloatingLabel>
+          <CustomFloatingLabel labelName="Job Type">
+            <Form.Control
+              type="text"
+              placeholder="Enter Time ?"
+              {...register("time", {
+                required: "Please add Job type  required",
+                maxLength: {
+                  value: 50,
+                  message: "Input too large !, maximum length 50",
+                },
+              })}
+              value={formData?.time}
+              onChange={handleInputChange}
+            />
+            {errors.time && (
+              <p className="text-danger">{errors.time.message}</p>
+            )}
+          </CustomFloatingLabel>
+        </div>
+      </div>
+      <div className="ele-center ">
+        <MyButton
+          type="submit"
+          size="lg"
+          className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
+        >
+          Update Job Post
+        </MyButton>
+      </div>
+    </Form>
+  );
+};
 function CarrierHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const { data: carrier, isLoading, isError } = useCarrierCollectionQuery();
-  const {   deleteData,apiUrl } = useAuth();
-  
+  const { deleteData, apiUrl } = useAuth();
+  const [updateFormModal, setUpdateFormModal] = useState(false);
+  const [getId, setId] = useState(null);
+
+  console.log({ carrier });
+
   return (
     <PrivateRoute>
       <CustomModal
@@ -172,6 +346,13 @@ function CarrierHomePage() {
         onHide={() => setModalShow(false)}
       >
         <AddJobPostFrom />
+      </CustomModal>
+      <CustomModal
+        name="Update"
+        show={updateFormModal}
+        onHide={() => setUpdateFormModal(false)}
+      >
+        <UpdateJobPostFrom updateId={getId} />
       </CustomModal>
 
       <PageHeader
@@ -221,12 +402,22 @@ function CarrierHomePage() {
                       <span>
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setUpdateFormModal(true);
+                        }}
+                      >
                         <FiEdit size={15} className="text-warning" />
                       </span>
-                      <span onClick={() => deleteData(`${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.carrier}/${el?._id}`)}>
-                       <AiOutlineDelete size={16} className="text-danger" />
-                        </span>
+                      <span
+                        onClick={() =>
+                          deleteData(
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.carrier}/${el?._id}`
+                          )
+                        }
+                      >
+                        <AiOutlineDelete size={16} className="text-danger" />
+                      </span>
                     </div>
                   </td>
                 </tr>
