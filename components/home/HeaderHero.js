@@ -12,7 +12,7 @@ const HeaderHero = () => (
       backgroundSize: "cover",
       opacity: 1,
       backgroundPosition: "center",
-      marginTop: "-66px",
+      marginTop: "-80px",
       // height: "100vh",
     }}
   >
