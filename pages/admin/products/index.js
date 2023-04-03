@@ -346,7 +346,6 @@ const UpdateProductFrom = ({ updateId }) => {
   const [imageUrlThreeAltText, setImageUrThreeAltText] = useState("");
 
   //
-
   const [formData, setFormData] = useState({
     name: "",
     category: "",
@@ -422,7 +421,6 @@ const UpdateProductFrom = ({ updateId }) => {
       setImageUrl(formData?.images[0]?.url);
       setImageUrlTwo(formData?.images[1]?.url);
       setImageUrlThree(formData?.images[1]?.url);
-
       setImageUrlAltText(formData?.images[0]?.altText);
       setImageUrTwoAltText(formData?.images[1]?.altText);
       setImageUrThreeAltText(formData?.images[2]?.altText);
