@@ -160,14 +160,7 @@ const AddJobPostFrom = () => {
   );
 };
 const UpdateJobPostFrom = ({ updateId }) => {
-  const [formData, setFormData] = useState({
-    jobTitle: "",
-    vacancy: "",
-    location: "",
-    salary: "",
-    deadline: "",
-    time: "",
-  });
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     if (updateId !== null) {
@@ -226,14 +219,25 @@ const UpdateJobPostFrom = ({ updateId }) => {
             <Form.Control
               type="text"
               placeholder="Enter location ?"
-              {...register("location", {
-                required: "Please add location  required",
-                maxLength: {
-                  value: 100,
-                  message: "Input too large !, maximum length 100",
-                },
-              })}
               value={formData?.location}
+              {...(formData?.location === ""
+                ? {
+                    ...register("location", {
+                      required: "Please add location  required",
+                      maxLength: {
+                        value: 100,
+                        message: "Input too large !, maximum length 100",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("location", {
+                      maxLength: {
+                        value: 100,
+                        message: "Input too large !, maximum length 100",
+                      },
+                    }),
+                  })}
               onChange={handleInputChange}
             />
             {errors.location && (
@@ -244,14 +248,25 @@ const UpdateJobPostFrom = ({ updateId }) => {
             <Form.Control
               type="text"
               placeholder="Enter deadline ?"
-              {...register("dateline", {
-                required: "Please add deadline  required",
-                maxLength: {
-                  value: 50,
-                  message: "Input too large !, maximum length 50",
-                },
-              })}
               value={formData?.deadline}
+              {...(formData?.deadline === ""
+                ? {
+                    ...register("deadline", {
+                      required: "Please add deadline  required",
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("deadline", {
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  })}
               onChange={handleInputChange}
             />
             {errors.deadline && (
@@ -264,14 +279,25 @@ const UpdateJobPostFrom = ({ updateId }) => {
             <Form.Control
               type="number"
               placeholder="Enter slide title ?"
-              {...register("vacancy", {
-                required: "Please vacancy number  required",
-                maxLength: {
-                  value: 5,
-                  message: "Input too large !, maximum length 5",
-                },
-              })}
               value={formData?.vacancy}
+              {...(formData?.vacancy === ""
+                ? {
+                    ...register("vacancy", {
+                      required: "Please vacancy number  required",
+                      maxLength: {
+                        value: 5,
+                        message: "Input too large !, maximum length 5",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("vacancy", {
+                      maxLength: {
+                        value: 5,
+                        message: "Input too large !, maximum length 5",
+                      },
+                    }),
+                  })}
               onChange={handleInputChange}
             />
             {errors.vacancy && (
@@ -283,14 +309,25 @@ const UpdateJobPostFrom = ({ updateId }) => {
             <Form.Control
               type="text"
               placeholder="Enter location ?"
-              {...register("salary", {
-                required: "Please add salary  required",
-                maxLength: {
-                  value: 50,
-                  message: "Input too large !, maximum length 50",
-                },
-              })}
               value={formData?.salary}
+              {...(formData?.salary === ""
+                ? {
+                    ...register("salary", {
+                      required: "Please add salary  required",
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("salary", {
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  })}
               onChange={handleInputChange}
             />
             {errors.salary && (
@@ -301,14 +338,25 @@ const UpdateJobPostFrom = ({ updateId }) => {
             <Form.Control
               type="text"
               placeholder="Enter Time ?"
-              {...register("time", {
-                required: "Please add Job type  required",
-                maxLength: {
-                  value: 50,
-                  message: "Input too large !, maximum length 50",
-                },
-              })}
               value={formData?.time}
+              {...(formData?.time === ""
+                ? {
+                    ...register("time", {
+                      required: "Please add Job type  required",
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  }
+                : {
+                    ...register("time", {
+                      maxLength: {
+                        value: 50,
+                        message: "Input too large !, maximum length 50",
+                      },
+                    }),
+                  })}
               onChange={handleInputChange}
             />
             {errors.time && (
