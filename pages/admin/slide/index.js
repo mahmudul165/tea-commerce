@@ -161,13 +161,7 @@ export const AddSlideFrom = () => {
   );
 };
 const UpdateSlideFrom = ({ updateId }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    image: "",
-    altText: "",
-    pathName: "",
-    description: "",
-  });
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     if (updateId !== null) {
@@ -232,13 +226,23 @@ const UpdateSlideFrom = ({ updateId }) => {
                 type="text"
                 placeholder="Enter slide title ?"
                 value={formData?.title}
-                {...register("title", {
-                  required: "Please title is  required",
-                  maxLength: {
-                    value: 100,
-                    message: "Input too large !, maximum length 100",
-                  },
-                })}
+                {...(formData?.title === ""
+                  ? {
+                      ...register("title", {
+                        required: "Please title is  required",
+                        maxLength: {
+                          value: 100,
+                          message: "Input too large !, maximum length 100",
+                        },
+                      }),
+                    }
+                  : {
+                      ...register("title", {
+                        maxLength: {
+                          value: 100,
+                        },
+                      }),
+                    })}
                 onChange={handleInputChange}
               />
               {errors.title && (
@@ -250,13 +254,24 @@ const UpdateSlideFrom = ({ updateId }) => {
                 type="text"
                 placeholder="Enter path name?"
                 value={formData?.pathName}
-                {...register("pathName", {
-                  required: "Please path name required",
-                  maxLength: {
-                    value: 30,
-                    message: "Input too large !, maximum length 30",
-                  },
-                })}
+                {...(formData?.pathName === ""
+                  ? {
+                      ...register("pathName", {
+                        required: "Please path name required",
+                        maxLength: {
+                          value: 30,
+                          message: "Input too large !, maximum length 30",
+                        },
+                      }),
+                    }
+                  : {
+                      ...register("pathName", {
+                        maxLength: {
+                          value: 30,
+                          message: "Input too large !, maximum length 30",
+                        },
+                      }),
+                    })}
                 onChange={handleInputChange}
               />
               {errors.pathName && (
