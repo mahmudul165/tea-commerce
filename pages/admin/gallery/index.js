@@ -111,7 +111,7 @@ const UpdateGalleryFrom = ({ updateId }) => {
   useEffect(() => {
     if (updateId !== null) {
       FetchData(updateId, GALLERY_ENDPOINT, setFormData);
-      console.log("aaa", `${GALLERY_ENDPOINT}/${updateId}`);
+      //console.log("id", `${GALLERY_ENDPOINT}/${updateId}`);
     }
   }, [updateId]);
 
@@ -155,14 +155,25 @@ const UpdateGalleryFrom = ({ updateId }) => {
             type="text"
             placeholder="Image url "
             value={formData?.url}
-            {...register("url", {
-              pattern: {
-                value: acceptPattern,
-                message: "Invalid input ",
-              },
+            {...(formData?.url === ""
+              ? {
+                  ...register("url", {
+                    pattern: {
+                      value: acceptPattern,
+                      message: "Invalid input ",
+                    },
 
-              required: "Past Image URL",
-            })}
+                    required: "Past Image URL",
+                  }),
+                }
+              : {
+                  ...register("url", {
+                    pattern: {
+                      value: acceptPattern,
+                      message: "Invalid input ",
+                    },
+                  }),
+                })}
             onChange={handleInputChange}
           />
           {errors.url && <p className="text-danger">{errors.url.message}</p>}
@@ -177,9 +188,14 @@ const UpdateGalleryFrom = ({ updateId }) => {
             type="radio"
             id={el}
             value={el}
-            {...register("category", { required: "Checked input required" })}
-            // style={{textTransform: 'uppercase'}}
             checked={el === formData?.category}
+            {...(formData?.category === ""
+              ? {
+                  ...register("category", {
+                    required: "Checked input required",
+                  }),
+                }
+              : { ...register("category") })}
             onChange={handleInputChange}
           />
         ))}
@@ -298,7 +314,7 @@ function GalleryHomePage() {
                       </span>
                       <span
                         onClick={() => {
-                          setId(img.id), setUpdateFormModal(true);
+                          setId(img._id), setUpdateFormModal(true);
                         }}
                       >
                         <FiEdit size={15} className="text-warning" />
