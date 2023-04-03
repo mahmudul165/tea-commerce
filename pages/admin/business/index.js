@@ -124,11 +124,7 @@ const AddBusinessFrom = () => {
   );
 };
 const UpdateBusinessFrom = ({ updateId }) => {
-  const [formData, setFormData] = useState({
-    title: "",
-    image: "",
-    body: "",
-  });
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     if (updateId !== null) {
@@ -191,13 +187,24 @@ const UpdateBusinessFrom = ({ updateId }) => {
             type="text"
             placeholder="Enter slide title ?"
             value={formData?.title}
-            {...register("title", {
-              required: "Please title is  required",
-              maxLength: {
-                value: 100,
-                message: "Input too large !, maximum length 100",
-              },
-            })}
+            {...(formData?.title === ""
+              ? {
+                  ...register("title", {
+                    required: "Please title is  required",
+                    maxLength: {
+                      value: 100,
+                      message: "Input too large !, maximum length 100",
+                    },
+                  }),
+                }
+              : {
+                  ...register("title", {
+                    maxLength: {
+                      value: 100,
+                      message: "Input too large !, maximum length 100",
+                    },
+                  }),
+                })}
             onChange={handleInputChange}
           />
           {errors.title && (
