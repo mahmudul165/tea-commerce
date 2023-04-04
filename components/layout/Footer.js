@@ -159,7 +159,7 @@ const Footer = () => {
               <Link href="/carrier">Carrier</Link>
             </li>
             <li>
-              <Link href="/contact-updated">Contact Us</Link>
+              <Link href="/contact">Contact Us</Link>
             </li>
             {/* <li>
               <a href="#">Our Services</a>
