@@ -116,28 +116,166 @@ const AddPressFrom = () => {
   );
 };
 
-const UpdateBusinessFrom = ({ updateId }) => {
+// const UpdatePressFrom = ({ updateId }) => {
+//   const [formData, setFormData] = useState({});
+
+//   console.log("id", `${PRESS_ENDPOINT}/${updateId}`);
+
+//   useEffect(() => {
+//     if (updateId !== null) {
+//       FetchData(updateId, PRESS_ENDPOINT, setFormData);
+//     }
+//   }, [updateId]);
+//   const handleInputChange = (event) => {
+//     const { name, value } = event.target;
+//     console.log({ name, value });
+
+//     setFormData({
+//       ...formData,
+//       [name]: value,
+//     });
+//   };
+
+//   console.log({ formData });
+
+//   const updateHandler = async () => {
+//     try {
+//       await axios.patch(`${PRESS_ENDPOINT}/${updateId}`, {
+//         ...formData,
+//       });
+//       toast.success("Update successfully!");
+//     } catch (err) {
+//       toast.error(getError(err));
+//     }
+//   };
+
+//   const {
+//     handleSubmit,
+//     register,
+//     getValues,
+//     formState: { errors },
+//   } = useForm();
+//   return (
+//     <>
+//       <div className="text-center  ele-center   mb-3  card border-0">
+//         <img src={formData?.image} alt="Preview" width="280px" />
+//       </div>
+//       <Form onSubmit={handleSubmit(updateHandler)}>
+//         <CustomFloatingLabel labelName="Past Image URL">
+//           <Form.Control
+//             type="text"
+//             placeholder="Past image URL ?"
+//             value={formData.image}
+//             {...(formData?.image === ""
+//               ? {
+//                   ...register("image", {
+//                     pattern: {
+//                       value: acceptPattern,
+//                       message: "Invalid input ",
+//                     },
+
+//                     required: "Past Image URL",
+//                   }),
+//                 }
+//               : {
+//                   ...register("image", {
+//                     pattern: {
+//                       value: acceptPattern,
+//                       message: "Invalid input ",
+//                     },
+//                   }),
+//                 })}
+//             onChange={handleInputChange}
+//           />
+//           {errors.image && (
+//             <p className="text-danger">{errors.image.message}</p>
+//           )}
+//         </CustomFloatingLabel>
+//         <CustomFloatingLabel labelName="Title ">
+//           <Form.Control
+//             type="text"
+//             placeholder="Enter slide title ?"
+//             value={formData?.title}
+//             {...(formData?.title === ""
+//               ? {
+//                   ...register("title", {
+//                     required: "Please title is  required",
+//                     maxLength: {
+//                       value: 100,
+//                       message: "Input too large !, maximum length 100",
+//                     },
+//                   }),
+//                 }
+//               : {
+//                   ...register("title", {
+//                     maxLength: {
+//                       value: 100,
+//                       message: "Input too large !, maximum length 100",
+//                     },
+//                   }),
+//                 })}
+//             onChange={handleInputChange}
+//           />
+//           {errors.title && (
+//             <p className="text-danger">{errors.title.message}</p>
+//           )}
+//         </CustomFloatingLabel>
+//         <CustomFloatingLabel labelName="Body">
+//           <Form.Control
+//             as="textarea"
+//             className="py-5 h-25"
+//             value={formData?.body}
+//             rows={10}
+//             placeholder="Enter description..."
+//             {...register("body", {
+//               maxLength: {
+//                 value: 2200,
+//                 message: "Input too large!, maximum length 2200",
+//               },
+//             })}
+//             onChange={handleInputChange}
+//           />
+//           {errors.body && <p className="text-danger">{errors.body.message}</p>}
+//         </CustomFloatingLabel>
+//         <div className="ele-center ">
+//           <MyButton
+//             type="submit"
+//             size="lg"
+//             className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
+//           >
+//             Update Press Releases
+//           </MyButton>
+//         </div>
+//       </Form>
+//     </>
+//   );
+// };
+const UpdatePressFrom = ({ updateId }) => {
   const [formData, setFormData] = useState({});
+  const [title, setTitle] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [body, setBody] = useState("");
+
+  const updateData = {
+    title: title,
+    image: imageUrl,
+    body: body,
+  };
+  console.log({ updateData });
 
   useEffect(() => {
     if (updateId !== null) {
       FetchData(updateId, PRESS_ENDPOINT, setFormData);
+      setTitle(formData?.title);
+      setImageUrl(formData?.image);
+      setBody(formData?.body);
     }
-  }, [updateId]);
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  console.log({ formData });
-
-  const updateHandler = async () => {
+  }, [updateId, formData?.title, formData?.image, formData?.body]);
+  const updateHandler = async (e) => {
+    e.preventDefault();
     try {
       await axios.patch(`${PRESS_ENDPOINT}/${updateId}`, {
-        ...formData,
+        ...updateData,
       });
       toast.success("Update successfully!");
     } catch (err) {
@@ -145,85 +283,54 @@ const UpdateBusinessFrom = ({ updateId }) => {
     }
   };
 
-  const {
-    handleSubmit,
-    register,
-    getValues,
-    formState: { errors },
-  } = useForm();
   return (
     <>
       <div className="text-center  ele-center   mb-3  card border-0">
-        <img src={formData?.image} alt="Preview" width="280px" />
+        <img src={imageUrl} alt="Preview" width="280px" />
       </div>
-      <Form onSubmit={handleSubmit(updateHandler)}>
+      <Form
+        method="POST"
+        onSubmit={(e) => {
+          updateHandler(e);
+        }}
+      >
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
             type="text"
-            name="image"
-            value={formData.image}
             placeholder="Past image URL ?"
-            {...register("image", {
-              pattern: {
-                value: acceptPattern,
-                message: "Invalid input ",
-              },
-
-              required: "Past Image URL",
-            })}
-            onChange={handleInputChange}
-            autoFocus
+            name="image"
+            value={imageUrl}
+            onChange={(e) => {
+              setImageUrl(e.target.value);
+            }}
+            required
           />
-          {errors.image && (
-            <p className="text-danger">{errors.image.message}</p>
-          )}
         </CustomFloatingLabel>
         <CustomFloatingLabel labelName="Title ">
           <Form.Control
             type="text"
             placeholder="Enter slide title ?"
-            value={formData?.title}
-            {...(formData?.title === ""
-              ? {
-                  ...register("title", {
-                    required: "Please title is  required",
-                    maxLength: {
-                      value: 100,
-                      message: "Input too large !, maximum length 100",
-                    },
-                  }),
-                }
-              : {
-                  ...register("title", {
-                    maxLength: {
-                      value: 100,
-                      message: "Input too large !, maximum length 100",
-                    },
-                  }),
-                })}
-            onChange={handleInputChange}
+            value={title}
+            name="title"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            required
           />
-          {errors.title && (
-            <p className="text-danger">{errors.title.message}</p>
-          )}
         </CustomFloatingLabel>
         <CustomFloatingLabel labelName="Body">
           <Form.Control
             as="textarea"
             className="py-5 h-25"
-            value={formData?.body}
+            value={body}
             rows={10}
+            name="body"
             placeholder="Enter description..."
-            {...register("body", {
-              maxLength: {
-                value: 2200,
-                message: "Input too large!, maximum length 2200",
-              },
-            })}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              setBody(e.target.value);
+            }}
+            required
           />
-
-          {errors.body && <p className="text-danger">{errors.body.message}</p>}
         </CustomFloatingLabel>
         <div className="ele-center ">
           <MyButton
@@ -269,7 +376,7 @@ function PressHomePage() {
         show={updateFormModal}
         onHide={() => setUpdateFormModal(false)}
       >
-        <UpdateBusinessFrom updateId={getId} />
+        <UpdatePressFrom updateId={getId} />
       </CustomModal>
       <PageHeader
         name="Press Releases"
