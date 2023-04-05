@@ -17,7 +17,7 @@ function OrdersHomePage() {
   const { orderStatus, deleteData, apiUrl } = useAuth();
   const [ordersData, setOrdersData] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("placed");
-  const { data: odata } = useOrderCollectionQuery();
+  const { data: data } = useOrderCollectionQuery();
   const [singleOrderId, setSingleOrderId] = useState(null);
   const [modalShow, setModalShow] = useState(false);
 
@@ -27,7 +27,9 @@ function OrdersHomePage() {
 
   //  await setOrdersData(orders);
   // };
-  const orders = odata.sort((a, b) => new Date(b.orderDate) - new Date(a.orderDate));
+  const orders = data?.sort(
+    (a, b) => new Date(b.orderDate) - new Date(a.orderDate)
+  );
   const filteredData =
     selectedStatus === "placed"
       ? orders?.filter((order) => order.status === "placed")
