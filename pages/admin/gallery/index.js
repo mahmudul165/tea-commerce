@@ -9,6 +9,7 @@ import {
   CustomFloatingLabel,
 } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
+import SingleView from "@/components/admin/common/SingleView";
 import { MyButton } from "@/components/common/Buttons";
 import PrivateRoute from "@/components/PrivateRoute";
 import { GALLERY_ENDPOINT, useGalleryCollectionQuery } from "@/lib/hook/useApi";
@@ -218,6 +219,8 @@ const UpdateGalleryFrom = ({ updateId }) => {
 function GalleryHomePage() {
   const [modalShow, setModalShow] = useState(false);
   const [updateFormModal, setUpdateFormModal] = useState(false);
+  const [singleViewModal, setSingleViewModal] = useState(false);
+
   const [getId, setId] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState("all");
   const { deleteData, apiUrl } = useAuth();
@@ -238,6 +241,13 @@ function GalleryHomePage() {
       >
         <AddGalleryFrom />
       </CustomModal>
+
+      <SingleView
+        show={singleViewModal}
+        onHide={() => setSingleViewModal(false)}
+        getId={getId}
+        apiURL={GALLERY_ENDPOINT}
+      />
       <CustomModal
         name="Update"
         show={updateFormModal}
@@ -309,7 +319,11 @@ function GalleryHomePage() {
 
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(img._id), setSingleViewModal(true);
+                        }}
+                      >
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
                       <span
