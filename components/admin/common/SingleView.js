@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import FetchData from "./FetchData";
 import { dateFormat } from "./Fomater";
+import { MdMail } from "react-icons/md";
+import { FaEnvelope } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
 const SingleView = (props) => {
   const { getId, apiURL } = props;
@@ -35,7 +38,7 @@ const SingleView = (props) => {
               <img
                 src={getData?.image || getData?.url}
                 alt="Preview"
-                width="280px"
+                width="70%"
               />
             </div>
           )}
@@ -44,30 +47,48 @@ const SingleView = (props) => {
               <img
                 src={getData?.image || getData?.url}
                 alt="Preview"
-                width="280px"
+                width="70%"
               />
             </div>
           )}
 
           {/* View for Contact    */}
-          <p className="my-4 fs-4 text-capitalize "> {getData?.name}</p>
+          <p className="my-4 fs-4 text-capitalize fw-bold text-secondary">
+            {" "}
+            {getData?.name}
+          </p>
           {getData?.email && (
-            <p className="my-2 fs-5 ">Mail: {getData?.email}</p>
+            <p className="my-2 fs-5 ">
+              <FaEnvelope className="text-primary " size={25} />{" "}
+              <span className="p-2"> {getData?.email}</span>
+            </p>
           )}
           {getData?.phone && (
-            <p className="my-2 fs-5 ">Call: {getData?.phone}</p>
+            <p className="my-2 fs-5 ">
+              {" "}
+              <BsFillTelephoneFill className="text-primary " />{" "}
+              <span className="p-2">{getData?.phone}</span>
+            </p>
           )}
           {/* View End contact   */}
 
           {/* View for gallery   */}
           {getData?.createdOn && (
-            <p className="fw-bold">
-              Created At: {dateFormat(getData?.createdOn)}
+            <p className="">
+              <span className="fs-5">Created Date: </span>
+              <span className="text-sm fs-6 text-info">
+                {dateFormat(getData?.createdOn)}
+              </span>
             </p>
           )}
 
           {getData?.category && (
-            <p className="fw-bold">Category: {getData?.category}</p>
+            <p className="">
+              <span className="fs-5">Category: </span>
+              <span className="text-sm fs-6 bg-primary p-1 border text-white fw-bold rounded">
+                {getData?.category}
+              </span>
+            </p>
           )}
 
           {/* End gallery   */}
@@ -78,9 +99,11 @@ const SingleView = (props) => {
             <p className="fs-5 fw-bold">Price: ${getData?.price} </p>
           )}
 
-          {!getData?.url && <p className="fs-5 mt-2 fw-bold ">Description:</p>}
+          {!getData?.url && (
+            <p className="fs-5 mt-2 fw-bold text-secondary ">Description:</p>
+          )}
 
-          <p className="mt-4 text-justify">
+          <p className="mt-2 text-justify">
             {getData?.body || getData?.description || getData?.message}
           </p>
         </div>
