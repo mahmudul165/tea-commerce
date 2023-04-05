@@ -49,6 +49,16 @@ const SingleView = (props) => {
             </div>
           )}
 
+          {/* View for Contact    */}
+          <p className="my-4 fs-4 text-capitalize "> {getData?.name}</p>
+          {getData?.email && (
+            <p className="my-2 fs-5 ">Mail: {getData?.email}</p>
+          )}
+          {getData?.phone && (
+            <p className="my-2 fs-5 ">Call: {getData?.phone}</p>
+          )}
+          {/* View End contact   */}
+
           {/* View for gallery   */}
           {getData?.createdOn && (
             <p className="fw-bold">
@@ -64,15 +74,11 @@ const SingleView = (props) => {
 
           <p className="my-4 fs-4 ">{getData?.title}</p>
 
-          <p className="my-4 fs-4 "> {getData?.name}</p>
-          <p className="my-2 fs-5 "> {getData?.email}</p>
-          <p className="my-2 fs-5 "> {getData?.phone}</p>
-
           {getData?.price && (
             <p className="fs-5 fw-bold">Price: ${getData?.price} </p>
           )}
 
-          {!getData?.url && <p className="fs-5 fw-bold ">Description:</p>}
+          {!getData?.url && <p className="fs-5 mt-2 fw-bold ">Description:</p>}
 
           <p className="mt-4 text-justify">
             {getData?.body || getData?.description || getData?.message}
