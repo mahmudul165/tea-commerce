@@ -8,6 +8,7 @@ import FetchData from "@/components/admin/common/FetchData";
 import { CustomFloatingLabel } from "@/components/admin/common/Inputes";
 import { PageHeader } from "@/components/admin/common/PageHeader";
 import { MyButton } from "@/components/common/Buttons";
+import SingleJobPost from "@/components/common/SingleJobPost";
 import PrivateRoute from "@/components/PrivateRoute";
 import { CARRIER_ENDPOINT, useCarrierCollectionQuery } from "@/lib/hook/useApi";
 import useAuth from "@/lib/hook/useAuth";
@@ -379,6 +380,7 @@ const UpdateJobPostFrom = ({ updateId }) => {
 };
 function CarrierHomePage() {
   const [modalShow, setModalShow] = useState(false);
+  const [modalShowSingleJobPost, setModalShowSingleJobPost] = useState(false);
   const { data: carrier, isLoading, isError } = useCarrierCollectionQuery();
   const { deleteData, apiUrl } = useAuth();
   const [updateFormModal, setUpdateFormModal] = useState(false);
@@ -402,6 +404,11 @@ function CarrierHomePage() {
       >
         <UpdateJobPostFrom updateId={getId} />
       </CustomModal>
+      <SingleJobPost
+        show={modalShowSingleJobPost}
+        onHide={() => setModalShowSingleJobPost(false)}
+        getId={getId}
+      />
 
       <PageHeader
         name="Carrier"
@@ -447,7 +454,11 @@ function CarrierHomePage() {
 
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(el._id), setModalShowSingleJobPost(true);
+                        }}
+                      >
                         <AiOutlineEye size={18} className="text-success" />
                       </span>
                       <span
