@@ -17,15 +17,26 @@ import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FaHandHoldingWater } from "react-icons/fa";
 import useAuth from "@/lib/hook/useAuth";
 import {
+  CONTACT_ENDPOINT,
   useContactCollectionQuery,
   useOrderCollectionQuery,
 } from "@/lib/hook/useApi";
+import SingleView from "@/components/admin/common/SingleView";
 function OrdersHomePage() {
-  const { orderStatus, deleteData,apiUrl } = useAuth();
+  const [singleViewModal, setSingleViewModal] = useState(false);
+  const [getId, setId] = useState(null);
+
+  const { orderStatus, deleteData, apiUrl } = useAuth();
   const { data: contacts } = useContactCollectionQuery();
 
   return (
     <PrivateRoute>
+      <SingleView
+        show={singleViewModal}
+        onHide={() => setSingleViewModal(false)}
+        getId={getId}
+        apiURL={CONTACT_ENDPOINT}
+      />
       <PageHeader name="CustomerQuery" />
 
       {/* <CustomTable tableName="Orders Table" headers={OrdersTableTH} /> */}
@@ -53,14 +64,12 @@ function OrdersHomePage() {
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">
-                      <span>
+                      <span
+                        onClick={() => {
+                          setId(row._id), setSingleViewModal(true);
+                        }}
+                      >
                         <AiOutlineEye size={18} className="text-success" />
-                      </span>
-                      <span>
-                        <FaHandHoldingWater
-                          size={18}
-                          className="text-primary"
-                        />
                       </span>
 
                       <span
