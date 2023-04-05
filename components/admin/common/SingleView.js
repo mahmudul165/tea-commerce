@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import FetchData from "./FetchData";
+import { dateFormat } from "./Fomater";
 
 const SingleView = (props) => {
   const { getId, apiURL } = props;
@@ -31,9 +32,35 @@ const SingleView = (props) => {
         <div className="mx-2">
           {getData?.image && (
             <div className="text-center  ele-center   my-4  card border-0">
-              <img src={getData?.image} alt="Preview" width="280px" />
+              <img
+                src={getData?.image || getData?.url}
+                alt="Preview"
+                width="280px"
+              />
             </div>
           )}
+          {getData?.url && (
+            <div className="text-center  ele-center   my-4  card border-0">
+              <img
+                src={getData?.image || getData?.url}
+                alt="Preview"
+                width="280px"
+              />
+            </div>
+          )}
+
+          {/* View for gallery   */}
+          {getData?.createdOn && (
+            <p className="fw-bold">
+              Created At: {dateFormat(getData?.createdOn)}
+            </p>
+          )}
+
+          {getData?.category && (
+            <p className="fw-bold">Category: {getData?.category}</p>
+          )}
+
+          {/* End gallery   */}
 
           <p className="my-4 fs-4 ">{getData?.title}</p>
 
@@ -45,7 +72,7 @@ const SingleView = (props) => {
             <p className="fs-5 fw-bold">Price: ${getData?.price} </p>
           )}
 
-          <p className="fs-5 fw-bold ">Description:</p>
+          {!getData?.url && <p className="fs-5 fw-bold ">Description:</p>}
 
           <p className="mt-4 text-justify">
             {getData?.body || getData?.description || getData?.message}
