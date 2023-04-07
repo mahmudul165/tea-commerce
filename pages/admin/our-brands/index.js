@@ -1,11 +1,11 @@
 import { AddButton } from "@/components/admin/common/Buttons";
 import CustomModal from "@/components/admin/common/CustomModal";
-import CustomTable, {
-  BusinessTableTH,
-  OurBrandsTableTH,
-} from "@/components/admin/common/CustomTable";
+import { OurBrandsTableTH } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
 import FetchData from "@/components/admin/common/FetchData";
+import ImageUpload, {
+  uploadImgToUrl,
+} from "@/components/admin/common/ImagUpload";
 import {
   acceptPattern,
   CustomFloatingLabel,
@@ -37,10 +37,18 @@ const submitHandler = async (data) => {
 };
 
 const AddBrandFrom = () => {
-  const [image, setImageUrl] = useState("");
-  const handleInputChange = (event) => {
-    setImageUrl(event.target.value);
+  // file upload code
+  const [imgbbUrl, setImgbbUrl] = useState(null);
+  const [myFiles, setMyFiles] = useState([]);
+
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
   };
+  const confirmImg = async () => {
+    const url = await uploadImgToUrl(myFiles[0]);
+    setImgbbUrl(url);
+  };
+
   const {
     handleSubmit,
     register,
@@ -49,30 +57,54 @@ const AddBrandFrom = () => {
   } = useForm();
   return (
     <>
-      <div className="text-center  ele-center   mb-3  card border-0">
-        {image && <img src={image} alt="Preview" width="280px" />}
-      </div>
-      <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
-        <CustomFloatingLabel labelName="Past Image URL">
-          <Form.Control
-            type="text"
-            name="image"
-            placeholder="Past image URL ?"
-            {...register("image", {
-              pattern: {
-                value: acceptPattern,
-                message: "Invalid input ",
-              },
-
-              required: "Past Image URL",
-            })}
-            onChange={handleInputChange}
-            autoFocus
+      {!imgbbUrl && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={false}
           />
-          {errors.image && (
-            <p className="text-danger">{errors.image.message}</p>
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="mt-2 btn border-primary"
+            >
+              Upload File
+            </button>
           )}
-        </CustomFloatingLabel>
+        </div>
+      )}
+
+      <div className="text-center  ele-center   mb-3  card border-0">
+        {imgbbUrl && <img src={imgbbUrl} alt="Preview" width="280px" />}
+      </div>
+
+      <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
+        {imgbbUrl && (
+          <CustomFloatingLabel labelName="Past Image URL">
+            <Form.Control
+              type="text"
+              name="image"
+              placeholder="Past image URL ?"
+              value={imgbbUrl}
+              {...register("image", {
+                required: "Past Image URL",
+
+                pattern: {
+                  value: acceptPattern,
+                  message: "Invalid input ",
+                },
+              })}
+            />
+            {errors.image && (
+              <p className="text-danger">{errors.image.message}</p>
+            )}
+          </CustomFloatingLabel>
+        )}
         <CustomFloatingLabel labelName="Title ">
           <Form.Control
             type="text"
@@ -96,6 +128,8 @@ const AddBrandFrom = () => {
             rows={10}
             placeholder="Enter description..."
             {...register("body", {
+              required: "Please description is  required",
+
               maxLength: {
                 value: 2200,
                 message: "Input too large!, maximum length 2200",
@@ -121,6 +155,18 @@ const AddBrandFrom = () => {
 
 const UpdateBusinessFrom = ({ updateId }) => {
   const [formData, setFormData] = useState({});
+  // file upload code
+  const [myFiles, setMyFiles] = useState([]);
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
+  };
+  const confirmImg = async () => {
+    const url = await uploadImgToUrl(myFiles[0]);
+    setFormData({
+      ...formData,
+      image: url,
+    });
+  };
 
   useEffect(() => {
     if (updateId !== null) {
@@ -132,6 +178,13 @@ const UpdateBusinessFrom = ({ updateId }) => {
     setFormData({
       ...formData,
       [name]: value,
+    });
+  };
+
+  const removeImgHandler = () => {
+    setFormData({
+      ...formData,
+      image: "",
     });
   };
   const updateHandler = async () => {
@@ -153,9 +206,48 @@ const UpdateBusinessFrom = ({ updateId }) => {
   } = useForm();
   return (
     <>
-      <div className="text-center  ele-center   mb-3  card border-0">
-        <img src={formData?.image} alt="Preview" width="280px" />
+      <div>
+        {formData?.image && (
+          <div className="d-flex justify-content-between align-items-center">
+            <p className="fs-5">Previous Image</p>
+
+            <div className="mb-4">
+              <button className="btn btn-danger  " onClick={removeImgHandler}>
+                Remove Image
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="text-center  ele-center   mb-3  card border-0">
+          {formData?.image && (
+            <img src={formData?.image} alt="Preview" width="280px" />
+          )}
+        </div>
       </div>
+
+      {!formData?.image && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={false}
+          />
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="my-3 btn border-primary text-secondary"
+            >
+              Upload File
+            </button>
+          )}
+        </div>
+      )}
+
       <Form onSubmit={handleSubmit(updateHandler)}>
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
