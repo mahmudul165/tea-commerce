@@ -6,6 +6,9 @@ import CustomTable, {
 import { getError } from "@/components/admin/common/error";
 import FetchData from "@/components/admin/common/FetchData";
 import { dateFormat } from "@/components/admin/common/Fomater";
+import ImageUpload, {
+  uploadImgToUrl,
+} from "@/components/admin/common/ImagUpload";
 import {
   acceptPattern,
   CustomFloatingLabel,
@@ -38,12 +41,18 @@ const submitHandler = async (data) => {
   }
 };
 
-export const AddSlideFrom = () => {
-  const [image, setImageUrl] = useState("");
-  const handleInputChange = (event) => {
-    setImageUrl(event.target.value);
-  };
+const AddSlideFrom = () => {
+  // file upload code
+  const [imgbbUrl, setImgbbUrl] = useState(null);
+  const [myFiles, setMyFiles] = useState([]);
 
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
+  };
+  const confirmImg = async () => {
+    const url = await uploadImgToUrl(myFiles[0]);
+    setImgbbUrl(url);
+  };
   const {
     handleSubmit,
     register,
@@ -53,29 +62,51 @@ export const AddSlideFrom = () => {
   return (
     <>
       <div className="text-center  ele-center   mb-3  card border-0">
-        {image && <img src={image} alt="Preview" width="280px" />}
+        {imgbbUrl && <img src={imgbbUrl} alt="Preview" width="280px" />}
       </div>
-      <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
-        <CustomFloatingLabel labelName="Past Image URL">
-          <Form.Control
-            type="text"
-            name="image"
-            autoFocus
-            placeholder="Past image URL ?"
-            {...register("image", {
-              pattern: {
-                value: acceptPattern,
-                message: "Invalid input ",
-              },
 
-              required: "Past Image URL",
-            })}
-            onChange={handleInputChange}
+      {!imgbbUrl && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={false}
           />
-          {errors.image && (
-            <p className="text-danger">{errors.image.message}</p>
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="mt-2 mb-3 btn border-primary"
+            >
+              Upload File
+            </button>
           )}
-        </CustomFloatingLabel>
+        </div>
+      )}
+      <Form method="POST" onSubmit={handleSubmit(submitHandler)}>
+        {imgbbUrl && (
+          <CustomFloatingLabel labelName="Past Image URL">
+            <Form.Control
+              type="text"
+              value={imgbbUrl}
+              placeholder="Past image URL ?"
+              {...register("image", {
+                pattern: {
+                  value: acceptPattern,
+                  message: "Invalid input ",
+                },
+
+                required: "Past Image URL",
+              })}
+            />
+            {errors.image && (
+              <p className="text-danger">{errors.image.message}</p>
+            )}
+          </CustomFloatingLabel>
+        )}
 
         <div className="row">
           <div className="col-md-6">
@@ -162,7 +193,24 @@ export const AddSlideFrom = () => {
 };
 const UpdateSlideFrom = ({ updateId }) => {
   const [formData, setFormData] = useState({});
-
+  // file upload code
+  const [myFiles, setMyFiles] = useState([]);
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
+  };
+  const confirmImg = async () => {
+    const url = await uploadImgToUrl(myFiles[0]);
+    setFormData({
+      ...formData,
+      image: url,
+    });
+  };
+  const removeImgHandler = () => {
+    setFormData({
+      ...formData,
+      image: "",
+    });
+  };
   useEffect(() => {
     if (updateId !== null) {
       FetchData(updateId, SLIDE_ENDPOINT, setFormData);
@@ -193,9 +241,48 @@ const UpdateSlideFrom = ({ updateId }) => {
   } = useForm();
   return (
     <>
-      <div className="text-center  ele-center   mb-3  card border-0">
-        {<img src={formData?.image} alt="Preview" width="280px" />}
+      <div className="  d-flex  justify-content-center p-2 ">
+        {formData?.image && (
+          <div className="position-relative">
+            <img
+              src={formData?.image}
+              className=" p-2"
+              alt="Preview"
+              width="250px"
+            />
+
+            <button
+              onClick={() => {
+                removeImgHandler();
+              }}
+              className=" close-img "
+            >
+              <span>&#10006;</span>
+            </button>
+          </div>
+        )}
       </div>
+      {!formData?.image && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={false}
+          />
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="my-3 btn border-primary text-secondary"
+            >
+              Upload File
+            </button>
+          )}
+        </div>
+      )}
       <Form method="POST" onSubmit={handleSubmit(updateHandler)}>
         <CustomFloatingLabel labelName="Past Image URL">
           <Form.Control
