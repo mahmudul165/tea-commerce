@@ -52,13 +52,13 @@ const CheckOutForm = () => {
   );
 };
 const CustomModal = (props) => {
-  const { name, children } = { ...props };
+  const { name, children, size } = { ...props };
   console.log(name);
 
   return (
     <Modal
       {...props}
-      size="lg"
+      size={size || "lg"}
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
