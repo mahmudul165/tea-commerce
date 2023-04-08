@@ -4,6 +4,9 @@ import { ProductTableTH } from "@/components/admin/common/CustomTable";
 import { getError } from "@/components/admin/common/error";
 import FetchData from "@/components/admin/common/FetchData";
 import { dateFormat, dateFormatDSC } from "@/components/admin/common/Fomater";
+import ImageUpload, {
+  uploadImgToUrl,
+} from "@/components/admin/common/ImagUpload";
 import {
   acceptPattern,
   CustomFloatingLabel,
@@ -37,11 +40,28 @@ const submitHandler = async (data) => {
     toast.error(getError(err));
   }
 };
-export const AddProductFrom = () => {
+const AddProductFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [imageUrlTwo, setImageUrTwo] = useState("");
   const [imageUrlThree, setImageUrThree] = useState("");
+  // file upload code
+  const [myFiles, setMyFiles] = useState([]);
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
+  };
 
+  const confirmImg = async () => {
+    if (myFiles.length < 3) {
+      toast.error("Minimum choose 3 image  required");
+      return false;
+    }
+    const url = await uploadImgToUrl(myFiles[0]);
+    const urlTwo = await uploadImgToUrl(myFiles[1]);
+    const urlThree = await uploadImgToUrl(myFiles[2]);
+    setImageUrl(url);
+    setImageUrTwo(urlTwo);
+    setImageUrThree(urlThree);
+  };
   const {
     handleSubmit,
     register,
@@ -50,6 +70,27 @@ export const AddProductFrom = () => {
   } = useForm();
   return (
     <>
+      {!imageUrl && !imageUrlTwo && !imageUrlThree && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={true}
+          />
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="mt-2 btn border-primary"
+            >
+              Upload File
+            </button>
+          )}
+        </div>
+      )}
       <div className="  d-flex  justify-content-around gap-3 p-3 ">
         {imageUrl && <img src={imageUrl} alt="Preview" width="120px" />}
         {imageUrlTwo && <img src={imageUrlTwo} alt="Preview" width="120px" />}
@@ -146,59 +187,75 @@ export const AddProductFrom = () => {
               )}
             </CustomFloatingLabel>
 
-            <CustomFloatingLabel labelName="Past Image URL One">
-              <Form.Control
-                type="text"
-                name="imageURLOne"
-                placeholder="Image url "
-                {...register("images[0][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
+            <div>
+              {imageUrl && imageUrlTwo && imageUrlThree && (
+                <div>
+                  <CustomFloatingLabel labelName="Past Image URL One">
+                    <Form.Control
+                      type="text"
+                      name="imageURLOne"
+                      placeholder="Image url "
+                      value={imageUrl}
+                      {...register("images[0][url]", {
+                        pattern: {
+                          value: acceptPattern,
+                          message: "Invalid input ",
+                        },
 
-                  required: "Past Image URL",
-                })}
-                onChange={(e) => {
-                  setImageUrl(e.target.value);
-                }}
-              />
-              {errors.imageURLOne && (
-                <p className="text-danger">{errors.imageURLOne.message}</p>
+                        required: "Past Image URL",
+                      })}
+                      onChange={(e) => {
+                        setImageUrl(e.target.value);
+                      }}
+                    />
+                    {errors.imageURLOne && (
+                      <p className="text-danger">
+                        {errors.imageURLOne.message}
+                      </p>
+                    )}
+                  </CustomFloatingLabel>
+                  <CustomFloatingLabel labelName="Past Image URL Two">
+                    <Form.Control
+                      type="text"
+                      name="imageURLTwo"
+                      placeholder="Image url "
+                      value={imageUrlTwo}
+                      {...register("images[1][url]", {
+                        pattern: {
+                          value: acceptPattern,
+                          message: "Invalid input ",
+                        },
+                      })}
+                      onChange={(e) => {
+                        setImageUrTwo(e.target.value);
+                      }}
+                    />
+                  </CustomFloatingLabel>
+                  <CustomFloatingLabel labelName="Past Image URL Three">
+                    <Form.Control
+                      type="text"
+                      name="imageURLThree"
+                      placeholder="Image url "
+                      value={imageUrlThree}
+                      {...register("images[2][url]", {
+                        pattern: {
+                          value: acceptPattern,
+                          message: "Invalid input ",
+                        },
+                      })}
+                      onChange={(e) => {
+                        setImageUrThree(e.target.value);
+                      }}
+                    />
+                  </CustomFloatingLabel>
+                </div>
               )}
-            </CustomFloatingLabel>
-            <CustomFloatingLabel labelName="Past Image URL Two">
-              <Form.Control
-                type="text"
-                name="imageURLTwo"
-                placeholder="Image url "
-                {...register("images[1][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
-                })}
-                onChange={(e) => {
-                  setImageUrTwo(e.target.value);
-                }}
-              />
-            </CustomFloatingLabel>
-            <CustomFloatingLabel labelName="Past Image URL Three">
-              <Form.Control
-                type="text"
-                name="imageURLThree"
-                placeholder="Image url "
-                {...register("images[2][url]", {
-                  pattern: {
-                    value: acceptPattern,
-                    message: "Invalid input ",
-                  },
-                })}
-                onChange={(e) => {
-                  setImageUrThree(e.target.value);
-                }}
-              />
-            </CustomFloatingLabel>
+              {!imageUrl && !imageUrlTwo && !imageUrlThree && (
+                <p className="text-warning mt-5 fs-5 text-center">
+                  Please upload Images
+                </p>
+              )}
+            </div>
           </div>
           <div className="col-md-6">
             <CustomFloatingLabel labelName="Category ">
@@ -306,6 +363,8 @@ export const AddProductFrom = () => {
             type="text"
             placeholder="Enter description ?"
             {...register("description", {
+              required: "Please description is  required",
+
               maxLength: {
                 value: 2200,
                 message: "Input too large !, maximum length 2200",
@@ -355,28 +414,28 @@ const UpdateProductFrom = ({ updateId }) => {
     },
     images: [
       {
-        url: imageUrlOne,
-        altText: imageUrlOneAltText,
+        url: "",
+        altText: "",
       },
       {
-        url: imageUrlTwo,
-        altText: imageUrlTwoAltText,
+        url: "",
+        altText: "",
       },
       {
-        url: imageUrlThree,
-        altText: imageUrlThreeAltText,
+        url: "",
+        altText: "",
       },
     ],
     price: "",
     promo: {
-      code: promoCode,
-      expiresAt: expireDate,
+      code: "",
+      expiresAt: "",
     },
     stockStatus: "",
     description: "",
   });
 
-  console.log({ formData });
+  //console.log({ formData });
 
   const updateData = {
     name: formData.name,
@@ -408,28 +467,120 @@ const UpdateProductFrom = ({ updateId }) => {
     description: formData?.description,
   };
 
-  //console.log({ updateData });
+  console.log({ updateData });
+
+  // file upload code
+  const [myFiles, setMyFiles] = useState([]);
+  const handleFileUpload = (fileList) => {
+    setMyFiles(fileList);
+  };
+
+  function setImgReducer(source) {
+    if (imageUrlOne === "") {
+      setImageUrl(source);
+    } else if (imageUrlTwo === "") {
+      setImageUrlTwo(source);
+    } else if (imageUrlThree === "") {
+      setImageUrlThree(source);
+    }
+  }
+  const confirmImg = async () => {
+    if (!imageUrlOne && !imageUrlTwo && !imageUrlThree) {
+      if (myFiles[0]) {
+        const url = await uploadImgToUrl(myFiles[0]);
+        setImageUrl(url);
+      }
+      if (myFiles[1]) {
+        const urlTwo = await uploadImgToUrl(myFiles[1]);
+        setImageUrlTwo(urlTwo);
+      }
+      if (myFiles[2]) {
+        const urlThree = await uploadImgToUrl(myFiles[2]);
+        setImageUrlThree(urlThree);
+      }
+    } else if (!imageUrlOne && !imageUrlTwo) {
+      if (myFiles[0]) {
+        const url = await uploadImgToUrl(myFiles[0]);
+        setImageUrl(url);
+      }
+      if (myFiles[1]) {
+        const urlTwo = await uploadImgToUrl(myFiles[1]);
+        setImageUrlTwo(urlTwo);
+      }
+    } else if (!imageUrlOne && !imageUrlThree) {
+      if (myFiles[0]) {
+        const url = await uploadImgToUrl(myFiles[0]);
+        setImageUrl(url);
+      }
+      if (myFiles[1]) {
+        const urlTwo = await uploadImgToUrl(myFiles[1]);
+        setImageUrlThree(urlTwo);
+      }
+    } else if (!imageUrlTwo && !imageUrlThree) {
+      if (myFiles[0]) {
+        const url = await uploadImgToUrl(myFiles[0]);
+        setImageUrlTwo(url);
+      }
+      if (myFiles[1]) {
+        const urlTwo = await uploadImgToUrl(myFiles[1]);
+        setImageUrlThree(urlTwo);
+      }
+    } else if (
+      imageUrlOne === "" ||
+      imageUrlTwo === "" ||
+      imageUrlThree === ""
+    ) {
+      if (myFiles[0]) {
+        const url = await uploadImgToUrl(myFiles[0]);
+        setImgReducer(url);
+      }
+      if (myFiles[1]) {
+        const urlTwo = await uploadImgToUrl(myFiles[1]);
+        console.log({ urlTwo });
+
+        setImgReducer(urlTwo);
+      }
+      if (myFiles[2]) {
+        const urlThree = await uploadImgToUrl(myFiles[2]);
+        console.log({ urlThree });
+
+        setImgReducer(urlThree);
+      }
+    }
+  };
 
   useEffect(() => {
     if (updateId !== null) {
       FetchData(updateId, PRODUCT_ENDPOINT, setFormData);
-      setAmount(formData?.discount.amount);
-      setDiscountType(formData?.discount.type);
-      setPromoCode(formData?.promo.code);
-      setExpireDate(formData?.promo.expiresAt);
+      setAmount(formData?.discount?.amount);
+      setDiscountType(formData?.discount?.type);
+      setPromoCode(formData?.promo?.code);
+      setExpireDate(formData?.promo?.expiresAt);
       setStockStatus(formData?.stockStatus);
+
       setImageUrl(formData?.images[0]?.url);
       setImageUrlTwo(formData?.images[1]?.url);
-      setImageUrlThree(formData?.images[1]?.url);
+      setImageUrlThree(formData?.images[2]?.url);
+
       setImageUrlAltText(formData?.images[0]?.altText);
       setImageUrTwoAltText(formData?.images[1]?.altText);
       setImageUrThreeAltText(formData?.images[2]?.altText);
     }
-  }, [updateId, formData?.discount.amount]);
+  }, [
+    updateId,
+
+    formData?.discount?.amount,
+    // formData.images,
+
+    // formData?.discount?.code,
+    // formData?.discount?.type,
+    // formData?.promo?.code,
+    // formData?.promo?.expiresAt,
+    // formData?.stockStatus,
+  ]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    // console.log({ name, value });
 
     setFormData({
       ...formData,
@@ -451,10 +602,87 @@ const UpdateProductFrom = ({ updateId }) => {
   return (
     <>
       <div className="  d-flex  justify-content-around gap-3 p-3 ">
-        {<img src={imageUrlOne} alt="Preview" width="120px" />}
-        {<img src={imageUrlTwo} alt="Preview" width="120px" />}
-        {<img src={imageUrlThree} alt="Preview" width="120px" />}
+        {imageUrlOne && (
+          <div className="position-relative">
+            <img
+              src={imageUrlOne}
+              className=" p-2"
+              alt="Preview"
+              width="120px"
+            />
+
+            <button
+              onClick={() => {
+                setImageUrl("");
+              }}
+              className=" close-img "
+            >
+              <span>&#10006;</span>
+            </button>
+          </div>
+        )}
+
+        {imageUrlTwo && (
+          <div className="position-relative">
+            <img
+              src={imageUrlTwo}
+              className=" p-2"
+              alt="Preview"
+              width="120px"
+            />
+
+            <button
+              onClick={() => {
+                setImageUrlTwo("");
+              }}
+              className=" close-img "
+            >
+              <span>&#10006;</span>
+            </button>
+          </div>
+        )}
+        {imageUrlThree && (
+          <div className="position-relative">
+            <img
+              src={imageUrlThree}
+              className=" p-2"
+              alt="Preview"
+              width="120px"
+            />
+
+            <button
+              onClick={() => {
+                setImageUrlThree("");
+              }}
+              className=" close-img "
+            >
+              <span>&#10006;</span>
+            </button>
+          </div>
+        )}
       </div>
+
+      {(!imageUrlOne || !imageUrlTwo || !imageUrlThree) && (
+        <div>
+          <ImageUpload
+            files={myFiles}
+            onUpload={handleFileUpload}
+            multiple={true}
+          />
+
+          {myFiles.length > 0 && (
+            <button
+              type="button"
+              onClick={() => {
+                confirmImg();
+              }}
+              className="my-3 btn border-primary text-secondary"
+            >
+              Upload File
+            </button>
+          )}
+        </div>
+      )}
       <Form
         method="POST"
         onSubmit={(event) => {
@@ -675,6 +903,7 @@ function ProductsHomePage() {
       <CustomModal
         name="Add Product"
         show={modalShow}
+        size="xl"
         onHide={() => setModalShow(false)}
       >
         <AddProductFrom />
@@ -688,6 +917,7 @@ function ProductsHomePage() {
       <CustomModal
         name="Update"
         show={updateFormModal}
+        size="xl"
         onHide={() => setUpdateFormModal(false)}
       >
         <UpdateProductFrom updateId={getId} />
