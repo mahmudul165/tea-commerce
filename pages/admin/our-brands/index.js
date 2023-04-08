@@ -206,24 +206,26 @@ const UpdateBusinessFrom = ({ updateId }) => {
   } = useForm();
   return (
     <>
-      <div>
+      <div className="  d-flex  justify-content-center p-2 ">
         {formData?.image && (
-          <div className="d-flex justify-content-between align-items-center">
-            <p className="fs-5">Previous Image</p>
+          <div className="position-relative">
+            <img
+              src={formData?.image}
+              className=" p-2"
+              alt="Preview"
+              width="250px"
+            />
 
-            <div className="mb-4">
-              <button className="btn btn-danger  " onClick={removeImgHandler}>
-                Remove Image
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                removeImgHandler();
+              }}
+              className=" close-img "
+            >
+              <span>&#10006;</span>
+            </button>
           </div>
         )}
-
-        <div className="text-center  ele-center   mb-3  card border-0">
-          {formData?.image && (
-            <img src={formData?.image} alt="Preview" width="280px" />
-          )}
-        </div>
       </div>
 
       {!formData?.image && (
