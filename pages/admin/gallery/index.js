@@ -424,7 +424,7 @@ function GalleryHomePage() {
                       <span
                         onClick={() =>
                           deleteData(
-                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.gallery}/${img?.id}`
+                            `${apiUrl.apiRootUrl}/${apiUrl.apiEndpoint?.gallery}/${img?._id}`
                           )
                         }
                       >
