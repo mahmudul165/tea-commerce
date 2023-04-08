@@ -8,7 +8,7 @@ import { useState } from "react";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { MdAddCircleOutline } from "react-icons/md";
 
-export const AddProductFrom = () => {
+const AddProductFrom = () => {
   return (
     <Form
       id="contact-form"
