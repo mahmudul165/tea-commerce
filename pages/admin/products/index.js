@@ -251,7 +251,7 @@ const AddProductFrom = () => {
                 </div>
               )}
               {!imageUrl && !imageUrlTwo && !imageUrlThree && (
-                <p className="text-warning mt-5 fs-5 text-center">
+                <p className="text-warning fs-5 mt-5 text-center">
                   Please upload Images
                 </p>
               )}
@@ -360,8 +360,10 @@ const AddProductFrom = () => {
 
         <CustomFloatingLabel labelName="Description">
           <Form.Control
-            type="text"
+            as="textarea"
+            className="py-5 h-25"
             placeholder="Enter description ?"
+            rows={10}
             {...register("description", {
               required: "Please description is  required",
 
@@ -466,8 +468,6 @@ const UpdateProductFrom = ({ updateId }) => {
     stockStatus: formData?.stockStatus,
     description: formData?.description,
   };
-
-  console.log({ updateData });
 
   // file upload code
   const [myFiles, setMyFiles] = useState([]);
