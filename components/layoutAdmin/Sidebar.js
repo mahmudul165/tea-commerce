@@ -20,6 +20,7 @@ import { RiContactsBookLine, RiGalleryFill } from "react-icons/ri";
 import styled from "styled-components";
 import CustomDropdown from "../admin/common/CustomDropdown";
 import CustomModal from "../admin/common/CustomModal";
+import { useRouter } from "next/router";
 
 // const SidebarWrapper = styled.nav`
 //   position: fixed;
@@ -81,6 +82,7 @@ const productsLi = ["products"];
 const ordersLi = ["orders"];
 
 const Sidebar = () => {
+  const router = useRouter();
   const userInfo = localStorage.getItem("user");
   const optionsProfile = [userInfo, "logout"];
   const [modalShow, setModalShow] = useState(false);
@@ -120,7 +122,11 @@ const Sidebar = () => {
         <ul className="nav flex-column">
           <li className="nav-item">
             <Link href="/admin/dashboard">
-              <SidebarNavLink className="nav-link active">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/dashboard" ? "active" : ""
+                } nav-link`}
+              >
                 <AiOutlineHome /> Dashboard
               </SidebarNavLink>
             </Link>
@@ -137,7 +143,11 @@ const Sidebar = () => {
             </SidebarNavLink> */}
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link">
+            <SidebarNavLink
+              className={`${
+                router.pathname === "/admin/products" ? "active" : ""
+              } nav-link`}
+            >
               <BsCardChecklist />
               <CustomDropdown options={productsLi} name="Products">
                 <span
@@ -152,7 +162,11 @@ const Sidebar = () => {
             </SidebarNavLink>
           </li>
           <li className="nav-item">
-            <SidebarNavLink className="nav-link">
+            <SidebarNavLink
+              className={`${
+                router.pathname === "/admin/orders" ? "active" : ""
+              } nav-link`}
+            >
               <BsCartCheck />
               <CustomDropdown name="Orders">
                 <Link
@@ -192,21 +206,33 @@ const Sidebar = () => {
 
           <li className="nav-item">
             <Link href="/admin/sell">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/sell" ? "active" : ""
+                } nav-link`}
+              >
                 <AiOutlineDollarCircle /> Sell
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/gallery">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/gallery" ? "active" : ""
+                } nav-link`}
+              >
                 <RiGalleryFill /> Gallery
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/carrier">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/carrier" ? "active" : ""
+                } nav-link`}
+              >
                 <FiTarget /> Carrier
               </SidebarNavLink>
             </Link>
@@ -220,35 +246,55 @@ const Sidebar = () => {
           </li> */}
           <li className="nav-item">
             <Link href="/admin/slide">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/slide" ? "active" : ""
+                } nav-link`}
+              >
                 <BsSliders /> Slide
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/business">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/business" ? "active" : ""
+                } nav-link`}
+              >
                 <MdOutlineBusiness /> Business
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/our-brands">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/our-brands" ? "active" : ""
+                } nav-link`}
+              >
                 <GiTeapotLeaves size={18} /> Our Brands
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/press">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/press" ? "active" : ""
+                } nav-link`}
+              >
                 <MdTipsAndUpdates /> Press Releases
               </SidebarNavLink>
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/admin/contact">
-              <SidebarNavLink className="nav-link">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/contact" ? "active" : ""
+                } nav-link`}
+              >
                 <RiContactsBookLine /> Contact
               </SidebarNavLink>
             </Link>
