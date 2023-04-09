@@ -175,6 +175,25 @@ const Footer = () => {
             </li> */}
           </ul>
         </Col>
+        <Col sm={12} md={4}>
+          <h1 className="fs-5 fw-bold mb-3 cus-color-secondary text-center">
+            Promotional Video
+          </h1>
+          <div className={isMobile ? "" : "mx-5"}>
+            {/* <video  width={640} height={160} controls>
+        <source src="https://streamable.com/e/wpdk6h" type="video/mp4" />
+      </video> */}
+            <div className="ele-center">
+              <iframe
+                src="https://streamable.com/e/wpdk6h?autoplay=1"
+                frameBorder={0}
+                width="302px"
+                height="170px"
+                allow="autoplay"
+              />
+            </div>
+          </div>
+        </Col>
         <Col sm={12} md={3}>
           <h1 className="fs-5 fw-bold cus-color-secondary mb-2 text-center ">
             Contact Us
@@ -195,18 +214,6 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </Col>
-        <Col sm={12} md={4}>
-          <h1 className="fs-5 fw-bold mb-3 cus-color-secondary text-center">
-            Promotional Video
-          </h1>
-          <div className={isMobile ? "" : "mx-5"}>
-            {/* <video  width={640} height={160} controls>
-        <source src="https://streamable.com/e/wpdk6h" type="video/mp4" />
-      </video> */}
-           <iframe src="https://streamable.com/e/wpdk6h?autoplay=1" frameBorder={0} width="302px" height="170px"  allow="autoplay"  />
-
           </div>
         </Col>
       </Row>
