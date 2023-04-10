@@ -333,7 +333,7 @@ table tr td span {
   transition: 0.3s all;
 }
 
-.active {
+.active-li {
   border-bottom: 3px solid var(--primary-color);
 }
 @media (max-width: 575.98px) {

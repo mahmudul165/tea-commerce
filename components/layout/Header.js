@@ -78,7 +78,7 @@ function Header() {
             <Nav className=" justify-content-end " as="ul">
               <Nav.Item
                 as="li"
-                className={`${router.pathname === "/" ? "active" : ""}`}
+                className={`${router.pathname === "/" ? "active-li" : ""}`}
               >
                 <Nav.Link as="span">
                   <Link href={"/"}>Home</Link>
@@ -88,7 +88,7 @@ function Header() {
               <NavDropdown
                 title="About Us"
                 id="collasible-nav-dropdown"
-                className={`${router.pathname === "/about" ? "active" : ""}`}
+                className={`${router.pathname === "/about" ? "active-li" : ""}`}
               >
                 <NavDropdown.Item as="li">
                   <Link href={"/about"}>About Sultan Tea</Link>
@@ -101,7 +101,7 @@ function Header() {
               <Nav.Link
                 as="span"
                 className={`${
-                  router.pathname === "/our-business" ? "active" : ""
+                  router.pathname === "/our-business" ? "active-li" : ""
                 } text-nowrap`}
               >
                 <Link href={"/our-business"}>Our Business</Link>
@@ -109,7 +109,7 @@ function Header() {
               <Nav.Link
                 as="span"
                 className={`${
-                  router.pathname === "/our-brand" ? "active" : ""
+                  router.pathname === "/our-brand" ? "active-li" : ""
                 } text-nowrap`}
               >
                 <Link href={"/our-brand"}>Our Brands</Link>
@@ -167,7 +167,9 @@ function Header() {
                     <Nav className=" text-white" as="ul">
                       <Nav.Item
                         as="li"
-                        className={`${router.pathname === "/" ? "active" : ""}`}
+                        className={`${
+                          router.pathname === "/" ? "active-li" : ""
+                        }`}
                       >
                         <Nav.Link as="span">
                           <Link href={"/"}>Home</Link>
@@ -178,7 +180,7 @@ function Header() {
                         title="About Us"
                         id="collasible-nav-dropdown"
                         className={`${
-                          router.pathname === "/about" ? "active" : ""
+                          router.pathname === "/about" ? "active-li" : ""
                         }`}
                       >
                         <NavDropdown.Item as="span">
@@ -194,7 +196,7 @@ function Header() {
                         title="Our Business"
                         id="collasible-nav-dropdown"
                         className={`${
-                          router.pathname === "/our-business" ? "active" : ""
+                          router.pathname === "/our-business" ? "active-li" : ""
                         } `}
                       >
                         <NavDropdown.Item as="span">
@@ -204,7 +206,7 @@ function Header() {
                       <Nav.Link
                         as="span"
                         className={`${
-                          router.pathname === "/our-brand" ? "active" : ""
+                          router.pathname === "/our-brand" ? "active-li" : ""
                         } text-nowrap`}
                       >
                         <Link href={"/our-brand"}>Our Brands</Link>
@@ -216,7 +218,7 @@ function Header() {
                     title="Gallery"
                     id="collasible-nav-dropdown"
                     className={`${
-                      router.pathname === "/gallery2" ? "active" : ""
+                      router.pathname === "/gallery2" ? "active-li" : ""
                     }`}
                   >
                     <NavDropdown.Item as="span">
@@ -226,7 +228,9 @@ function Header() {
                   <NavDropdown
                     title="Shop"
                     id="collasible-nav-dropdown"
-                    className={`${router.pathname === "/shop" ? "active" : ""}`}
+                    className={`${
+                      router.pathname === "/shop" ? "active-li" : ""
+                    }`}
                   >
                     <NavDropdown.Item as="span">
                       <Link href={"/shop"}>Products</Link>
@@ -236,7 +240,7 @@ function Header() {
                   <Nav.Link
                     as="span"
                     className={`${
-                      router.pathname === "/carrier" ? "active" : ""
+                      router.pathname === "/carrier" ? "active-li" : ""
                     }`}
                   >
                     <Link href={"/carrier"}>Carrier</Link>
@@ -244,7 +248,7 @@ function Header() {
                   <Nav.Link
                     as="span"
                     className={`${
-                      router.pathname === "/contact" ? "active" : ""
+                      router.pathname === "/contact" ? "active-li" : ""
                     } text-nowrap`}
                   >
                     <Link href={"/contact"}>Contact Us</Link>
