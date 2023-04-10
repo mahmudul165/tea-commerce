@@ -1,23 +1,24 @@
- 
-
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import { useCart } from "react-use-cart";
 import CartItemsModal from "../common/CartItemsModal";
 import Logo from "/public/main-logo.png";
+import { useRouter } from "next/router";
 function Header() {
   // start header
   const [scroll, setScroll] = useState(false);
   const [modalShow, setModalShow] = useState(false);
-
+  const router = useRouter();
   const handleClick = () => {
     const sidebar = document.querySelector(".offcanvas");
+    const body = document.querySelector("body");
+
     console.log({ sidebar });
 
     const isCollapse = sidebar.classList.contains("show");
@@ -27,9 +28,11 @@ function Header() {
     if (isCollapse) {
       sidebar.classList.remove("show");
       offcanvasDiv.classList.remove("show");
+      body.click();
     } else if (!isCollapse && !isShow) {
       sidebar.classList.add("show");
       offcanvasDiv.classList.add("show");
+      sidebar.classList.add("offcanvas-toggling");
     }
   };
   useEffect(() => {
@@ -71,48 +74,44 @@ function Header() {
               : "container  "
           }`}
         >
-          {/* <Container fluid className="justify-content-around"> */}
-          {/* <div className="row"> */}
           <div className="col-lg-5  d-md-none d-lg-block   d-none   ">
             <Nav className=" justify-content-end " as="ul">
-              <Nav.Item as="li">
+              <Nav.Item
+                as="li"
+                className={`${router.pathname === "/" ? "active" : ""}`}
+              >
                 <Nav.Link as="span">
                   <Link href={"/"}>Home</Link>
                 </Nav.Link>
               </Nav.Item>
-              {/* <Nav.Item as="li">                    
-                    <Nav.Link as="span" className="text-nowrap">
-                      <Link href={"/about"}>About Us</Link>
-                    </Nav.Link>
-                  </Nav.Item> */}
 
-              <NavDropdown title="About Us" id="collasible-nav-dropdown">
+              <NavDropdown
+                title="About Us"
+                id="collasible-nav-dropdown"
+                className={`${router.pathname === "/about" ? "active" : ""}`}
+              >
                 <NavDropdown.Item as="li">
                   <Link href={"/about"}>About Sultan Tea</Link>
                 </NavDropdown.Item>
-                {/* <NavDropdown.Divider /> */}
                 <NavDropdown.Item as="span">
                   <Link href={"/press-releases"}>Press Releases</Link>
                 </NavDropdown.Item>
               </NavDropdown>
 
-              {/* <NavDropdown title="About Us" id="collasible-nav-dropdown">
-                <NavDropdown.Item as="span">
-                  <Link href={"/about"}>About Sultan Tea</Link>
-                </NavDropdown.Item>
-
-                <NavDropdown.Item as="span">
-                  <Link href={"/new-arrival"}>Press Releases</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item as="span">
-                  <Link href={"/new-arrival"}>News Links</Link>
-                </NavDropdown.Item>
-              </NavDropdown> */}
-
-              <Nav.Link as="span" className="text-nowrap">
+              <Nav.Link
+                as="span"
+                className={`${
+                  router.pathname === "/our-business" ? "active" : ""
+                } text-nowrap`}
+              >
                 <Link href={"/our-business"}>Our Business</Link>
               </Nav.Link>
-              <Nav.Link as="span" className="text-nowrap">
+              <Nav.Link
+                as="span"
+                className={`${
+                  router.pathname === "/our-brand" ? "active" : ""
+                } text-nowrap`}
+              >
                 <Link href={"/our-brand"}>Our Brands</Link>
               </Nav.Link>
             </Nav>
@@ -133,12 +132,6 @@ function Header() {
                     layout={500}
                   />
                 </Link>
-                {/* <img
-                      src="/public/logo.png"
-                      alt="logo"
-                      className="d-inline-block mr-3 "
-                      // style={{ maxHeight: "80px" }}
-                    />{" "} */}
               </Nav.Item>
             </Nav>
           </div>
@@ -167,21 +160,15 @@ function Header() {
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
                   Sultan Tea
                 </Offcanvas.Title>
-                {/* <Nav.Link as="i" className="fs-4">
-                  <Link href={"/search"}>
-                    {" "}
-                    <FaSearch style={{ marginLeft: "100px" }} />{" "}
-                  </Link>
-                </Nav.Link> */}
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className=" justify-content-center ">
-                  {/* <Nav.Link as="span">
-                    <Link href={"/gellary"}>Gallery</Link>
-                  </Nav.Link> */}
                   <div className="  d-block  d-lg-none d-md-block  d-xs-block ">
                     <Nav className=" text-white" as="ul">
-                      <Nav.Item as="li">
+                      <Nav.Item
+                        as="li"
+                        className={`${router.pathname === "/" ? "active" : ""}`}
+                      >
                         <Nav.Link as="span">
                           <Link href={"/"}>Home</Link>
                         </Nav.Link>
@@ -190,6 +177,9 @@ function Header() {
                       <NavDropdown
                         title="About Us"
                         id="collasible-nav-dropdown"
+                        className={`${
+                          router.pathname === "/about" ? "active" : ""
+                        }`}
                       >
                         <NavDropdown.Item as="span">
                           <Link href={"/about"}>About Sultan Tea</Link>
@@ -203,42 +193,60 @@ function Header() {
                       <NavDropdown
                         title="Our Business"
                         id="collasible-nav-dropdown"
+                        className={`${
+                          router.pathname === "/our-business" ? "active" : ""
+                        } `}
                       >
                         <NavDropdown.Item as="span">
                           <Link href={"/our-business"}>Our Business</Link>
                         </NavDropdown.Item>
                       </NavDropdown>
-                      <Nav.Link as="span" className="text-nowrap">
+                      <Nav.Link
+                        as="span"
+                        className={`${
+                          router.pathname === "/our-brand" ? "active" : ""
+                        } text-nowrap`}
+                      >
                         <Link href={"/our-brand"}>Our Brands</Link>
                       </Nav.Link>
                     </Nav>
                   </div>
 
-                  <NavDropdown title="Gallery" id="collasible-nav-dropdown">
+                  <NavDropdown
+                    title="Gallery"
+                    id="collasible-nav-dropdown"
+                    className={`${
+                      router.pathname === "/gallery2" ? "active" : ""
+                    }`}
+                  >
                     <NavDropdown.Item as="span">
                       <Link href={"/gallery2"}>Gallery</Link>
                     </NavDropdown.Item>
-                    {/* <NavDropdown.Item as="span">
-                      <Link href={"/gellary"}>Gallery1</Link>
-                    </NavDropdown.Item> */}
-                    {/* <NavDropdown.Divider /> */}
                   </NavDropdown>
-                  <NavDropdown title="Shop" id="collasible-nav-dropdown">
+                  <NavDropdown
+                    title="Shop"
+                    id="collasible-nav-dropdown"
+                    className={`${router.pathname === "/shop" ? "active" : ""}`}
+                  >
                     <NavDropdown.Item as="span">
                       <Link href={"/shop"}>Products</Link>
                     </NavDropdown.Item>
-                    {/* <NavDropdown.Divider /> */}
-                    {/* <NavDropdown.Item as="span">
-                      <Link href={"/new-arrival"}>New Arrivals</Link>
-                    </NavDropdown.Item> */}
                   </NavDropdown>
-                  {/* <Nav.Link as="span">
-                    <Link href={"/blogs"}>Blog</Link>
-                  </Nav.Link> */}
-                  <Nav.Link as="span">
+
+                  <Nav.Link
+                    as="span"
+                    className={`${
+                      router.pathname === "/carrier" ? "active" : ""
+                    }`}
+                  >
                     <Link href={"/carrier"}>Carrier</Link>
                   </Nav.Link>
-                  <Nav.Link as="span" className="text-nowrap">
+                  <Nav.Link
+                    as="span"
+                    className={`${
+                      router.pathname === "/contact" ? "active" : ""
+                    } text-nowrap`}
+                  >
                     <Link href={"/contact"}>Contact Us</Link>
                   </Nav.Link>
                   {/* start */}
@@ -258,18 +266,11 @@ function Header() {
                   <Nav.Link
                     as="i"
                     className="fs-4 d-sm-none d-xs-none d-lg-block "
-                  >
-                    {/* <Link href={"/search"}>
-                      {" "}
-                      <FaSearch />{" "}
-                    </Link> */}
-                  </Nav.Link>
+                  ></Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </div>
-          {/* </div> */}
-          {/* </Container> */}
         </Navbar>
       ))}
     </>
