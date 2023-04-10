@@ -332,6 +332,10 @@ table tr td span {
 .add-transition {
   transition: 0.3s all;
 }
+
+.active-li {
+  border-bottom: 3px solid var(--primary-color);
+}
 @media (max-width: 575.98px) {
   /* CSS rules for extra small screens */
 
