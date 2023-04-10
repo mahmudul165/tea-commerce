@@ -22,12 +22,27 @@ import {
   useOrderCollectionQuery,
 } from "@/lib/hook/useApi";
 import SingleView from "@/components/admin/common/SingleView";
+
+import * as XLSX from "xlsx";
+import { RiFileExcel2Fill } from "react-icons/ri";
 function OrdersHomePage() {
   const [singleViewModal, setSingleViewModal] = useState(false);
   const [getId, setId] = useState(null);
 
   const { orderStatus, deleteData, apiUrl } = useAuth();
   const { data: contacts } = useContactCollectionQuery();
+  const excelData = contacts?.map(({ _id, __v, ...reset }) => reset);
+
+  // excel  function
+  const exportToExcel = async () => {
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(excelData);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Data");
+    XLSX.writeFile(
+      workbook,
+      `customers-query-list-${dateFormat(new Date())}.xlsx`
+    );
+  };
 
   return (
     <PrivateRoute>
@@ -41,6 +56,17 @@ function OrdersHomePage() {
 
       {/* <CustomTable tableName="Orders Table" headers={OrdersTableTH} /> */}
       <div className="border rounded-3 p-4 cus-table shadow-sm bg-white">
+        <div className="d-flex justify-content-end mb-2">
+          <button
+            type="button"
+            className="btn border-primary py-1 px-3 "
+            onClick={() => exportToExcel()}
+          >
+            <RiFileExcel2Fill size={20} className="text-primary" />
+
+            <span className="pl-2"> Export</span>
+          </button>
+        </div>
         <table className="table text-center">
           <thead>
             <tr className="fs-6">
