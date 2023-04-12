@@ -37,17 +37,17 @@ const OurLocationCard = () => {
             size="lg"
             className="fw-bold text-white fs-5"
           >
+             
             Our Locations{" "}
           </MyButton>
         </div>
-        <h5 className="my-2">Located in Green Road</h5>
+        <h5 className="my-2">Located in Motijheel</h5>
         <div className="mt-2">
           <p>
-            Address: Corporate Office: Plot No. SW(I) 4, 25 Gulshan Avenue 1212,
-            Bangladesh
+            Address: Head Office: Globe Chamber (1st foor) 104 Motijheel Commercial Area, Dhaka-1000, Bangladesh
           </p>
-          <p>Tel: +88 02 9888211</p>
-          <p>Fax: 88 02 9888158, 1 Bir Uttam Mir Shawkat Sarak, Dhaka 1208</p>
+          <p>Mobile: +880 1708 588 590</p>
+          <p>Ip Phone: 09612 112233</p>
         </div>
       </Card>
     </>
@@ -212,8 +212,10 @@ function contact() {
 
                 <div className="cus-color-secondary">
                   <h5 className="mb-2">Phone</h5>
-                  <p className="cus-color-secondary">Tel: 000123-8657</p>
-                  <p className="cus-color-secondary">Fax: 000123-8657</p>
+                  <p className="cus-color-secondary">Mobile-01708 588 590
+ 
+</p>
+                  <p className="cus-color-secondary">Ip Phone: 09612 112233</p>
                 </div>
               </div>
             </Card>
@@ -225,8 +227,9 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Email</h5>
-                  <p className="cus-color-secondary">mail@example.com</p>
-                  <p className="cus-color-secondary">support@example.com</p>
+                  <p className="cus-color-secondary">sultan@heritagebd.com
+</p>
+                  <p className="cus-color-secondary">info@heritagebd.com</p>
                 </div>
               </div>
             </Card>
@@ -238,8 +241,8 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Address</h5>
-                  <p className="cus-color-secondary">No: 34 A, Green Road</p>
-                  <p className="cus-color-secondary">Dhaka, 6775</p>
+                  <p className="cus-color-secondary">Head Office: Globe Chamber (1st foor) 104 Motijheel Commercial Area,Dhaka-1000, Bangladesh </p>
+                 
                 </div>
               </div>
             </Card>
