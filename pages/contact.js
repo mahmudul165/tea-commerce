@@ -194,7 +194,7 @@ function contact() {
         <div className="rounded border position-relative">
           <OurLocationCard />
           <iframe
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=115%20Ahmedbag,%20Global%20Islami%20Bank%20Building,%20Budhho%20Mondir,%20Dhaka-1214%201214%20Dhaka,%20Dhaka%20Division,%20Bangladesh+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Globe%20Chamber%20(1st%20foor)%20104%20Motijheel%20Commercial%20Area,%20Dhaka-1000,%20Bangladesh+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             width="100%"
             height="450px"
             frameBorder="0"
