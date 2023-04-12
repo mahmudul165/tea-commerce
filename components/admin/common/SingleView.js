@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 import FetchData from "./FetchData";
 import { dateFormat } from "./Fomater";
-import { MdMail } from "react-icons/md";
+import { MdLocationPin, MdMail } from "react-icons/md";
 import { FaEnvelope } from "react-icons/fa";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
@@ -59,7 +59,7 @@ const SingleView = (props) => {
           </p>
           {getData?.email && (
             <p className="my-2 fs-5 ">
-              <FaEnvelope className="text-primary " size={25} />{" "}
+              <FaEnvelope className="text-primary " />{" "}
               <span className="p-2"> {getData?.email}</span>
             </p>
           )}
@@ -68,6 +68,13 @@ const SingleView = (props) => {
               {" "}
               <BsFillTelephoneFill className="text-primary " />{" "}
               <span className="p-2">{getData?.phone}</span>
+            </p>
+          )}
+          {getData?.location && (
+            <p className="my-2 fs-5 ">
+              {" "}
+              <MdLocationPin size={24} className="text-primary " />{" "}
+              <span className="p-2">{getData?.location}</span>
             </p>
           )}
           {/* View End contact   */}

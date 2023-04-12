@@ -289,6 +289,17 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link href="/admin/office">
+              <SidebarNavLink
+                className={`${
+                  router.pathname === "/admin/office" ? "active" : ""
+                } nav-link`}
+              >
+                <MdOutlineBusiness /> Our Office
+              </SidebarNavLink>
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link href="/admin/contact">
               <SidebarNavLink
                 className={`${
