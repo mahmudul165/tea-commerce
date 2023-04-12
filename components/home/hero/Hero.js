@@ -109,7 +109,7 @@ function Hero() {
                 Welcome To Sultan Tea
               </h3>
               <p className="my-3 py-1    fs-5  text-justify">
-                {aboutUsDescription.substring(0, 180)}...
+                {aboutUsDescription.substring(0, 220)}...
               </p>
 
               <div
