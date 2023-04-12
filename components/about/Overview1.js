@@ -41,7 +41,7 @@ function Overview1() {
               <Card className="border-0">
                 <Image
                   className="heroImage "
-                  src={OverViewImage3}
+                  src={OverViewImage2}
                   alt="Picture of the author"
                   width={400}
                 />
