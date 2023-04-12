@@ -40,10 +40,10 @@ function Overview1() {
             <div className="my-4 py-2 ">
               <Card className="border-0">
                 <Image
-                  className="heroImage"
-                  src={OverViewImage2}
+                  className="heroImage "
+                  src={OverViewImage3}
                   alt="Picture of the author"
-                  width={495}
+                  width={400}
                 />
               </Card>
             </div>
