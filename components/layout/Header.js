@@ -68,10 +68,8 @@ function Header() {
           // bg="light"
           expand={expand}
           // className="  fs-6 fw-bold text-danger  navPosition"
-          className={`row align-items-center   m-auto   navPosition py-2 ${
-            scroll
-              ? " bg-light container-fluid py-3  add-transition "
-              : "container  add-transition "
+          className={`row align-items-center  add-transition  m-auto   navPosition py-2 ${
+            scroll ? " bg-light container-fluid py-3  " : "container   "
           }`}
         >
           <div className="col-lg-5  d-md-none d-lg-block   d-none   ">
