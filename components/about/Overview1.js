@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { Card } from "react-bootstrap";
 import OverViewImage2 from "/public/about-image-1.png";
+import OverViewImage3 from "/public/about-chairmen-image.jpg";
 function Overview1() {
   return (
     <section>
