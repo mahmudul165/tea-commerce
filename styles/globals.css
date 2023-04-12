@@ -332,6 +332,9 @@ table tr td span {
 .add-transition {
   transition: 0.3s all;
 }
+.add-transition-1 {
+  transition: 0.2s all;
+}
 
 .active-li {
   border-bottom: 3px solid var(--primary-color);
