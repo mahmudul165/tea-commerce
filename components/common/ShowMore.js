@@ -14,7 +14,7 @@ const ShowMore = (props) => {
         <Modal.Title id="contained-modal-title-vcenter">{title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className="fw-bold fs-4 my-2">{subTitle}</p>
+        {/* <p className="fw-bold fs-4 my-2">{subTitle}</p> */}
         <p className="my-3 py-1 px-2   text-secondary text-sm text-justify">
           {description}
         </p>

@@ -111,7 +111,7 @@ const Footer = () => {
           <Image className="w-50" src="main-logo.png" alt="logo" />
           {/* </Row> */}
           {/* <Row className="my-3"> */}
-          <p className="  mt-5 mb-2 w-75">
+          <p className="  mt-3 mb-2 w-75">
           Sultan Premium tea bestows the freshness of 100% premium garden tea carefully collected from the best tea gardens. Each cup of sultan tea gives strong liquor, unique color, flavor and taste and leaves you fresh and sproted
           </p>
           {/* </Row> */}
