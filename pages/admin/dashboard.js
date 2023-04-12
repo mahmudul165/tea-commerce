@@ -17,7 +17,11 @@ import CustomTable, {
   UsersTableTH,
 } from "@/components/admin/common/CustomTable";
 import { RiGalleryFill } from "react-icons/ri";
-import { MdOutlineUpdate, MdTipsAndUpdates } from "react-icons/md";
+import {
+  MdOutlineBusiness,
+  MdOutlineUpdate,
+  MdTipsAndUpdates,
+} from "react-icons/md";
 import useAuth from "@/lib/hook/useAuth";
 import {
   useBrandsCollectionQuery,
@@ -25,6 +29,7 @@ import {
   useCarrierCollectionQuery,
   useContactCollectionQuery,
   useGalleryCollectionQuery,
+  useOfficesCollectionQuery,
   useOrderCollectionQuery,
   usePressCollectionQuery,
   useProductCollectionQuery,
@@ -127,6 +132,10 @@ const DashboardPage = () => {
     staleTime: 300000,
   });
   const { data: press } = usePressCollectionQuery({
+    cacheTime: 60,
+    staleTime: 300000,
+  });
+  const { data: office } = useOfficesCollectionQuery({
     cacheTime: 60,
     staleTime: 300000,
   });
@@ -238,6 +247,12 @@ const DashboardPage = () => {
             path="press"
             number={press?.length || 0}
             icon={<MdTipsAndUpdates size={24} />}
+          />
+          <NewCard
+            name="Our Office"
+            path="office"
+            number={office?.length || 0}
+            icon={<MdOutlineBusiness size={24} />}
           />
         </section>
 
