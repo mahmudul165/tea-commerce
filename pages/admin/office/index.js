@@ -443,7 +443,7 @@ const UpdateBusinessFrom = ({ updateId }) => {
             size="lg"
             className=" text-white  cus-bg-secondary  mt-3 w-100 bg-primary"
           >
-            Update Brands
+            Update Office
           </MyButton>
         </div>
       </Form>
