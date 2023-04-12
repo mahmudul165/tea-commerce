@@ -1,4 +1,6 @@
-import React, { Suspense, useRef } from "react";
+import CustomModal from "@/components/admin/common/CustomModal";
+import ShowMore from "@/components/common/ShowMore";
+import React, { useRef } from "react";
 // import Image from "next/image";
 
 // import HeaderHomeImage from "/public/New folder/pexels-lil-artsy-1793035.jpg";
@@ -70,21 +72,23 @@ const products = [
   //   price: 50,
   // },
 ];
+
+export const aboutUsDescription =
+  "Seven years before the commencement of tea production, a tea garden of approximately 100 acres, was owned by Faizul Islam, proprietor and owner of Heritage Air Express, a travel agency business since 1998. Since 2013, he thought of business expansion and started targeting his focus towards tea production sector. Within a short time, span, with thorough research and financial backup for tea production, his dreams and visions progressed towards reality. Between 2015 and 2016 he often travelled Kolkata and Mumbai, India, where most of the factory machineries were purchased. During that time, he also visited several factories to widen his knowledge base regarding tea. The construction of factory started right after each of the machineries arrived, under his strong supervision. Mr. Faizul Islam had close links to the local people in thakurgaon and hence was able to build friendly connections with above 200 contact farmers. After the successful establishment of tea factory, leaves of about 12000 kgs were collected from contact farmers and several other tea estate companies. At first, the biggest was with acquiring good quality leaves, but with time and proper cultivation, leaves of assured quality were immediately put into production once they arrived from tea garden located 10 minutes away from the factory. These leaves are first dried in a turf house and is transported through a monorail in the factory where the leaves first undergo a crush, tear and curl (CTC) process in which they are passed through a series of cylindrical rollers with hundreds of sharp teeth that crush, tear and curl the tea into small hard pellets. Next, they are continuously fermented through a CFM machine, an oxidization process that control tea temperature using air and water. Next, they are transferred to Heater and dryer and the final stage is completed in a sorting room where the tea is graded in terms of quality and taste. Once the packaging is done the, the tea under a Trademark of sultan is sent to Chittagong for auction to determine its market price. During the auction at the end of 2017 Sultan Tea came 2nd in terms of price and quality after Kazi n Kazi, one of the leading tea estates in Bangladesh. The unique selling point of Sultan tea is that it is considered as a young tea, which gives it bright liquor and a refreshing taste.";
 function Hero() {
   const ref = useRef(null);
 
+  const [showModal, setShowModal] = React.useState(false);
+
   return (
-    <div
-    //   initial={{ y: -250, opacity: 0 }}
-    //   animate={{ y: -10, opacity: 1 }}
-    //   transition={{
-    //     delay: 0.3,
-    //     duration: 3,
-    //     type: "spring",
-    //     stiffness: 100,
-    //     scale: 1.5,
-    //   }}
-    >
+    <div>
+      <ShowMore
+        show={showModal}
+        title="More About Us"
+        subTitle="Welcome to sultan tea "
+        description={aboutUsDescription}
+        onHide={() => setShowModal(false)}
+      />
       <div className=" container  my-1 py-1  ">
         <div className="row   align-items-center justify-items-center ">
           <section className="col-sm-12 col-md-6 my-1 py-1  ">
@@ -105,9 +109,7 @@ function Hero() {
                 Welcome To Sultan Tea
               </h3>
               <p className="my-3 py-1    fs-5  text-justify">
-                Loving Sultan Tea tea blends! The quality and taste are
-                unbeatable. Their seasonal blends are always a delightful
-                surprise. Excellent customer service too. Highly recommend.
+                {aboutUsDescription.substring(0, 180)}...
               </p>
 
               <div
@@ -123,7 +125,12 @@ function Hero() {
 
                 className="lc-block my-2 pt-3"
               >
-                <button className="d-flex align-items-center  fw-bold btn  btn-lg text-white  cus-bg-primary">
+                <button
+                  className="d-flex align-items-center  fw-bold btn  btn-lg text-white  cus-bg-primary"
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                >
                   More About Us
                   <AiOutlineArrowRight className="ms-2" />
                 </button>
