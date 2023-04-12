@@ -36,14 +36,11 @@ function Overview4() {
                     transition: { duration: 2 },
                   }} "
               >
-                Lorem Ipsum passage, and going through the cites of the word in
-                classical literature.
+                Where we believe in bringing the best of tea to you!
               </p>
               <p className="py-1 fs-5 text-justify">
-                St. Augustine College Now Offers A Fully Online English Language
-                Program. Learn more today. Learn English Today! Take An Online
-                ESL Course For Adults Through St. Augustine College. Check
-                Academic Calendar. Browse Resources. View Events.
+               Our mission is to provide you with high-quality, ethically-sourced tea from around the world. Our vision is to be your preferred source for the finest teas and herbal infusions. Try our selection today and experience a luxurious cup of tea with every sip!
+
               </p>
             </div>
             {/* </Roll> */}

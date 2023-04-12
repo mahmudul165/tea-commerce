@@ -16,7 +16,7 @@ function Overview1() {
                     transition: { duration: 2 },
                   }} "
               >
-                Our Chairmen
+                 Our Chairman Massage
               </h1>
               <p
                 className="my-2 py-2 fs-4   whileHover={{
@@ -24,14 +24,12 @@ function Overview1() {
                     transition: { duration: 2 },
                   }} "
               >
-                Lorem Ipsum passage, and going through the cites of the word in
-                classical literature.
+               Discover the soothing, restorative power of Sultan Tea – a massage blend of organic ingredients tailored to help you relax and rejuvenate.
               </p>
               <p className="py-1 fs-5 text-justify">
-                St. Augustine College Now Offers A Fully Online English Language
-                Program. Learn more today. Learn English Today! Take An Online
-                ESL Course For Adults Through St. Augustine College. Check
-                Academic Calendar. Browse Resources. View Events.
+             
+ With an exquisite blend of herbs, spices, and essential oils, Sultan Tea helps promote positive energy while providing relief from tension and stress. Indulge in the luxury of Sultan Tea's unique massage blend today and experience a tranquil moment away from everyday life!
+
               </p>
             </div>
             {/* </Roll> */}
