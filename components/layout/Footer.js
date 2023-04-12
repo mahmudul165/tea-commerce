@@ -112,8 +112,7 @@ const Footer = () => {
           {/* </Row> */}
           {/* <Row className="my-3"> */}
           <p className="  mt-5 mb-2 w-75">
-            Lorem Ipsum is simply dummy text of the printing and Lorem Ipsum is
-            simply dummy text of the .
+          Sultan Premium tea bestows the freshness of 100% premium garden tea carefully collected from the best tea gardens. Each cup of sultan tea gives strong liquor, unique color, flavor and taste and leaves you fresh and sproted
           </p>
           {/* </Row> */}
           <div className="d-flex gap-4 ">
