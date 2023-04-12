@@ -1,13 +1,27 @@
+import { MyButton } from "@/components/common/Buttons";
 import Image from "next/image";
 import React from "react";
 import { Card } from "react-bootstrap";
-import { MyButton } from "@/components/common/Buttons";
-import OverViewImage2 from "/public/about-image-2.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import ShowMore from "../common/ShowMore";
+import OverViewImage2 from "/public/about-image-2.png";
+
+export const ourCompanyDescription =
+  "Originating in the hearts of Sylhet region, dating 200 years back during the British rule, tea production first started in Bangladesh and has experienced phenomenal growth of several tea industries in the preceding years. In addition, Tea cultivation was also introduced in Chittagong. In today’s world, Some of the leading Tea industries in Bangladesh are Ispahani Mirzapur, Bengal tea, Kazi n Kazi,and the list is endless. However, there has been a number of emerging tea industries for the past 20 years. One of them is Sultan Tea under Greenfield tea industries Ltd, which started its journey from 2017. Located near the Himalayan region, Greenfield tea industries first started its tea production in Shahbazpur, Thakurgaon. The manufacturing process for tea production starts in the month of March and operates through a period of nine months till November.";
+
 function Overview2() {
+  const [showModal, setShowModal] = React.useState(false);
+
   return (
     <section>
       <section className="container   ">
+        <ShowMore
+          show={showModal}
+          title="More About Us"
+          subTitle="Our Company "
+          description={ourCompanyDescription}
+          onHide={() => setShowModal(false)}
+        />
         <div className="row align-items-center ">
           <div className=" col-md-6 col-sm-12 ">
             {/* <Roll right> */}
@@ -35,10 +49,7 @@ function Overview2() {
               </h1>
 
               <p className="py-1 fs-5 text-justify">
-                St. Augustine College Now Offers A Fully Online English Language
-                Program. Learn more today. Learn English Today! Take An Online
-                ESL Course For Adults Through St. Augustine College. Check
-                Academic Calendar. Browse Resources. View Events.
+                {ourCompanyDescription.substring(0, 180)}...
               </p>
             </div>
 
@@ -49,7 +60,15 @@ function Overview2() {
                 size="lg"
                 className=" text-white px-4 ele-center gap-2"
               >
-                <span> More About Us</span> <FaLongArrowAltRight />
+                <span
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                >
+                  {" "}
+                  More About Us
+                </span>{" "}
+                <FaLongArrowAltRight />
               </MyButton>
             </div>
           </div>
