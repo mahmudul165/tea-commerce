@@ -43,7 +43,7 @@ function Overview1() {
                   className="heroImage "
                   src={OverViewImage2}
                   alt="Picture of the author"
-                  width={400}
+                  // width={475}
                 />
               </Card>
             </div>
