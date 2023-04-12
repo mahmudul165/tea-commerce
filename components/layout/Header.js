@@ -71,7 +71,7 @@ function Header() {
           className={`row align-items-center   m-auto   navPosition py-2 ${
             scroll
               ? " bg-light container-fluid py-3  add-transition "
-              : "container  "
+              : "container  add-transition "
           }`}
         >
           <div className="col-lg-5  d-md-none d-lg-block   d-none   ">
