@@ -208,6 +208,7 @@ const Footer = () => {
                   <FiPhoneCall size={35} className="text-warning" />
                   <p className="fs-3 fw-bold text-white ">09612 112233</p>
                 </div>
+                {/* test */}
                 <p className="text-white fs-6 fw-bold">Mobile: 01708 588 590</p>
                 <p className="text-white fs-6 fw-bold">
                   Email: Sultan@heritagebd.com
