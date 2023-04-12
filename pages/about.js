@@ -12,7 +12,7 @@ import SultanTeaLogo from "/public/about-image-5.png";
 import TeaLogo from "/public/logo-company.jpg";
 import HeritageGP from "/public/heritage-gp.png";
 import Image from "next/image";
-import OurOffices from "@/components/home/our-offices/OurOffices";
+ 
 
 // import { useRouter } from 'next/router'
 
@@ -45,7 +45,7 @@ function about() {
         </div>
       </div>
 
-      <OurOffices />
+    
     </>
   );
 }
