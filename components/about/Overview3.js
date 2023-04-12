@@ -24,14 +24,11 @@ function Overview3() {
                     transition: { duration: 2 },
                   }} "
               >
-                Lorem Ipsum passage, and going through the cites of the word in
-                classical literature.
+                 Enjoy the perfect cup of tea with Sultan Tea!
               </p>
               <p className="py-1 fs-5">
-                St. Augustine College Now Offers A Fully Online English Language
-                Program. Learn more today. Learn English Today! Take An Online
-                ESL Course For Adults Through St. Augustine College. Check
-                Academic Calendar. Browse Resources. View Events.
+              Our hand-crafted mission blends help bring balance and clarity to your day. Featuring organic ingredients sourced from around the world, our teas are smooth and aromatic - a perfect way to start or end your day. Our flavors range from traditional chai to sweet and fruity rooibos, providing something for everyone. Try Sultan Tea today and see what you’ve been missing!
+
               </p>
             </div>
             {/* </Roll> */}
