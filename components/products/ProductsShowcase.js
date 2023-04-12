@@ -17,7 +17,7 @@ function ProductsShowcase({ data }) {
   const lastItemIndex = currentPage * ITEMS_PER_PAGE;
   const firstItemIndex = lastItemIndex - ITEMS_PER_PAGE;
   const currentItems = products.slice(firstItemIndex, lastItemIndex);
-
+console.log('currentItems:',currentItems)
   const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
   const handlePageChange = (page) => {
@@ -106,17 +106,7 @@ function ProductsShowcase({ data }) {
                   ) : (
                     <Skeleton height={200} />
                   )}
-                  {/* </Link> */}
-
-                  {/* <Image
-                    src={sunset1}
-                    alt="Sunset"
-                    width={600}
-                    height={450}
-                    layout="responsive"
-                   placeholder="blur"
-                    blurDataURL="data:image/png;base64,[IMAGE_CODE_FROM_PNG_PIXEL]"
-                  /> */}
+                  
 
                   <div className="card-body p-0">
                     <motion.div
@@ -164,117 +154,125 @@ function ProductsShowcase({ data }) {
               </div>
             ))
           ) : (
-            <div className="row    text-center my-2 py-3 ">
-              <div className="col-sm-12 col-md-3 pe-2  ">
-                <div>
-                  <Skeleton height={250}>
-                    <div className="d-flex">
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                    </div>{" "}
-                  </Skeleton>
+            <div>
+              
+              <div className="row    text-center my-2 py-3 ">
+                <div className="col-sm-12 col-md-3 pe-2  ">
                   <div>
-                    <div className="d-flex p-2 justify-content-center align-items-center">
-                      <Skeleton height={30} width={180} />{" "}
+                    <Skeleton height={250}>
+                      <div className="d-flex">
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                      </div>{" "}
+                    </Skeleton>
+                    <div>
+                      <div className="d-flex p-2 justify-content-center align-items-center">
+                        <Skeleton height={30} width={180} />{" "}
+                      </div>
+                      <Skeleton height={30} width={250} />
                     </div>
-                    <Skeleton height={30} width={250} />
+                    <div></div>
                   </div>
-                  <div></div>
                 </div>
-              </div>
-              <div className="col-sm-12 col-md-3 pe-2  ">
-                <div>
-                  <Skeleton height={250}>
-                    <div className="d-flex">
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                    </div>{" "}
-                  </Skeleton>
+                <div className="col-sm-12 col-md-3 pe-2  ">
                   <div>
-                    <div className="d-flex p-2 justify-content-center align-items-center">
-                      <Skeleton height={30} width={180} />{" "}
+                    <Skeleton height={250}>
+                      <div className="d-flex">
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                      </div>{" "}
+                    </Skeleton>
+                    <div>
+                      <div className="d-flex p-2 justify-content-center align-items-center">
+                        <Skeleton height={30} width={180} />{" "}
+                      </div>
+                      <Skeleton height={30} width={250} />
                     </div>
-                    <Skeleton height={30} width={250} />
+                    <div></div>
                   </div>
-                  <div></div>
                 </div>
-              </div>
-              <div className="col-sm-12 col-md-3 pe-2  ">
-                <div>
-                  <Skeleton height={250}>
-                    <div className="d-flex">
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                    </div>{" "}
-                  </Skeleton>
+                <div className="col-sm-12 col-md-3 pe-2  ">
                   <div>
-                    <div className="d-flex p-2 justify-content-center align-items-center">
-                      <Skeleton height={30} width={180} />{" "}
+                    <Skeleton height={250}>
+                      <div className="d-flex">
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                      </div>{" "}
+                    </Skeleton>
+                    <div>
+                      <div className="d-flex p-2 justify-content-center align-items-center">
+                        <Skeleton height={30} width={180} />{" "}
+                      </div>
+                      <Skeleton height={30} width={250} />
                     </div>
-                    <Skeleton height={30} width={250} />
+                    <div></div>
                   </div>
-                  <div></div>
                 </div>
-              </div>
-              <div className="col-sm-12 col-md-3 pe-2  ">
-                <div>
-                  <Skeleton height={250}>
-                    <div className="d-flex">
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                      <Skeleton
-                        height={30}
-                        width={90}
-                        borderRadius={10}
-                        highlightColor={"red"}
-                      />
-                    </div>{" "}
-                  </Skeleton>
+                <div className="col-sm-12 col-md-3 pe-2  ">
                   <div>
-                    <div className="d-flex p-2 justify-content-center align-items-center">
-                      <Skeleton height={30} width={180} />{" "}
+                    <Skeleton height={250}>
+                      <div className="d-flex">
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                        <Skeleton
+                          height={30}
+                          width={90}
+                          borderRadius={10}
+                          highlightColor={"red"}
+                        />
+                      </div>{" "}
+                    </Skeleton>
+                    <div>
+                      <div className="d-flex p-2 justify-content-center align-items-center">
+                        <Skeleton height={30} width={180} />{" "}
+                      </div>
+                      <Skeleton height={30} width={250} />
                     </div>
-                    <Skeleton height={30} width={250} />
+                    <div></div>
                   </div>
-                  <div></div>
                 </div>
               </div>
             </div>
           )}
+
+          {currentItems?.length===0 &&  <h1 className="text-center fs-4 fw-bolder text-warning">
+                We're sorry, but there are no products available at the moment.
+                Please check back later.
+              </h1>}
         </motion.div>
       </motion.div>
       <Pagination className="d-flex justify-content-end container my-5">
