@@ -162,116 +162,116 @@ function Header() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className=" justify-content-center ">
-                  <div className="  d-block  d-lg-none d-md-block  d-xs-block ">
-                    <Nav className=" text-white" as="ul">
-                      <Nav.Item
-                        as="li"
-                        className={`${
-                          router.pathname === "/" ? "active-li" : ""
-                        }`}
-                      >
-                        <Nav.Link as="span">
-                          <Link href={"/"}>Home</Link>
-                        </Nav.Link>
-                      </Nav.Item>
-
-                      <NavDropdown
-                        title="About Us"
-                        id="collasible-nav-dropdown"
-                        className={`${
-                          router.pathname === "/about" ? "active-li" : ""
-                        }`}
-                      >
-                        <NavDropdown.Item as="span">
-                          <Link href={"/about"}>About Sultan Tea</Link>
-                        </NavDropdown.Item>
-                        {/* <NavDropdown.Divider /> */}
-                        <NavDropdown.Item as="span">
-                          <Link href={"/press-releases"}>Press Releases</Link>
-                        </NavDropdown.Item>
-                      </NavDropdown>
-
-                      <NavDropdown
-                        title="Our Business"
-                        id="collasible-nav-dropdown"
-                        className={`${
-                          router.pathname === "/our-business" ? "active-li" : ""
-                        } `}
-                      >
-                        <NavDropdown.Item as="span">
-                          <Link href={"/our-business"}>Our Business</Link>
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                      <Nav.Link
-                        as="span"
-                        className={`${
-                          router.pathname === "/our-brand" ? "active-li" : ""
-                        } text-nowrap`}
-                      >
-                        <Link href={"/our-brand"}>Our Brands</Link>
+                {/* <Nav className=" justify-content-center "> */}
+                <div className="  d-block  d-lg-none d-md-block  d-xs-block ">
+                  <Nav as="ul">
+                    <Nav.Item
+                      as="li"
+                      className={`${
+                        router.pathname === "/" ? "active-li" : ""
+                      }`}
+                    >
+                      <Nav.Link as="span">
+                        <Link href={"/"}>Home</Link>
                       </Nav.Link>
-                    </Nav>
-                  </div>
+                    </Nav.Item>
 
-                  <NavDropdown
-                    title="Gallery"
-                    id="collasible-nav-dropdown"
-                    className={`${
-                      router.pathname === "/gallery2" ? "active-li" : ""
-                    }`}
-                  >
-                    <NavDropdown.Item as="span">
-                      <Link href={"/gallery2"}>Gallery</Link>
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  <NavDropdown
-                    title="Shop"
-                    id="collasible-nav-dropdown"
-                    className={`${
-                      router.pathname === "/shop" ? "active-li" : ""
-                    }`}
-                  >
-                    <NavDropdown.Item as="span">
-                      <Link href={"/shop"}>Products</Link>
-                    </NavDropdown.Item>
-                  </NavDropdown>
+                    <NavDropdown
+                      title="About Us"
+                      id="collasible-nav-dropdown"
+                      className={`${
+                        router.pathname === "/about" ? "active-li" : ""
+                      }`}
+                    >
+                      <NavDropdown.Item as="li">
+                        <Link href={"/about"}>About Sultan Tea</Link>
+                      </NavDropdown.Item>
+                      {/* <NavDropdown.Divider /> */}
+                      <NavDropdown.Item as="li">
+                        <Link href={"/press-releases"}>Press Releases</Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
 
-                  <Nav.Link
-                    as="span"
-                    className={`${
-                      router.pathname === "/carrier" ? "active-li" : ""
-                    }`}
-                  >
-                    <Link href={"/carrier"}>Carrier</Link>
-                  </Nav.Link>
-                  <Nav.Link
-                    as="span"
-                    className={`${
-                      router.pathname === "/contact" ? "active-li" : ""
-                    } text-nowrap`}
-                  >
-                    <Link href={"/contact"}>Contact Us</Link>
-                  </Nav.Link>
-                  {/* start */}
-                  <Nav.Link
-                    as="button"
-                    className="fs-4 d-sm-none d-lg-block d-xs-none m-0 p-0"
-                    onClick={() => {
-                      setModalShow(true);
-                    }}
-                  >
-                    <FaShoppingCart />
-                  </Nav.Link>
-                  <sup className="fs-6 fw-bold  d-sm-none d-lg-block d-xs-none mt-3 ">
-                    ({totalItems})
-                  </sup>
+                    <NavDropdown
+                      title="Our Business"
+                      id="collasible-nav-dropdown"
+                      className={`${
+                        router.pathname === "/our-business" ? "active-li" : ""
+                      } `}
+                    >
+                      <NavDropdown.Item as="span">
+                        <Link href={"/our-business"}>Our Business</Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link
+                      as="span"
+                      className={`${
+                        router.pathname === "/our-brand" ? "active-li" : ""
+                      } text-nowrap`}
+                    >
+                      <Link href={"/our-brand"}>Our Brands</Link>
+                    </Nav.Link>
+                  </Nav>
+                </div>
 
-                  <Nav.Link
-                    as="i"
-                    className="fs-4 d-sm-none d-xs-none d-lg-block "
-                  ></Nav.Link>
-                </Nav>
+                <NavDropdown
+                  title="Gallery"
+                  id="collasible-nav-dropdown"
+                  className={`${
+                    router.pathname === "/gallery2" ? "active-li" : ""
+                  }`}
+                >
+                  <NavDropdown.Item as="li">
+                    <Link href={"/gallery2"}>Gallery</Link>
+                  </NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown
+                  title="Shop"
+                  id="collasible-nav-dropdown"
+                  className={`${
+                    router.pathname === "/shop" ? "active-li" : ""
+                  }`}
+                >
+                  <NavDropdown.Item as="li">
+                    <Link href={"/shop"}>Products</Link>
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+                <Nav.Link
+                  as="span"
+                  className={`${
+                    router.pathname === "/carrier" ? "active-li" : ""
+                  }`}
+                >
+                  <Link href={"/carrier"}>Carrier</Link>
+                </Nav.Link>
+                <Nav.Link
+                  as="span"
+                  className={`${
+                    router.pathname === "/contact" ? "active-li" : ""
+                  } text-nowrap`}
+                >
+                  <Link href={"/contact"}>Contact Us</Link>
+                </Nav.Link>
+                {/* start */}
+                <Nav.Link
+                  as="button"
+                  className="fs-4 d-sm-none d-lg-block d-xs-none m-0 p-0"
+                  onClick={() => {
+                    setModalShow(true);
+                  }}
+                >
+                  <FaShoppingCart />
+                </Nav.Link>
+                <sup className="fs-6 fw-bold  d-sm-none d-lg-block d-xs-none mt-3 ">
+                  ({totalItems})
+                </sup>
+
+                <Nav.Link
+                  as="i"
+                  className="fs-4 d-sm-none d-xs-none d-lg-block "
+                ></Nav.Link>
+                {/* </Nav> */}
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </div>
