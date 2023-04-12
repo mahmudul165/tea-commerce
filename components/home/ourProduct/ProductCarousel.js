@@ -32,67 +32,7 @@ const stagger = {
     },
   },
 };
-const productsss = [
-  {
-    id: 1,
-    name: "Product 1",
-    image: "https://i.ibb.co/3mYNLr4/Rectangle-1.png",
-    price: 210.0,
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    image: "https://i.ibb.co/WsbX20H/Rectangle-2.png",
-    price: 180.0,
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    image: "https://i.ibb.co/ry3sDTB/Rectangle-3.png",
-    price: 85.0,
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    image: "https://i.ibb.co/DYD5Z3T/Rectangle-4.png",
-    price: 885.0,
-  },
-  {
-    id: 5,
-    name: "Product 5",
-    image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-    price: 700,
-  },
-  // {
-  //   id: 6,
-  //   name: "Product 6",
-  //   image:
-  //     "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/h/o/honey-lemon-green-tea-bags-60-gms.jpg",
-  //   price: 5800,
-  // },
-  {
-    id: 7,
-    name: "Product 4",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8uxkKiX-wGly90GY9jHmIUew80yVpI6jzAg&usqp=CAU",
-    price: 200,
-  },
-  {
-    id: 8,
-    name: "Product 5",
-    image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/g/r/green.jpg",
-    price: 400,
-  },
-  {
-    id: 9,
-    name: "Product 6",
-    image:
-      "https://cdn.buytea.com/pub/media/catalog/product/cache/f4a413f86e2ae468a5d75a3fe8e24e32/w/b/wb_gm_premium_assam_tea_25tb-1.jpg",
-    price: 50,
-  },
-];
+ 
 
 const ProductCarousel = ({ data }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -118,7 +58,7 @@ const ProductCarousel = ({ data }) => {
       />
       {/* <h1 className="fs-4 fw-bolder my-2 mb-2" style={{color:'#59330E'
   }}>Our Products</h1>  */}
-      <SectionTitle title="Our Products" />
+        {data?.products?.length > 0 && <SectionTitle title="Our Products" />}
       <Carousel className="position-relative  product-carousel">
         {data?.products?.map((product, index) => {
           if (index % 4 === 0) {
