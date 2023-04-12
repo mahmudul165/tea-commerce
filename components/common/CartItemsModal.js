@@ -200,7 +200,7 @@ const CartItemsModal = (props) => {
       };
   
       // Submit form data
-      const response = await axios.post(`${apiUrl.apiRootUrl}/api/v1/order`, updatedFormValues);
+      const response = await axios.post(`${apiUrl.apiRootUrl}/api/v1/order`,totalItems > 0 && updatedFormValues);
   
       // Handle successful response
       setFormValues({
