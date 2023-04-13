@@ -121,7 +121,7 @@ console.log('currentItems:',currentItems)
                           border: 0,
                         }}
                       >
-                        {product.name?.slice(0, 15)}
+                        {product.name?.slice(0, 50)}
                       </p>{" "}
                     </motion.div>
                   </div>
