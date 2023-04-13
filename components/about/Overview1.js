@@ -1,8 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Card } from "react-bootstrap";
-import OverViewImage2 from "/public/about-image-1.png";
-import OverViewImage3 from "/public/about-chairmen-image.jpg";
+import OverViewImage2 from "/public/chairman.jpg";
 function Overview1() {
   return (
     <section>
@@ -17,7 +16,7 @@ function Overview1() {
                     transition: { duration: 2 },
                   }} "
               >
-                 Our Chairman Massage
+                Our Chairman Massage
               </h1>
               <p
                 className="my-2 py-2 fs-4   whileHover={{
@@ -25,12 +24,16 @@ function Overview1() {
                     transition: { duration: 2 },
                   }} "
               >
-               Discover the soothing, restorative power of Sultan Tea – a massage blend of organic ingredients tailored to help you relax and rejuvenate.
+                Discover the soothing, restorative power of Sultan Tea – a
+                massage blend of organic ingredients tailored to help you relax
+                and rejuvenate.
               </p>
               <p className="py-1 fs-5 text-justify">
-             
- With an exquisite blend of herbs, spices, and essential oils, Sultan Tea helps promote positive energy while providing relief from tension and stress. Indulge in the luxury of Sultan Tea's unique massage blend today and experience a tranquil moment away from everyday life!
-
+                With an exquisite blend of herbs, spices, and essential oils,
+                Sultan Tea helps promote positive energy while providing relief
+                from tension and stress. Indulge in the luxury of Sultan Tea's
+                unique massage blend today and experience a tranquil moment away
+                from everyday life!
               </p>
             </div>
             {/* </Roll> */}
@@ -38,7 +41,7 @@ function Overview1() {
           <section className=" col-md-6 col-sm-12 d-flex justify-content-end ">
             {/* <Roll right> */}
             <div className="my-4 py-2 ">
-              <Card className="border-0">
+              <Card className=" cus-b-r-5 ">
                 <Image
                   className="heroImage "
                   src={OverViewImage2}
