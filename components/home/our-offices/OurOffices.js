@@ -23,7 +23,14 @@ function OurOffices() {
         {ourOffices?.map((product) => (
           <Col sm={12} md={4} key={product._id}>
             {/* <Card style={{ width: "22rem", height: "auto"}}> */}
-            <Image src={product.image} alt="text22" fluid />
+            <Card className="mx-auto my-3" >
+              <Image
+                src={product.image}
+                alt="text22"
+                fluid
+               // className="w-100 h-auto object-fit-cover"
+              />
+            </Card>
             <Card.Body className="py-2">
               <Card.Title>{product.name}</Card.Title>
               <Card.Text className="py-2 mb-1 cus-color-secondary">
