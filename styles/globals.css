@@ -146,6 +146,15 @@ ul li {
   height: 400px; /* or any other fixed height you want */
   object-fit: cover;
 }
+
+.officeImage {
+  width: 300 !important;
+  height: 150 !important;
+  /* object-fit: cover; */
+}
+.cus-fw-4 {
+  font-weight: 400;
+}
 .gelleryCardImg {
   height: 350px; /* or any other fixed height you want */
   object-fit: cover;
