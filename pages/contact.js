@@ -1,5 +1,4 @@
- 
-// import React from 'react' 
+// import React from 'react'
 // import ContactUs from '@/components/contact/ContactUs'
 // import OurOffices from '@/components/home/our-offices/OurOffices'
 // import RouteNavSlider from '@/components/common/RouteNavSlider'
@@ -19,7 +18,7 @@ import IconWithBackground from "@/components/common/IconWithBackground";
 import OurOffices from "@/components/home/our-offices/OurOffices";
 import { Card, Form } from "react-bootstrap";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
- //test
+//test
 import useAuth from "@/lib/hook/useAuth";
 import axios from "axios";
 import { useState } from "react";
@@ -37,14 +36,14 @@ const OurLocationCard = () => {
             size="lg"
             className="fw-bold text-white fs-5"
           >
-             
             Our Locations{" "}
           </MyButton>
         </div>
         <h5 className="my-2">Located in Motijheel</h5>
         <div className="mt-2">
           <p>
-            Address: Head Office: Globe Chamber (1st foor) 104 Motijheel Commercial Area, Dhaka-1000, Bangladesh
+            Address: Head Office: Globe Chamber (1st foor) 104 Motijheel
+            Commercial Area, Dhaka-1000, Bangladesh
           </p>
           <p>Mobile: +880 1708 588 590</p>
           <p>Ip Phone: 09612 112233</p>
@@ -205,16 +204,16 @@ function contact() {
         <div className="row my-4">
           <div className="col-md-4  cus-color-secondary">
             <Card className="card border rounded  p-5 mb-4 ">
-              <div className="d-flex gap-5 align-items-center">
+              <div className="d-flex gap-4 align-items-center">
                 <IconWithBackground>
                   <FaPhoneAlt size={25} className="" />
                 </IconWithBackground>
 
                 <div className="cus-color-secondary">
                   <h5 className="mb-2">Phone</h5>
-                  <p className="cus-color-secondary">Mobile-01708 588 590
- 
-</p>
+                  <p className="cus-color-secondary">
+                    Mobile-01708 588 590
+                  </p>{" "}
                   <p className="cus-color-secondary">Ip Phone: 09612 112233</p>
                 </div>
               </div>
@@ -227,8 +226,7 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Email</h5>
-                  <p className="cus-color-secondary">sultan@heritagebd.com
-</p>
+                  <p className="cus-color-secondary">sultan@heritagebd.com</p>
                   <p className="cus-color-secondary">info@heritagebd.com</p>
                 </div>
               </div>
@@ -241,8 +239,10 @@ function contact() {
 
                 <div>
                   <h5 className="mb-2">Address</h5>
-                  <p className="cus-color-secondary">Head Office: Globe Chamber (1st foor) 104 Motijheel Commercial Area,Dhaka-1000, Bangladesh </p>
-                 
+                  <p className="cus-color-secondary">
+                    Head Office: Globe Chamber (1st foor) 104 Motijheel
+                    Commercial Area,Dhaka-1000, Bangladesh{" "}
+                  </p>
                 </div>
               </div>
             </Card>
