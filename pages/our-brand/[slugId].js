@@ -7,10 +7,8 @@ import { motion } from "framer-motion";
 import SliderImg from "public/slider-2.jpg";
 
 import HeroBanner from "@/components/common/Banner";
- 
+
 export const getStaticPaths = async () => {
-   
- 
   const res = await fetch(
     "https://crabby-pocketbook-eel.cyclic.app/api/v1/brand"
   );
@@ -45,20 +43,23 @@ function BlogDetails({ data }) {
     <div className="   ">
       <HeroBanner name="Our Brand" />
       {data ? (
-      <Container className="container my-4">
-      <Card className="border-0 p-2">
-        <Card.Img          
-          variant="top"
-          src={data.image}
-          className="img-fluid"
-          // style={{ width: "950px", height: "400px", objectFit: "cover" }}
-          alt="description"
-        />
-        <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
-        <p className="fs-4 text-justify cus-text-justify my-2 py-1">{data.body}</p>
-      </Card>
-    </Container>
-    
+        <Container className="container my-4 ">
+          <Card className="border-0 p-2 ">
+            <div className="ele-center">
+              <Card.Img
+                variant="top"
+                src={data.image}
+                className="w-50 "
+                // style={{ width: "950px", height: "400px", objectFit: "cover" }}
+                alt="description"
+              />
+            </div>
+            <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
+            <p className="fs-4 text-justify cus-text-justify my-2 py-1">
+              {data.body}
+            </p>
+          </Card>
+        </Container>
       ) : (
         <div className="row    text-center my-2 py-3 ">
           <div className="col-sm-12 col-md-3 pe-2  ">
