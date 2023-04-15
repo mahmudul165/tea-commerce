@@ -14,10 +14,8 @@ import { motion } from "framer-motion";
 import SliderImg from "public/slider-2.jpg";
 
 import HeroBanner from "@/components/common/Banner";
- 
+
 export const getStaticPaths = async () => {
-   
- 
   const res = await fetch(
     "https://crabby-pocketbook-eel.cyclic.app/api/v1/business"
   );
@@ -52,14 +50,17 @@ function BlogDetails({ data }) {
     <div className="   ">
       <HeroBanner name="Our Business" />
       {data ? (
-        <Container className="container my-4">
+        <Container className="container my-2">
           <Card className="border-0  p-2">
-                        <Card.Img
-              className="h-50"
-              variant="top"
-              // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
-              src={data.image}
-            />
+            <div className="ele-center">
+              <Card.Img
+                className="w-50"
+                variant="top"
+                // src="https://i.ibb.co/7C7M7QX/tea-5.jpg"
+                src={data.image}
+                alt="Brand IMG"
+              />
+            </div>
             <p className="cus-color-primary my-3 fs-2 py-1  ">{data.title}</p>
 
             <p className="  text-justify cus-text-justify ">{data.body}</p>
