@@ -86,7 +86,11 @@ function OrdersHomePage() {
                   <td>{row?.name}</td>
                   <td>{row?.email}</td>
                   <td>{row?.phone}</td>
-                  <td>{row?.message}</td>
+                  <td>
+                    {row.message?.length > 20
+                      ? row.message?.substring(0, 20) + "..."
+                      : row?.message}
+                  </td>
 
                   <td>
                     <div className="d-flex justify-content-center gap-2 position-relative">

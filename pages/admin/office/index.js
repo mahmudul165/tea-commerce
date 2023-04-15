@@ -521,7 +521,11 @@ function OurBrandHomePage() {
                   <td>{el?.name}</td>
                   <td>{el?.phone}</td>
                   <td>{el?.email}</td>
-                  <td>{el?.location}</td>
+                  <td>
+                    {el.location?.length > 20
+                      ? el.location?.substring(0, 30) + "..."
+                      : el?.location}
+                  </td>
 
                   <td>
                     <img src={el.image} width="50px" alt={el.altText} />

@@ -493,7 +493,11 @@ function SlideHomePage() {
                     <img src={el.image} width="60px" alt={el.altText} />
                   </td>
                   <td>{el.pathName}</td>
-                  <td>{el.description}</td>
+                  <td>
+                    {el.description?.length > 20
+                      ? el.description?.substring(0, 20) + "..."
+                      : el?.description}
+                  </td>
 
                   <td className="">
                     <div className="d-flex justify-content-center gap-2">
