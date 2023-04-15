@@ -205,7 +205,7 @@ function PressReleasesBlog({ data }) {
                   <div>
                     <Link
                       href={`/press-releases/${product?._id}`}
-                      className="px-2 m-2 btn ml-1 p-1 btn-block btn-sm text-white fs-6 fw-bolder m-1 me-2  cus-bg-primary px-4"
+                      className="px-2 m-2 btn ml-1 p-1 btn-block btn-sm text-white fs-6  m-1 me-2  cus-bg-primary px-3"
                     >
                       Read More
                     </Link>
