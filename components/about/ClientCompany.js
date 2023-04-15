@@ -38,12 +38,7 @@ export default class ClientCompany extends Component {
               <div className="p-1">
                 <Image src={CompanyThree} alt="" className="w-100" />
               </div>
-              <div className="p-1">
-                <Image src={CompanyFour} alt="" className="w-100" />
-              </div>
-              <div className="p-1">
-                <Image src={CompanyFour} alt="" className="w-100" />
-              </div>
+
               <section className="p-1  ">
                 <Image src={CompanyOne} alt="" className="w-100 " />
               </section>
@@ -52,9 +47,6 @@ export default class ClientCompany extends Component {
               </div>
               <div className="p-1">
                 <Image src={CompanyThree} alt="" className="w-100" />
-              </div>
-              <div className="p-1">
-                <Image src={CompanyFour} alt="" className="w-100" />
               </div>
             </Slider>
           </div>
