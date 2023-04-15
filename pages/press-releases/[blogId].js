@@ -18,7 +18,9 @@ import DemoImg from "public/press-release-one.png";
 import Image from "next/image";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://crabby-pocketbook-eel.cyclic.app/api/v1/press");
+  const res = await fetch(
+    "https://crabby-pocketbook-eel.cyclic.app/api/v1/press"
+  );
   const data = await res.json();
   const paths = await data.map((post) => {
     return {
@@ -53,18 +55,23 @@ function BlogDetails({ data }) {
       <div className="container   ">
         {data ? (
           <Container className="container my-4">
-          <Card className="border-0 p-2">
-            <Card.Img          
-              variant="top"
-              src={data?.image}
-              className="img-fluid"
-              // style={{ width: "950px", height: "400px", objectFit: "cover" }}
-              alt="description"
-            />
-            <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
-            <p className="fs-4 text-justify cus-text-justify my-2 py-1">{data.body}</p>
-          </Card>
-        </Container>
+            <Card className="border-0 p-2">
+              <div className="ele-center my-2 p-2">
+                <Card.Img
+                  variant="top"
+                  src={data?.image}
+                  // style={{ width: "950px", height: "400px", objectFit: "cover" }}
+
+                  className="w-75"
+                  alt="description"
+                />
+              </div>
+              <p className="cus-color-primary my-3 fs-2 py-1">{data.title}</p>
+              <p className="fs-5 text-justify cus-text-justify my-2 py-1">
+                {data.body}
+              </p>
+            </Card>
+          </Container>
         ) : (
           <div className="row    text-center my-2 py-3 ">
             <div className="col-sm-12 col-md-3 pe-2  ">
