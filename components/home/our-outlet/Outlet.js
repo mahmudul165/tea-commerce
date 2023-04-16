@@ -10,7 +10,7 @@ const Outlet = () => {
         <Row className="">
           <Col sm={12} md={6}>
             <Card style={{position: 'relative', height: '400px', backgroundImage: `url(https://i.ibb.co/pRn7J7c/our-presence-2.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-          <h1 style={{position: 'absolute', bottom: '40px', left: '0px',right: '90px', background: 'rgba(0, 0, 0, 0.8)', color: 'white', padding: '10px'}}>Our Presence at Swapno</h1>
+          <h1 className="fs-6 fw-bold" style={{position: 'absolute', bottom: '40px', left: '0px',right: '90px', background: 'rgba(0, 0, 0, 0.8)', color: 'white', padding: '10px'}}>Our Presence at Swapno</h1>
           </Card>
             {/* <div>
               <img
@@ -21,7 +21,7 @@ const Outlet = () => {
           </Col>
           <Col sm={12} md={6}>
             <Card style={{position: 'relative', height: '400px', backgroundImage: `url(https://i.ibb.co/mB8D2Xf/our-presence-1.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
-            <h1 style={{position: 'absolute', bottom: '40px', left: '0px', right: '90px', background: 'rgba(0, 0, 0, 0.8)', color: 'white', padding: '10px'}}>Our Presence at Hazrat Shajalal International Airport Dhaka</h1>
+            <h1 className="fs-6 fw-bold" style={{position: 'absolute', bottom: '40px', left: '0px', right: '90px', background: 'rgba(0, 0, 0, 0.8)', color: 'white', padding: '10px'}}>Our Presence at Hazrat Shajalal International Airport Dhaka</h1>
           </Card>
             {/* <div className="xs-mt-2">
               <img
