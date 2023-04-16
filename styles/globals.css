@@ -148,9 +148,7 @@ ul li {
 }
 
 .officeImage {
-  width: 300 !important;
-  height: 150 !important;
-  /* object-fit: cover; */
+  max-height: 200px !important;
 }
 .cus-fw-4 {
   font-weight: 400;
@@ -371,6 +369,9 @@ table tr td span {
   .cus-table {
     overflow-x: scroll;
   }
+  .officeImage {
+    max-height: 100% !important;
+  }
 }
 
 .footer-card {
@@ -543,6 +544,9 @@ table tr td span {
   }
   .icon-wrapper:last-child {
     margin-bottom: 0;
+  }
+  .officeImage {
+    max-height: 100% !important;
   }
 }
 @media (max-width: 767.98px) {

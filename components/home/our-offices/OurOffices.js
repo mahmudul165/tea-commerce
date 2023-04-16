@@ -23,8 +23,8 @@ function OurOffices() {
                 <Image
                   src={product.image}
                   alt="Office"
-                  fluid
-                  className="w-100 h-auto object-fit-cover border rounded"
+                  // fluid
+                  className="officeImage w-100 object-fit-cover border rounded"
                 />
               </div>
               <div className="py-2 ">
