@@ -62,7 +62,7 @@ function BlogDetails({ data }) {
                   src={data?.image}
                   // style={{ width: "950px", height: "400px", objectFit: "cover" }}
 
-                  className="w-75"
+                  className=""
                   alt="description"
                 />
               </div>
