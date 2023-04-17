@@ -15,7 +15,7 @@ const Outlet = () => {
             {/* <div>
               <img
                 src="https://i.ibb.co/34bsxvZ/outlet-1.png"
-                alt="outlet-1"
+                alt="outlet-1  "
               ></img>
             </div> */}
           </Col>
