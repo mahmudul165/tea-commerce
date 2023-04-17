@@ -74,6 +74,7 @@ const AddBusinessFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 450px, height = 350px"
           />
 
           {myFiles.length > 0 && (
@@ -233,6 +234,7 @@ const UpdateBusinessFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 450px, height = 350px"
           />
 
           {myFiles.length > 0 && (

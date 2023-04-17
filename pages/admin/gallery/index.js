@@ -79,6 +79,7 @@ const AddGalleryFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 500px, height = 350px"
           />
 
           {myFiles.length > 0 && (
@@ -232,6 +233,7 @@ const UpdateGalleryFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 500px, height = 350px"
           />
 
           {myFiles.length > 0 && (

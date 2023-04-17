@@ -66,6 +66,7 @@ const AddPressFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 530px, height = 300px"
           />
 
           {myFiles.length > 0 && (
@@ -348,6 +349,7 @@ const UpdatePressFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 530px, height = 300px"
           />
 
           {myFiles.length > 0 && (

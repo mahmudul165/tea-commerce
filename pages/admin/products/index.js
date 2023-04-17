@@ -76,6 +76,7 @@ const AddProductFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={true}
+            note="Maximum width = 150px, height = 190px"
           />
 
           {myFiles.length > 0 && (
@@ -668,6 +669,7 @@ const UpdateProductFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={true}
+            note="Maximum width = 150px, height = 190px"
           />
 
           {myFiles.length > 0 && (

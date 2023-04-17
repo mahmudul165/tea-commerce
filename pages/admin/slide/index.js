@@ -71,6 +71,7 @@ const AddSlideFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 2500px, height = 1200px"
           />
 
           {myFiles.length > 0 && (
@@ -268,6 +269,7 @@ const UpdateSlideFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 2500px, height = 1200px"
           />
 
           {myFiles.length > 0 && (

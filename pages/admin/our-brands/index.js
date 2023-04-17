@@ -63,6 +63,7 @@ const AddBrandFrom = () => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 330px, height = 160px"
           />
 
           {myFiles.length > 0 && (
@@ -234,6 +235,7 @@ const UpdateBusinessFrom = ({ updateId }) => {
             files={myFiles}
             onUpload={handleFileUpload}
             multiple={false}
+            note="Maximum width = 330px, height = 160px"
           />
 
           {myFiles.length > 0 && (

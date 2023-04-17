@@ -15,7 +15,7 @@ export const uploadImgToUrl = async (image) => {
   const data = await response.json();
   return data.data.url;
 };
-const ImageUpload = ({ files, onUpload, multiple }) => {
+const ImageUpload = ({ files, onUpload, multiple, note }) => {
   const [fileList, setFileList] = useState(files || []);
   const allowedTypes = ["image/jpeg", "image/png"];
   const [fileError, setFileError] = useState("");
@@ -105,6 +105,7 @@ const ImageUpload = ({ files, onUpload, multiple }) => {
           Choose files
         </div>
       </div>
+      <p className="text-sm text-warning my-2">Note: {note}</p>
 
       <div className="file-upload-list">{renderFileList()}</div>
 
