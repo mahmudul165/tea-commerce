@@ -13,6 +13,9 @@ const Outlet = () => {
           <h1 className="fs-6 fw-bold" style={{position: 'absolute', bottom: '40px', left: '0px',right: '90px', background: 'rgba(0, 0, 0, 0.8)', color: 'white', padding: '10px'}}>Our Presence at Swapno</h1>
           </Card>
             {/* <div>
+
+
+
               <img
                 src="https://i.ibb.co/34bsxvZ/outlet-1.png"
                 alt="outlet-1  "
