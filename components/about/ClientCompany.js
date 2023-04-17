@@ -3,7 +3,12 @@ import React, { Component, Suspense } from "react";
 import CompanyOne from "/public/clientcompany/company-logo-1.png";
 import CompanyTwo from "/public/clientcompany/company-logo-2.png";
 import CompanyThree from "/public/clientcompany/company-logo-3.png";
-import CompanyFour from "/public/clientcompany/company-logo-4.png";
+import CompanyFour from "/public/clientcompany/s-1.jpg";
+import CompanyFive from "/public/clientcompany/s-2.jpg";
+import CompanySix from "/public/clientcompany/s-3.jpg";
+ 
+ 
+
 // const com1 = React.lazy(() =>
 //   import("../../../public/images/home/logo_influencer.png")
 // );
@@ -39,7 +44,7 @@ export default class ClientCompany extends Component {
                 <Image src={CompanyThree} alt="" className="w-100" />
               </div>
 
-              <section className="p-1  ">
+              {/* <section className="p-1  ">
                 <Image src={CompanyOne} alt="" className="w-100 " />
               </section>
               <div className="p-1 ">
@@ -47,6 +52,15 @@ export default class ClientCompany extends Component {
               </div>
               <div className="p-1">
                 <Image src={CompanyThree} alt="" className="w-100" />
+              </div> */}
+              <section className="p-1  ">
+                <Image src={CompanyFour} alt="" className="w-100" />
+              </section>
+              <div className="p-1">
+                <Image src={CompanyFive} alt="" className="w-100" />
+              </div>
+              <div className="p-1">
+                <Image src={CompanySix} alt="" className="w-100" />
               </div>
             </Slider>
           </div>

@@ -115,7 +115,7 @@ const Footer = () => {
             Sultan Premium tea bestows the freshness of 100% premium garden tea
             carefully collected from the best tea gardens. Each cup of sultan
             tea gives strong liquor, unique color, flavor and taste and leaves
-            you fresh and sproted
+            you fresh and  spirited.
           </p>
           {/* </Row> */}
           <div className="d-flex gap-4 ">
