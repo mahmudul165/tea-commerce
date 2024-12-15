@@ -30,8 +30,8 @@ const submitHandler = async (data) => {
 
   try {
     await axios.post(
-      "https://crabby-pocketbook-eel.cyclic.app/api/v1/product",
-      {
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product`,
+          {
         ...data,
       }
     );

@@ -27,7 +27,8 @@ import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
   try {
-    await axios.post("https://crabby-pocketbook-eel.cyclic.app/api/v1/brand", {
+    await axios.post(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/brand`, {
       ...data,
     });
     toast.success("Brand post successfully added!");
