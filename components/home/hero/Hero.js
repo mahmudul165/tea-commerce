@@ -75,9 +75,9 @@ import ShowMore from "@/components/common/ShowMore";
 const products = [
   { id: 1, name: "Product 1", image: "https://i.ibb.co.com/XZ4sFLh/IMG-20241214-WA0002-1.jpg", price: 500 },
  
-  // { id: 3, name: "Product 2", image: "https://i.ibb.co/hRS821N/Rectangle-1910.png", price: 7840 },
-  { id: 4, name: "Product 2", image: "https://i.ibb.co/vL4XRF2/tea-award.jpg", price: 120 },
-  { id: 2, name: "Product 3", image: "https://i.ibb.co/j44drGC/Rectangle.png", price: 500 },
+  { id: 2, name: "Product 2", image: "https://i.ibb.co/hRS821N/Rectangle-1910.png", price: 7840 },
+  // { id: 4, name: "Product 2", image: "https://i.ibb.co/vL4XRF2/tea-award.jpg", price: 120 },
+  { id: 3, name: "Product 3", image: "https://i.ibb.co/j44drGC/Rectangle.png", price: 500 },
   // { id: 3, name: "Product 3", image: "https://images.pexels.com/photos/1362537/pexels-photo-1362537.jpeg?auto=compress&cs=tinysrgb&w=600", price: 7840 },
   // { id: 4, name: "Product 4", image: "https://www.tastingtable.com/img/gallery/20-tea-brands-ranked-from-worst-to-best/intro-1644018824.jpg", price: 120 },
 ];
