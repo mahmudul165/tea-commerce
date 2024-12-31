@@ -75,15 +75,43 @@ import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const getStaticProps = async () => {
-  // const res = await fetch("https://crabby-pocketbook-eel.cyclic.app/api/v1/product");
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product`);
+// export const getStaticProps = async () => {
+//    const res = await fetch("https://crabby-pocketbook-eel.cyclic.app/api/v1/product");
+//    const data = await res.json();
+//   return {
+//     props: { data },
+//     revalidate: 3,
+//   };
+// };
 
-  const data = await res.json();
-  return {
-    props: { data },
-    revalidate: 3,
-  };
+
+export const getStaticProps = async () => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const apiUrl = `${baseUrl}/api/v1/product`;
+  console.log('Fetching data from:', apiUrl);
+
+  try {
+    const res = await fetch(apiUrl);
+
+    if (!res.ok) {
+      console.error('Failed to fetch data:', res.statusText);
+      return {
+        notFound: true,
+      };
+    }
+
+    const data = await res.json();
+    return {
+      props: { data },
+      revalidate: 3,
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: { data: [] }, // Return an empty array or handle the error as needed
+      revalidate: 3,
+    };
+  }
 };
 
 export default function Home({ data }) {

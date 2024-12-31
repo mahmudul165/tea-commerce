@@ -22,17 +22,36 @@ import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
 
+  // try {
+  //   await axios.post(
+  //     `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/carrier`, 
+  //     {
+  //       ...data,
+  //     }
+  //   );
+  //   toast.success("Job Post successfully added!");
+  // } catch (err) {
+  //   toast.error(getError(err));
+  // }
   try {
     await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/carrier`, 
       {
-        ...data,
+        ...data,  // Include business data
       }
     );
-    toast.success("Job Post successfully added!");
+    toast.success("Business Post successfully added!");
   } catch (err) {
-    toast.error(getError(err));
+    toast.error(getError(err));  // Display error if request fails
   }
+  
+  // Helper function to extract error message
+  function getError(error) {
+    return error.response && error.response.data && error.response.data.message
+      ? error.response.data.message
+      : error.message;
+  }
+  
 };
 const AddJobPostFrom = () => {
   const {

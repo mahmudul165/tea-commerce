@@ -28,18 +28,36 @@ import { toast } from "react-toastify";
 const submitHandler = async (data) => {
   console.log({ data });
   const { url, category } = data;
+  // try {
+  //   await axios.post(
+  //     `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/gallery`,
+  //     // "https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery",
+  //     {
+  //       url,
+  //       category,
+  //     }
+  //   );
+  //   toast.success("Gallery successfully added!");
+  // } catch (err) {
+  //   toast.error(getError(err));
+  // }
+
   try {
     await axios.post(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/gallery`,
-      // "https://crabby-pocketbook-eel.cyclic.app/api/v1/gallery",
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/gallery`, 
       {
-        url,
-        category,
+        ...data,  // Include business data
       }
     );
-    toast.success("Gallery successfully added!");
+    toast.success("Business Post successfully added!");
   } catch (err) {
-    toast.error(getError(err));
+    toast.error(getError(err));  // Display error if request fails
+  }
+  // Helper function to extract error message
+  function getError(error) {
+    return error.response && error.response.data && error.response.data.message
+      ? error.response.data.message
+      : error.message;
   }
 };
 

@@ -35,13 +35,21 @@ const submitHandler = async (data) => {
     await axios.post(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/business`, 
       {
-        ...data,
+        ...data,  // Include business data
       }
     );
     toast.success("Business Post successfully added!");
   } catch (err) {
-    toast.error(getError(err));
+    toast.error(getError(err));  // Display error if request fails
   }
+  
+  // Helper function to extract error message
+  function getError(error) {
+    return error.response && error.response.data && error.response.data.message
+      ? error.response.data.message
+      : error.message;
+  }
+  
 };
 
 const AddBusinessFrom = () => {

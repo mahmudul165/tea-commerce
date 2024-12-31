@@ -15,26 +15,37 @@ const ProductsShowcase = dynamic(
   }
 );
 
+ 
 // export const getStaticProps = async () => {
+//   // const res = await fetch(
+//   //   "https://crabby-pocketbook-eel.cyclic.app/api/v1/product"
+//   // );
 //   const res = await fetch(
-//     "https://arshi365.lamptechs.com/api/admin/todaysDeal"
-//   );
+//   `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product`
+// );
 //   const data = await res.json();
-//   return { props: { data } };
-//   revalidate: 3;
+//   return {
+//     props: { data },
+//     revalidate: 3,
+//   };
 // };
 export const getStaticProps = async () => {
-  // const res = await fetch(
-  //   "https://crabby-pocketbook-eel.cyclic.app/api/v1/product"
-  // );
-  const res = await fetch(
-  `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product`
-);
-  const data = await res.json();
-  return {
-    props: { data },
-    revalidate: 3,
-  };
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/product`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    return {
+      props: { data },
+      revalidate: 60,  // Optional: sets revalidation time (in seconds)
+    };
+  } catch (err) {
+    console.error("Error fetching data:", err);
+     
+  }
 };
 
 function TodayDeals({ data }) {

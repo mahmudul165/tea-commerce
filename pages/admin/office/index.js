@@ -23,7 +23,7 @@ import { useForm } from "react-hook-form";
 import { AiOutlineDelete, AiOutlineEye } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
-
+import Image from 'next/image';
 const submitHandler = async (data) => {
   console.log({ data });
   try {
@@ -33,6 +33,12 @@ const submitHandler = async (data) => {
     toast.success(" added successfully !");
   } catch (err) {
     toast.error(getError(err));
+  }
+  // Helper function to extract error message
+  function getError(error) {
+    return error.response && error.response.data && error.response.data.message
+      ? error.response.data.message
+      : error.message;
   }
 };
 
@@ -516,7 +522,7 @@ function OurBrandHomePage() {
             )}
 
             {brands &&
-              brands.map((el, index) => (
+              brands.map((el, index) => (  console.log('offices info:',el),
                 <tr key={index}>
                   <td> {index + 1}</td>
 
@@ -530,7 +536,7 @@ function OurBrandHomePage() {
                   </td>
 
                   <td>
-                    <img src={el.image} width="50px" alt={el.altText} />
+                    <img src={el.image} width="50px" alt={el.altText} />  
                   </td>
 
                   <td className="">
