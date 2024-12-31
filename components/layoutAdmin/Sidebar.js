@@ -1,4 +1,4 @@
-import { AddProductFrom } from "@/pages/admin/products";
+ import { AddProductFrom } from "@/pages/admin/products";
 import Link from "next/link";
 import { useState } from "react";
 import {

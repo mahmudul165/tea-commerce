@@ -59,7 +59,7 @@ const submitHandler = async (data) => {
   }
   
 };
-const AddProductFrom = () => {
+export const AddProductFrom = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [imageUrlTwo, setImageUrTwo] = useState("");
   const [imageUrlThree, setImageUrThree] = useState("");
