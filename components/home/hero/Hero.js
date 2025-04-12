@@ -121,7 +121,7 @@ function Hero() {
         alt="Sultan Tea"
         width={500}
         height={325}
-        className="img-fluid rounded my-3 "
+        className="img-fluid rounded my-3 py-2"
        
       />
           <p className="fs-5 text-justify">

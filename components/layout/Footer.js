@@ -125,7 +125,7 @@ const Footer = () => {
         alt="Sultan Tea"
         width={450}
         height={300}
-        className="img-fluid rounded  "
+        className="img-fluid rounded  py-1"
         
       />
 
@@ -211,7 +211,7 @@ const Footer = () => {
             
           </div>
            {/* </Row> */}
-           <div className="d-flex gap-4 align-items-center justify-content-center">
+           <div className="mt-2 py-1 d-flex gap-4 align-items-center justify-content-center">
             {/* <Col sm={3} md={3}  > */}
             <a
               href="https://www.facebook.com/SultanTeaBangladesh"
