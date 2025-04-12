@@ -71,6 +71,7 @@ import React, { useState } from "react";
 import { Card, Carousel, Container } from "react-bootstrap";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import ShowMore from "@/components/common/ShowMore";
+import Image from "next/image";
 
 const products = [
   { id: 1, name: "Product 1", image: "https://i.ibb.co.com/XZ4sFLh/IMG-20241214-WA0002-1.jpg", price: 500 },
@@ -115,9 +116,18 @@ function Hero() {
         {/* About Section */}
         <section className="col-sm-12 col-md-6 my-2">
           <h3 className="fs-1 fw-bold cus-color-secondary">Welcome To Sultan Tea</h3>
+          <Image
+        src="/green-tea.jpeg" // Put your image inside public/images folder
+        alt="Sultan Tea"
+        width={450}
+        height={275}
+        className="img-fluid rounded my-3 "
+       
+      />
           <p className="fs-5 text-justify">
             {truncateText(aboutUsDescription, 220)}
           </p>
+          
           <button
             className="d-flex align-items-center fw-bold btn btn-lg text-white cus-bg-primary mt-3"
             onClick={() => setShowModal(true)}

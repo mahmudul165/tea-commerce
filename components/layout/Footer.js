@@ -120,32 +120,20 @@ const Footer = () => {
             tea gives strong liquor, unique color, flavor and taste and leaves
             you fresh and  spirited.
           </p>
-          {/* </Row> */}
-          <div className="d-flex gap-4 ">
-            {/* <Col sm={3} md={3}  > */}
-            <a
-              href="https://www.facebook.com/SultanTeaBangladesh"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebook size={25} />
-            </a>
-            {/* </Col> */}
-            {/* <Col sm={3} md={3}  > */}
-            <a href="#">
-              <FaTwitter size={25} />
-            </a>
-            {/* </Col> */}
-            {/* <Col sm={3} md={3}  > */}
-            <a href="#">
-              <FaInstagram size={25} />
-            </a>
-            {/* </Col> */}
+          <Image
+        src="/green-tea-removebg.jpg" // Put your image inside public/images folder
+        alt="Sultan Tea"
+        width={450}
+        height={300}
+        className="img-fluid rounded  "
+        
+      />
 
-            <a href="#">
-              <AiFillLinkedin size={25} />
-            </a>
-          </div>
+
+
+
+     
+
         </Col>
         <Col sm={12} md={2}>
           <h1 className="fs-5 fw-bold cus-color-secondary">Quick Link</h1>
@@ -217,9 +205,36 @@ const Footer = () => {
                 <p className="text-white fs-6 fw-bold">Mobile: 01708 588 590</p>
                 <p className="text-white fs-6 fw-bold">
                   Email: Sultan@heritagebd.com
-                </p>
-              </div>
+                </p>                
+              </div>              
             </div>
+            
+          </div>
+           {/* </Row> */}
+           <div className="d-flex gap-4 align-items-center justify-content-center">
+            {/* <Col sm={3} md={3}  > */}
+            <a
+              href="https://www.facebook.com/SultanTeaBangladesh"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook size={25} />
+            </a>
+            {/* </Col> */}
+            {/* <Col sm={3} md={3}  > */}
+            <a href="#">
+              <FaTwitter size={25} />
+            </a>
+            {/* </Col> */}
+            {/* <Col sm={3} md={3}  > */}
+            <a href="#">
+              <FaInstagram size={25} />
+            </a>
+            {/* </Col> */}
+
+            <a href="#">
+              <AiFillLinkedin size={25} />
+            </a>
           </div>
         </Col>
       </Row>
