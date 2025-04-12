@@ -119,8 +119,8 @@ function Hero() {
           <Image
         src="/green-tea.jpeg" // Put your image inside public/images folder
         alt="Sultan Tea"
-        width={450}
-        height={275}
+        width={500}
+        height={325}
         className="img-fluid rounded my-3 "
        
       />
